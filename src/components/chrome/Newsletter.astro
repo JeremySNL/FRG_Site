@@ -27,7 +27,9 @@ const ui = getUi(locale);
   <p class="text-sm text-white/70">{ui.newsletterText}</p>
 
   <div class="flex flex-col gap-3 sm:flex-row">
-    <label class="sr-only" for="newsletter-email">{ui.newsletterPlaceholder}</label>
+    <label class="sr-only" for="newsletter-email">
+      {ui.newsletterPlaceholder}
+    </label>
     <input
       id="newsletter-email"
       name="email"
@@ -45,7 +47,13 @@ const ui = getUi(locale);
   <!-- Honeypot: real users never fill this in. -->
   <div class="hidden" aria-hidden="true">
     <label for="newsletter-website">Website</label>
-    <input id="newsletter-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+    <input
+      id="newsletter-website"
+      name="website"
+      type="text"
+      tabindex="-1"
+      autocomplete="off"
+    />
   </div>
 
   <p
@@ -53,8 +61,7 @@ const ui = getUi(locale);
     class="min-h-5 text-sm"
     role="status"
     aria-live="polite"
-  >
-  </p>
+  ></p>
 </form>
 
 <script>

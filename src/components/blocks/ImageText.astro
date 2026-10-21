@@ -20,38 +20,32 @@ const { block } = Astro.props;
         block.reverse && 'lg:[&>*:first-child]:order-2',
       ]}
     >
-      {
-        block.image && (
-          <img
-            src={mediaUrl(block.image)}
-            alt={block.imageAlt ?? ''}
-            loading="lazy"
-            decoding="async"
-            class="h-full w-full rounded-3xl object-cover shadow-md"
-          />
-        )
-      }
+      {block.image && (
+        <img
+          src={mediaUrl(block.image)}
+          alt={block.imageAlt ?? ''}
+          loading="lazy"
+          decoding="async"
+          class="h-full w-full rounded-3xl object-cover shadow-md"
+        />
+      )}
 
       <div>
         {block.title && <h2 class="text-display-md">{block.title}</h2>}
-        {
-          block.text && (
-            <p class="mt-5 whitespace-pre-line text-base leading-relaxed text-secondary">
-              {block.text}
-            </p>
-          )
-        }
-        {
-          block.buttons.length > 0 && (
-            <div class="mt-8 flex flex-wrap gap-4">
-              {block.buttons.map((button) => (
-                <a href={button.href} class="btn-primary">
-                  {button.label}
-                </a>
-              ))}
-            </div>
-          )
-        }
+        {block.text && (
+          <p class="mt-5 whitespace-pre-line text-base leading-relaxed text-secondary">
+            {block.text}
+          </p>
+        )}
+        {block.buttons.length > 0 && (
+          <div class="mt-8 flex flex-wrap gap-4">
+            {block.buttons.map((button) => (
+              <a href={button.href} class="btn-primary">
+                {button.label}
+              </a>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   </div>

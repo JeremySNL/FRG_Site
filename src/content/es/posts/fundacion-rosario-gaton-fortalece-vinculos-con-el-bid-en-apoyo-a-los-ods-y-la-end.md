@@ -3,7 +3,7 @@ title: "Fundación Rosario Gatón fortalece vínculos con el BID en apoyo a los 
 slug: "fundacion-rosario-gaton-fortalece-vinculos-con-el-bid-en-apoyo-a-los-ods-y-la-end"
 locale: "es"
 date: "2019-04-24T19:45:13"
-excerpt: "Luis Suárez, Secretario General de la Fundación Rosario Gatón, se reúne con altos ejecutivos del BID para fortalecer alianzas estratégicas El Secretario General de la Fundación Rosario Gatón (FRG), Lu"
+excerpt: "Luis Suárez, Secretario General de la Fundación Rosario Gatón, se reúne con altos ejecutivos del BID para fortalecer alianzas estratégicas El Secretario General de la Fundación Rosario Gatón (FRG),…"
 categories:
   - "cooperacion-internacional"
 tags: []

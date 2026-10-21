@@ -42,7 +42,8 @@ const MANUAL_RULES: Array<{ from: string; to: string; status: number }> = [
  * The media of the old site is served from the media host. Until the R2
  * bucket is in place this points at the WordPress uploads folder.
  */
-const MEDIA_SOURCE = process.env.MEDIA_SOURCE_URL ?? 'https://fundacionrosariogaton.org';
+const MEDIA_SOURCE =
+  process.env.MEDIA_SOURCE_URL ?? 'https://fundacionrosariogaton.org';
 
 interface Rule {
   from: string;
@@ -115,9 +116,7 @@ async function collectRules(): Promise<Rule[]> {
     for (const file of await readdir(pagesDir)) {
       if (!file.endsWith('.md')) continue;
 
-      const frontmatter = readFrontmatter(
-        await readFile(join(pagesDir, file), 'utf8'),
-      );
+      const frontmatter = readFrontmatter(await readFile(join(pagesDir, file), 'utf8'));
 
       const legacy = frontmatter['legacyPath'];
       const slug = frontmatter['slug'];
@@ -134,9 +133,7 @@ async function collectRules(): Promise<Rule[]> {
     for (const file of await readdir(postsDir)) {
       if (!file.endsWith('.md')) continue;
 
-      const frontmatter = readFrontmatter(
-        await readFile(join(postsDir, file), 'utf8'),
-      );
+      const frontmatter = readFrontmatter(await readFile(join(postsDir, file), 'utf8'));
 
       const legacy = frontmatter['legacyPath'];
       const slug = frontmatter['slug'];

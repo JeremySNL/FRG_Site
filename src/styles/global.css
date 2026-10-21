@@ -65,7 +65,7 @@
   }
 
   body {
-    @apply bg-white font-body text-base leading-relaxed text-text antialiased;
+    @apply font-body text-text bg-white text-base leading-relaxed antialiased;
   }
 
   h1,
@@ -74,7 +74,7 @@
   h4,
   h5,
   h6 {
-    @apply font-display font-semibold text-heading;
+    @apply font-display text-heading font-semibold;
     text-wrap: balance;
   }
 
@@ -134,19 +134,19 @@
   .btn-primary,
   .btn-outline,
   .btn-white {
-    @apply inline-flex items-center justify-center gap-2 rounded-pill px-8 py-4 font-display text-base font-medium transition-colors duration-200;
+    @apply rounded-pill font-display inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-medium transition-colors duration-200;
   }
 
   .btn-primary {
-    @apply bg-accent text-white hover:bg-accent-hover;
+    @apply bg-accent hover:bg-accent-hover text-white;
   }
 
   .btn-outline {
-    @apply border border-accent bg-transparent text-accent hover:bg-accent hover:text-white;
+    @apply border-accent text-accent hover:bg-accent border bg-transparent hover:text-white;
   }
 
   .btn-white {
-    @apply bg-white text-accent hover:bg-accent-hover hover:text-white;
+    @apply text-accent hover:bg-accent-hover bg-white hover:text-white;
   }
 
   .btn-sm {
@@ -154,15 +154,15 @@
   }
 
   .link-underline {
-    @apply underline decoration-accent/30 decoration-2 underline-offset-4 transition-colors hover:text-accent-hover hover:decoration-accent-hover;
+    @apply decoration-accent/30 hover:text-accent-hover hover:decoration-accent-hover underline decoration-2 underline-offset-4 transition-colors;
   }
 
   .card {
-    @apply rounded-2xl border border-muted bg-white p-6 shadow-sm transition-shadow duration-200 hover:shadow-md;
+    @apply border-muted rounded-2xl border bg-white p-6 shadow-sm transition-shadow duration-200 hover:shadow-md;
   }
 
   .card-surface {
-    @apply rounded-2xl bg-surface p-6;
+    @apply bg-surface rounded-2xl p-6;
   }
 
   /*
@@ -200,7 +200,7 @@
   }
 
   .skip-link:focus {
-    @apply not-sr-only fixed top-4 left-4 z-100 rounded-pill bg-accent px-6 py-3 font-display text-white;
+    @apply rounded-pill bg-accent font-display not-sr-only fixed top-4 left-4 z-100 px-6 py-3 text-white;
   }
 }
 

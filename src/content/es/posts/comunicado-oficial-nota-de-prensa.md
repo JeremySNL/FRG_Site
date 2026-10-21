@@ -3,7 +3,7 @@ title: "COMUNICADO OFICIAL / NOTA DE PRENSA"
 slug: "comunicado-oficial-nota-de-prensa"
 locale: "es"
 date: "2026-02-11T00:49:59"
-excerpt: "La Cámara de Comercio de los Estados Unidos fortalece relaciones al más alto nivel federal durante Invest in America DC ![](https://fundacionrosariogaton.org/wp-content/uploads/2026/02/WhatsApp-Image-"
+excerpt: "La Cámara de Comercio de los Estados Unidos fortalece relaciones al más alto nivel federal durante Invest in America DC Washington, D.C. —Febrero 8, 2026. Como parte de las actividades oficiales de…"
 categories:
   - "uncategorized"
 tags: []

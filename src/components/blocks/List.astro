@@ -11,31 +11,29 @@ interface Props {
 const { block } = Astro.props;
 ---
 
-{
-  block.items.length > 0 && (
-    <section class="section">
-      <div class="container-site">
-        {block.title && <h2 class="text-display-md">{block.title}</h2>}
-        {block.intro && (
-          <p class="mt-4 max-w-2xl text-lg text-secondary">{block.intro}</p>
-        )}
+{block.items.length > 0 && (
+  <section class="section">
+    <div class="container-site">
+      {block.title && <h2 class="text-display-md">{block.title}</h2>}
+      {block.intro && (
+        <p class="mt-4 max-w-2xl text-lg text-secondary">{block.intro}</p>
+      )}
 
-        <ul class="mt-10 grid gap-4 md:grid-cols-2">
-          {block.items.map((item) => (
-            <li class="flex items-start gap-3 rounded-2xl border border-muted bg-white p-5">
-              <span
-                aria-hidden="true"
-                class="mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-pill bg-accent text-white"
-              >
-                <svg viewBox="0 0 24 24" class="size-3.5 fill-current">
-                  <path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17Z" />
-                </svg>
-              </span>
-              <span class="text-sm leading-relaxed text-secondary">{item}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  )
-}
+      <ul class="mt-10 grid gap-4 md:grid-cols-2">
+        {block.items.map((item) => (
+          <li class="flex items-start gap-3 rounded-2xl border border-muted bg-white p-5">
+            <span
+              aria-hidden="true"
+              class="mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-pill bg-accent text-white"
+            >
+              <svg viewBox="0 0 24 24" class="size-3.5 fill-current">
+                <path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17Z" />
+              </svg>
+            </span>
+            <span class="text-sm leading-relaxed text-secondary">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}

@@ -136,6 +136,7 @@ blocks:
   - type: "cta"
     title: "Estamos aquí para ayudarte."
     text: "Si tienes dudas, deseas más información sobre nuestros programas, quieres colaborar con nosotros o simplemente quieres ponerte en contacto, estaremos encantados de escucharte."
+    buttons: []
   - type: "form"
     form: "contact"
 ---

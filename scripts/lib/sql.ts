@@ -226,7 +226,11 @@ function findClosing(text: string, start: number): number {
  * Read a table into an array of records keyed by column name.
  * `columns` must match the order used in the `INSERT` statement.
  */
-export function readTable(sql: string, table: string, columns: string[]): Array<Record<string, string>> {
+export function readTable(
+  sql: string,
+  table: string,
+  columns: string[],
+): Array<Record<string, string>> {
   const body = readInsertStatements(sql, table);
   const rows: Array<Record<string, string>> = [];
 

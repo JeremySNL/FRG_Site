@@ -14,10 +14,6 @@ const { block } = Astro.props;
 
 <section class="section">
   <div class="container-site">
-    <div
-      class="prose prose-frg max-w-3xl"
-      set:html={block.html}
-    >
-    </div>
+    <div class="prose prose-frg max-w-3xl" set:html={block.html} />
   </div>
 </section>

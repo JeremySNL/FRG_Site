@@ -3,7 +3,7 @@ title: "Fundación Rosario Gatón y AMCHAMDR impulsan alianzas estratégicas par
 slug: "fundacion-rosario-gaton-y-amchamdr-impulsan-alianzas-estrategicas-para-el-desarrollo-sostenible"
 locale: "es"
 date: "2019-11-13T19:38:36"
-excerpt: "Santo Domingo, República Dominicana. La Fundación Rosario Gatón, en colaboración con la Cámara Americana de Comercio de la República Dominicana (AMCHAMDR), continúa tendiendo puentes y creando oportun"
+excerpt: "Santo Domingo, República Dominicana. La Fundación Rosario Gatón, en colaboración con la Cámara Americana de Comercio de la República Dominicana (AMCHAMDR), continúa tendiendo puentes y creando…"
 categories:
   - "alianzas-institucionales"
 tags: []

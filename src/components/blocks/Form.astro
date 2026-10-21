@@ -86,7 +86,10 @@ const optionField =
       >
         <div class="grid gap-6 sm:grid-cols-2">
           <div class="sm:col-span-2">
-            <label for={`${block.form}-name`} class="block font-display text-sm font-medium">
+            <label
+              for={`${block.form}-name`}
+              class="block font-display text-sm font-medium"
+            >
               {ui.form.name} <span class="text-accent-hover">*</span>
             </label>
             <input
@@ -100,7 +103,10 @@ const optionField =
           </div>
 
           <div>
-            <label for={`${block.form}-phone`} class="block font-display text-sm font-medium">
+            <label
+              for={`${block.form}-phone`}
+              class="block font-display text-sm font-medium"
+            >
               {ui.form.phone} <span class="text-accent-hover">*</span>
             </label>
             <input
@@ -114,8 +120,12 @@ const optionField =
           </div>
 
           <div>
-            <label for={`${block.form}-email`} class="block font-display text-sm font-medium">
-              {ui.form.email} <span class="text-sm text-secondary">({ui.form.optional})</span>
+            <label
+              for={`${block.form}-email`}
+              class="block font-display text-sm font-medium"
+            >
+              {ui.form.email}{' '}
+              <span class="text-sm text-secondary">({ui.form.optional})</span>
             </label>
             <input
               id={`${block.form}-email`}
@@ -127,35 +137,35 @@ const optionField =
           </div>
         </div>
 
-        {
-          hasOptions && (
-            <fieldset>
-              <legend class="font-display text-sm font-medium">
-                {config.optionLabel}
-              </legend>
-              <p class="mt-1 text-xs text-secondary">
-                Puedes elegir más de una opción.
-              </p>
-              <div class="mt-4 grid gap-2 sm:grid-cols-2">
-                {config.options.map((option) => (
-                  <label class="flex cursor-pointer items-start gap-3 rounded-xl border border-muted px-4 py-3 text-sm transition-colors hover:border-accent has-checked:border-accent has-checked:bg-surface">
-                    <input
-                      type="checkbox"
-                      name={optionField}
-                      value={option}
-                      class="mt-0.5 size-4 shrink-0 accent-[var(--color-accent)]"
-                    />
-                    <span>{option}</span>
-                  </label>
-                ))}
-              </div>
-            </fieldset>
-          )
-        }
+        {hasOptions && (
+          <fieldset>
+            <legend class="font-display text-sm font-medium">
+              {config.optionLabel}
+            </legend>
+            <p class="mt-1 text-xs text-secondary">Puedes elegir más de una opción.</p>
+            <div class="mt-4 grid gap-2 sm:grid-cols-2">
+              {config.options.map((option) => (
+                <label class="flex cursor-pointer items-start gap-3 rounded-xl border border-muted px-4 py-3 text-sm transition-colors hover:border-accent has-checked:border-accent has-checked:bg-surface">
+                  <input
+                    type="checkbox"
+                    name={optionField}
+                    value={option}
+                    class="mt-0.5 size-4 shrink-0 accent-[var(--color-accent)]"
+                  />
+                  <span>{option}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+        )}
 
         <div>
-          <label for={`${block.form}-message`} class="block font-display text-sm font-medium">
-            {ui.form.message} <span class="text-sm text-secondary">({ui.form.optional})</span>
+          <label
+            for={`${block.form}-message`}
+            class="block font-display text-sm font-medium"
+          >
+            {ui.form.message}{' '}
+            <span class="text-sm text-secondary">({ui.form.optional})</span>
           </label>
           <textarea
             id={`${block.form}-message`}
@@ -178,20 +188,11 @@ const optionField =
           />
         </div>
 
-        {
-          siteKey && (
-            <div class="cf-turnstile" data-sitekey={siteKey} data-theme="light">
-            </div>
-          )
-        }
+        {siteKey && (
+          <div class="cf-turnstile" data-sitekey={siteKey} data-theme="light"></div>
+        )}
 
-        <p
-          class="min-h-6 text-sm"
-          data-status
-          role="status"
-          aria-live="polite"
-        >
-        </p>
+        <p class="min-h-6 text-sm" data-status role="status" aria-live="polite"></p>
 
         <button type="submit" class="btn-primary w-full sm:w-auto">
           {ui.form.submit}
@@ -201,15 +202,9 @@ const optionField =
   </div>
 </section>
 
-{
-  siteKey && (
-    <script
-      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-      async
-      defer
-    />
-  )
-}
+{siteKey && (
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />
+)}
 
 <script>
   interface FormCopy {

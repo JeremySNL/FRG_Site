@@ -3,7 +3,7 @@ title: "Fundación Rosario Gatón se reúne con el Embajador de Guatemala para f
 slug: "fundacion-rosario-gaton-se-reune-con-el-embajador-de-guatemala-para-fortalecer-cooperacion-internacional"
 locale: "es"
 date: "2019-01-23T20:03:41"
-excerpt: "Fundación Rosario Gatón fortalece lazos diplomáticos con la Embajada de Guatemala Santo Domingo, República Dominicana – Embajada de Guatemala.\nLa Fundación Rosario Gatón (FRG) sostuvo una reunión inst"
+excerpt: "Fundación Rosario Gatón fortalece lazos diplomáticos con la Embajada de Guatemala Santo Domingo, República Dominicana – Embajada de Guatemala. La Fundación Rosario Gatón (FRG) sostuvo una reunión…"
 categories:
   - "relaciones-internacionales"
 tags: []

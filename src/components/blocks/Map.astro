@@ -36,7 +36,8 @@ const href = `https://www.google.com/maps/search/?api=1&query=${query}`;
 
     <p class="mt-6 text-sm text-secondary">
       <a href={href} target="_blank" rel="noopener noreferrer" class="link-underline">
-        {site.address.street}, {site.address.city}, {site.address.region}, {site.address.country}
+        {site.address.street}, {site.address.city}, {site.address.region},{' '}
+        {site.address.country}
       </a>
     </p>
   </div>

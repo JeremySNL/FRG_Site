@@ -1,0 +1,15 @@
+# The files Prettier does not touch.
+dist/
+.astro/
+.wrangler/
+node_modules/
+coverage/
+playwright-report/
+test-results/
+
+# The content is written by the importer and the translator.
+src/content/
+
+# The generated files.
+package-lock.json
+public/_redirects

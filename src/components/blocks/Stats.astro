@@ -11,23 +11,19 @@ interface Props {
 const { block } = Astro.props;
 ---
 
-{
-  block.items.length > 0 && (
-    <section class="section-tight bg-accent text-white">
-      <div class="container-site">
-        <dl class="grid gap-8 text-center sm:grid-cols-2 lg:grid-cols-4">
-          {block.items.map((item) => (
-            <div>
-              <dt class="font-alt text-sm uppercase tracking-[0.14em] text-white/70">
-                {item.label}
-              </dt>
-              <dd class="mt-2 font-display text-display-lg text-white">
-                {item.value}
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-    </section>
-  )
-}
+{block.items.length > 0 && (
+  <section class="section-tight bg-accent text-white">
+    <div class="container-site">
+      <dl class="grid gap-8 text-center sm:grid-cols-2 lg:grid-cols-4">
+        {block.items.map((item) => (
+          <div>
+            <dt class="font-alt text-sm uppercase tracking-[0.14em] text-white/70">
+              {item.label}
+            </dt>
+            <dd class="mt-2 font-display text-display-lg text-white">{item.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+)}

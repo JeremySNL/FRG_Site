@@ -3,7 +3,7 @@ title: "Fundación Rosario Gatón se reúnen con autoridades para fortalecer com
 slug: "fundacion-rosario-gaton-se-reunen-con-autoridades-para-fortalecer-compromisos-con-los-ods-y-la-end"
 locale: "es"
 date: "2019-01-23T14:56:54"
-excerpt: "Santo Domingo, República Dominicana- Altos directivos de la Fundación Rosario Gatón (FRG) sostuvieron un encuentro significativo con autoridades nacionales, entre ellas el Lic. Rudy Reynoso, Mayor de"
+excerpt: "Santo Domingo, República Dominicana- Altos directivos de la Fundación Rosario Gatón (FRG) sostuvieron un encuentro significativo con autoridades nacionales, entre ellas el Lic. Rudy Reynoso, Mayor de…"
 categories:
   - "noticias-institucionales"
 tags: []

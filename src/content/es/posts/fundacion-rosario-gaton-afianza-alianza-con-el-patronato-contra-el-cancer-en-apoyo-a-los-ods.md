@@ -3,7 +3,7 @@ title: "Fundación Rosario Gatón afianza alianza con el Patronato Contra el Cá
 slug: "fundacion-rosario-gaton-afianza-alianza-con-el-patronato-contra-el-cancer-en-apoyo-a-los-ods"
 locale: "es"
 date: "2019-03-25T19:52:02"
-excerpt: "Fundación Rosario Gatón fortalece lazos con el Patronato Contra el Cáncer en San Francisco de Macorís San Francisco de Macorís, República Dominicana.\nEn cumplimiento de los Objetivos de Desarrollo Sos"
+excerpt: "Fundación Rosario Gatón fortalece lazos con el Patronato Contra el Cáncer en San Francisco de Macorís San Francisco de Macorís, República Dominicana. En cumplimiento de los Objetivos de Desarrollo…"
 categories:
   - "alianzas-institucionales"
 tags: []

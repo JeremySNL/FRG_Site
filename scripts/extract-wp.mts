@@ -58,7 +58,7 @@ const LOCALE = process.env['CONTENT_LOCALE'] ?? 'es';
 
 /** Fallback targets for buttons whose original link was broken. */
 const BUTTON_HREFS: Record<string, string> = {
-  'unirse': '/voluntariado/',
+  unirse: '/voluntariado/',
   'donar ahora': '/donar/',
   'nuestras causas': '/programas-y-proyectos/',
   'conocer más': '/nosotros/',
@@ -68,7 +68,7 @@ const BUTTON_HREFS: Record<string, string> = {
   'ver todas las publicaciones': '/actualidades/',
   '¡únete hoy!': '/voluntariado/',
   'convertirme en voluntario': '/voluntariado/',
-  'colaborar': '/donar/',
+  colaborar: '/donar/',
 };
 
 /** Legacy paths that moved in the new site. */
@@ -209,7 +209,9 @@ function buttonLink(widget: ElementorWidget | undefined): Link | null {
 
 function findButton(buttons: ElementorWidget[], label: string): Link | null {
   const needle = label.trim().toLowerCase();
-  return buttonLink(buttons.find((button) => buttonLabel(button).toLowerCase() === needle));
+  return buttonLink(
+    buttons.find((button) => buttonLabel(button).toLowerCase() === needle),
+  );
 }
 
 /** The first button that points at `href`. */
@@ -249,9 +251,10 @@ function youtubeId(widget: ElementorWidget): string {
   ];
 
   for (const candidate of candidates) {
-    const match = /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]{6,})/.exec(
-      candidate,
-    );
+    const match =
+      /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]{6,})/.exec(
+        candidate,
+      );
     if (match?.[1]) return match[1];
   }
 
@@ -273,7 +276,9 @@ function iconListItems(widget: ElementorWidget): string[] {
 }
 
 /** The items of an Elementor accordion widget. */
-function accordionItems(widget: ElementorWidget): Array<{ title: string; text: string }> {
+function accordionItems(
+  widget: ElementorWidget,
+): Array<{ title: string; text: string }> {
   const items = settingArray(widget.settings, 'ekit_accordion_items');
   const result: Array<{ title: string; text: string }> = [];
 
@@ -297,7 +302,12 @@ function testimonialItems(
   widget: ElementorWidget,
 ): Array<{ quote: string; author?: string; role?: string; image?: string }> {
   const items = settingArray(widget.settings, 'ekit_testimonial_data');
-  const result: Array<{ quote: string; author?: string; role?: string; image?: string }> = [];
+  const result: Array<{
+    quote: string;
+    author?: string;
+    role?: string;
+    image?: string;
+  }> = [];
 
   for (const item of items) {
     if (!item || typeof item !== 'object') continue;
@@ -344,7 +354,10 @@ function tabItems(widget: ElementorWidget): Array<{ title: string; html: string 
 }
 
 /** The images of an Elementor gallery widget. */
-function galleryImages(db: WpDatabase, widget: ElementorWidget): Array<{ src: string; alt: string }> {
+function galleryImages(
+  db: WpDatabase,
+  widget: ElementorWidget,
+): Array<{ src: string; alt: string }> {
   const items = settingArray(widget.settings, 'wp_gallery');
   const result: Array<{ src: string; alt: string }> = [];
 
@@ -367,7 +380,9 @@ function galleryImages(db: WpDatabase, widget: ElementorWidget): Array<{ src: st
 }
 
 /** The counters of a page. */
-function counterItems(widgets: ElementorWidget[]): Array<{ value: string; label: string }> {
+function counterItems(
+  widgets: ElementorWidget[],
+): Array<{ value: string; label: string }> {
   const formatter = new Intl.NumberFormat('es-DO');
 
   return widgets
@@ -438,6 +453,15 @@ interface Context {
   programs: ProgramEntry[];
 }
 
+/** A member of the team. */
+interface TeamMember {
+  name: string;
+  role: string;
+  bio: string;
+  image?: string;
+  imageAlt?: string;
+}
+
 /** Split a widget stream into the "areas of action" (h4 + text + image). */
 function extractProgramEntries(ctx: Context): ProgramEntry[] {
   const entries: ProgramEntry[] = [];
@@ -497,7 +521,8 @@ function buildHome(ctx: Context): Block[] {
 
   const blocks: Block[] = [];
 
-  const heroHeading = headings.find((widget) => headingSize(widget) === 'h1') ?? headings[0];
+  const heroHeading =
+    headings.find((widget) => headingSize(widget) === 'h1') ?? headings[0];
   const slogans = headings
     .filter((widget) => headingSize(widget) === 'h5')
     .map(headingTitle)
@@ -533,12 +558,16 @@ function buildHome(ctx: Context): Block[] {
 
   blocks.push({ type: 'stats', items: counterItems(counters) });
 
-  const aboutHeading = headings.find((widget) => headingTitle(widget) === '¿Quiénes somos?');
+  const aboutHeading = headings.find(
+    (widget) => headingTitle(widget) === '¿Quiénes somos?',
+  );
   blocks.push({
     type: 'imageText',
     title: aboutHeading ? headingTitle(aboutHeading) : '¿Quiénes somos?',
     text: textMatching(texts, 'es una organización de derechos humanos'),
-    buttons: [findButton(buttons, 'Saber más')].filter((link): link is Link => link !== null),
+    buttons: [findButton(buttons, 'Saber más')].filter(
+      (link): link is Link => link !== null,
+    ),
   });
 
   const imageBox = imageBoxes[0];
@@ -562,7 +591,9 @@ function buildHome(ctx: Context): Block[] {
     type: 'cta',
     title: 'Únete / Voluntariado',
     text: textMatching(texts, 'creemos en el poder de las personas'),
-    buttons: [findButton(buttons, '¡Únete hoy!')].filter((link): link is Link => link !== null),
+    buttons: [findButton(buttons, '¡Únete hoy!')].filter(
+      (link): link is Link => link !== null,
+    ),
   });
 
   blocks.push({
@@ -585,16 +616,20 @@ function buildHome(ctx: Context): Block[] {
     type: 'cta',
     title: 'Haz tu donación',
     text: textMatching(texts, 'Tu apoyo es vital'),
-    buttons: [findButton(buttons, 'Donar ahora')].filter((link): link is Link => link !== null),
+    buttons: [findButton(buttons, 'Donar ahora')].filter(
+      (link): link is Link => link !== null,
+    ),
   });
 
   blocks.push({
     type: 'cards',
     title: 'Con tu donación',
-    items: [iconBoxes[5], iconBoxes[6], iconBoxes[7], iconBoxes[8]].filter(Boolean).map((widget) => ({
-      title: iconBoxTitle(widget as ElementorWidget),
-      text: iconBoxText(widget as ElementorWidget),
-    })),
+    items: [iconBoxes[5], iconBoxes[6], iconBoxes[7], iconBoxes[8]]
+      .filter(Boolean)
+      .map((widget) => ({
+        title: iconBoxTitle(widget as ElementorWidget),
+        text: iconBoxText(widget as ElementorWidget),
+      })),
   });
 
   const testimonial = testimonials[0];
@@ -623,18 +658,52 @@ function buildHome(ctx: Context): Block[] {
     });
   }
 
-  blocks.push({ type: 'latestPosts', title: 'Nuestras últimas publicaciones', limit: 6 });
+  blocks.push({
+    type: 'latestPosts',
+    title: 'Nuestras últimas publicaciones',
+    limit: 6,
+  });
 
   blocks.push({
     type: 'cta',
     title: 'Estamos aquí para ayudarte.',
-    text: stripPlaceholders(textMatching(texts, 'Si tienes dudas, deseas más información')),
+    text: stripPlaceholders(
+      textMatching(texts, 'Si tienes dudas, deseas más información'),
+    ),
     buttons: [],
   });
 
   blocks.push({ type: 'form', form: 'contact' });
 
   return blocks;
+}
+
+/**
+ * The members of the team.
+ *
+ * The old site published a single person — the president — on the "Nosotros"
+ * page, as an Elementor image box. Everybody else has to be added by hand
+ * here.
+ */
+function extractTeamMembers(ctx: Context): TeamMember[] {
+  const imageBoxes = byType(ctx.widgets, 'image-box');
+  const images = byType(ctx.widgets, 'image');
+
+  return imageBoxes
+    .map((box, index) => {
+      const name = oneLine(settingString(box.settings, 'title_text'));
+      const role = oneLine(settingString(box.settings, 'description_text'));
+      const image = images[index];
+
+      return {
+        name,
+        role,
+        bio: '',
+        image: image ? mediaOf(ctx.db, image) : undefined,
+        imageAlt: name || (image ? mediaAltOf(image) : undefined),
+      };
+    })
+    .filter((member) => member.name !== '');
 }
 
 function buildAbout(ctx: Context): Block[] {
@@ -668,7 +737,9 @@ function buildAbout(ctx: Context): Block[] {
 
   blocks.push({ type: 'stats', items: counterItems(counters) });
 
-  const aboutHeading = headings.find((widget) => headingTitle(widget) === '¿Quiénes somos?');
+  const aboutHeading = headings.find(
+    (widget) => headingTitle(widget) === '¿Quiénes somos?',
+  );
   blocks.push({
     type: 'imageText',
     title: aboutHeading ? headingTitle(aboutHeading) : '¿Quiénes somos?',
@@ -678,7 +749,11 @@ function buildAbout(ctx: Context): Block[] {
 
   const tab = tabs[0];
   if (tab) {
-    blocks.push({ type: 'tabs', title: 'Misión, visión y valores', items: tabItems(tab) });
+    blocks.push({
+      type: 'tabs',
+      title: 'Misión, visión y valores',
+      items: tabItems(tab),
+    });
   }
 
   const imageBox = imageBoxes[0];
@@ -702,9 +777,9 @@ function buildAbout(ctx: Context): Block[] {
     type: 'cta',
     title: 'Únete / Voluntariado',
     text: textMatching(texts, 'creemos en el poder de las personas'),
-    buttons: [findButton(buttons, '¡Únete hoy!') ?? findButtonByHref(buttons, '/voluntariado/')].filter(
-      (link): link is Link => link !== null,
-    ),
+    buttons: [
+      findButton(buttons, '¡Únete hoy!') ?? findButtonByHref(buttons, '/voluntariado/'),
+    ].filter((link): link is Link => link !== null),
   });
 
   blocks.push({
@@ -803,7 +878,10 @@ function buildDonate(ctx: Context): Block[] {
     buttons: [],
   });
 
-  const donationUses = iconListContaining(ctx.widgets, 'Alimentación para familias vulnerables');
+  const donationUses = iconListContaining(
+    ctx.widgets,
+    'Alimentación para familias vulnerables',
+  );
   if (donationUses.length > 0) {
     blocks.push({
       type: 'list',
@@ -839,7 +917,9 @@ function buildDonate(ctx: Context): Block[] {
     });
   }
 
-  const contactHeading = headings.find((widget) => /informaci/i.test(headingTitle(widget)));
+  const contactHeading = headings.find((widget) =>
+    /informaci/i.test(headingTitle(widget)),
+  );
   if (contactHeading) {
     blocks.push({
       type: 'cta',
@@ -867,12 +947,23 @@ function buildVolunteer(ctx: Context): Block[] {
 
   const howToHelp = iconListContaining(ctx.widgets, 'Ser voluntario en jornadas');
   if (howToHelp.length > 0) {
-    blocks.push({ type: 'list', title: '¿En qué puedes participar o colaborar?', items: howToHelp });
+    blocks.push({
+      type: 'list',
+      title: '¿En qué puedes participar o colaborar?',
+      items: howToHelp,
+    });
   }
 
-  const donationUses = iconListContaining(ctx.widgets, 'Alimentación para familias vulnerables');
+  const donationUses = iconListContaining(
+    ctx.widgets,
+    'Alimentación para familias vulnerables',
+  );
   if (donationUses.length > 0) {
-    blocks.push({ type: 'list', title: '¿A qué destinamos tu donación?', items: donationUses });
+    blocks.push({
+      type: 'list',
+      title: '¿A qué destinamos tu donación?',
+      items: donationUses,
+    });
   }
 
   blocks.push({
@@ -893,7 +984,9 @@ function buildVolunteer(ctx: Context): Block[] {
     });
   }
 
-  const contactHeading = headings.find((widget) => /informaci/i.test(headingTitle(widget)));
+  const contactHeading = headings.find((widget) =>
+    /informaci/i.test(headingTitle(widget)),
+  );
   if (contactHeading) {
     blocks.push({
       type: 'cta',
@@ -1151,7 +1244,8 @@ const PAGE_SPECS: PageSpec[] = [
     order: 70,
     nav: true,
     legacyPath: '/contacto/',
-    description: 'Escríbenos o llámanos. Estamos en San Fernando de la Maguana, Samaná.',
+    description:
+      'Escríbenos o llámanos. Estamos en San Fernando de la Maguana, Samaná.',
     recipe: buildContact,
   },
 ];
@@ -1186,7 +1280,10 @@ async function main(): Promise<void> {
   };
 
   const programsPage = [...db.posts.values()].find(
-    (post) => post.type === 'page' && post.status === 'publish' && post.name === 'programas-y-proyectos',
+    (post) =>
+      post.type === 'page' &&
+      post.status === 'publish' &&
+      post.name === 'programas-y-proyectos',
   );
 
   if (!programsPage) throw new Error('The "programas-y-proyectos" page was not found.');
@@ -1194,7 +1291,10 @@ async function main(): Promise<void> {
   const programsWidgets = elementorWidgets(
     parseElementor(getMeta(db, programsPage.id, '_elementor_data')),
   );
-  const programs = extractProgramEntries({ ...programsContext, widgets: programsWidgets });
+  const programs = extractProgramEntries({
+    ...programsContext,
+    widgets: programsWidgets,
+  });
   console.log(`  ${programs.length} areas of action`);
 
   // Remove the previous content of this locale so the import is idempotent.
@@ -1222,7 +1322,8 @@ async function main(): Promise<void> {
   /* --- pages ------------------------------------------------------------- */
   for (const spec of PAGE_SPECS) {
     const page = [...db.posts.values()].find(
-      (post) => post.type === 'page' && post.status === 'publish' && post.name === spec.file,
+      (post) =>
+        post.type === 'page' && post.status === 'publish' && post.name === spec.file,
     );
 
     if (!page) {
@@ -1230,7 +1331,9 @@ async function main(): Promise<void> {
       continue;
     }
 
-    const widgets = elementorWidgets(parseElementor(getMeta(db, page.id, '_elementor_data')));
+    const widgets = elementorWidgets(
+      parseElementor(getMeta(db, page.id, '_elementor_data')),
+    );
     const blocks = spec.recipe({ db, widgets, programs });
 
     await writeDocument(
@@ -1255,10 +1358,49 @@ async function main(): Promise<void> {
     console.log(`  page ${spec.file.padEnd(28)} ${blocks.length} blocks`);
   }
 
-  /* --- categories & tags ------------------------------------------------- */
-  const published = [...db.posts.values()].filter(
-    (post) => post.type === 'post' && post.status === 'publish',
+  /* --- team -------------------------------------------------------------- */
+  const aboutPage = [...db.posts.values()].find(
+    (post) =>
+      post.type === 'page' && post.status === 'publish' && post.name === 'nosotros',
   );
+
+  if (aboutPage) {
+    const widgets = elementorWidgets(
+      parseElementor(getMeta(db, aboutPage.id, '_elementor_data')),
+    );
+
+    const members = extractTeamMembers({ db, widgets, programs: [] });
+
+    let order = 1;
+    for (const member of members) {
+      const slug = slugify(member.name);
+
+      await writeDocument(
+        'team',
+        slug,
+        {
+          name: member.name,
+          slug,
+          locale: LOCALE,
+          role: member.role,
+          bio: member.bio,
+          image: member.image,
+          imageAlt: member.imageAlt,
+          order,
+        },
+        '',
+      );
+
+      order += 1;
+    }
+
+    console.log(`  ${members.length} team members`);
+  }
+
+  /* --- categories & tags ------------------------------------------------- */ const published =
+    [...db.posts.values()].filter(
+      (post) => post.type === 'post' && post.status === 'publish',
+    );
 
   const usedTerms = new Map<number, { taxonomy: string; count: number }>();
   for (const post of published) {
@@ -1307,7 +1449,9 @@ async function main(): Promise<void> {
   const takenSlugs = new Set<string>();
   let publishedCount = 0;
 
-  for (const post of published.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0))) {
+  for (const post of published.sort((a, b) =>
+    a.date < b.date ? 1 : a.date > b.date ? -1 : 0,
+  )) {
     const override = POST_OVERRIDES[post.name] ?? {};
     const body = htmlToMarkdown(post.content);
     const yoastDescription = getMeta(db, post.id, '_yoast_wpseo_metadesc').trim();
@@ -1315,7 +1459,10 @@ async function main(): Promise<void> {
     const title = override.title ?? oneLine(post.title);
     const resolvedTitle = title || titleFromBody(body) || 'Sin título';
 
-    const slug = uniqueSlug(override.slug ?? post.name ?? slugify(resolvedTitle), takenSlugs);
+    const slug = uniqueSlug(
+      override.slug ?? post.name ?? slugify(resolvedTitle),
+      takenSlugs,
+    );
     const relations = db.relationships.get(post.id) ?? [];
 
     const categories = relations
@@ -1329,10 +1476,11 @@ async function main(): Promise<void> {
       .filter((value): value is string => Boolean(value));
 
     const thumbnailId = Number.parseInt(getMeta(db, post.id, '_thumbnail_id'), 10);
-    const attachment = Number.isFinite(thumbnailId) ? db.attachments.get(thumbnailId) : undefined;
+    const attachment = Number.isFinite(thumbnailId)
+      ? db.attachments.get(thumbnailId)
+      : undefined;
 
-    const excerpt =
-      yoastDescription || stripHtml(post.excerpt) || buildExcerpt(body);
+    const excerpt = yoastDescription || stripHtml(post.excerpt) || buildExcerpt(body);
 
     await writeDocument(
       'posts',

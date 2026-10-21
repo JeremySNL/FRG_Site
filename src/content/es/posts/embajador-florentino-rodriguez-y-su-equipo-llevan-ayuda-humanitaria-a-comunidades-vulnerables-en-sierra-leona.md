@@ -3,7 +3,7 @@ title: "Embajador Florentino Rodríguez y su equipo llevan ayuda humanitaria a c
 slug: "embajador-florentino-rodriguez-y-su-equipo-llevan-ayuda-humanitaria-a-comunidades-vulnerables-en-sierra-leona"
 locale: "es"
 date: "2025-07-22T11:58:11"
-excerpt: "Sierra Leona – África Occidental.\nPara la Fundación Rosario Gatón, el trabajo social no es solo una misión institucional, sino una vocación de vida. En esta ocasión, el Embajador Florentino Rodríguez,"
+excerpt: "Sierra Leona – África Occidental. Para la Fundación Rosario Gatón, el trabajo social no es solo una misión institucional, sino una vocación de vida. En esta ocasión, el Embajador Florentino…"
 categories:
   - "noticias-institucionales"
 tags: []

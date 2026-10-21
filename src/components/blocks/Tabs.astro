@@ -12,50 +12,53 @@ interface Props {
 }
 
 const { block } = Astro.props;
-const id = `tabs-${block.items.map((item) => item.title).join('-').toLowerCase().replace(/[^a-z0-9]+/g, '').slice(0, 24)}`;
+const id = `tabs-${block.items
+  .map((item) => item.title)
+  .join('-')
+  .toLowerCase()
+  .replace(/[^a-z0-9]+/g, '')
+  .slice(0, 24)}`;
 ---
 
-{
-  block.items.length > 0 && (
-    <section class="section">
-      <div class="container-site">
-        {block.title && <h2 class="text-display-md">{block.title}</h2>}
+{block.items.length > 0 && (
+  <section class="section">
+    <div class="container-site">
+      {block.title && <h2 class="text-display-md">{block.title}</h2>}
 
-        <div class="mt-10" data-tabs={id}>
-          <div class="flex flex-wrap gap-2" role="tablist" aria-label={block.title}>
-            {block.items.map((item, index) => (
-              <button
-                type="button"
-                role="tab"
-                id={`${id}-tab-${index}`}
-                aria-controls={`${id}-panel-${index}`}
-                aria-selected={index === 0 ? 'true' : 'false'}
-                tabindex={index === 0 ? 0 : -1}
-                class="rounded-pill border border-muted px-5 py-2.5 font-display text-sm font-medium transition-colors hover:border-accent hover:text-accent aria-selected:border-accent aria-selected:bg-accent aria-selected:text-white"
-              >
-                {item.title}
-              </button>
-            ))}
-          </div>
+      <div class="mt-10" data-tabs={id}>
+        <div class="flex flex-wrap gap-2" role="tablist" aria-label={block.title}>
+          {block.items.map((item, index) => (
+            <button
+              type="button"
+              role="tab"
+              id={`${id}-tab-${index}`}
+              aria-controls={`${id}-panel-${index}`}
+              aria-selected={index === 0 ? 'true' : 'false'}
+              tabindex={index === 0 ? 0 : -1}
+              class="rounded-pill border border-muted px-5 py-2.5 font-display text-sm font-medium transition-colors hover:border-accent hover:text-accent aria-selected:border-accent aria-selected:bg-accent aria-selected:text-white"
+            >
+              {item.title}
+            </button>
+          ))}
+        </div>
 
-          <div class="mt-6">
-            {block.items.map((item, index) => (
-              <div
-                role="tabpanel"
-                id={`${id}-panel-${index}`}
-                aria-labelledby={`${id}-tab-${index}`}
-                hidden={index !== 0}
-                class="prose prose-frg rounded-2xl border border-muted bg-white p-8"
-              >
-                <div set:html={item.html} />
-              </div>
-            ))}
-          </div>
+        <div class="mt-6">
+          {block.items.map((item, index) => (
+            <div
+              role="tabpanel"
+              id={`${id}-panel-${index}`}
+              aria-labelledby={`${id}-tab-${index}`}
+              hidden={index !== 0}
+              class="prose prose-frg rounded-2xl border border-muted bg-white p-8"
+            >
+              <div set:html={item.html} />
+            </div>
+          ))}
         </div>
       </div>
-    </section>
-  )
-}
+    </div>
+  </section>
+)}
 
 <script>
   for (const root of document.querySelectorAll<HTMLElement>('[data-tabs]')) {

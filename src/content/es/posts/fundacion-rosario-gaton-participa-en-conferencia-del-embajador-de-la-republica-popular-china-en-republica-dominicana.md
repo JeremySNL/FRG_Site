@@ -3,7 +3,7 @@ title: "Fundación Rosario Gatón participa en conferencia del Embajador de la R
 slug: "fundacion-rosario-gaton-participa-en-conferencia-del-embajador-de-la-republica-popular-china-en-republica-dominicana"
 locale: "es"
 date: "2026-07-16T21:32:01"
-excerpt: "Chen Lunig Embajador Extraordinario y Plenipotenciario de la República Popular China en la Republica Dominicana En el marco de una destacada jornada de análisis geopolítico y cooperación internacional"
+excerpt: "Chen Lunig Embajador Extraordinario y Plenipotenciario de la República Popular China en la Republica Dominicana En el marco de una destacada jornada de análisis geopolítico y cooperación…"
 categories:
   - "relaciones-internacionales"
 tags: []

@@ -3,7 +3,7 @@ title: "Acuerdo de cooperación entre la fundación Rosario Gatón y el Dr. Cruz
 slug: "acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025"
 locale: "es"
 date: "2025-12-14T18:35:55"
-excerpt: "--- ![](https://fundacionrosariogaton.org/wp-content/uploads/2025/12/IMG-20251214-WA0165-300x226.jpg) ![](https://fundacionrosariogaton.org/wp-content/uploads/2025/12/IMG-20251120-WA0351-1-300x226.jpg"
+excerpt: "---"
 categories:
   - "uncategorized"
 tags: []

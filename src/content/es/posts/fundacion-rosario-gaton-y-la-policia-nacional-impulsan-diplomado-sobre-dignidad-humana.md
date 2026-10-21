@@ -3,7 +3,7 @@ title: "Fundación Rosario Gatón y la Policía Nacional impulsan diplomado sobr
 slug: "fundacion-rosario-gaton-y-la-policia-nacional-impulsan-diplomado-sobre-dignidad-humana"
 locale: "es"
 date: "2019-03-12T19:50:01"
-excerpt: "La Policía Nacional y la Fundación Rosario Gatón coordinan diplomado sobre Dignidad Humana en San Francisco de Macorís La Policía Nacional Dominicana, bajo la dirección del General Olivance Minaya, y"
+excerpt: "La Policía Nacional y la Fundación Rosario Gatón coordinan diplomado sobre Dignidad Humana en San Francisco de Macorís La Policía Nacional Dominicana, bajo la dirección del General Olivance Minaya, y…"
 categories:
   - "alianzas-institucionales"
 tags: []

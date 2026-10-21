@@ -3,7 +3,7 @@ title: "Fundación Rosario Gatón y Universidad Politécnica Internacional refue
 slug: "fundacion-rosario-gaton-y-universidad-politecnica-internacional-refuerzan-alianza-entre-republica-dominicana-y-costa-rica"
 locale: "es"
 date: "2019-04-30T19:43:05"
-excerpt: "República Dominicana y Costa Rica fortalecen la cooperación internacional a través de la Fundación Rosario Gatón y la Universidad Politécnica Internacional La Fundación Rosario Gatón (FRG) y la Univer"
+excerpt: "República Dominicana y Costa Rica fortalecen la cooperación internacional a través de la Fundación Rosario Gatón y la Universidad Politécnica Internacional La Fundación Rosario Gatón (FRG) y la…"
 categories:
   - "cooperacion-internacional"
 tags: []

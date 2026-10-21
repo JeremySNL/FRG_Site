@@ -34,12 +34,12 @@ const seo: SeoMeta = {
       <div class="mx-auto max-w-2xl text-center">
         <p class="font-display text-display-2xl text-accent">404</p>
         <h1 class="mt-4 text-display-lg">{ui.notFoundTitle}</h1>
-        <p class="mt-5 text-lg leading-relaxed text-secondary">
-          {ui.notFoundText}
-        </p>
+        <p class="mt-5 text-lg leading-relaxed text-secondary">{ui.notFoundText}</p>
 
         <div class="mt-10 flex flex-wrap justify-center gap-4">
-          <a href={localePath(locale)} class="btn-primary">{ui.backHome}</a>
+          <a href={localePath(locale)} class="btn-primary">
+            {ui.backHome}
+          </a>
           <a href={localePath(locale, 'actualidades')} class="btn-outline">
             {ui.allPosts}
           </a>

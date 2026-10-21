@@ -22,11 +22,7 @@ import ArchiveView from '~/components/views/ArchiveView.astro';
 import PageView from '~/components/views/PageView.astro';
 import PostView from '~/components/views/PostView.astro';
 
-import {
-  locales,
-  localePath,
-  parseRoute,
-} from '~/lib/locales.ts';
+import { locales, localePath, parseRoute } from '~/lib/locales.ts';
 import {
   getCategory,
   getPage,
@@ -41,7 +37,8 @@ import { buildNavigation } from '~/lib/navigation.ts';
 import { articleSchema, buildSeo, itemListSchema, pageTitle } from '~/lib/seo.ts';
 import { site } from '~/lib/site.ts';
 
-export const getStaticPaths = (async () => enumerateStaticPaths()) satisfies GetStaticPaths;
+export const getStaticPaths = (async () =>
+  enumerateStaticPaths()) satisfies GetStaticPaths;
 
 /* --- resolve the request ---------------------------------------------------- */
 
@@ -55,7 +52,7 @@ const [first, second] = segments;
 
 type RouteKind = 'home' | 'page' | 'blogIndex' | 'post' | 'category' | 'tag';
 
-let kind: RouteKind = 'home';
+let kind: RouteKind;
 let slug = '';
 
 if (segments.length === 0) {
@@ -76,10 +73,12 @@ if (segments.length === 0) {
 
 const homePage = await getPage(contentLocale, '');
 const page = kind === 'page' ? await getPage(contentLocale, slug) : undefined;
-const blogPage = kind === 'blogIndex' ? await getPage(contentLocale, 'actualidades') : undefined;
+const blogPage =
+  kind === 'blogIndex' ? await getPage(contentLocale, 'actualidades') : undefined;
 
 const allPosts = await getPosts(contentLocale);
-const post = kind === 'post' ? allPosts.find((entry) => entry.data.slug === slug) : undefined;
+const post =
+  kind === 'post' ? allPosts.find((entry) => entry.data.slug === slug) : undefined;
 
 const archivePosts =
   kind === 'blogIndex'
@@ -181,49 +180,29 @@ if (kind === 'blogIndex' && archivePosts.length > 0) {
 }
 ---
 
-<BaseLayout
-  locale={locale}
-  nav={nav}
-  seo={seo}
-  currentSlug={seoSlug}
-  schemas={schemas}
->
-  {
-    (kind === 'home' || kind === 'page') && (page ?? homePage) && (
-      <PageView
-        page={(page ?? homePage)!}
-        locale={locale}
-        isFallback={isFallback}
-      />
-    )
-  }
+<BaseLayout locale={locale} nav={nav} seo={seo} currentSlug={seoSlug} schemas={schemas}>
+  {(kind === 'home' || kind === 'page') && (page ?? homePage) && (
+    <PageView page={(page ?? homePage)!} locale={locale} isFallback={isFallback} />
+  )}
 
-  {
-    kind === 'blogIndex' && (
-      <>
-        {blogPage && (
-          <PageView page={blogPage} locale={locale} isFallback={isFallback} />
-        )}
-        <ArchiveView posts={archivePosts} locale={locale} isFallback={isFallback} />
-      </>
-    )
-  }
+  {kind === 'blogIndex' && (
+    <>
+      {blogPage && <PageView page={blogPage} locale={locale} isFallback={isFallback} />}
+      <ArchiveView posts={archivePosts} locale={locale} isFallback={isFallback} />
+    </>
+  )}
 
-  {
-    kind === 'post' && post && (
-      <PostView post={post} locale={locale} isFallback={isFallback} />
-    )
-  }
+  {kind === 'post' && post && (
+    <PostView post={post} locale={locale} isFallback={isFallback} />
+  )}
 
-  {
-    (kind === 'category' || kind === 'tag') && (
-      <ArchiveView
-        title={term?.data.title ?? seoTitle}
-        description={termDescription}
-        posts={archivePosts}
-        locale={locale}
-        isFallback={isFallback}
-      />
-    )
-  }
+  {(kind === 'category' || kind === 'tag') && (
+    <ArchiveView
+      title={term?.data.title ?? seoTitle}
+      description={termDescription}
+      posts={archivePosts}
+      locale={locale}
+      isFallback={isFallback}
+    />
+  )}
 </BaseLayout>

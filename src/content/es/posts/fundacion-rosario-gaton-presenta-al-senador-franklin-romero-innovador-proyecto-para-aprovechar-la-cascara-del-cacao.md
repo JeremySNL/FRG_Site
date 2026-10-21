@@ -3,7 +3,7 @@ title: "Fundación Rosario Gatón presenta al senador Franklin Romero innovador 
 slug: "fundacion-rosario-gaton-presenta-al-senador-franklin-romero-innovador-proyecto-para-aprovechar-la-cascara-del-cacao"
 locale: "es"
 date: "2026-08-21T14:08:56"
-excerpt: "El senador Franklin Romero recibió en su despacho del Senado de la República Dominicana a una comitiva de la Fundación Rosario Gatón, encabezada por su presidente fundador, el Dr. Julio César Rosario"
+excerpt: "El senador Franklin Romero recibió en su despacho del Senado de la República Dominicana a una comitiva de la Fundación Rosario Gatón, encabezada por su presidente fundador, el Dr. Julio César Rosario…"
 categories:
   - "alianzas-institucionales"
 tags: []

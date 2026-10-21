@@ -1,0 +1,16 @@
+# Normalize the line endings: the content and the code are stored with LF
+# and checked out with LF, on every platform.
+* text=auto eol=lf
+
+# Binary files
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.webp binary
+*.avif binary
+*.mp4 binary
+*.webm binary
+*.pdf binary
+*.woff binary
+*.woff2 binary

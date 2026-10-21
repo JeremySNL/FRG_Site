@@ -3,7 +3,7 @@ title: "Fundación Rosario Gatón se une a la iniciativa “Cero Discriminación
 slug: "fundacion-rosario-gaton-se-une-a-la-iniciativa-cero-discriminacion-en-encuentro-con-la-union-europea"
 locale: "es"
 date: "2019-03-06T19:59:28"
-excerpt: "Fundación Rosario Gatón participa en charla sobre “Cero Discriminación” junto a la Unión Europea y la Vicepresidencia de la República Santo Domingo, República Dominicana – Teatro Nacional.\nRepresentan"
+excerpt: "Fundación Rosario Gatón participa en charla sobre “Cero Discriminación” junto a la Unión Europea y la Vicepresidencia de la República Santo Domingo, República Dominicana – Teatro Nacional.…"
 categories:
   - "derechos-humanos"
 tags: []

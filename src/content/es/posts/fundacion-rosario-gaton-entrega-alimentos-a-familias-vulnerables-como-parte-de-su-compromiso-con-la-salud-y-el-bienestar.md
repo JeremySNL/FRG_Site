@@ -3,7 +3,7 @@ title: "Fundación Rosario Gatón entrega alimentos a familias vulnerables como 
 slug: "fundacion-rosario-gaton-entrega-alimentos-a-familias-vulnerables-como-parte-de-su-compromiso-con-la-salud-y-el-bienestar"
 locale: "es"
 date: "2025-07-22T12:23:42"
-excerpt: "En distintas comunidades del país, la Fundación Rosario Gatón (FRG) continúa demostrando su compromiso con el bienestar social mediante la entrega de alimentos y artículos básicos a familias en situac"
+excerpt: "En distintas comunidades del país, la Fundación Rosario Gatón (FRG) continúa demostrando su compromiso con el bienestar social mediante la entrega de alimentos y artículos básicos a familias en…"
 categories:
   - "alimentacion-y-salud"
 tags: []

@@ -57,11 +57,15 @@ export async function enumerateStaticPaths(): Promise<StaticPath[]> {
     }
 
     for (const post of posts) {
-      paths.push({ params: { path: joinPath(prefix, 'actualidades', post.data.slug) } });
+      paths.push({
+        params: { path: joinPath(prefix, 'actualidades', post.data.slug) },
+      });
     }
 
     for (const category of categories) {
-      paths.push({ params: { path: joinPath(prefix, 'category', category.data.slug) } });
+      paths.push({
+        params: { path: joinPath(prefix, 'category', category.data.slug) },
+      });
     }
 
     for (const tag of tags) {

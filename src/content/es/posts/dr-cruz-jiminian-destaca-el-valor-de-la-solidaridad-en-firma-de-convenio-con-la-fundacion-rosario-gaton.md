@@ -3,7 +3,7 @@ title: "Dr. Cruz Jiminián destaca el valor de la solidaridad en firma de conven
 slug: "dr-cruz-jiminian-destaca-el-valor-de-la-solidaridad-en-firma-de-convenio-con-la-fundacion-rosario-gaton"
 locale: "es"
 date: "2025-07-22T12:33:40"
-excerpt: "En un emotivo acto de cooperación y compromiso social, el reconocido médico y filántropo Dr. Félix Antonio Cruz Jiminián ofreció palabras cargadas de sensibilidad y esperanza durante la firma de un co"
+excerpt: "En un emotivo acto de cooperación y compromiso social, el reconocido médico y filántropo Dr. Félix Antonio Cruz Jiminián ofreció palabras cargadas de sensibilidad y esperanza durante la firma de un…"
 categories:
   - "alianzas-institucionales"
 tags: []

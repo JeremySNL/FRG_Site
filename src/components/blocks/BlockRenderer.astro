@@ -37,47 +37,45 @@ interface Props {
 const { blocks, locale } = Astro.props;
 ---
 
-{
-  blocks.map((block) => {
-    switch (block.type) {
-      case 'hero':
-        return <Hero block={block} />;
-      case 'stats':
-        return <Stats block={block} />;
-      case 'programs':
-        return <Programs block={block} locale={locale} />;
-      case 'cards':
-        return <Cards block={block} locale={locale} />;
-      case 'imageText':
-        return <ImageText block={block} />;
-      case 'accordion':
-        return <Accordion block={block} />;
-      case 'tabs':
-        return <Tabs block={block} />;
-      case 'list':
-        return <List block={block} />;
-      case 'testimonial':
-        return <Testimonial block={block} />;
-      case 'social':
-        return <Social block={block} />;
-      case 'video':
-        return <Video block={block} />;
-      case 'gallery':
-        return <Gallery block={block} />;
-      case 'latestPosts':
-        return <LatestPosts block={block} locale={locale} />;
-      case 'form':
-        return <Form block={block} locale={locale} />;
-      case 'cta':
-        return <Cta block={block} />;
-      case 'map':
-        return <Map block={block} />;
-      case 'team':
-        return <Team block={block} locale={locale} />;
-      case 'progress':
-        return <Progress block={block} />;
-      case 'richText':
-        return <RichText block={block} />;
-    }
-  })
-}
+{blocks.map((block) => {
+  switch (block.type) {
+    case 'hero':
+      return <Hero block={block} />;
+    case 'stats':
+      return <Stats block={block} />;
+    case 'programs':
+      return <Programs block={block} locale={locale} />;
+    case 'cards':
+      return <Cards block={block} locale={locale} />;
+    case 'imageText':
+      return <ImageText block={block} />;
+    case 'accordion':
+      return <Accordion block={block} />;
+    case 'tabs':
+      return <Tabs block={block} />;
+    case 'list':
+      return <List block={block} />;
+    case 'testimonial':
+      return <Testimonial block={block} />;
+    case 'social':
+      return <Social block={block} />;
+    case 'video':
+      return <Video block={block} />;
+    case 'gallery':
+      return <Gallery block={block} />;
+    case 'latestPosts':
+      return <LatestPosts block={block} locale={locale} />;
+    case 'form':
+      return <Form block={block} locale={locale} />;
+    case 'cta':
+      return <Cta block={block} />;
+    case 'map':
+      return <Map block={block} />;
+    case 'team':
+      return <Team block={block} locale={locale} />;
+    case 'progress':
+      return <Progress block={block} />;
+    case 'richText':
+      return <RichText block={block} />;
+  }
+})}

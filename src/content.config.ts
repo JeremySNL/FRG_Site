@@ -176,7 +176,11 @@ const blockSchema = z.discriminatedUnion('type', [
 ]);
 
 const pages = defineCollection({
-  loader: glob({ base: './src/content', pattern: '*/pages/*.md', generateId: contentId }),
+  loader: glob({
+    base: './src/content',
+    pattern: '*/pages/*.md',
+    generateId: contentId,
+  }),
   schema: z.object({
     title: z.string(),
     slug: z.string(),
@@ -200,7 +204,11 @@ const pages = defineCollection({
 });
 
 const posts = defineCollection({
-  loader: glob({ base: './src/content', pattern: '*/posts/*.md', generateId: contentId }),
+  loader: glob({
+    base: './src/content',
+    pattern: '*/posts/*.md',
+    generateId: contentId,
+  }),
   schema: z.object({
     title: z.string(),
     slug: z.string(),
@@ -223,7 +231,11 @@ const posts = defineCollection({
 });
 
 const categories = defineCollection({
-  loader: glob({ base: './src/content', pattern: '*/categories/*.md', generateId: contentId }),
+  loader: glob({
+    base: './src/content',
+    pattern: '*/categories/*.md',
+    generateId: contentId,
+  }),
   schema: z.object({
     title: z.string(),
     slug: z.string(),
@@ -234,7 +246,11 @@ const categories = defineCollection({
 });
 
 const tags = defineCollection({
-  loader: glob({ base: './src/content', pattern: '*/tags/*.md', generateId: contentId }),
+  loader: glob({
+    base: './src/content',
+    pattern: '*/tags/*.md',
+    generateId: contentId,
+  }),
   schema: z.object({
     title: z.string(),
     slug: z.string(),
@@ -243,7 +259,11 @@ const tags = defineCollection({
 });
 
 const programs = defineCollection({
-  loader: glob({ base: './src/content', pattern: '*/programs/*.md', generateId: contentId }),
+  loader: glob({
+    base: './src/content',
+    pattern: '*/programs/*.md',
+    generateId: contentId,
+  }),
   schema: z.object({
     title: z.string(),
     slug: z.string(),
@@ -257,7 +277,11 @@ const programs = defineCollection({
 });
 
 const team = defineCollection({
-  loader: glob({ base: './src/content', pattern: '*/team/*.md', generateId: contentId }),
+  loader: glob({
+    base: './src/content',
+    pattern: '*/team/*.md',
+    generateId: contentId,
+  }),
   schema: z.object({
     name: z.string(),
     slug: z.string(),

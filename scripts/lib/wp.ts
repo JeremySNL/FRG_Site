@@ -54,17 +54,40 @@ export interface WpDatabase {
 }
 
 const POST_COLUMNS = [
-  'ID', 'post_author', 'post_date', 'post_date_gmt', 'post_content', 'post_title',
-  'post_excerpt', 'post_status', 'comment_status', 'ping_status', 'post_password',
-  'post_name', 'to_ping', 'pinged', 'post_modified', 'post_modified_gmt',
-  'post_content_filtered', 'post_parent', 'guid', 'menu_order', 'post_type',
-  'post_mime_type', 'comment_count',
+  'ID',
+  'post_author',
+  'post_date',
+  'post_date_gmt',
+  'post_content',
+  'post_title',
+  'post_excerpt',
+  'post_status',
+  'comment_status',
+  'ping_status',
+  'post_password',
+  'post_name',
+  'to_ping',
+  'pinged',
+  'post_modified',
+  'post_modified_gmt',
+  'post_content_filtered',
+  'post_parent',
+  'guid',
+  'menu_order',
+  'post_type',
+  'post_mime_type',
+  'comment_count',
 ];
 
 const META_COLUMNS = ['meta_id', 'post_id', 'meta_key', 'meta_value'];
 const TERM_COLUMNS = ['term_id', 'name', 'slug', 'term_group'];
 const TAXONOMY_COLUMNS = [
-  'term_taxonomy_id', 'term_id', 'taxonomy', 'description', 'parent', 'count',
+  'term_taxonomy_id',
+  'term_id',
+  'taxonomy',
+  'description',
+  'parent',
+  'count',
 ];
 const RELATIONSHIP_COLUMNS = ['object_id', 'term_taxonomy_id', 'term_order'];
 
@@ -208,7 +231,10 @@ export function elementorWidgets(nodes: ElementorNode[]): ElementorWidget[] {
   const walk = (list: ElementorNode[]) => {
     for (const node of list) {
       if (node.elType === 'widget') {
-        widgets.push({ type: node.widgetType ?? 'unknown', settings: node.settings ?? {} });
+        widgets.push({
+          type: node.widgetType ?? 'unknown',
+          settings: node.settings ?? {},
+        });
       }
       if (Array.isArray(node.elements)) walk(node.elements);
     }
@@ -225,7 +251,11 @@ export function elementorWidgets(nodes: ElementorNode[]): ElementorWidget[] {
 export function decodeSetting(value: unknown): unknown {
   if (typeof value !== 'string') return value;
   const trimmed = value.trim();
-  if (!trimmed.startsWith('"') && !trimmed.startsWith('[') && !trimmed.startsWith('{')) {
+  if (
+    !trimmed.startsWith('"') &&
+    !trimmed.startsWith('[') &&
+    !trimmed.startsWith('{')
+  ) {
     return value;
   }
   try {
@@ -251,7 +281,10 @@ export function settingNumber(settings: Record<string, unknown>, key: string): n
 }
 
 /** Read a setting as an array (JSON-decoded when needed). */
-export function settingArray(settings: Record<string, unknown>, key: string): unknown[] {
+export function settingArray(
+  settings: Record<string, unknown>,
+  key: string,
+): unknown[] {
   const value = decodeSetting(settings[key]);
   return Array.isArray(value) ? value : [];
 }
@@ -279,7 +312,10 @@ export function settingImage(settings: Record<string, unknown>, key = 'image'): 
 }
 
 /** The alt text of an Elementor image setting. */
-export function settingImageAlt(settings: Record<string, unknown>, key = 'image'): string {
+export function settingImageAlt(
+  settings: Record<string, unknown>,
+  key = 'image',
+): string {
   const raw = decodeSetting(settings[key]);
   if (raw && typeof raw === 'object') {
     const alt = (raw as { alt?: unknown }).alt;
@@ -307,7 +343,10 @@ export interface ElementorImage {
 }
 
 /** The full description of an Elementor image setting. */
-export function settingImageInfo(settings: Record<string, unknown>, key = 'image'): ElementorImage {
+export function settingImageInfo(
+  settings: Record<string, unknown>,
+  key = 'image',
+): ElementorImage {
   const raw = decodeSetting(settings[key]);
 
   if (typeof raw === 'string') {

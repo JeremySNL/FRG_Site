@@ -3,7 +3,7 @@ title: "Encuentro con el Dr. Cruz Jiminian"
 slug: "encuentro-con-el-dr-cruz-jiminian"
 locale: "es"
 date: "2025-12-31T12:32:04"
-excerpt: "![](https://fundacionrosariogaton.org/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-31-at-9.41.31-AM-300x225.jpeg) Este sábado 8 de noviembre el Dr. Cruz Jiminian recibió una comisión de la Fundac"
+excerpt: "Este sábado 8 de noviembre el Dr. Cruz Jiminian recibió una comisión de la Fundación Rosario Gatón, precedida por su presidente el Dr. Julio Cesar Rosario Gatón, el Vice-presidente Pedro de los…"
 categories:
   - "uncategorized"
 tags: []

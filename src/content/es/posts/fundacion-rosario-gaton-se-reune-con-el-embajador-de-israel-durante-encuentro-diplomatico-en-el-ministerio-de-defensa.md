@@ -3,7 +3,7 @@ title: "Fundación Rosario Gatón se reúne con el Embajador de Israel durante e
 slug: "fundacion-rosario-gaton-se-reune-con-el-embajador-de-israel-durante-encuentro-diplomatico-en-el-ministerio-de-defensa"
 locale: "es"
 date: "2019-11-14T19:36:39"
-excerpt: "Altos ejecutivos de la Fundación Rosario Gatón participaron en una actividad organizada por las Damas Diplomáticas, realizada en el Ministerio de Defensa de la República Dominicana, donde se sostuvo u"
+excerpt: "Altos ejecutivos de la Fundación Rosario Gatón participaron en una actividad organizada por las Damas Diplomáticas, realizada en el Ministerio de Defensa de la República Dominicana, donde se sostuvo…"
 categories:
   - "relaciones-internacionales"
 tags: []

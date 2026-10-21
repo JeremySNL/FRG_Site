@@ -3,7 +3,7 @@ title: "Fundación Rosario Gatón sostiene encuentro con representante del G7 de
 slug: "fundacion-rosario-gaton-sostiene-encuentro-con-representante-del-g7-de-argentina-y-autoridades-dominicanas-del-sector-agricola"
 locale: "es"
 date: "2025-07-22T12:19:59"
-excerpt: "Santo Domingo, República Dominicana.\nLa Fundación Rosario Gatón (FRG) continúa fortaleciendo sus relaciones institucionales en busca de soluciones sostenibles para el desarrollo nacional. En esta ocas"
+excerpt: "Santo Domingo, República Dominicana. La Fundación Rosario Gatón (FRG) continúa fortaleciendo sus relaciones institucionales en busca de soluciones sostenibles para el desarrollo nacional. En esta…"
 categories:
   - "cooperacion-internacional"
   - "desarrollo-agropecuario"

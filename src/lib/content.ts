@@ -62,7 +62,10 @@ export async function getPages(locale: Locale): Promise<PageEntry[]> {
 }
 
 /** A single page by its slug. The home page uses the empty slug. */
-export async function getPage(locale: Locale, slug: string): Promise<PageEntry | undefined> {
+export async function getPage(
+  locale: Locale,
+  slug: string,
+): Promise<PageEntry | undefined> {
   const pages = await getPages(locale);
   return pages.find((page) => page.data.slug === slug);
 }
@@ -75,14 +78,20 @@ export async function getPosts(locale: Locale): Promise<PostEntry[]> {
 }
 
 /** A single post by its slug. */
-export async function getPost(locale: Locale, slug: string): Promise<PostEntry | undefined> {
+export async function getPost(
+  locale: Locale,
+  slug: string,
+): Promise<PostEntry | undefined> {
   const posts = await getPosts(locale);
   return posts.find((post) => post.data.slug === slug);
 }
 
 /** All programs of a locale, ordered by their `order` field. */
 export async function getPrograms(locale: Locale): Promise<ProgramEntry[]> {
-  const programs = await getCollection('programs', (entry) => entry.data.locale === locale);
+  const programs = await getCollection(
+    'programs',
+    (entry) => entry.data.locale === locale,
+  );
 
   return programs.sort((a, b) => a.data.order - b.data.order);
 }
@@ -129,7 +138,10 @@ export async function getPostsByCategory(
 }
 
 /** The posts of a tag, newest first. */
-export async function getPostsByTag(locale: Locale, tagSlug: string): Promise<PostEntry[]> {
+export async function getPostsByTag(
+  locale: Locale,
+  tagSlug: string,
+): Promise<PostEntry[]> {
   const posts = await getPosts(locale);
 
   return posts.filter((post) => post.data.tags.includes(tagSlug));
@@ -145,7 +157,10 @@ export async function getCategory(
 }
 
 /** A tag by its slug. */
-export async function getTag(locale: Locale, slug: string): Promise<TagEntry | undefined> {
+export async function getTag(
+  locale: Locale,
+  slug: string,
+): Promise<TagEntry | undefined> {
   const entry = await getEntry('tags', `${locale}/tags/${slug}`);
   return entry ?? undefined;
 }

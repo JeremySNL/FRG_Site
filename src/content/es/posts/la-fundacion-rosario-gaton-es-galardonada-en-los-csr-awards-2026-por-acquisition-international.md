@@ -3,7 +3,7 @@ title: "La Fundación Rosario Gatón es Galardonada en los CSR Awards 2026 por A
 slug: "la-fundacion-rosario-gaton-es-galardonada-en-los-csr-awards-2026-por-acquisition-international"
 locale: "es"
 date: "2026-10-15T21:11:54"
-excerpt: "La Fundación Rosario Gatón se complace en anunciar oficialmente que ha sido reconocida en la edición 2026 de los CSR Awards (Premios de Responsabilidad Social Corporativa), galardón otorgado anualment"
+excerpt: "La Fundación Rosario Gatón se complace en anunciar oficialmente que ha sido reconocida en la edición 2026 de los CSR Awards (Premios de Responsabilidad Social Corporativa), galardón otorgado…"
 categories:
   - "noticias-institucionales"
   - "relaciones-internacionales"

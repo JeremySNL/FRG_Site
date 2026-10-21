@@ -1,10 +1,10 @@
 ---
-name: "Rosario Gatón"
+name: "Rosario Gaton"
 slug: "rosario-gaton"
 locale: "es"
 role: "Presidente"
-bio: "Presidente de la Fundación Rosario Gatón."
+bio: ""
 image: "2025/07/rosario-gaton.jpg"
-imageAlt: "Rosario Gatón, presidente de la Fundación Rosario Gatón"
+imageAlt: "Rosario Gaton"
 order: 1
 ---

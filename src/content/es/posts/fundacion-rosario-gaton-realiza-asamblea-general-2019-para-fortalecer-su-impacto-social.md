@@ -3,7 +3,7 @@ title: "Fundación Rosario Gatón realiza Asamblea General 2019 para fortalecer 
 slug: "fundacion-rosario-gaton-realiza-asamblea-general-2019-para-fortalecer-su-impacto-social"
 locale: "es"
 date: "2019-03-17T19:56:49"
-excerpt: "Fundación Rosario Gatón celebra su Asamblea General 2019 en San Francisco de Macorís San Francisco de Macorís, República Dominicana – 17 de marzo de 2019.\nLa Fundación Rosario Gatón (FRG) celebró su A"
+excerpt: "Fundación Rosario Gatón celebra su Asamblea General 2019 en San Francisco de Macorís San Francisco de Macorís, República Dominicana – 17 de marzo de 2019. La Fundación Rosario Gatón (FRG) celebró su…"
 categories:
   - "gobernanza-y-gestion"
 tags: []

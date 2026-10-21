@@ -3,7 +3,7 @@ title: "Fundación Rosario Gatón recibe al Embajador Luis González para diálo
 slug: "fundacion-rosario-gaton-recibe-al-embajador-luis-gonzalez-para-dialogo-de-cooperacion-internacional"
 locale: "es"
 date: "2020-05-29T19:31:14"
-excerpt: "La Fundación Rosario Gatón recibió con honor la visita de Su Excelencia Luis González, Embajador para Asia y Oceanía, politólogo e internacionalista destacado, con quien se sostuvieron conversaciones"
+excerpt: "La Fundación Rosario Gatón recibió con honor la visita de Su Excelencia Luis González, Embajador para Asia y Oceanía, politólogo e internacionalista destacado, con quien se sostuvieron conversaciones…"
 categories:
   - "noticias-institucionales"
 tags: []

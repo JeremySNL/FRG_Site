@@ -14,26 +14,24 @@ interface Props {
 const { block } = Astro.props;
 ---
 
-{
-  block.youtubeId && (
-    <section class="section">
-      <div class="container-site">
-        {block.title && <h2 class="text-display-md">{block.title}</h2>}
+{block.youtubeId && (
+  <section class="section">
+    <div class="container-site">
+      {block.title && <h2 class="text-display-md">{block.title}</h2>}
 
-        <div class="mt-8 overflow-hidden rounded-3xl bg-heading shadow-lg">
-          <div class="relative aspect-video w-full">
-            <iframe
-              class="absolute inset-0 size-full"
-              src={`https://www.youtube-nocookie.com/embed/${block.youtubeId}`}
-              title={block.title ?? 'Video'}
-              loading="lazy"
-              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              referrerpolicy="strict-origin-when-cross-origin"
-            />
-          </div>
+      <div class="mt-8 overflow-hidden rounded-3xl bg-heading shadow-lg">
+        <div class="relative aspect-video w-full">
+          <iframe
+            class="absolute inset-0 size-full"
+            src={`https://www.youtube-nocookie.com/embed/${block.youtubeId}`}
+            title={block.title ?? 'Video'}
+            loading="lazy"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin"
+          />
         </div>
       </div>
-    </section>
-  )
-}
+    </div>
+  </section>
+)}

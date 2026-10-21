@@ -25,12 +25,18 @@ export interface Notification {
 export type SendResult = 'sent' | 'skipped' | 'failed';
 
 /** Send a notification e-mail. */
-export async function sendNotification(notification: Notification): Promise<SendResult> {
+export async function sendNotification(
+  notification: Notification,
+): Promise<SendResult> {
   const apiKey = import.meta.env.RESEND_API_KEY;
   const to = import.meta.env.FORM_NOTIFICATION_EMAIL ?? site.email;
 
   if (!apiKey) {
-    console.info('[form] %s\n%s', notification.subject, notification.body);
+    // Without a key the mail cannot be sent. The message goes to the log so
+    // a local run still shows what would have been delivered.
+    console.warn(
+      `[form] ${notification.subject}\n${notification.body}\n(no RESEND_API_KEY, the mail was not sent)`,
+    );
     return 'skipped';
   }
 

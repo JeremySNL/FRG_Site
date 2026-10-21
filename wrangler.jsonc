@@ -13,6 +13,6 @@
   // Secrets (Turnstile, Resend) are set with `wrangler secret put <NAME>`.
 
   "observability": {
-    "enabled": true
-  }
+    "enabled": true,
+  },
 }

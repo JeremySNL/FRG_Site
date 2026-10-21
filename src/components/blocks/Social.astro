@@ -27,27 +27,21 @@ const links = [
 
 <section class="section-tight">
   <div class="container-site">
-    {
-      block.title && (
-        <h2 class="font-display text-lg font-semibold">{block.title}</h2>
-      )
-    }
+    {block.title && <h2 class="font-display text-lg font-semibold">{block.title}</h2>}
     <div class="mt-5 flex gap-3">
-      {
-        links.map((link) => (
-          <a
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={link.label}
-            class="inline-flex size-11 items-center justify-center rounded-pill bg-accent text-white transition-colors hover:bg-accent-hover"
-          >
-            <svg aria-hidden="true" viewBox="0 0 24 24" class="size-5 fill-current">
-              <path d={link.path} />
-            </svg>
-          </a>
-        ))
-      }
+      {links.map((link) => (
+        <a
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={link.label}
+          class="inline-flex size-11 items-center justify-center rounded-pill bg-accent text-white transition-colors hover:bg-accent-hover"
+        >
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="size-5 fill-current">
+            <path d={link.path} />
+          </svg>
+        </a>
+      ))}
     </div>
   </div>
 </section>

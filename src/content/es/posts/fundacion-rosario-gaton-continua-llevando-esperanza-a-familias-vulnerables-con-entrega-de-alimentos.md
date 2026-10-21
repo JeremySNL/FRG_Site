@@ -3,7 +3,7 @@ title: "Fundación Rosario Gatón continúa llevando esperanza a familias vulner
 slug: "fundacion-rosario-gaton-continua-llevando-esperanza-a-familias-vulnerables-con-entrega-de-alimentos"
 locale: "es"
 date: "2025-07-22T12:31:54"
-excerpt: "La Fundación Rosario Gatón (FRG) sigue demostrando su compromiso con la salud, la alimentación y la dignidad de los más necesitados. En una nueva jornada solidaria, se realizó la entrega de raciones a"
+excerpt: "La Fundación Rosario Gatón (FRG) sigue demostrando su compromiso con la salud, la alimentación y la dignidad de los más necesitados. En una nueva jornada solidaria, se realizó la entrega de raciones…"
 categories:
   - "alimentacion-y-salud"
 tags: []

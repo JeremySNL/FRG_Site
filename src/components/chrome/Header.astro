@@ -47,48 +47,44 @@ const isActive = (href: string): boolean =>
 
     <nav class="hidden lg:block" aria-label={ui.mainMenu}>
       <ul class="flex items-center gap-1">
-        {
-          nav.map((item) => (
-            <li class="relative group">
-              <a
-                href={item.href}
-                aria-current={isActive(item.href) ? 'page' : undefined}
-                class:list={[
-                  'inline-flex items-center gap-1 rounded-pill px-4 py-2 font-display text-sm font-medium transition-colors hover:bg-surface hover:text-accent',
-                  isActive(item.href) && 'bg-surface text-accent',
-                ]}
-              >
-                {item.label}
-                {item.children.length > 0 && (
-                  <svg
-                    aria-hidden="true"
-                    viewBox="0 0 20 20"
-                    class="size-3.5 fill-current opacity-60"
-                  >
-                    <path d="M5.5 7.5 10 12l4.5-4.5H5.5Z" />
-                  </svg>
-                )}
-              </a>
-
+        {nav.map((item) => (
+          <li class="relative group">
+            <a
+              href={item.href}
+              aria-current={isActive(item.href) ? 'page' : undefined}
+              class:list={[
+                'inline-flex items-center gap-1 rounded-pill px-4 py-2 font-display text-sm font-medium transition-colors hover:bg-surface hover:text-accent',
+                isActive(item.href) && 'bg-surface text-accent',
+              ]}
+            >
+              {item.label}
               {item.children.length > 0 && (
-                <ul
-                  class="invisible absolute left-0 top-full z-50 w-64 rounded-2xl border border-muted bg-white p-2 opacity-0 shadow-lg transition-opacity group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 20 20"
+                  class="size-3.5 fill-current opacity-60"
                 >
-                  {item.children.map((child) => (
-                    <li>
-                      <a
-                        href={child.href}
-                        class="block rounded-xl px-4 py-2 text-sm transition-colors hover:bg-surface hover:text-accent"
-                      >
-                        {child.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                  <path d="M5.5 7.5 10 12l4.5-4.5H5.5Z" />
+                </svg>
               )}
-            </li>
-          ))
-        }
+            </a>
+
+            {item.children.length > 0 && (
+              <ul class="invisible absolute left-0 top-full z-50 w-64 rounded-2xl border border-muted bg-white p-2 opacity-0 shadow-lg transition-opacity group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                {item.children.map((child) => (
+                  <li>
+                    <a
+                      href={child.href}
+                      class="block rounded-xl px-4 py-2 text-sm transition-colors hover:bg-surface hover:text-accent"
+                    >
+                      {child.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
       </ul>
     </nav>
 
@@ -103,27 +99,23 @@ const isActive = (href: string): boolean =>
           </svg>
           <span class="font-display font-medium">{localeInfo[locale].labelEn}</span>
         </summary>
-        <ul
-          class="absolute right-0 top-full z-50 mt-2 w-48 rounded-2xl border border-muted bg-white p-2 shadow-lg"
-        >
-          {
-            locales.map((code) => (
-              <li>
-                <a
-                  href={localePath(code, currentSlug)}
-                  lang={localeInfo[code].htmlLang}
-                  hreflang={localeInfo[code].hreflang}
-                  aria-current={code === locale ? 'true' : undefined}
-                  class:list={[
-                    'block rounded-xl px-4 py-2 text-sm transition-colors hover:bg-surface hover:text-accent',
-                    code === locale && 'bg-surface font-medium text-accent',
-                  ]}
-                >
-                  {localeInfo[code].label}
-                </a>
-              </li>
-            ))
-          }
+        <ul class="absolute right-0 top-full z-50 mt-2 w-48 rounded-2xl border border-muted bg-white p-2 shadow-lg">
+          {locales.map((code) => (
+            <li>
+              <a
+                href={localePath(code, currentSlug)}
+                lang={localeInfo[code].htmlLang}
+                hreflang={localeInfo[code].hreflang}
+                aria-current={code === locale ? 'true' : undefined}
+                class:list={[
+                  'block rounded-xl px-4 py-2 text-sm transition-colors hover:bg-surface hover:text-accent',
+                  code === locale && 'bg-surface font-medium text-accent',
+                ]}
+              >
+                {localeInfo[code].label}
+              </a>
+            </li>
+          ))}
         </ul>
       </details>
 
@@ -151,51 +143,49 @@ const isActive = (href: string): boolean =>
   <div id="mobile-menu" class="hidden border-t border-muted bg-white lg:hidden">
     <nav class="container-site py-4" aria-label={ui.mainMenu}>
       <ul class="flex flex-col gap-1">
-        {
-          nav.map((item) => (
-            <li>
-              <a
-                href={item.href}
-                class="block rounded-xl px-4 py-3 font-display font-medium transition-colors hover:bg-surface hover:text-accent"
-              >
-                {item.label}
-              </a>
-              {item.children.length > 0 && (
-                <ul class="ml-4 border-l border-muted pl-4">
-                  {item.children.map((child) => (
-                    <li>
-                      <a
-                        href={child.href}
-                        class="block rounded-xl px-4 py-2 text-sm text-secondary transition-colors hover:bg-surface hover:text-accent"
-                      >
-                        {child.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-          ))
-        }
+        {nav.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="block rounded-xl px-4 py-3 font-display font-medium transition-colors hover:bg-surface hover:text-accent"
+            >
+              {item.label}
+            </a>
+            {item.children.length > 0 && (
+              <ul class="ml-4 border-l border-muted pl-4">
+                {item.children.map((child) => (
+                  <li>
+                    <a
+                      href={child.href}
+                      class="block rounded-xl px-4 py-2 text-sm text-secondary transition-colors hover:bg-surface hover:text-accent"
+                    >
+                      {child.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
       </ul>
 
       <div class="mt-4 flex flex-wrap items-center gap-3 border-t border-muted pt-4">
-        <a href={donatePath(locale)} class="btn-primary btn-sm">{ui.donate}</a>
+        <a href={donatePath(locale)} class="btn-primary btn-sm">
+          {ui.donate}
+        </a>
         <span class="text-sm text-secondary">{ui.chooseLanguage}:</span>
-        {
-          locales.map((code) => (
-            <a
-              href={localePath(code, currentSlug)}
-              lang={localeInfo[code].htmlLang}
-              class:list={[
-                'text-sm underline underline-offset-4 hover:text-accent',
-                code === locale && 'font-semibold text-accent',
-              ]}
-            >
-              {localeInfo[code].label}
-            </a>
-          ))
-        }
+        {locales.map((code) => (
+          <a
+            href={localePath(code, currentSlug)}
+            lang={localeInfo[code].htmlLang}
+            class:list={[
+              'text-sm underline underline-offset-4 hover:text-accent',
+              code === locale && 'font-semibold text-accent',
+            ]}
+          >
+            {localeInfo[code].label}
+          </a>
+        ))}
       </div>
     </nav>
   </div>
@@ -206,7 +196,8 @@ const isActive = (href: string): boolean =>
   const menu = document.querySelector<HTMLElement>('#mobile-menu');
 
   if (toggle && menu) {
-    const labelOpen = toggle.dataset.openLabel ?? toggle.getAttribute('aria-label') ?? '';
+    const labelOpen =
+      toggle.dataset.openLabel ?? toggle.getAttribute('aria-label') ?? '';
     const labelClose = toggle.dataset.closeLabel ?? labelOpen;
 
     toggle.addEventListener('click', () => {

@@ -86,7 +86,10 @@ export function toYaml(value: unknown, indent = 0): string {
 }
 
 /** Build a Markdown document from a frontmatter object and a body. */
-export function markdownDocument(frontmatter: Record<string, unknown>, body: string): string {
+export function markdownDocument(
+  frontmatter: Record<string, unknown>,
+  body: string,
+): string {
   const yaml = toYaml(frontmatter).trimEnd();
   const trimmedBody = body.trim();
 

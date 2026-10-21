@@ -51,44 +51,48 @@ const currentPath = Astro.url.pathname;
     <link rel="canonical" href={seo.canonical} />
     {seo.noindex && <meta name="robots" content="noindex, follow" />}
 
-    {
-      seo.alternates.map((alternate) => (
-        <link
-          rel="alternate"
-          hreflang={alternate.hreflang}
-          href={alternate.href}
-        />
-      ))
-    }
+    {seo.alternates.map((alternate) => (
+      <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />
+    ))}
 
     <meta property="og:type" content={seo.type} />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={seo.title} />
-    {seo.description && (
-      <meta property="og:description" content={seo.description} />
-    )}
+    {seo.description && <meta property="og:description" content={seo.description} />}
     <meta property="og:url" content={seo.canonical} />
     <meta property="og:locale" content={info.ogLocale} />
     <meta property="og:image" content={seo.image} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={seo.title} />
-    {seo.description && (
-      <meta name="twitter:description" content={seo.description} />
-    )}
+    {seo.description && <meta name="twitter:description" content={seo.description} />}
     {seo.image && <meta name="twitter:image" content={seo.image} />}
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap.xml" />
-    <link rel="alternate" type="application/rss+xml" title={site.name} href="/rss.xml" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={site.name}
+      href="/rss.xml"
+    />
     <meta name="theme-color" content="#273272" />
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
 
   <body class="flex min-h-screen flex-col">
-    <a href="#contenido" class="skip-link">{ui.skipToContent}</a>
+    <a href="#contenido" class="skip-link">
+      {ui.skipToContent}
+    </a>
 
-    {!bare && <Header locale={locale} nav={nav} currentSlug={currentSlug} currentPath={currentPath} />}
+    {!bare && (
+      <Header
+        locale={locale}
+        nav={nav}
+        currentSlug={currentSlug}
+        currentPath={currentPath}
+      />
+    )}
 
     <main id="contenido" class="flex-1">
       <slot />

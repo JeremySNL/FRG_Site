@@ -22,8 +22,7 @@
  *   R2_SECRET_ACCESS_KEY  R2 secret access key
  *   R2_BUCKET             name of the bucket
  */
-import { createReadStream } from 'node:fs';
-import { readdir, readFile, stat } from 'node:fs/promises';
+import { readdir, readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { dirname, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -61,6 +60,12 @@ const MIME_TYPES: Record<string, string> = {
   '.webp': 'image/webp',
 };
 
+/** The hosts whose media belongs to this site. */
+const OWN_HOSTS = new Set([
+  'fundacionrosariogaton.org',
+  'www.fundacionrosariogaton.org',
+]);
+
 function mimeType(path: string): string {
   const extension = path.slice(path.lastIndexOf('.')).toLowerCase();
   return MIME_TYPES[extension] ?? 'application/octet-stream';
@@ -71,19 +76,39 @@ function mimeType(path: string): string {
  *
  * Both the frontmatter and the body are scanned: the frontmatter holds the
  * images of the blocks, the body holds the images of the blog posts.
+ *
+ * Only the media of this site is collected. A few posts hotlink images of
+ * other websites — those are reported separately, they are not ours to move.
  */
-async function collectReferencedMedia(): Promise<Set<string>> {
-  const referenced = new Set<string>();
+async function collectReferencedMedia(): Promise<{
+  own: Set<string>;
+  external: Set<string>;
+}> {
+  const own = new Set<string>();
+  const external = new Set<string>();
 
   const add = (value: string): void => {
     if (!value) return;
 
+    let url: URL;
+    try {
+      url = new URL(value);
+    } catch {
+      return;
+    }
+
     const marker = '/wp-content/uploads/';
-    const index = value.indexOf(marker);
+    const index = url.pathname.indexOf(marker);
     if (index === -1) return;
 
-    const path = value.slice(index + marker.length).split(/[?#]/)[0] ?? '';
-    if (path !== '') referenced.add(path);
+    const path = url.pathname.slice(index + marker.length);
+    if (path === '') return;
+
+    if (OWN_HOSTS.has(url.hostname.toLowerCase())) {
+      own.add(path);
+    } else {
+      external.add(`${url.hostname}${url.pathname}`);
+    }
   };
 
   const walk = async (directory: string): Promise<void> => {
@@ -102,7 +127,9 @@ async function collectReferencedMedia(): Promise<Set<string>> {
       const source = await readFile(full, 'utf8');
 
       // Every `wp-content/uploads/…` occurrence, wherever it appears.
-      for (const match of source.matchAll(/\/wp-content\/uploads\/[^\s"')<>]+/g)) {
+      for (const match of source.matchAll(
+        /https?:\/\/[^\s"')<>]*\/wp-content\/uploads\/[^\s"')<>]+/g,
+      )) {
         add(match[0]);
       }
     }
@@ -110,7 +137,7 @@ async function collectReferencedMedia(): Promise<Set<string>> {
 
   await walk(contentDir);
 
-  return referenced;
+  return { own, external };
 }
 
 /** The file of the uploads folder that matches a media path. */
@@ -120,7 +147,7 @@ function localFileFor(mediaPath: string): string | undefined {
   return existsSync(candidate) ? candidate : undefined;
 }
 
-const referenced = await collectReferencedMedia();
+const { own: referenced, external } = await collectReferencedMedia();
 
 const missing: string[] = [];
 const files: Array<{ key: string; local: string }> = [];
@@ -145,6 +172,11 @@ if (missing.length > 0) {
   for (const path of missing) console.log(`  ${path}`);
 }
 
+if (external.size > 0) {
+  console.log('\nImages hotlinked from other websites (not moved):');
+  for (const path of [...external].sort()) console.log(`  ${path}`);
+}
+
 /** The key of the WebP variant of an image. */
 function variantKey(key: string): string {
   const dot = key.lastIndexOf('.');
@@ -161,9 +193,7 @@ if (!upload) {
 }
 
 if (!BUCKET || !ACCOUNT_ID) {
-  console.error(
-    'R2_BUCKET and R2_ACCOUNT_ID are required to upload. Aborting.',
-  );
+  console.error('R2_BUCKET and R2_ACCOUNT_ID are required to upload. Aborting.');
   process.exit(1);
 }
 
@@ -177,7 +207,7 @@ const client = new AwsClient({
 const endpoint = `https://${ACCOUNT_ID}.r2.cloudflarestorage.com`;
 
 /** Upload one file. */
-async function put(key: string, body: Buffer | string, type: string): Promise<void> {
+async function put(key: string, body: BodyInit, type: string): Promise<void> {
   const response = await client.fetch(`${endpoint}/${BUCKET}/${key}`, {
     method: 'PUT',
     body,
@@ -197,7 +227,7 @@ let uploaded = 0;
 for (const file of files) {
   const buffer = await readFile(file.local);
 
-  await put(file.key, buffer, mimeType(file.key));
+  await put(file.key, new Uint8Array(buffer), mimeType(file.key));
   uploaded += 1;
 
   if (withVariants && /\.(jpe?g|png|webp)$/i.test(file.key)) {
@@ -206,7 +236,7 @@ for (const file of files) {
       .webp({ quality: 82 })
       .toBuffer();
 
-    await put(variantKey(file.key), variant, 'image/webp');
+    await put(variantKey(file.key), new Uint8Array(variant), 'image/webp');
     uploaded += 1;
   }
 

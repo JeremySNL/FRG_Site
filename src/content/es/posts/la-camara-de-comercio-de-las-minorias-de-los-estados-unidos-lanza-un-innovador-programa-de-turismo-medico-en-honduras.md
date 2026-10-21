@@ -3,7 +3,7 @@ title: "La Cámara de Comercio de las Minorías de los Estados Unidos lanza un i
 slug: "la-camara-de-comercio-de-las-minorias-de-los-estados-unidos-lanza-un-innovador-programa-de-turismo-medico-en-honduras"
 locale: "es"
 date: "2026-02-13T23:49:54"
-excerpt: "![](https://fundacionrosariogaton.org/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-12-at-4.17.50-PM-200x300.jpeg) Washington D.C. —9 de febrero, 2026. En respuesta a la creciente necesidad de acc"
+excerpt: "Washington D.C. —9 de febrero, 2026. En respuesta a la creciente necesidad de acceso a servicios de salud de alta calidad y bajo costo para las comunidades minoritarias en los Estados Unidos, la…"
 categories:
   - "uncategorized"
 tags: []

@@ -23,11 +23,7 @@ const MAX_BUCKETS = 5000;
  * Returns `false` when the limit has been reached, in which case the caller
  * should reject the request.
  */
-export function checkRateLimit(
-  key: string,
-  limit = 5,
-  windowMs = 60_000,
-): boolean {
+export function checkRateLimit(key: string, limit = 5, windowMs = 60_000): boolean {
   const now = Date.now();
   const bucket = buckets.get(key);
 

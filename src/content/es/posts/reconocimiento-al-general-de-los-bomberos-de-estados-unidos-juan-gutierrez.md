@@ -3,7 +3,7 @@ title: "Reconocimiento al General de los Bomberos de Estados Unidos: Juan Gutié
 slug: "reconocimiento-al-general-de-los-bomberos-de-estados-unidos-juan-gutierrez"
 locale: "es"
 date: "2026-03-07T14:13:32"
-excerpt: "El Dr. Julio César Rosario Gatón, presidente de la fundación Rosario Gatón y la Gobernadora Civil Provincial Duarte de San Francisco de Macorís, la Lic. Ana Xiomara Cortés, recibieron este viernes 6 d"
+excerpt: "El Dr. Julio César Rosario Gatón, presidente de la fundación Rosario Gatón y la Gobernadora Civil Provincial Duarte de San Francisco de Macorís, la Lic. Ana Xiomara Cortés, recibieron este viernes 6…"
 categories:
   - "uncategorized"
 tags: []

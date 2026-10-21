@@ -42,18 +42,21 @@ const NAMED_ENTITIES: Record<string, string> = {
 
 /** Decode the HTML entities that actually appear in the WordPress content. */
 export function decodeEntities(text: string): string {
-  return text.replace(/&(#x?[0-9a-fA-F]+|[a-zA-Z][a-zA-Z0-9]*);/g, (match, entity: string) => {
-    if (entity.startsWith('#x') || entity.startsWith('#X')) {
-      const code = Number.parseInt(entity.slice(2), 16);
-      return Number.isFinite(code) ? String.fromCodePoint(code) : match;
-    }
-    if (entity.startsWith('#')) {
-      const code = Number.parseInt(entity.slice(1), 10);
-      return Number.isFinite(code) ? String.fromCodePoint(code) : match;
-    }
-    const named = NAMED_ENTITIES[entity.toLowerCase()];
-    return named ?? match;
-  });
+  return text.replace(
+    /&(#x?[0-9a-fA-F]+|[a-zA-Z][a-zA-Z0-9]*);/g,
+    (match, entity: string) => {
+      if (entity.startsWith('#x') || entity.startsWith('#X')) {
+        const code = Number.parseInt(entity.slice(2), 16);
+        return Number.isFinite(code) ? String.fromCodePoint(code) : match;
+      }
+      if (entity.startsWith('#')) {
+        const code = Number.parseInt(entity.slice(1), 10);
+        return Number.isFinite(code) ? String.fromCodePoint(code) : match;
+      }
+      const named = NAMED_ENTITIES[entity.toLowerCase()];
+      return named ?? match;
+    },
+  );
 }
 
 /** Remove every tag and return plain text. */
@@ -72,7 +75,8 @@ export function stripHtml(html: string): string {
 /** Attributes of a tag, as a plain object. */
 function readAttributes(tag: string): Record<string, string> {
   const attributes: Record<string, string> = {};
-  const pattern = /([a-zA-Z_:][-a-zA-Z0-9_:.]*)\s*=\s*("([^"]*)"|'([^']*)'|([^\s"'>]+))/g;
+  const pattern =
+    /([a-zA-Z_:][-a-zA-Z0-9_:.]*)\s*=\s*("([^"]*)"|'([^']*)'|([^\s"'>]+))/g;
 
   let match: RegExpExecArray | null;
   while ((match = pattern.exec(tag)) !== null) {
@@ -85,10 +89,40 @@ function readAttributes(tag: string): Record<string, string> {
 }
 
 const BLOCK_TAGS = new Set([
-  'address', 'article', 'aside', 'blockquote', 'details', 'div', 'dl', 'fieldset',
-  'figcaption', 'figure', 'footer', 'form', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
-  'header', 'hr', 'main', 'nav', 'ol', 'p', 'pre', 'section', 'table', 'tbody',
-  'td', 'tfoot', 'th', 'thead', 'tr', 'ul',
+  'address',
+  'article',
+  'aside',
+  'blockquote',
+  'details',
+  'div',
+  'dl',
+  'fieldset',
+  'figcaption',
+  'figure',
+  'footer',
+  'form',
+  'h1',
+  'h2',
+  'h3',
+  'h4',
+  'h5',
+  'h6',
+  'header',
+  'hr',
+  'main',
+  'nav',
+  'ol',
+  'p',
+  'pre',
+  'section',
+  'table',
+  'tbody',
+  'td',
+  'tfoot',
+  'th',
+  'thead',
+  'tr',
+  'ul',
 ]);
 
 /**
@@ -100,7 +134,7 @@ const BLOCK_TAGS = new Set([
 export function htmlToMarkdown(html: string): string {
   if (!html) return '';
 
-  let source = html
+  const source = html
     .replace(/<!--[\s\S]*?-->/g, '')
     .replace(/<(script|style)[\s\S]*?<\/\1>/gi, '');
 
