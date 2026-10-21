@@ -1,0 +1,63 @@
+---
+/**
+ * The "áreas de acción" grid. The entries live in the `programs` collection,
+ * so they can be edited without touching the pages.
+ */
+import type { ProgramsBlock } from '~/lib/blocks.ts';
+import { getPrograms } from '~/lib/content.ts';
+import { mediaUrl } from '~/lib/site.ts';
+import type { Locale } from '~/lib/locales.ts';
+
+interface Props {
+  block: ProgramsBlock;
+  locale: Locale;
+}
+
+const { block, locale } = Astro.props;
+
+const all = await getPrograms(locale);
+const selected = block.programs.length > 0
+  ? block.programs
+      .map((slug) => all.find((program) => program.data.slug === slug))
+      .filter((program): program is NonNullable<typeof program> => Boolean(program))
+  : all;
+---
+
+{
+  selected.length > 0 && (
+    <section class="section">
+      <div class="container-site">
+        {block.title && <h2 class="text-display-md">{block.title}</h2>}
+        {block.intro && (
+          <p class="mt-4 max-w-3xl text-lg text-secondary">{block.intro}</p>
+        )}
+
+        <div class="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {selected.map((program) => (
+            <article class="group overflow-hidden rounded-2xl border border-muted bg-white shadow-sm transition-shadow hover:shadow-md">
+              {program.data.image && (
+                <img
+                  src={mediaUrl(program.data.image)}
+                  alt={program.data.imageAlt ?? program.data.title}
+                  loading="lazy"
+                  decoding="async"
+                  class="h-52 w-full object-cover"
+                />
+              )}
+              <div class="p-6">
+                <h3 class="font-display text-lg font-semibold">
+                  {program.data.title}
+                </h3>
+                {program.data.summary && (
+                  <p class="mt-3 text-sm leading-relaxed text-secondary">
+                    {program.data.summary}
+                  </p>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

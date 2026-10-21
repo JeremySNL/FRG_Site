@@ -1,0 +1,41 @@
+---
+/**
+ * A call to action band.
+ */
+import type { CtaBlock } from '~/lib/blocks.ts';
+
+interface Props {
+  block: CtaBlock;
+}
+
+const { block } = Astro.props;
+---
+
+<section class="section-tight">
+  <div class="container-site">
+    <div class="rounded-3xl bg-accent px-8 py-12 text-white md:px-14">
+      <h2 class="text-display-md text-white">{block.title}</h2>
+      {
+        block.text && (
+          <p class="mt-4 max-w-2xl text-base leading-relaxed text-white/80">
+            {block.text}
+          </p>
+        )
+      }
+      {
+        block.buttons.length > 0 && (
+          <div class="mt-8 flex flex-wrap gap-4">
+            {block.buttons.map((button, index) => (
+              <a
+                href={button.href}
+                class:list={[index === 0 ? 'btn-white' : 'btn-outline border-white text-white hover:bg-white hover:text-accent']}
+              >
+                {button.label}
+              </a>
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </div>
+</section>

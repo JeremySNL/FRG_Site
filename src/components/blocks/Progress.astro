@@ -1,0 +1,40 @@
+---
+/**
+ * A progress bar (goal reached, campaign progress).
+ */
+import type { ProgressBlock } from '~/lib/blocks.ts';
+
+interface Props {
+  block: ProgressBlock;
+}
+
+const { block } = Astro.props;
+const value = Math.max(0, Math.min(100, block.percentage));
+---
+
+<section class="section-tight">
+  <div class="container-site">
+    <div class="rounded-2xl border border-muted bg-white p-7">
+      {
+        block.label && (
+          <p class="font-display text-base font-medium">{block.label}</p>
+        )
+      }
+      <div
+        class="mt-4 h-3 w-full overflow-hidden rounded-pill bg-muted"
+        role="progressbar"
+        aria-valuenow={value}
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-label={block.label ?? 'Progreso'}
+      >
+        <div
+          class="h-full rounded-pill bg-accent"
+          style={`width: ${value}%`}
+        >
+        </div>
+      </div>
+      <p class="mt-3 text-sm text-secondary">{value}%</p>
+    </div>
+  </div>
+</section>

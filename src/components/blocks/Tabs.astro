@@ -1,0 +1,90 @@
+---
+/**
+ * Tabbed content. The "Misión / Visión / Valores" panel of the "Nosotros" page.
+ *
+ * A small inline script implements the ARIA tabs pattern (arrow-key
+ * navigation, `aria-selected`, panels toggled with the `hidden` attribute).
+ */
+import type { TabsBlock } from '~/lib/blocks.ts';
+
+interface Props {
+  block: TabsBlock;
+}
+
+const { block } = Astro.props;
+const id = `tabs-${block.items.map((item) => item.title).join('-').toLowerCase().replace(/[^a-z0-9]+/g, '').slice(0, 24)}`;
+---
+
+{
+  block.items.length > 0 && (
+    <section class="section">
+      <div class="container-site">
+        {block.title && <h2 class="text-display-md">{block.title}</h2>}
+
+        <div class="mt-10" data-tabs={id}>
+          <div class="flex flex-wrap gap-2" role="tablist" aria-label={block.title}>
+            {block.items.map((item, index) => (
+              <button
+                type="button"
+                role="tab"
+                id={`${id}-tab-${index}`}
+                aria-controls={`${id}-panel-${index}`}
+                aria-selected={index === 0 ? 'true' : 'false'}
+                tabindex={index === 0 ? 0 : -1}
+                class="rounded-pill border border-muted px-5 py-2.5 font-display text-sm font-medium transition-colors hover:border-accent hover:text-accent aria-selected:border-accent aria-selected:bg-accent aria-selected:text-white"
+              >
+                {item.title}
+              </button>
+            ))}
+          </div>
+
+          <div class="mt-6">
+            {block.items.map((item, index) => (
+              <div
+                role="tabpanel"
+                id={`${id}-panel-${index}`}
+                aria-labelledby={`${id}-tab-${index}`}
+                hidden={index !== 0}
+                class="prose prose-frg rounded-2xl border border-muted bg-white p-8"
+              >
+                <div set:html={item.html} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<script>
+  for (const root of document.querySelectorAll<HTMLElement>('[data-tabs]')) {
+    const tabs = [...root.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+    const panels = [...root.querySelectorAll<HTMLElement>('[role="tabpanel"]')];
+
+    const select = (index: number): void => {
+      tabs.forEach((tab, position) => {
+        const active = position === index;
+        tab.setAttribute('aria-selected', String(active));
+        tab.tabIndex = active ? 0 : -1;
+      });
+
+      panels.forEach((panel, position) => {
+        panel.hidden = position !== index;
+      });
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => select(index));
+      tab.addEventListener('keydown', (event) => {
+        if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
+
+        event.preventDefault();
+        const delta = event.key === 'ArrowRight' ? 1 : -1;
+        const next = (index + delta + tabs.length) % tabs.length;
+        select(next);
+        tabs[next]?.focus();
+      });
+    });
+  }
+</script>

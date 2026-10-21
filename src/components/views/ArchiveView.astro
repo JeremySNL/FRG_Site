@@ -1,0 +1,97 @@
+---
+/**
+ * A list of posts, used by the blog index and by the category and tag
+ * archives.
+ */
+import TranslationNotice from './TranslationNotice.astro';
+import { getUi } from '~/lib/ui.ts';
+import { localePath, type Locale } from '~/lib/locales.ts';
+import { mediaUrl } from '~/lib/site.ts';
+import type { PostEntry } from '~/lib/content.ts';
+
+interface Props {
+  /**
+   * The heading of the archive. When it is omitted no `<h1>` is rendered —
+   * the blog index shows its own hero block instead.
+   */
+  title?: string;
+  description?: string;
+  posts: PostEntry[];
+  locale: Locale;
+  isFallback: boolean;
+}
+
+const { title, description, posts, locale, isFallback } = Astro.props;
+const ui = getUi(locale);
+---
+
+{isFallback && <TranslationNotice locale={locale} />}
+
+<section class="section">
+  <div class="container-site">
+    {(title || description) && (
+      <header class="max-w-3xl">
+        {title && <h1 class="text-display-lg">{title}</h1>}
+        {description && (
+          <p class="mt-5 text-lg leading-relaxed text-secondary">{description}</p>
+        )}
+      </header>
+    )}
+
+    {
+      posts.length > 0 ? (
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post) => (
+            <article class="card flex flex-col overflow-hidden p-0">
+              {post.data.image && (
+                <img
+                  src={mediaUrl(post.data.image)}
+                  alt={post.data.imageAlt ?? ''}
+                  loading="lazy"
+                  decoding="async"
+                  class="h-48 w-full object-cover"
+                />
+              )}
+              <div class="flex flex-1 flex-col p-6">
+                <time
+                  datetime={post.data.date.toISOString()}
+                  class="font-alt text-xs uppercase tracking-[0.14em] text-secondary"
+                >
+                  {post.data.date.toLocaleDateString(locale, {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </time>
+                <h2 class="mt-3 font-display text-lg font-semibold">
+                  <a
+                    href={localePath(locale, `actualidades/${post.data.slug}`)}
+                    class="transition-colors hover:text-accent"
+                  >
+                    {post.data.title}
+                  </a>
+                </h2>
+                {post.data.excerpt && (
+                  <p class="mt-3 flex-1 text-sm leading-relaxed text-secondary">
+                    {post.data.excerpt}
+                  </p>
+                )}
+                <a
+                  href={localePath(locale, `actualidades/${post.data.slug}`)}
+                  class="mt-5 inline-flex items-center gap-1 font-display text-sm font-medium text-accent hover:text-accent-hover"
+                >
+                  <span class="link-underline">{ui.readMore}</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <p class="mt-12 rounded-2xl border border-dashed border-muted bg-surface p-8 text-sm text-secondary">
+          {ui.noPosts}
+        </p>
+      )
+    }
+  </div>
+</section>

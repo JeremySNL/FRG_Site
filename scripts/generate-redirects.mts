@@ -1,0 +1,173 @@
+/**
+ * Build `public/_redirects` — the redirect table Cloudflare serves.
+ *
+ * The new site keeps every Spanish URL of the old WordPress site, with two
+ * exceptions:
+ *
+ *  - the blog posts moved to `/actualidades/<slug>/`,
+ *  - the pages whose slug changed are redirected to their new address.
+ *
+ * The rules are derived from the `legacyPath` frontmatter of the migrated
+ * content, so they can never drift away from what was actually imported.
+ *
+ * Run it with `npm run migrate:redirects`.
+ */
+import { readdir, readFile, mkdir, writeFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const contentDir = join(root, 'src', 'content');
+const outputFile = join(root, 'public', '_redirects');
+
+/** The language the redirects are generated for. Spanish is the source. */
+const LOCALE = 'es';
+
+/**
+ * URLs of the old site that have no equivalent in the content.
+ *
+ * The first three come from GiveWP, which was installed but never used: the
+ * donation form of the old site was a WPForms form.
+ */
+const MANUAL_RULES: Array<{ from: string; to: string; status: number }> = [
+  { from: '/confirmacion-de-donacion/', to: '/donar/', status: 301 },
+  { from: '/donacion-fallida/', to: '/donar/', status: 301 },
+  { from: '/escritorio-del-donante/', to: '/donar/', status: 301 },
+  // The footer of the old site linked to a blog that never existed.
+  { from: '/blog/', to: '/actualidades/', status: 301 },
+];
+
+/**
+ * The media of the old site is served from the media host. Until the R2
+ * bucket is in place this points at the WordPress uploads folder.
+ */
+const MEDIA_SOURCE = process.env.MEDIA_SOURCE_URL ?? 'https://fundacionrosariogaton.org';
+
+interface Rule {
+  from: string;
+  to: string;
+  status: number;
+}
+
+/** Read the frontmatter of a Markdown file. */
+function readFrontmatter(source: string): Record<string, string> {
+  const match = /^---\r?\n([\s\S]*?)\r?\n---/.exec(source);
+  if (!match?.[1]) return {};
+
+  const data: Record<string, string> = {};
+
+  for (const line of match[1].split(/\r?\n/)) {
+    const separator = line.indexOf(':');
+    if (separator === -1) continue;
+
+    const key = line.slice(0, separator).trim();
+    let value = line.slice(separator + 1).trim();
+
+    if (value.startsWith('"') && value.endsWith('"')) {
+      value = value.slice(1, -1).replace(/\\"/g, '"');
+    } else if (value.startsWith("'") && value.endsWith("'")) {
+      value = value.slice(1, -1);
+    }
+
+    data[key] = value;
+  }
+
+  return data;
+}
+
+/**
+ * Normalize a path so it always starts and ends with a slash.
+ *
+ * The site is built with `trailingSlash: 'always'`, so every rule has to use
+ * the same shape — otherwise `/actualidades` and `/actualidades/` would be
+ * treated as two different addresses.
+ */
+function normalize(path: string): string {
+  const clean = path.trim().replace(/\/+/g, '/');
+  if (clean === '' || clean === '/') return '/';
+
+  const absolute = clean.startsWith('/') ? clean : `/${clean}`;
+
+  return absolute.endsWith('/') ? absolute : `${absolute}/`;
+}
+
+async function collectRules(): Promise<Rule[]> {
+  const rules: Rule[] = [];
+  const seen = new Set<string>();
+
+  const add = (from: string, to: string, status = 301): void => {
+    const source = normalize(from);
+    const target = normalize(to);
+
+    if (source === target) return;
+    if (seen.has(source)) return;
+
+    seen.add(source);
+    rules.push({ from: source, to: target, status });
+  };
+
+  const localeDir = join(contentDir, LOCALE);
+
+  // The pages keep their address, except the ones whose slug changed.
+  const pagesDir = join(localeDir, 'pages');
+  if (existsSync(pagesDir)) {
+    for (const file of await readdir(pagesDir)) {
+      if (!file.endsWith('.md')) continue;
+
+      const frontmatter = readFrontmatter(
+        await readFile(join(pagesDir, file), 'utf8'),
+      );
+
+      const legacy = frontmatter['legacyPath'];
+      const slug = frontmatter['slug'];
+
+      if (!legacy || slug === undefined) continue;
+
+      add(legacy, slug === '' ? '/' : `/${slug}`);
+    }
+  }
+
+  // The posts moved from `/<slug>/` to `/actualidades/<slug>/`.
+  const postsDir = join(localeDir, 'posts');
+  if (existsSync(postsDir)) {
+    for (const file of await readdir(postsDir)) {
+      if (!file.endsWith('.md')) continue;
+
+      const frontmatter = readFrontmatter(
+        await readFile(join(postsDir, file), 'utf8'),
+      );
+
+      const legacy = frontmatter['legacyPath'];
+      const slug = frontmatter['slug'];
+
+      if (!legacy || !slug) continue;
+
+      add(legacy, `/actualidades/${slug}`);
+    }
+  }
+
+  for (const rule of MANUAL_RULES) {
+    add(rule.from, rule.to, rule.status);
+  }
+
+  return rules.sort((a, b) => a.from.localeCompare(b.from));
+}
+
+const rules = await collectRules();
+
+const lines = [
+  '# Generated by `npm run migrate:redirects` — do not edit by hand.',
+  '# Every rule keeps the address that Google indexed for years.',
+  '',
+  ...rules.map((rule) => `${rule.from} ${rule.to} ${rule.status}`),
+  '',
+  `# The media of the old site lives on the media host.`,
+  `/wp-content/uploads/* ${MEDIA_SOURCE}/wp-content/uploads/:splat 301`,
+  '',
+];
+
+await mkdir(dirname(outputFile), { recursive: true });
+await writeFile(outputFile, lines.join('\n'), 'utf8');
+
+console.log(`Wrote ${rules.length} redirect rules to public/_redirects`);

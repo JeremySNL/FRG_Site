@@ -1,0 +1,83 @@
+---
+/**
+ * The block dispatcher.
+ *
+ * Every page is a list of blocks; this component maps each one to the
+ * component in `src/components/blocks/` that renders it. The mapping is
+ * exhaustive — `tests/blocks.test.ts` fails if a block type is missing here.
+ */
+import type { Block } from '~/lib/blocks.ts';
+import type { Locale } from '~/lib/locales.ts';
+
+import Accordion from './Accordion.astro';
+import Cards from './Cards.astro';
+import Cta from './Cta.astro';
+import Form from './Form.astro';
+import Gallery from './Gallery.astro';
+import Hero from './Hero.astro';
+import ImageText from './ImageText.astro';
+import LatestPosts from './LatestPosts.astro';
+import List from './List.astro';
+import Map from './Map.astro';
+import Programs from './Programs.astro';
+import Progress from './Progress.astro';
+import RichText from './RichText.astro';
+import Social from './Social.astro';
+import Stats from './Stats.astro';
+import Tabs from './Tabs.astro';
+import Team from './Team.astro';
+import Testimonial from './Testimonial.astro';
+import Video from './Video.astro';
+
+interface Props {
+  blocks: Block[];
+  locale: Locale;
+}
+
+const { blocks, locale } = Astro.props;
+---
+
+{
+  blocks.map((block) => {
+    switch (block.type) {
+      case 'hero':
+        return <Hero block={block} />;
+      case 'stats':
+        return <Stats block={block} />;
+      case 'programs':
+        return <Programs block={block} locale={locale} />;
+      case 'cards':
+        return <Cards block={block} locale={locale} />;
+      case 'imageText':
+        return <ImageText block={block} />;
+      case 'accordion':
+        return <Accordion block={block} />;
+      case 'tabs':
+        return <Tabs block={block} />;
+      case 'list':
+        return <List block={block} />;
+      case 'testimonial':
+        return <Testimonial block={block} />;
+      case 'social':
+        return <Social block={block} />;
+      case 'video':
+        return <Video block={block} />;
+      case 'gallery':
+        return <Gallery block={block} />;
+      case 'latestPosts':
+        return <LatestPosts block={block} locale={locale} />;
+      case 'form':
+        return <Form block={block} locale={locale} />;
+      case 'cta':
+        return <Cta block={block} />;
+      case 'map':
+        return <Map block={block} />;
+      case 'team':
+        return <Team block={block} locale={locale} />;
+      case 'progress':
+        return <Progress block={block} />;
+      case 'richText':
+        return <RichText block={block} />;
+    }
+  })
+}

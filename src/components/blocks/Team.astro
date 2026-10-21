@@ -1,0 +1,69 @@
+---
+/**
+ * The team members of the foundation.
+ *
+ * The entries live in the `team` collection. The original WordPress site had
+ * no team data at all (the "Nuestro Equipo" page only rendered the theme
+ * chrome), so this collection starts with the president and grows by hand.
+ */
+import type { TeamBlock } from '~/lib/blocks.ts';
+import { getTeam } from '~/lib/content.ts';
+import { mediaUrl } from '~/lib/site.ts';
+import { getUi } from '~/lib/ui.ts';
+import type { Locale } from '~/lib/locales.ts';
+
+interface Props {
+  block: TeamBlock;
+  locale: Locale;
+}
+
+const { block, locale } = Astro.props;
+const ui = getUi(locale);
+const team = await getTeam(locale);
+---
+
+<section class="section">
+  <div class="container-site">
+    {block.title && <h2 class="text-display-md">{block.title}</h2>}
+    {
+      block.intro && (
+        <p class="mt-4 max-w-2xl text-lg text-secondary">{block.intro}</p>
+      )
+    }
+
+    {
+      team.length > 0 ? (
+        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {team.map((member) => (
+            <article class="card text-center">
+              {member.data.image && (
+                <img
+                  src={mediaUrl(member.data.image)}
+                  alt={member.data.imageAlt ?? member.data.name}
+                  loading="lazy"
+                  decoding="async"
+                  class="mx-auto size-32 rounded-pill object-cover"
+                />
+              )}
+              <h3 class="mt-5 font-display text-lg font-semibold">
+                {member.data.name}
+              </h3>
+              {member.data.role && (
+                <p class="mt-1 text-sm text-accent">{member.data.role}</p>
+              )}
+              {member.data.bio && (
+                <p class="mt-3 text-sm leading-relaxed text-secondary">
+                  {member.data.bio}
+                </p>
+              )}
+            </article>
+          ))}
+        </div>
+      ) : (
+        <p class="mt-10 rounded-2xl border border-dashed border-muted bg-surface p-8 text-sm text-secondary">
+          {ui.teamEmpty}
+        </p>
+      )
+    }
+  </div>
+</section>

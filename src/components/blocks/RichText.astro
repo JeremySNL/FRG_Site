@@ -1,0 +1,23 @@
+---
+/**
+ * Free-form rich text. The HTML comes from the content files, which are
+ * reviewed and committed to git — it is not user input.
+ */
+import type { RichTextBlock } from '~/lib/blocks.ts';
+
+interface Props {
+  block: RichTextBlock;
+}
+
+const { block } = Astro.props;
+---
+
+<section class="section">
+  <div class="container-site">
+    <div
+      class="prose prose-frg max-w-3xl"
+      set:html={block.html}
+    >
+    </div>
+  </div>
+</section>

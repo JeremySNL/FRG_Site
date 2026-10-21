@@ -1,0 +1,43 @@
+---
+/**
+ * A Google map of the address of the foundation.
+ *
+ * The map is loaded lazily from an `<iframe>` so no request to Google happens
+ * until the visitor scrolls it into view.
+ */
+import type { MapBlock } from '~/lib/blocks.ts';
+import { site } from '~/lib/site.ts';
+
+interface Props {
+  block: MapBlock;
+}
+
+const { block } = Astro.props;
+
+const query = encodeURIComponent(block.query);
+const src = `https://www.google.com/maps?q=${query}&z=${block.zoom ?? 14}&output=embed`;
+const href = `https://www.google.com/maps/search/?api=1&query=${query}`;
+---
+
+<section class="section">
+  <div class="container-site">
+    {block.title && <h2 class="text-display-md">{block.title}</h2>}
+
+    <div class="mt-8 overflow-hidden rounded-3xl border border-muted">
+      <iframe
+        src={src}
+        title={block.title ?? 'Mapa'}
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        class="h-[420px] w-full border-0"
+      >
+      </iframe>
+    </div>
+
+    <p class="mt-6 text-sm text-secondary">
+      <a href={href} target="_blank" rel="noopener noreferrer" class="link-underline">
+        {site.address.street}, {site.address.city}, {site.address.region}, {site.address.country}
+      </a>
+    </p>
+  </div>
+</section>

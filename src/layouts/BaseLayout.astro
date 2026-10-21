@@ -1,0 +1,99 @@
+---
+/**
+ * The HTML shell of the site.
+ *
+ * It renders the `<head>` with the SEO metadata, the self-hosted fonts, the
+ * JSON-LD payload, and the header / footer chrome around the page content.
+ */
+import '@fontsource-variable/outfit';
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/500.css';
+import '@fontsource/quicksand/400.css';
+import '~/styles/global.css';
+
+import Header from '~/components/chrome/Header.astro';
+import Footer from '~/components/chrome/Footer.astro';
+import { getUi } from '~/lib/ui.ts';
+import { site } from '~/lib/site.ts';
+import { localeInfo, type Locale } from '~/lib/locales.ts';
+import { organizationSchema, type SeoMeta } from '~/lib/seo.ts';
+import type { NavItem } from '~/lib/navigation.ts';
+
+interface Props {
+  locale: Locale;
+  nav: NavItem[];
+  seo: SeoMeta;
+  /** The slug of the current page, used to build the language alternates. */
+  currentSlug: string;
+  /** Extra JSON-LD documents. */
+  schemas?: Array<Record<string, unknown>>;
+  /** Hide the header (used by the 404 page). */
+  bare?: boolean;
+}
+
+const { locale, nav, seo, currentSlug, schemas = [], bare = false } = Astro.props;
+const ui = getUi(locale);
+const info = localeInfo[locale];
+
+const jsonLd = [organizationSchema(), ...schemas];
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang={info.htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{seo.title}</title>
+    {seo.description && <meta name="description" content={seo.description} />}
+    <link rel="canonical" href={seo.canonical} />
+    {seo.noindex && <meta name="robots" content="noindex, follow" />}
+
+    {
+      seo.alternates.map((alternate) => (
+        <link
+          rel="alternate"
+          hreflang={alternate.hreflang}
+          href={alternate.href}
+        />
+      ))
+    }
+
+    <meta property="og:type" content={seo.type} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={seo.title} />
+    {seo.description && (
+      <meta property="og:description" content={seo.description} />
+    )}
+    <meta property="og:url" content={seo.canonical} />
+    <meta property="og:locale" content={info.ogLocale} />
+    <meta property="og:image" content={seo.image} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={seo.title} />
+    {seo.description && (
+      <meta name="twitter:description" content={seo.description} />
+    )}
+    {seo.image && <meta name="twitter:image" content={seo.image} />}
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap.xml" />
+    <link rel="alternate" type="application/rss+xml" title={site.name} href="/rss.xml" />
+    <meta name="theme-color" content="#273272" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+
+  <body class="flex min-h-screen flex-col">
+    <a href="#contenido" class="skip-link">{ui.skipToContent}</a>
+
+    {!bare && <Header locale={locale} nav={nav} currentSlug={currentSlug} currentPath={currentPath} />}
+
+    <main id="contenido" class="flex-1">
+      <slot />
+    </main>
+
+    {!bare && <Footer locale={locale} />}
+  </body>
+</html>

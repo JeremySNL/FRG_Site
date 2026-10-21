@@ -1,0 +1,22 @@
+---
+/**
+ * Renders a page of the `pages` collection: the translation notice (when the
+ * content is a fallback) followed by the page blocks.
+ */
+import BlockRenderer from '~/components/blocks/BlockRenderer.astro';
+import TranslationNotice from './TranslationNotice.astro';
+import type { PageEntry } from '~/lib/content.ts';
+import type { Locale } from '~/lib/locales.ts';
+
+interface Props {
+  page: PageEntry;
+  locale: Locale;
+  isFallback: boolean;
+}
+
+const { page, locale, isFallback } = Astro.props;
+---
+
+{isFallback && <TranslationNotice locale={locale} />}
+
+<BlockRenderer blocks={page.data.blocks} locale={locale} />

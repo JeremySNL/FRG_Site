@@ -1,0 +1,50 @@
+---
+/**
+ * The 404 page.
+ *
+ * The old site had no `<main>` landmark and no custom error page; this one is
+ * rendered with the normal chrome and is marked `noindex`.
+ */
+import BaseLayout from '~/layouts/BaseLayout.astro';
+
+import { getUi } from '~/lib/ui.ts';
+import { defaultLocale, localePath } from '~/lib/locales.ts';
+import { buildNavigation } from '~/lib/navigation.ts';
+import { site } from '~/lib/site.ts';
+import type { SeoMeta } from '~/lib/seo.ts';
+
+const locale = defaultLocale;
+const ui = getUi(locale);
+const nav = await buildNavigation(locale);
+
+const seo: SeoMeta = {
+  title: `${ui.notFoundTitle} | ${site.name}`,
+  description: ui.notFoundText,
+  canonical: site.url,
+  image: '',
+  type: 'website',
+  noindex: true,
+  alternates: [],
+};
+---
+
+<BaseLayout locale={locale} nav={nav} seo={seo} currentSlug="">
+  <section class="section">
+    <div class="container-site">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="font-display text-display-2xl text-accent">404</p>
+        <h1 class="mt-4 text-display-lg">{ui.notFoundTitle}</h1>
+        <p class="mt-5 text-lg leading-relaxed text-secondary">
+          {ui.notFoundText}
+        </p>
+
+        <div class="mt-10 flex flex-wrap justify-center gap-4">
+          <a href={localePath(locale)} class="btn-primary">{ui.backHome}</a>
+          <a href={localePath(locale, 'actualidades')} class="btn-outline">
+            {ui.allPosts}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

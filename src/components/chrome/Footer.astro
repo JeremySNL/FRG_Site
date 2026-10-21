@@ -1,0 +1,152 @@
+---
+/**
+ * The site footer.
+ *
+ * Migrated from the Elementor footer template (id 481): the blurb, the quick
+ * links, the contact details and the social links are all real data from the
+ * original site.
+ */
+import { getUi } from '~/lib/ui.ts';
+import { mediaUrl, site } from '~/lib/site.ts';
+import { localePath, type Locale } from '~/lib/locales.ts';
+import { donatePath } from '~/lib/navigation.ts';
+import Newsletter from './Newsletter.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const ui = getUi(locale);
+
+const quickLinks = [
+  { label: 'Inicio', href: localePath(locale) },
+  { label: 'Actualidades', href: localePath(locale, 'actualidades') },
+  { label: 'Programas y Proyectos', href: localePath(locale, 'programas-y-proyectos') },
+  { label: 'Galería de Imágenes', href: localePath(locale, 'galeria-de-imagenes') },
+  { label: 'Nuestro Equipo', href: localePath(locale, 'nuestro-equipo') },
+  { label: 'Política de Ética y Seguridad', href: localePath(locale, 'politica-de-etica-y-seguridad') },
+  { label: 'Contacto', href: localePath(locale, 'contacto') },
+];
+
+const address = `${site.address.street}, ${site.address.city}, ${site.address.region}, ${site.address.country}`;
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-24 bg-heading text-white">
+  <div class="container-site py-16">
+    <div class="grid gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <img
+          src={mediaUrl(site.logo)}
+          alt={site.name}
+          width="180"
+          height="54"
+          class="h-12 w-auto brightness-0 invert"
+          loading="lazy"
+          decoding="async"
+        />
+        <p class="mt-6 max-w-sm text-sm leading-relaxed text-white/70">
+          {site.mission}
+        </p>
+        <div class="mt-6 flex gap-3">
+          <a
+            href={site.social.facebook}
+            rel="noopener noreferrer"
+            target="_blank"
+            class="inline-flex size-10 items-center justify-center rounded-pill border border-white/20 transition-colors hover:border-accent hover:bg-accent"
+            aria-label="Facebook"
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24" class="size-5 fill-current">
+              <path
+                d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.25-1.5 1.55-1.5h1.65V4.6c-.29-.04-1.27-.12-2.41-.12-2.39 0-4.02 1.46-4.02 4.13v2.29H7.5V14h2.77v8h3.23Z"
+              ></path>
+            </svg>
+          </a>
+          <a
+            href={site.social.instagram}
+            rel="noopener noreferrer"
+            target="_blank"
+            class="inline-flex size-10 items-center justify-center rounded-pill border border-white/20 transition-colors hover:border-accent hover:bg-accent"
+            aria-label="Instagram"
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24" class="size-5 fill-current">
+              <path
+                d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 1.98c-3.15 0-3.5.01-4.74.07-1.14.05-1.76.24-2.17.4-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.16.41-.35 1.03-.4 2.17-.06 1.24-.07 1.59-.07 4.74s.01 3.5.07 4.74c.05 1.14.24 1.76.4 2.17.21.55.47.94.88 1.35.41.41.8.67 1.35.88.41.16 1.03.35 2.17.4 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c1.14-.05 1.76-.24 2.17-.4.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.16-.41.35-1.03.4-2.17.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.05-1.14-.24-1.76-.4-2.17a3.6 3.6 0 0 0-.88-1.35 3.6 3.6 0 0 0-1.35-.88c-.41-.16-1.03-.35-2.17-.4C15.5 4.15 15.15 4.14 12 4.14Zm0 3.37a4.49 4.49 0 1 1 0 8.98 4.49 4.49 0 0 1 0-8.98Zm0 7.4a2.91 2.91 0 1 0 0-5.82 2.91 2.91 0 0 0 0 5.82Zm5.72-7.6a1.05 1.05 0 1 1-2.1 0 1.05 1.05 0 0 1 2.1 0Z"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <nav class="lg:col-span-3" aria-label={ui.quickLinks}>
+        <h2 class="font-display text-lg font-semibold">{ui.quickLinks}</h2>
+        <ul class="mt-5 space-y-2.5 text-sm text-white/70">
+          {
+            quickLinks.map((link) => (
+              <li>
+                <a href={link.href} class="transition-colors hover:text-white">
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <div class="lg:col-span-2">
+        <h2 class="font-display text-lg font-semibold">{ui.contact}</h2>
+        <ul class="mt-5 space-y-3 text-sm text-white/70">
+          <li>
+            <a
+              href={`mailto:${site.email}`}
+              class="transition-colors hover:text-white"
+            >
+              {site.email}
+            </a>
+          </li>
+          <li>
+            <a
+              href={`tel:${site.phone.replace(/[^0-9+]/g, '')}`}
+              class="transition-colors hover:text-white"
+            >
+              {site.phone}
+            </a>
+          </li>
+          <li>
+            <a
+              href={`https://wa.me/${site.whatsapp}`}
+              rel="noopener noreferrer"
+              target="_blank"
+              class="transition-colors hover:text-white"
+            >
+              WhatsApp {site.whatsappDisplay}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-3">
+        <Newsletter locale={locale} />
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-white/10 pt-6">
+      <address class="text-sm not-italic text-white/60">{address}</address>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div
+      class="container-site flex flex-col gap-4 py-6 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>Copyright © {year} {site.name}. {ui.copyright}</p>
+      <a
+        href={donatePath(locale)}
+        class="font-display text-sm font-medium text-white transition-colors hover:text-accent-hover"
+      >
+        {ui.donate} →
+      </a>
+    </div>
+  </div>
+</footer>

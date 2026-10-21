@@ -1,0 +1,84 @@
+---
+/**
+ * The hero of a page: title, lead paragraph, slogans and calls to action.
+ */
+import type { HeroBlock } from '~/lib/blocks.ts';
+import { mediaUrl } from '~/lib/site.ts';
+
+interface Props {
+  block: HeroBlock;
+}
+
+const { block } = Astro.props;
+---
+
+<section class="relative overflow-hidden bg-surface">
+  <div class="container-site py-16 md:py-24">
+    <div class="max-w-3xl">
+      {
+        block.eyebrow && (
+          <p class="font-alt text-sm font-medium uppercase tracking-[0.18em] text-accent">
+            {block.eyebrow}
+          </p>
+        )
+      }
+
+      <h1 class="mt-4 text-display-xl md:text-display-2xl">{block.title}</h1>
+
+      {
+        block.slogans && block.slogans.length > 0 && (
+          <ul class="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+            {block.slogans.map((slogan) => (
+              <li class="font-alt text-sm font-medium text-accent">{slogan}</li>
+            ))}
+          </ul>
+        )
+      }
+
+      {
+        block.text && (
+          <p class="mt-6 max-w-2xl text-lg leading-relaxed text-secondary">
+            {block.text}
+          </p>
+        )
+      }
+
+      {
+        block.buttons.length > 0 && (
+          <div class="mt-10 flex flex-wrap gap-4">
+            {block.buttons.map((button, index) => (
+              <a
+                href={button.href}
+                class:list={[
+                  index === 0 ? 'btn-primary' : 'btn-outline',
+                ]}
+              >
+                {button.label}
+              </a>
+            ))}
+          </div>
+        )
+      }
+    </div>
+
+    {
+      block.image && (
+        <div class="mt-12">
+          <img
+            src={mediaUrl(block.image)}
+            alt={block.imageAlt ?? ''}
+            loading="lazy"
+            decoding="async"
+            class="w-full rounded-3xl object-cover shadow-lg"
+          />
+        </div>
+      )
+    }
+  </div>
+
+  <div
+    aria-hidden="true"
+    class="h-3 w-full bg-transition"
+  >
+  </div>
+</section>

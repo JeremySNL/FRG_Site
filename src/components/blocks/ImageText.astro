@@ -1,0 +1,58 @@
+---
+/**
+ * An image next to a text block. `reverse` flips the order on wide screens.
+ */
+import type { ImageTextBlock } from '~/lib/blocks.ts';
+import { mediaUrl } from '~/lib/site.ts';
+
+interface Props {
+  block: ImageTextBlock;
+}
+
+const { block } = Astro.props;
+---
+
+<section class="section">
+  <div class="container-site">
+    <div
+      class:list={[
+        'grid items-center gap-10 lg:grid-cols-2',
+        block.reverse && 'lg:[&>*:first-child]:order-2',
+      ]}
+    >
+      {
+        block.image && (
+          <img
+            src={mediaUrl(block.image)}
+            alt={block.imageAlt ?? ''}
+            loading="lazy"
+            decoding="async"
+            class="h-full w-full rounded-3xl object-cover shadow-md"
+          />
+        )
+      }
+
+      <div>
+        {block.title && <h2 class="text-display-md">{block.title}</h2>}
+        {
+          block.text && (
+            <p class="mt-5 whitespace-pre-line text-base leading-relaxed text-secondary">
+              {block.text}
+            </p>
+          )
+        }
+        {
+          block.buttons.length > 0 && (
+            <div class="mt-8 flex flex-wrap gap-4">
+              {block.buttons.map((button) => (
+                <a href={button.href} class="btn-primary">
+                  {button.label}
+                </a>
+              ))}
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>

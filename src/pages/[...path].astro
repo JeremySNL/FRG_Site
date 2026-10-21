@@ -1,0 +1,229 @@
+---
+/**
+ * The single dispatcher route of the site.
+ *
+ * Every public URL is handled here:
+ *
+ *   /                             the home page
+ *   /nosotros/                    a page of the `pages` collection
+ *   /actualidades/                the blog index
+ *   /actualidades/<slug>/         a post
+ *   /category/<slug>/             a category archive
+ *   /tag/<slug>/                  a tag archive
+ *   /en/… /fr/… /ja/… /zh-TW/…    the same, in another language
+ *
+ * Spanish lives at the root so the URLs Google has indexed for years keep
+ * working; every other language is prefixed.
+ */
+import type { GetStaticPaths } from 'astro';
+
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import ArchiveView from '~/components/views/ArchiveView.astro';
+import PageView from '~/components/views/PageView.astro';
+import PostView from '~/components/views/PostView.astro';
+
+import {
+  locales,
+  localePath,
+  parseRoute,
+} from '~/lib/locales.ts';
+import {
+  getCategory,
+  getPage,
+  getPosts,
+  getPostsByCategory,
+  getPostsByTag,
+  getTag,
+  resolveLocale,
+} from '~/lib/content.ts';
+import { enumerateStaticPaths } from '~/lib/routing.ts';
+import { buildNavigation } from '~/lib/navigation.ts';
+import { articleSchema, buildSeo, itemListSchema, pageTitle } from '~/lib/seo.ts';
+import { site } from '~/lib/site.ts';
+
+export const getStaticPaths = (async () => enumerateStaticPaths()) satisfies GetStaticPaths;
+
+/* --- resolve the request ---------------------------------------------------- */
+
+const rawPath = Astro.params.path ?? '';
+const { locale: requestedLocale, segments } = parseRoute(`/${rawPath}`);
+
+const { locale, contentLocale, isFallback } = await resolveLocale(requestedLocale);
+const nav = await buildNavigation(contentLocale);
+
+const [first, second] = segments;
+
+type RouteKind = 'home' | 'page' | 'blogIndex' | 'post' | 'category' | 'tag';
+
+let kind: RouteKind = 'home';
+let slug = '';
+
+if (segments.length === 0) {
+  kind = 'home';
+} else if (first === 'actualidades') {
+  kind = segments.length > 1 ? 'post' : 'blogIndex';
+  slug = second ?? '';
+} else if (first === 'category' && second) {
+  kind = 'category';
+  slug = second;
+} else if (first === 'tag' && second) {
+  kind = 'tag';
+  slug = second;
+} else {
+  kind = 'page';
+  slug = segments.join('/');
+}
+
+const homePage = await getPage(contentLocale, '');
+const page = kind === 'page' ? await getPage(contentLocale, slug) : undefined;
+const blogPage = kind === 'blogIndex' ? await getPage(contentLocale, 'actualidades') : undefined;
+
+const allPosts = await getPosts(contentLocale);
+const post = kind === 'post' ? allPosts.find((entry) => entry.data.slug === slug) : undefined;
+
+const archivePosts =
+  kind === 'blogIndex'
+    ? allPosts
+    : kind === 'category'
+      ? await getPostsByCategory(contentLocale, slug)
+      : kind === 'tag'
+        ? await getPostsByTag(contentLocale, slug)
+        : [];
+
+const term =
+  kind === 'category'
+    ? await getCategory(contentLocale, slug)
+    : kind === 'tag'
+      ? await getTag(contentLocale, slug)
+      : undefined;
+const termDescription =
+  term && 'description' in term.data ? term.data.description : undefined;
+
+/* --- metadata --------------------------------------------------------------- */
+
+const seoSlug =
+  kind === 'post'
+    ? `actualidades/${slug}`
+    : kind === 'category'
+      ? `category/${slug}`
+      : kind === 'tag'
+        ? `tag/${slug}`
+        : kind === 'blogIndex'
+          ? 'actualidades'
+          : kind === 'home'
+            ? ''
+            : slug;
+
+const seoTitle =
+  kind === 'home'
+    ? `${site.name} — ${site.tagline}`
+    : pageTitle(
+        kind === 'post' && post
+          ? post.data.title
+          : kind === 'blogIndex'
+            ? (blogPage?.data.title ?? 'Actualidades')
+            : kind === 'category' || kind === 'tag'
+              ? (term?.data.title ?? 'Actualidades')
+              : (page?.data.title ?? homePage?.data.title ?? site.name),
+        locale,
+      );
+
+const seoDescription =
+  kind === 'post' && post
+    ? post.data.excerpt
+    : kind === 'blogIndex'
+      ? blogPage?.data.description
+      : kind === 'category' || kind === 'tag'
+        ? termDescription
+        : page?.data.description;
+
+const seo = buildSeo(
+  {
+    locale,
+    contentLocale,
+    slug: seoSlug,
+    title: seoTitle,
+    description: seoDescription,
+    image: kind === 'post' && post ? post.data.image : undefined,
+    type: kind === 'post' ? 'article' : 'website',
+  },
+  locales,
+);
+
+const schemas: Array<Record<string, unknown>> = [];
+
+if (kind === 'post' && post) {
+  schemas.push(
+    articleSchema({
+      title: post.data.title,
+      description: post.data.excerpt,
+      url: seo.canonical,
+      image: post.data.image,
+      publishedTime: post.data.date.toISOString(),
+      locale,
+    }),
+  );
+}
+
+if (kind === 'blogIndex' && archivePosts.length > 0) {
+  schemas.push(
+    itemListSchema({
+      name: blogPage?.data.title ?? 'Actualidades',
+      items: archivePosts.map((entry) => ({
+        name: entry.data.title,
+        url: new URL(
+          localePath(locale, `actualidades/${entry.data.slug}`),
+          site.url,
+        ).toString(),
+      })),
+    }),
+  );
+}
+---
+
+<BaseLayout
+  locale={locale}
+  nav={nav}
+  seo={seo}
+  currentSlug={seoSlug}
+  schemas={schemas}
+>
+  {
+    (kind === 'home' || kind === 'page') && (page ?? homePage) && (
+      <PageView
+        page={(page ?? homePage)!}
+        locale={locale}
+        isFallback={isFallback}
+      />
+    )
+  }
+
+  {
+    kind === 'blogIndex' && (
+      <>
+        {blogPage && (
+          <PageView page={blogPage} locale={locale} isFallback={isFallback} />
+        )}
+        <ArchiveView posts={archivePosts} locale={locale} isFallback={isFallback} />
+      </>
+    )
+  }
+
+  {
+    kind === 'post' && post && (
+      <PostView post={post} locale={locale} isFallback={isFallback} />
+    )
+  }
+
+  {
+    (kind === 'category' || kind === 'tag') && (
+      <ArchiveView
+        title={term?.data.title ?? seoTitle}
+        description={termDescription}
+        posts={archivePosts}
+        locale={locale}
+        isFallback={isFallback}
+      />
+    )
+  }
+</BaseLayout>
