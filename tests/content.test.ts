@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+﻿import { describe, expect, it } from 'vitest';
 import { readdir, readFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -138,10 +138,11 @@ describe('the content', () => {
     ]);
 
     for (const file of pages) {
-      if (!targets.has(file.split('\\').pop() ?? file.split('/').pop())) continue;
+      if (!targets.has((file.split(/[\\\\/]/).pop()) ?? '')) continue;
 
       const fm = frontmatter(await readFile(file, 'utf8'));
       expect(fm['noAutoTranslate'], `${file} must not be translated`).toBe('true');
     }
   });
 });
+

@@ -3,18 +3,20 @@
  * The programs / areas of action grid.
  */
 import type { ProgramsBlock } from '~/lib/blocks.ts';
-import { getProgramBySlug } from '~/lib/content.ts';
-import { getLocaleFromId } from '~/lib/routing.ts';
+import { getPrograms } from '~/lib/content.ts';
+import { parseRoute } from '~/lib/locales.ts';
 
 interface Props {
   block: ProgramsBlock;
 }
 
 const { block } = Astro.props;
-const locale = getLocaleFromId(Astro.locals?.pageId ?? 'es/pages/inicio');
-const programs = await Promise.all(
-  block.programs.map((slug) => getProgramBySlug(locale, slug)),
-).then((items) => items.filter((program): program is NonNullable<typeof program> => Boolean(program)));
+const url = Astro.url.pathname;
+const { locale } = parseRoute(url);
+const allPrograms = await getPrograms(locale);
+const programs = allPrograms.filter((program) =>
+  block.programs.includes(program.data.slug),
+);
 ---
 
 {programs.length > 0 && (
@@ -22,7 +24,9 @@ const programs = await Promise.all(
     <div class="container-site">
       {(block.title || block.intro) && (
         <div class="mb-10 max-w-2xl">
-          {block.title && <h2 class="text-display-md md:text-display-lg">{block.title}</h2>}
+          {block.title && (
+            <h2 class="text-display-md md:text-display-lg">{block.title}</h2>
+          )}
           {block.intro && <p class="mt-4 text-lg text-secondary">{block.intro}</p>}
         </div>
       )}
@@ -34,7 +38,10 @@ const programs = await Promise.all(
             {program.data.summary && (
               <p class="mt-2 flex-1 text-base text-secondary">{program.data.summary}</p>
             )}
-            <a class="link-underline mt-6 inline-flex items-center gap-2 text-sm" href="/programas-y-proyectos/">
+            <a
+              class="link-underline mt-6 inline-flex items-center gap-2 text-sm"
+              href="/programas-y-proyectos/"
+            >
               Ver programa
               <svg
                 aria-hidden="true"
@@ -49,7 +56,56 @@ const programs = await Promise.all(
                   stroke="currentColor"
                   stroke-width="1.5"
                   stroke-linecap="round"
-                  stroke-linejoin="round"></path>
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+{programs.length > 0 && (
+  <section class="section-surface">
+    <div class="container-site">
+      {(block.title || block.intro) && (
+        <div class="mb-10 max-w-2xl">
+          {block.title && (
+            <h2 class="text-display-md md:text-display-lg">{block.title}</h2>
+          )}
+          {block.intro && <p class="mt-4 text-lg text-secondary">{block.intro}</p>}
+        </div>
+      )}
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {programs.map((program) => (
+          <article class="card group flex flex-col">
+            <h3 class="text-display-xs">{program.data.title}</h3>
+            {program.data.summary && (
+              <p class="mt-2 flex-1 text-base text-secondary">{program.data.summary}</p>
+            )}
+            <a
+              class="link-underline mt-6 inline-flex items-center gap-2 text-sm"
+              href="/programas-y-proyectos/"
+            >
+              Ver programa
+              <svg
+                aria-hidden="true"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 3L11 8L6 13"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
               </svg>
             </a>
           </article>

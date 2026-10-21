@@ -21,7 +21,9 @@ const { block } = Astro.props;
         </p>
       )}
 
-      <h1 class="mt-4 text-display-lg md:text-display-2xl text-balance">{block.title}</h1>
+      <h1 class="mt-4 text-display-lg md:text-display-2xl text-balance">
+        {block.title}
+      </h1>
 
       {block.slogans && block.slogans.length > 0 && (
         <ul class="mt-6 flex flex-wrap gap-x-6 gap-y-2">
@@ -66,8 +68,7 @@ const { block } = Astro.props;
       <div
         aria-hidden="true"
         class="absolute -bottom-6 -left-6 hidden h-32 w-32 rounded-full bg-accent/10 md:block"
-      >
-      </div>
+      ></div>
     </div>
   </div>
 </section>

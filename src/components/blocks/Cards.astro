@@ -16,7 +16,9 @@ const { block } = Astro.props;
   <div class="container-site">
     {(block.title || block.intro) && (
       <div class="mb-10 max-w-2xl">
-        {block.title && <h2 class="text-display-md md:text-display-lg">{block.title}</h2>}
+        {block.title && (
+          <h2 class="text-display-md md:text-display-lg">{block.title}</h2>
+        )}
         {block.intro && <p class="mt-4 text-lg text-secondary">{block.intro}</p>}
       </div>
     )}
@@ -52,7 +54,8 @@ const { block } = Astro.props;
                     stroke="currentColor"
                     stroke-width="1.5"
                     stroke-linecap="round"
-                    stroke-linejoin="round"></path>
+                    stroke-linejoin="round"
+                  ></path>
                 </svg>
               </span>
             )}
