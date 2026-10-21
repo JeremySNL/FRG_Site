@@ -1,6 +1,6 @@
 ---
 /**
- * An image next to a text block. `reverse` flips the order on wide screens.
+ * Image paired with text and calls to action.
  */
 import type { ImageTextBlock } from '~/lib/blocks.ts';
 import { mediaUrl } from '~/lib/site.ts';
@@ -10,32 +10,34 @@ interface Props {
 }
 
 const { block } = Astro.props;
+const reverse = block.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row';
 ---
 
 <section class="section">
   <div class="container-site">
-    <div
-      class:list={[
-        'grid items-center gap-10 lg:grid-cols-2',
-        block.reverse && 'lg:[&>*:first-child]:order-2',
-      ]}
-    >
-      {block.image && (
-        <img
-          src={mediaUrl(block.image)}
-          alt={block.imageAlt ?? ''}
-          loading="lazy"
-          decoding="async"
-          class="h-full w-full rounded-3xl object-cover shadow-md"
-        />
-      )}
-
-      <div>
-        {block.title && <h2 class="text-display-md">{block.title}</h2>}
+    <div class={`flex flex-col items-center gap-10 ${reverse} lg:gap-16`}>
+      <div class="w-full lg:w-1/2">
+        {block.image ? (
+          <img
+            src={mediaUrl(block.image)}
+            alt={block.imageAlt ?? ''}
+            loading="lazy"
+            decoding="async"
+            class="aspect-[4/3] w-full rounded-3xl object-cover shadow-xl"
+          />
+        ) : (
+          <div class="aspect-[4/3] w-full rounded-3xl bg-surface"></div>
+        )}
+      </div>
+      <div class="w-full lg:w-1/2">
+        {block.title && (
+          <h2 class="text-display-md md:text-display-lg text-balance">{block.title}</h2>
+        )}
         {block.text && (
-          <p class="mt-5 whitespace-pre-line text-base leading-relaxed text-secondary">
-            {block.text}
-          </p>
+          <div
+            class="prose-frg mt-6 text-lg leading-relaxed text-secondary"
+            set:html={block.text}
+          />
         )}
         {block.buttons.length > 0 && (
           <div class="mt-8 flex flex-wrap gap-4">

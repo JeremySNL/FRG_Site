@@ -1,60 +1,72 @@
 ---
 /**
- * A grid of cards. Used for the areas of action, the ways to collaborate and
- * the contact details.
+ * Simple card grid with titles, text and optional images/links.
  */
 import type { CardsBlock } from '~/lib/blocks.ts';
 import { mediaUrl } from '~/lib/site.ts';
-import { getUi } from '~/lib/ui.ts';
-import type { Locale } from '~/lib/locales.ts';
 
 interface Props {
   block: CardsBlock;
-  locale: Locale;
 }
 
-const { block, locale } = Astro.props;
-const ui = getUi(locale);
+const { block } = Astro.props;
 ---
 
-{block.items.length > 0 && (
-  <section class="section">
-    <div class="container-site">
-      {block.title && <h2 class="text-display-md">{block.title}</h2>}
-      {block.intro && (
-        <p class="mt-4 max-w-2xl text-lg text-secondary">{block.intro}</p>
-      )}
+<section class="section">
+  <div class="container-site">
+    {(block.title || block.intro) && (
+      <div class="mb-10 max-w-2xl">
+        {block.title && <h2 class="text-display-md md:text-display-lg">{block.title}</h2>}
+        {block.intro && <p class="mt-4 text-lg text-secondary">{block.intro}</p>}
+      </div>
+    )}
 
-      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {block.items.map((item) => (
-          <article class="card flex flex-col">
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {block.items.map((item) => {
+        const content = (
+          <>
             {item.image && (
               <img
                 src={mediaUrl(item.image)}
-                alt={item.imageAlt ?? ''}
+                alt={item.imageAlt ?? item.title}
                 loading="lazy"
                 decoding="async"
-                class="mb-5 h-48 w-full rounded-xl object-cover"
+                class="mb-5 aspect-video w-full rounded-xl object-cover"
               />
             )}
-            <h3 class="font-display text-lg font-semibold">{item.title}</h3>
-            {item.text && (
-              <p class="mt-2 flex-1 text-sm leading-relaxed text-secondary">
-                {item.text}
-              </p>
-            )}
+            <h3 class="text-display-xs">{item.title}</h3>
+            {item.text && <p class="mt-2 text-base text-secondary">{item.text}</p>}
             {item.href && (
-              <a
-                href={item.href}
-                class="mt-5 inline-flex items-center gap-1 font-display text-sm font-medium text-accent hover:text-accent-hover"
-              >
-                <span class="link-underline">{ui.readMore}</span>
-                <span aria-hidden="true">→</span>
-              </a>
+              <span class="link-underline mt-4 inline-flex items-center gap-2 text-sm">
+                Saber más
+                <svg
+                  aria-hidden="true"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6 3L11 8L6 13"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                </svg>
+              </span>
             )}
-          </article>
-        ))}
-      </div>
+          </>
+        );
+
+        return item.href ? (
+          <a class="card-link group" href={item.href}>
+            {content}
+          </a>
+        ) : (
+          <article class="card group">{content}</article>
+        );
+      })}
     </div>
-  </section>
-)}
+  </div>
+</section>

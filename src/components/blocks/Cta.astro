@@ -13,29 +13,43 @@ const { block } = Astro.props;
 
 <section class="section-tight">
   <div class="container-site">
-    <div class="rounded-3xl bg-accent px-8 py-12 text-white md:px-14">
-      <h2 class="text-display-md text-white">{block.title}</h2>
-      {block.text && (
-        <p class="mt-4 max-w-2xl text-base leading-relaxed text-white/80">
-          {block.text}
-        </p>
-      )}
-      {block.buttons.length > 0 && (
-        <div class="mt-8 flex flex-wrap gap-4">
-          {block.buttons.map((button, index) => (
-            <a
-              href={button.href}
-              class:list={[
-                index === 0
-                  ? 'btn-white'
-                  : 'btn-outline border-white text-white hover:bg-white hover:text-accent',
-              ]}
-            >
-              {button.label}
-            </a>
-          ))}
-        </div>
-      )}
+    <div
+      class="relative overflow-hidden rounded-3xl bg-accent px-8 py-12 text-white md:px-14 md:py-16"
+    >
+      <div
+        aria-hidden="true"
+        class="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-white/10"
+      >
+      </div>
+      <div
+        aria-hidden="true"
+        class="absolute -bottom-16 -left-10 h-48 w-48 rounded-full bg-accent-hover/30"
+      >
+      </div>
+      <div class="relative max-w-3xl">
+        <h2 class="text-display-md md:text-display-lg text-white">{block.title}</h2>
+        {block.text && (
+          <p class="mt-4 max-w-2xl text-lg leading-relaxed text-white/90">
+            {block.text}
+          </p>
+        )}
+        {block.buttons.length > 0 && (
+          <div class="mt-8 flex flex-wrap gap-4">
+            {block.buttons.map((button, index) => (
+              <a
+                href={button.href}
+                class:list={[
+                  index === 0
+                    ? 'btn-white'
+                    : 'btn-outline border-white text-white hover:bg-white hover:text-accent',
+                ]}
+              >
+                {button.label}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   </div>
 </section>

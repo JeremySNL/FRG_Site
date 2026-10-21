@@ -12,16 +12,16 @@ interface Props {
 const { block } = Astro.props;
 ---
 
-<section class="relative overflow-hidden bg-surface">
-  <div class="container-site py-16 md:py-24">
-    <div class="max-w-3xl">
+<section class="relative overflow-hidden">
+  <div class="container-site grid items-center gap-10 py-16 md:grid-cols-2 md:py-24">
+    <div>
       {block.eyebrow && (
         <p class="font-alt text-sm font-medium uppercase tracking-[0.18em] text-accent">
           {block.eyebrow}
         </p>
       )}
 
-      <h1 class="mt-4 text-display-xl md:text-display-2xl">{block.title}</h1>
+      <h1 class="mt-4 text-display-lg md:text-display-2xl text-balance">{block.title}</h1>
 
       {block.slogans && block.slogans.length > 0 && (
         <ul class="mt-6 flex flex-wrap gap-x-6 gap-y-2">
@@ -51,18 +51,23 @@ const { block } = Astro.props;
       )}
     </div>
 
-    {block.image && (
-      <div class="mt-12">
+    <div class="relative">
+      {block.image ? (
         <img
           src={mediaUrl(block.image)}
           alt={block.imageAlt ?? ''}
-          loading="lazy"
+          loading="eager"
           decoding="async"
-          class="w-full rounded-3xl object-cover shadow-lg"
+          class="aspect-[4/3] w-full rounded-3xl object-cover shadow-xl"
         />
+      ) : (
+        <div class="aspect-[4/3] w-full rounded-3xl bg-surface"></div>
+      )}
+      <div
+        aria-hidden="true"
+        class="absolute -bottom-6 -left-6 hidden h-32 w-32 rounded-full bg-accent/10 md:block"
+      >
       </div>
-    )}
+    </div>
   </div>
-
-  <div aria-hidden="true" class="h-3 w-full bg-transition"></div>
 </section>

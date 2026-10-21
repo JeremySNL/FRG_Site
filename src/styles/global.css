@@ -122,6 +122,14 @@
     @apply py-12 md:py-16;
   }
 
+  .section-surface {
+    @apply bg-surface py-16 md:py-24;
+  }
+
+  .section-surface-tight {
+    @apply bg-surface py-12 md:py-16;
+  }
+
   /*
    * Buttons — pill shaped, 16px/32px padding, accent fill, red hover.
    *
@@ -158,11 +166,15 @@
   }
 
   .card {
-    @apply border-muted rounded-2xl border bg-white p-6 shadow-sm transition-shadow duration-200 hover:shadow-md;
+    @apply border-muted rounded-2xl border bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
   }
 
   .card-surface {
     @apply bg-surface rounded-2xl p-6;
+  }
+
+  .card-link {
+    @apply border-muted block rounded-2xl border bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
   }
 
   /*
