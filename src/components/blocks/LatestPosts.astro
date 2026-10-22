@@ -3,6 +3,7 @@
  * The latest posts, rendered as a list of cards.
  */
 import type { LatestPostsBlock } from '~/lib/blocks.ts';
+import { sectionClass } from '~/lib/blocks.ts';
 import { getPosts } from '~/lib/content.ts';
 import { mediaUrl } from '~/lib/site.ts';
 import { getUi } from '~/lib/ui.ts';
@@ -20,7 +21,7 @@ const posts = (await getPosts(locale)).slice(0, block.limit);
 ---
 
 {posts.length > 0 && (
-  <section class="section">
+  <section class={sectionClass(block.surface)}>
     <div class="container-site">
       {block.title && <h2 class="text-display-md">{block.title}</h2>}
 

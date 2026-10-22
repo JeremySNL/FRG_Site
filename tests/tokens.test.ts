@@ -15,11 +15,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
 /** Normalize a value so the two spellings of the same token compare equal. */
 function normalize(value: string): string {
-  return value
-    .replace(/["']/g, '')
-    .replace(/\s+/g, ' ')
-    .trim()
-    .toLowerCase();
+  return value.replace(/["']/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
 }
 
 /** Read the `--name: value;` pairs of the `@theme` block of the stylesheet. */
@@ -51,9 +47,7 @@ describe('the design tokens', () => {
       const cssValue = theme.get(name);
 
       expect(cssValue, `--${name} is missing from the @theme block`).toBeDefined();
-      expect(normalize(cssValue ?? ''), `--${name} drifted`).toBe(
-        normalize(value),
-      );
+      expect(normalize(cssValue ?? ''), `--${name} drifted`).toBe(normalize(value));
     }
   });
 

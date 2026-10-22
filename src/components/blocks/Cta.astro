@@ -3,6 +3,7 @@
  * A call to action band.
  */
 import type { CtaBlock } from '~/lib/blocks.ts';
+import { sectionClass } from '~/lib/blocks.ts';
 
 interface Props {
   block: CtaBlock;
@@ -11,7 +12,7 @@ interface Props {
 const { block } = Astro.props;
 ---
 
-<section class="section-tight">
+<section class={sectionClass(block.surface, false, true)}>
   <div class="container-site">
     <div class="relative overflow-hidden rounded-3xl bg-accent px-8 py-12 text-white md:px-14 md:py-16">
       <div

@@ -3,6 +3,7 @@
  * Image paired with text and calls to action.
  */
 import type { ImageTextBlock } from '~/lib/blocks.ts';
+import { sectionClass } from '~/lib/blocks.ts';
 import { mediaUrl } from '~/lib/site.ts';
 
 interface Props {
@@ -13,11 +14,16 @@ const { block } = Astro.props;
 const reverse = block.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row';
 ---
 
-<section class="section">
+<section class={sectionClass(block.surface)}>
   <div class="container-site">
-    <div class={`flex flex-col items-center gap-10 ${reverse} lg:gap-16`}>
-      <div class="w-full lg:w-1/2">
-        {block.image ? (
+    <div
+      class:list={[
+        'flex flex-col items-center gap-10 lg:gap-16',
+        block.image ? reverse : '',
+      ]}
+    >
+      {block.image && (
+        <div class="w-full lg:w-1/2">
           <img
             src={mediaUrl(block.image)}
             alt={block.imageAlt ?? ''}
@@ -25,11 +31,9 @@ const reverse = block.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row';
             decoding="async"
             class="aspect-[4/3] w-full rounded-3xl object-cover shadow-xl"
           />
-        ) : (
-          <div class="aspect-[4/3] w-full rounded-3xl bg-surface"></div>
-        )}
-      </div>
-      <div class="w-full lg:w-1/2">
+        </div>
+      )}
+      <div class:list={['w-full', block.image ? 'lg:w-1/2' : 'max-w-3xl']}>
         {block.title && (
           <h2 class="text-display-md md:text-display-lg text-balance">{block.title}</h2>
         )}

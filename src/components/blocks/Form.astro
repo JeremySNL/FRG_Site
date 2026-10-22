@@ -11,6 +11,7 @@
  * the donation is processed online: the form only starts a conversation.
  */
 import type { FormBlock } from '~/lib/blocks.ts';
+import { sectionClass } from '~/lib/blocks.ts';
 import { donationOptions, volunteerOptions } from '~/lib/forms.ts';
 import { getUi } from '~/lib/ui.ts';
 import type { Locale } from '~/lib/locales.ts';
@@ -70,7 +71,7 @@ const optionField =
       : 'options';
 ---
 
-<section class="section" id="formulario">
+<section class={sectionClass(block.surface)} id="formulario">
   <div class="container-site">
     <div class="mx-auto max-w-3xl">
       <h2 class="text-display-md">{config.title}</h2>

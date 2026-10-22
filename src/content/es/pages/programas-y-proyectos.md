@@ -13,9 +13,11 @@ blocks:
     text: "Áreas de acción de la Fundación Rosario Gatón."
     buttons: []
   - type: "richText"
+    surface: true
     html: "<p>Nuestra labor se enfoca en contribuir con el desarrollo integral de las comunidades. Estas son nuestras principales áreas de acción:</p>"
   - type: "programs"
     title: "Áreas de Acción FRG"
+    surface: false
     programs:
       - "reduccion-de-la-pobreza-y-desigualdad-social"
       - "educacion-y-formacion-ciudadana"

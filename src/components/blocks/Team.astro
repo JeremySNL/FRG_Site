@@ -7,6 +7,7 @@
  * chrome), so this collection starts with the president and grows by hand.
  */
 import type { TeamBlock } from '~/lib/blocks.ts';
+import { sectionClass } from '~/lib/blocks.ts';
 import { getTeam } from '~/lib/content.ts';
 import { mediaUrl } from '~/lib/site.ts';
 import { getUi } from '~/lib/ui.ts';
@@ -22,7 +23,7 @@ const ui = getUi(locale);
 const team = await getTeam(locale);
 ---
 
-<section class="section">
+<section class={sectionClass(block.surface)}>
   <div class="container-site">
     {block.title && <h2 class="text-display-md">{block.title}</h2>}
     {block.intro && <p class="mt-4 max-w-2xl text-lg text-secondary">{block.intro}</p>}

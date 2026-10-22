@@ -1,18 +1,23 @@
 ---
 /**
- * Simple card grid with titles, text and optional images/links.
+ * Simple card grid with titles, text, optional images, icons and links.
  */
 import type { CardsBlock } from '~/lib/blocks.ts';
+import { sectionClass } from '~/lib/blocks.ts';
+import { parseRoute } from '~/lib/locales.ts';
+import { iconPath } from '~/lib/icons.ts';
 import { mediaUrl } from '~/lib/site.ts';
+import { getUi } from '~/lib/ui.ts';
 
 interface Props {
   block: CardsBlock;
 }
 
 const { block } = Astro.props;
+const ui = getUi(parseRoute(Astro.url.pathname).locale);
 ---
 
-<section class="section">
+<section class={sectionClass(block.surface)}>
   <div class="container-site">
     {(block.title || block.intro) && (
       <div class="mb-10 max-w-2xl">
@@ -25,6 +30,8 @@ const { block } = Astro.props;
 
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {block.items.map((item) => {
+        const icon = iconPath(item.icon);
+
         const content = (
           <>
             {item.image && (
@@ -36,11 +43,21 @@ const { block } = Astro.props;
                 class="mb-5 aspect-video w-full rounded-xl object-cover"
               />
             )}
+            {icon && (
+              <span
+                aria-hidden="true"
+                class="mb-5 inline-flex size-11 items-center justify-center rounded-pill bg-accent text-white"
+              >
+                <svg viewBox="0 0 24 24" class="size-5 fill-current">
+                  <path d={icon} />
+                </svg>
+              </span>
+            )}
             <h3 class="text-display-xs">{item.title}</h3>
             {item.text && <p class="mt-2 text-base text-secondary">{item.text}</p>}
             {item.href && (
               <span class="link-underline mt-4 inline-flex items-center gap-2 text-sm">
-                Saber más
+                {ui.readMore}
                 <svg
                   aria-hidden="true"
                   width="16"

@@ -6,6 +6,7 @@
  * until the visitor scrolls it into view.
  */
 import type { MapBlock } from '~/lib/blocks.ts';
+import { sectionClass } from '~/lib/blocks.ts';
 import { site } from '~/lib/site.ts';
 
 interface Props {
@@ -19,7 +20,7 @@ const src = `https://www.google.com/maps?q=${query}&z=${block.zoom ?? 14}&output
 const href = `https://www.google.com/maps/search/?api=1&query=${query}`;
 ---
 
-<section class="section">
+<section class={sectionClass(block.surface)}>
   <div class="container-site">
     {block.title && <h2 class="text-display-md">{block.title}</h2>}
 

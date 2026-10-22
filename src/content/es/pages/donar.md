@@ -14,6 +14,7 @@ blocks:
     buttons: []
   - type: "list"
     title: "¿A qué destinamos tu donación?"
+    surface: true
     items:
       - "Alimentación para familias vulnerables"
       - "Construcción y mejora de viviendas"
@@ -38,18 +39,23 @@ blocks:
       - "Otros (consultar con la Fundación)"
   - type: "cta"
     title: "Completa el formulario y haz tu aporte"
+    surface: true
     text: "Indícanos cómo te gustaría apoyar nuestro trabajo. Te contactaremos para coordinar el proceso."
     buttons: []
   - type: "form"
     form: "donar"
   - type: "cards"
     title: "Más información"
+    surface: true
     items:
       - title: "(809) 290-2255"
+        icon: "phone"
         text: ""
       - title: "info@fundacionrosariogaton.org"
+        icon: "mail"
         text: ""
       - title: "C/ Castillo Esq. 27 de Febrero, Edificio Plaza Park 2do. Nivel, SFM, República Dominicana"
+        icon: "pin"
         text: ""
   - type: "cta"
     title: "Más Información"

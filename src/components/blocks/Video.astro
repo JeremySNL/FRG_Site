@@ -6,6 +6,7 @@
  * clicks the thumbnail, so no request to Google happens without consent.
  */
 import type { VideoBlock } from '~/lib/blocks.ts';
+import { sectionClass } from '~/lib/blocks.ts';
 
 interface Props {
   block: VideoBlock;
@@ -15,7 +16,7 @@ const { block } = Astro.props;
 ---
 
 {block.youtubeId && (
-  <section class="section">
+  <section class={sectionClass(block.surface)}>
     <div class="container-site">
       {block.title && <h2 class="text-display-md">{block.title}</h2>}
 

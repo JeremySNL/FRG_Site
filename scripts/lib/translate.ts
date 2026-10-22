@@ -66,6 +66,7 @@ const SKIP_KEYS = new Set([
   'query',
   'reverse',
   'slug',
+  'surface',
   'tags',
   'type',
   'updated',

@@ -34,6 +34,7 @@ export interface UiStrings {
   newsletterError: string;
   copyright: string;
   readMore: string;
+  viewProgram: string;
   latestPosts: string;
   allPosts: string;
   relatedPosts: string;

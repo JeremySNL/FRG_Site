@@ -3,6 +3,7 @@
  * The social links of the foundation.
  */
 import type { SocialBlock } from '~/lib/blocks.ts';
+import { sectionClass } from '~/lib/blocks.ts';
 import { site } from '~/lib/site.ts';
 
 interface Props {
@@ -25,7 +26,7 @@ const links = [
 ];
 ---
 
-<section class="section-tight">
+<section class={sectionClass(block.surface, false, true)}>
   <div class="container-site">
     {block.title && <h2 class="font-display text-lg font-semibold">{block.title}</h2>}
     <div class="mt-5 flex gap-3">

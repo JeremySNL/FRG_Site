@@ -13,8 +13,13 @@ const { block } = Astro.props;
 ---
 
 <section class="relative overflow-hidden">
-  <div class="container-site grid items-center gap-10 py-16 md:grid-cols-2 md:py-24">
-    <div>
+  <div
+    class:list={[
+      'container-site grid items-center gap-10 py-16 md:py-24',
+      block.image && block.image.trim() !== '' ? 'md:grid-cols-2' : 'md:grid-cols-1',
+    ]}
+  >
+    <div class={block.image && block.image.trim() !== '' ? '' : 'max-w-3xl'}>
       {block.eyebrow && (
         <p class="font-alt text-sm font-medium uppercase tracking-[0.18em] text-accent">
           {block.eyebrow}

@@ -6,6 +6,7 @@
  * and is accessible out of the box.
  */
 import type { AccordionBlock } from '~/lib/blocks.ts';
+import { sectionClass } from '~/lib/blocks.ts';
 
 interface Props {
   block: AccordionBlock;
@@ -15,7 +16,7 @@ const { block } = Astro.props;
 ---
 
 {block.items.length > 0 && (
-  <section class="section">
+  <section class={sectionClass(block.surface)}>
     <div class="container-site">
       {block.title && <h2 class="text-display-md">{block.title}</h2>}
 

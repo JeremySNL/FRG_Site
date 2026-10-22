@@ -14,6 +14,7 @@ blocks:
     buttons: []
   - type: "list"
     title: "¿En qué puedes participar o colaborar?"
+    surface: true
     items:
       - "Colaborar como aliado institucional o empresa solidaria"
       - "Ser embajador o promotor de la fundación"
@@ -33,18 +34,23 @@ blocks:
       - "Programas ecológicos y de prevención de violencia"
   - type: "cta"
     title: "Completa el formulario y únete a nosotros"
+    surface: true
     text: "Cuéntanos en qué te gustaría colaborar. Nuestro equipo se pondrá en contacto contigo."
     buttons: []
   - type: "form"
     form: "voluntariado"
   - type: "cards"
     title: "Más información"
+    surface: true
     items:
       - title: "(809) 290-2255"
+        icon: "phone"
         text: ""
       - title: "info@fundacionrosariogaton.org"
+        icon: "mail"
         text: ""
       - title: "C/ Castillo Esq. 27 de Febrero, Edificio Plaza Park 2do. Nivel, SFM, República Dominicana"
+        icon: "pin"
         text: ""
   - type: "cta"
     title: "Más Información"

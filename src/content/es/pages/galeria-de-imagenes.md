@@ -15,6 +15,7 @@ blocks:
     buttons: []
   - type: "gallery"
     title: "Galería"
+    surface: true
     images:
       - src: "2025/07/sss.jpg"
         alt: ""

@@ -18,6 +18,25 @@ export interface Link {
   href: string;
 }
 
+/**
+ * The background a block's section renders on.
+ *
+ * Every section block can put itself on the light grey surface (`surface:
+ * true`) or on white (`surface: false`), so a long page can alternate tones
+ * instead of being one white sheet. Blocks that always looked better on grey
+ * (stats, programs, testimonials) default to `true`.
+ */
+export function sectionClass(
+  surface: boolean | undefined,
+  defaultSurface = false,
+  tight = false,
+): string {
+  const toned = surface ?? defaultSurface;
+
+  if (toned) return tight ? 'section-surface-tight' : 'section-surface';
+  return tight ? 'section-tight' : 'section';
+}
+
 export interface ImageRef {
   src: string;
   alt: string;
@@ -39,6 +58,8 @@ export interface HeroBlock {
 
 export interface StatsBlock {
   type: 'stats';
+  /** Defaults to `true` — stats read better on the grey surface. */
+  surface?: boolean;
   items: Array<{ value: string; label: string }>;
 }
 
@@ -46,6 +67,8 @@ export interface ProgramsBlock {
   type: 'programs';
   title?: string;
   intro?: string;
+  /** Defaults to `true`. */
+  surface?: boolean;
   /** Slugs from the `programs` collection. */
   programs: string[];
 }
@@ -54,12 +77,15 @@ export interface CardsBlock {
   type: 'cards';
   title?: string;
   intro?: string;
+  /** Defaults to `false`. */
+  surface?: boolean;
   items: Array<{
     title: string;
     text?: string;
     image?: string;
     imageAlt?: string;
     href?: string;
+    /** Name of an icon from `src/lib/icons.ts`, shown as a badge. */
     icon?: string;
   }>;
 }
@@ -70,6 +96,8 @@ export interface ImageTextBlock {
   text: string;
   image?: string;
   imageAlt?: string;
+  /** Defaults to `false`. */
+  surface?: boolean;
   /** Flips the image and the text on wide screens. Defaults to `false`. */
   reverse?: boolean;
   buttons: Link[];
@@ -78,12 +106,16 @@ export interface ImageTextBlock {
 export interface AccordionBlock {
   type: 'accordion';
   title?: string;
+  /** Defaults to `false`. */
+  surface?: boolean;
   items: Array<{ title: string; text: string }>;
 }
 
 export interface TabsBlock {
   type: 'tabs';
   title?: string;
+  /** Defaults to `false`. */
+  surface?: boolean;
   items: Array<{ title: string; html: string }>;
 }
 
@@ -91,12 +123,16 @@ export interface ListBlock {
   type: 'list';
   title?: string;
   intro?: string;
+  /** Defaults to `false`. */
+  surface?: boolean;
   items: string[];
 }
 
 export interface TestimonialBlock {
   type: 'testimonial';
   title?: string;
+  /** Defaults to `true`. */
+  surface?: boolean;
   items: Array<{
     quote: string;
     author?: string;
@@ -108,17 +144,23 @@ export interface TestimonialBlock {
 export interface SocialBlock {
   type: 'social';
   title?: string;
+  /** Defaults to `false`. */
+  surface?: boolean;
 }
 
 export interface VideoBlock {
   type: 'video';
   title?: string;
   youtubeId: string;
+  /** Defaults to `false`. */
+  surface?: boolean;
 }
 
 export interface GalleryBlock {
   type: 'gallery';
   title?: string;
+  /** Defaults to `false`. */
+  surface?: boolean;
   images: ImageRef[];
 }
 
@@ -126,11 +168,15 @@ export interface LatestPostsBlock {
   type: 'latestPosts';
   title?: string;
   limit: number;
+  /** Defaults to `false`. */
+  surface?: boolean;
 }
 
 export interface FormBlock {
   type: 'form';
   form: 'contact' | 'donar' | 'voluntariado' | 'newsletter';
+  /** Defaults to `false`. */
+  surface?: boolean;
 }
 
 export interface CtaBlock {
@@ -138,6 +184,8 @@ export interface CtaBlock {
   title: string;
   text?: string;
   buttons: Link[];
+  /** Defaults to `false` — the accent card pops more on white. */
+  surface?: boolean;
 }
 
 export interface MapBlock {
@@ -145,12 +193,16 @@ export interface MapBlock {
   title?: string;
   query: string;
   zoom?: number;
+  /** Defaults to `false`. */
+  surface?: boolean;
 }
 
 export interface TeamBlock {
   type: 'team';
   title?: string;
   intro?: string;
+  /** Defaults to `false`. */
+  surface?: boolean;
 }
 
 export interface ProgressBlock {
@@ -162,6 +214,8 @@ export interface ProgressBlock {
 export interface RichTextBlock {
   type: 'richText';
   html: string;
+  /** Defaults to `false`. */
+  surface?: boolean;
 }
 
 export type Block =

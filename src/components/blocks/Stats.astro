@@ -3,6 +3,7 @@
  * Highlighted figures about the foundation's impact.
  */
 import type { StatsBlock } from '~/lib/blocks.ts';
+import { sectionClass } from '~/lib/blocks.ts';
 
 interface Props {
   block: StatsBlock;
@@ -11,7 +12,7 @@ interface Props {
 const { block } = Astro.props;
 ---
 
-<section class="section-surface">
+<section class={sectionClass(block.surface, true)}>
   <div class="container-site">
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       {block.items.map((item) => (

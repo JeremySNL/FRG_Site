@@ -14,5 +14,6 @@ blocks:
     buttons: []
   - type: "team"
     title: "Equipo de la Fundación Rosario Gatón"
+    surface: true
     intro: "Las personas que sostienen nuestro trabajo en las comunidades."
 ---

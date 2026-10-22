@@ -12,6 +12,8 @@ blocks:
   - type: "hero"
     title: "Fundación Rosario Gatón (FRG)"
     text: "Trabajamos por un mundo más justo, humano y sostenible. Nuestra misión es educar, formar y empoderar a los ciudadanos para que se conviertan en agentes de cambio, capaces de transformar su entorno familiar y comunitario mediante iniciativas productivas y sostenibles."
+    image: "2025/07/194769352_3779589362140210_1311684501893869371_n.jpg"
+    imageAlt: "Voluntarios de la Fundación Rosario Gatón entregan alimentos a una familia vulnerable."
     slogans:
       - "Únete al Cambio"
       - "Tu apoyo hace la diferencia"
@@ -23,6 +25,7 @@ blocks:
       - label: "Donar ahora"
         href: "/donar/"
   - type: "cards"
+    surface: true
     items:
       - title: "Áreas de Acción"
         text: "Impacto real y multidisciplinario"
@@ -46,11 +49,14 @@ blocks:
   - type: "imageText"
     title: "¿Quiénes somos?"
     text: "La Fundación Rosario Gatón (FRG) es una organización de derechos humanos y desarrollo socioeconómico sin fines de lucro, que trabaja para tener presencia en los cinco continentes. Establecemos alianzas para disminuir la extrema pobreza, la desigualdad social y el hambre, así como prevenir la violencia de género, el terrorismo, la trata de personas y el maltrato a la fauna. Apoyamos también a los sectores más vulnerables, promoviendo inclusión, vivienda digna, microeconomía y acceso a servicios básicos."
+    image: "2025/07/50470030_1872829336149565_5349142202482163712_n.jpg"
+    imageAlt: "Reunión de trabajo de la Fundación Rosario Gatón con el embajador de Guatemala en República Dominicana."
     buttons:
       - label: "Saber más"
         href: "/nosotros/"
   - type: "cards"
     title: "Liderazgo"
+    surface: true
     items:
       - title: "Rosario Gaton"
         text: "Presidente"
@@ -64,15 +70,20 @@ blocks:
         href: "/voluntariado/"
   - type: "cards"
     title: "Formas de colaborar"
+    surface: true
     items:
       - title: "Voluntario en actividades comunitarias"
+        icon: "heart"
         text: ""
       - title: "Aliado institucional"
+        icon: "users"
         text: ""
       - title: "Apoyo administrativo o logístico"
+        icon: "briefcase"
         text: ""
   - type: "programs"
     title: "Áreas de Acción FRG"
+    surface: false
     intro: "Nuestra labor se enfoca en contribuir con el desarrollo integral de las comunidades. Estas son nuestras principales áreas de acción:"
     programs:
       - "reduccion-de-la-pobreza-y-desigualdad-social"
@@ -83,23 +94,30 @@ blocks:
       - "apoyo-a-emprendimientos-y-microeconomia"
   - type: "cta"
     title: "Haz tu donación"
+    surface: true
     text: "Tu apoyo es vital para seguir transformando vidas. Con tu donación:"
     buttons:
       - label: "Donar ahora"
         href: "/donar/"
   - type: "cards"
     title: "Con tu donación"
+    surface: true
     items:
       - title: "Contribuye a la educación de niños y jóvenes."
+        icon: "check"
         text: ""
       - title: "Alimenta a familias vulnerables."
+        icon: "check"
         text: ""
       - title: "Ayuda a construir viviendas dignas."
+        icon: "check"
         text: ""
       - title: "Apoya a emprendedores comunitarios."
+        icon: "check"
         text: ""
   - type: "testimonial"
     title: "Lo que dicen de nosotros"
+    surface: false
     items:
       - quote: "Una Fundación sin Prejuicio"
         author: "David Taveras"
@@ -112,6 +130,7 @@ blocks:
         image: "https://lh3.googleusercontent.com/a-/ALV-UjUruS4HXQ8FGusGzUmaRZTGuPlXqy4RsjXa-1J7cHLrr4ixCAaltw=w90-h90-p-rp-mo-ba3-br100"
   - type: "cta"
     title: "Haz la diferencia: ¡conviértete en voluntario hoy!"
+    surface: true
     buttons:
       - label: "Convertirme en voluntario"
         href: "/voluntariado/"
@@ -132,6 +151,7 @@ blocks:
         text: "<p>Puedes seguirnos en nuestras redes sociales o visitar nuestra sección de Noticias y Blog, donde publicamos nuestras actividades y avances.</p>"
   - type: "latestPosts"
     title: "Nuestras últimas publicaciones"
+    surface: true
     limit: 6
   - type: "cta"
     title: "Estamos aquí para ayudarte."
@@ -139,4 +159,5 @@ blocks:
     buttons: []
   - type: "form"
     form: "contact"
+    surface: true
 ---

@@ -6,6 +6,7 @@
  * navigation, `aria-selected`, panels toggled with the `hidden` attribute).
  */
 import type { TabsBlock } from '~/lib/blocks.ts';
+import { sectionClass } from '~/lib/blocks.ts';
 
 interface Props {
   block: TabsBlock;
@@ -21,7 +22,7 @@ const id = `tabs-${block.items
 ---
 
 {block.items.length > 0 && (
-  <section class="section">
+  <section class={sectionClass(block.surface)}>
     <div class="container-site">
       {block.title && <h2 class="text-display-md">{block.title}</h2>}
 

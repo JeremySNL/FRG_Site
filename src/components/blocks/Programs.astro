@@ -1,18 +1,27 @@
 ---
 /**
  * The programs / areas of action grid.
+ *
+ * Programs have no detail page of their own yet, so each card links to the
+ * "Programas y Proyectos" page — except when the grid is rendered on that
+ * page, where the link would point to itself.
  */
 import type { ProgramsBlock } from '~/lib/blocks.ts';
+import { sectionClass } from '~/lib/blocks.ts';
 import { getPrograms } from '~/lib/content.ts';
-import { parseRoute } from '~/lib/locales.ts';
+import { localePath, parseRoute } from '~/lib/locales.ts';
+import { getUi } from '~/lib/ui.ts';
 
 interface Props {
   block: ProgramsBlock;
 }
 
 const { block } = Astro.props;
-const url = Astro.url.pathname;
-const { locale } = parseRoute(url);
+const { locale } = parseRoute(Astro.url.pathname);
+const ui = getUi(locale);
+const indexHref = localePath(locale, 'programas-y-proyectos');
+const onIndex = Astro.url.pathname === indexHref;
+
 const allPrograms = await getPrograms(locale);
 const programs = allPrograms.filter((program) =>
   block.programs.includes(program.data.slug),
@@ -20,7 +29,7 @@ const programs = allPrograms.filter((program) =>
 ---
 
 {programs.length > 0 && (
-  <section class="section-surface">
+  <section class={sectionClass(block.surface, true)}>
     <div class="container-site">
       {(block.title || block.intro) && (
         <div class="mb-10 max-w-2xl">
@@ -38,76 +47,30 @@ const programs = allPrograms.filter((program) =>
             {program.data.summary && (
               <p class="mt-2 flex-1 text-base text-secondary">{program.data.summary}</p>
             )}
-            <a
-              class="link-underline mt-6 inline-flex items-center gap-2 text-sm"
-              href="/programas-y-proyectos/"
-            >
-              Ver programa
-              <svg
-                aria-hidden="true"
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+            {!onIndex && (
+              <a
+                class="link-underline mt-6 inline-flex items-center gap-2 text-sm"
+                href={indexHref}
               >
-                <path
-                  d="M6 3L11 8L6 13"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></path>
-              </svg>
-            </a>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-)}
-
-{programs.length > 0 && (
-  <section class="section-surface">
-    <div class="container-site">
-      {(block.title || block.intro) && (
-        <div class="mb-10 max-w-2xl">
-          {block.title && (
-            <h2 class="text-display-md md:text-display-lg">{block.title}</h2>
-          )}
-          {block.intro && <p class="mt-4 text-lg text-secondary">{block.intro}</p>}
-        </div>
-      )}
-
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {programs.map((program) => (
-          <article class="card group flex flex-col">
-            <h3 class="text-display-xs">{program.data.title}</h3>
-            {program.data.summary && (
-              <p class="mt-2 flex-1 text-base text-secondary">{program.data.summary}</p>
+                {ui.viewProgram}
+                <svg
+                  aria-hidden="true"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6 3L11 8L6 13"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+              </a>
             )}
-            <a
-              class="link-underline mt-6 inline-flex items-center gap-2 text-sm"
-              href="/programas-y-proyectos/"
-            >
-              Ver programa
-              <svg
-                aria-hidden="true"
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M6 3L11 8L6 13"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></path>
-              </svg>
-            </a>
           </article>
         ))}
       </div>

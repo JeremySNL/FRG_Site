@@ -64,18 +64,21 @@ const blockSchema = z.discriminatedUnion('type', [
   }),
   z.object({
     type: z.literal('stats'),
+    surface: z.boolean().optional(),
     items: z.array(z.object({ value: z.string(), label: z.string() })),
   }),
   z.object({
     type: z.literal('programs'),
     title: z.string().optional(),
     intro: z.string().optional(),
+    surface: z.boolean().optional(),
     programs: z.array(z.string()).default([]),
   }),
   z.object({
     type: z.literal('cards'),
     title: z.string().optional(),
     intro: z.string().optional(),
+    surface: z.boolean().optional(),
     items: z.array(
       z.object({
         title: z.string(),
@@ -93,28 +96,33 @@ const blockSchema = z.discriminatedUnion('type', [
     text: z.string(),
     image: z.string().optional(),
     imageAlt: z.string().optional(),
+    surface: z.boolean().optional(),
     reverse: z.boolean().default(false),
     buttons: z.array(linkSchema).default([]),
   }),
   z.object({
     type: z.literal('accordion'),
     title: z.string().optional(),
+    surface: z.boolean().optional(),
     items: z.array(z.object({ title: z.string(), text: z.string() })),
   }),
   z.object({
     type: z.literal('tabs'),
     title: z.string().optional(),
+    surface: z.boolean().optional(),
     items: z.array(z.object({ title: z.string(), html: z.string() })),
   }),
   z.object({
     type: z.literal('list'),
     title: z.string().optional(),
     intro: z.string().optional(),
+    surface: z.boolean().optional(),
     items: z.array(z.string()),
   }),
   z.object({
     type: z.literal('testimonial'),
     title: z.string().optional(),
+    surface: z.boolean().optional(),
     items: z.array(
       z.object({
         quote: z.string(),
@@ -127,42 +135,50 @@ const blockSchema = z.discriminatedUnion('type', [
   z.object({
     type: z.literal('social'),
     title: z.string().optional(),
+    surface: z.boolean().optional(),
   }),
   z.object({
     type: z.literal('video'),
     title: z.string().optional(),
     youtubeId: z.string(),
+    surface: z.boolean().optional(),
   }),
   z.object({
     type: z.literal('gallery'),
     title: z.string().optional(),
+    surface: z.boolean().optional(),
     images: z.array(imageSchema),
   }),
   z.object({
     type: z.literal('latestPosts'),
     title: z.string().optional(),
     limit: z.number().default(3),
+    surface: z.boolean().optional(),
   }),
   z.object({
     type: z.literal('form'),
     form: z.enum(['contact', 'donar', 'voluntariado', 'newsletter']),
+    surface: z.boolean().optional(),
   }),
   z.object({
     type: z.literal('cta'),
     title: z.string(),
     text: z.string().optional(),
     buttons: z.array(linkSchema).default([]),
+    surface: z.boolean().optional(),
   }),
   z.object({
     type: z.literal('map'),
     title: z.string().optional(),
     query: z.string(),
     zoom: z.number().optional(),
+    surface: z.boolean().optional(),
   }),
   z.object({
     type: z.literal('team'),
     title: z.string().optional(),
     intro: z.string().optional(),
+    surface: z.boolean().optional(),
   }),
   z.object({
     type: z.literal('progress'),
@@ -172,6 +188,7 @@ const blockSchema = z.discriminatedUnion('type', [
   z.object({
     type: z.literal('richText'),
     html: z.string(),
+    surface: z.boolean().optional(),
   }),
 ]);
 
