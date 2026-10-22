@@ -3,6 +3,7 @@
  * The hero of a page: title, lead paragraph, slogans and calls to action.
  */
 import type { HeroBlock } from '~/lib/blocks.ts';
+import { isDonationCta } from '~/lib/blocks.ts';
 import { mediaUrl } from '~/lib/site.ts';
 
 interface Props {
@@ -12,16 +13,26 @@ interface Props {
 const { block } = Astro.props;
 ---
 
-<section class="relative overflow-hidden">
+<section class="section-dawn relative overflow-hidden">
+  <!-- Decorative brand blobs: blue wash top-left, red spark bottom-right. -->
+  <div
+    aria-hidden="true"
+    class="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-primary/20 blur-3xl"
+  ></div>
+  <div
+    aria-hidden="true"
+    class="absolute -right-24 -bottom-32 h-96 w-96 rounded-full bg-accent-hover/15 blur-3xl"
+  ></div>
+
   <div
     class:list={[
-      'container-site grid items-center gap-10 py-16 md:py-24',
+      'container-site relative grid items-center gap-10',
       block.image && block.image.trim() !== '' ? 'md:grid-cols-2' : 'md:grid-cols-1',
     ]}
   >
     <div class={block.image && block.image.trim() !== '' ? '' : 'max-w-3xl'}>
       {block.eyebrow && (
-        <p class="font-alt text-sm font-medium uppercase tracking-[0.18em] text-accent">
+        <p class="font-alt inline-block rounded-pill bg-accent px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-white">
           {block.eyebrow}
         </p>
       )}
@@ -31,9 +42,11 @@ const { block } = Astro.props;
       </h1>
 
       {block.slogans && block.slogans.length > 0 && (
-        <ul class="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+        <ul class="mt-6 flex flex-wrap gap-2">
           {block.slogans.map((slogan) => (
-            <li class="font-alt text-sm font-medium text-accent">{slogan}</li>
+            <li class="font-alt rounded-pill border border-accent/15 bg-white/70 px-4 py-1.5 text-sm font-medium text-accent shadow-sm">
+              {slogan}
+            </li>
           ))}
         </ul>
       )}
@@ -46,34 +59,46 @@ const { block } = Astro.props;
 
       {block.buttons.length > 0 && (
         <div class="mt-10 flex flex-wrap gap-4">
-          {block.buttons.map((button, index) => (
-            <a
-              href={button.href}
-              class:list={[index === 0 ? 'btn-primary' : 'btn-outline']}
-            >
-              {button.label}
-            </a>
-          ))}
+          {block.buttons.map((button, index) => {
+            // A button that leads to the donation flow is always red.
+            const isDonation = isDonationCta(button.href, button.label);
+            return (
+              <a
+                href={button.href}
+                class:list={[
+                  isDonation
+                    ? 'btn-donate'
+                    : index === 0
+                      ? 'btn-primary'
+                      : 'btn-outline',
+                ]}
+              >
+                {button.label}
+              </a>
+            );
+          })}
         </div>
       )}
     </div>
 
     <div class="relative">
       {block.image ? (
-        <img
-          src={mediaUrl(block.image)}
-          alt={block.imageAlt ?? ''}
-          loading="eager"
-          decoding="async"
-          class="aspect-[4/3] w-full rounded-3xl object-cover shadow-xl"
-        />
+        <>
+          <div
+            aria-hidden="true"
+            class="absolute -top-4 -right-4 h-full w-full rounded-3xl bg-accent/10"
+          ></div>
+          <img
+            src={mediaUrl(block.image)}
+            alt={block.imageAlt ?? ''}
+            loading="eager"
+            decoding="async"
+            class="relative aspect-[4/3] w-full rounded-3xl object-cover shadow-xl shadow-accent/20"
+          />
+        </>
       ) : (
-        <div class="aspect-[4/3] w-full rounded-3xl bg-surface"></div>
+        <div class="aspect-[4/3] w-full rounded-3xl bg-tint-strong"></div>
       )}
-      <div
-        aria-hidden="true"
-        class="absolute -bottom-6 -left-6 hidden h-32 w-32 rounded-full bg-accent/10 md:block"
-      ></div>
     </div>
   </div>
 </section>

@@ -22,7 +22,7 @@ const { block } = Astro.props;
 
       <div class="mt-10 space-y-3">
         {block.items.map((item) => (
-          <details class="group rounded-2xl border border-muted bg-white px-6 py-5 transition-colors open:bg-surface">
+          <details class="group rounded-2xl border border-accent/10 bg-white px-6 py-5 transition-colors open:border-accent/30 open:bg-tint">
             <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-base font-medium marker:hidden">
               <span>{item.title}</span>
               <span

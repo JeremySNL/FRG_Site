@@ -24,6 +24,11 @@ export const tokens = {
   'color-muted': '#E4E4E4', // borders, dividers
   'color-salmon': '#DB7365', // secondary accent
   'color-transition': '#FFBC7D', // section transition band
+  // Blue-tinted off-whites — section backgrounds that avoid plain white.
+  'color-tint': '#F1F5FF', // subtle blue band
+  'color-tint-strong': '#E3EBFF', // deeper blue band
+  // Soft red wash — donation / action bands.
+  'color-blush': '#FFF2F0',
   'color-white': '#FFFFFF',
   'color-black': '#000000',
 
@@ -60,6 +65,9 @@ export const colors = {
   muted: tokens['color-muted'],
   salmon: tokens['color-salmon'],
   transition: tokens['color-transition'],
+  tint: tokens['color-tint'],
+  tintStrong: tokens['color-tint-strong'],
+  blush: tokens['color-blush'],
   white: tokens['color-white'],
   black: tokens['color-black'],
 } as const;

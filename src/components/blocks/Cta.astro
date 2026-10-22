@@ -1,27 +1,38 @@
 ---
 /**
  * A call to action band.
+ *
+ * Donation CTAs render in the brand red; every other CTA sits on the blue
+ * brand gradient. Both are card-shaped bands, so they read as a deliberate
+ * "act now" moment rather than another white section.
  */
 import type { CtaBlock } from '~/lib/blocks.ts';
-import { sectionClass } from '~/lib/blocks.ts';
+import { isDonationCta, sectionClass } from '~/lib/blocks.ts';
 
 interface Props {
   block: CtaBlock;
 }
 
 const { block } = Astro.props;
+
+const isDonation = isDonationCta(block.title, block.text);
+const band = isDonation
+  ? 'bg-linear-to-br from-accent-hover to-[#9c1c0a]'
+  : 'bg-linear-to-br from-accent to-[#1b2456]';
 ---
 
 <section class={sectionClass(block.surface, false, true)}>
   <div class="container-site">
-    <div class="relative overflow-hidden rounded-3xl bg-accent px-8 py-12 text-white md:px-14 md:py-16">
+    <div
+      class={`relative overflow-hidden rounded-3xl px-8 py-12 text-white md:px-14 md:py-16 ${band}`}
+    >
       <div
         aria-hidden="true"
         class="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-white/10"
       ></div>
       <div
         aria-hidden="true"
-        class="absolute -bottom-16 -left-10 h-48 w-48 rounded-full bg-accent-hover/30"
+        class="absolute -bottom-16 -left-10 h-48 w-48 rounded-full bg-white/5"
       ></div>
       <div class="relative max-w-3xl">
         <h2 class="text-display-md md:text-display-lg text-white">{block.title}</h2>

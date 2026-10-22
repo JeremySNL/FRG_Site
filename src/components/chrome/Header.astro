@@ -27,167 +27,175 @@ const isActive = (href: string): boolean =>
   href === currentPath || (href !== '/' && currentPath.startsWith(href));
 ---
 
-<header class="sticky top-0 z-50 border-b border-muted bg-white/95 backdrop-blur">
-  <div class="container-site flex items-center justify-between gap-4 py-4">
-    <a
-      href={localePath(locale)}
-      class="flex shrink-0 items-center"
-      aria-label={site.name}
-    >
-      <img
-        src={mediaUrl(site.logo)}
-        alt={site.name}
-        width="160"
-        height="48"
-        class="h-10 w-auto md:h-12"
-        loading="eager"
-        decoding="async"
-      />
-    </a>
+<header class="sticky top-0 z-50">
+  <!-- Thin brand strip: blue → red, the vibrancy cue of the whole site. -->
+  <div
+    aria-hidden="true"
+    class="h-1 w-full bg-linear-to-r from-accent via-primary to-accent-hover"
+  ></div>
 
-    <nav class="hidden lg:block" aria-label={ui.mainMenu}>
-      <ul class="flex items-center gap-1">
-        {nav.map((item) => (
-          <li class="relative group">
-            <a
-              href={item.href}
-              aria-current={isActive(item.href) ? 'page' : undefined}
-              class:list={[
-                'inline-flex items-center gap-1 rounded-pill px-4 py-2 font-display text-sm font-medium transition-colors hover:bg-surface hover:text-accent',
-                isActive(item.href) && 'bg-surface text-accent',
-              ]}
-            >
-              {item.label}
-              {item.children.length > 0 && (
-                <svg
-                  aria-hidden="true"
-                  viewBox="0 0 20 20"
-                  class="size-3.5 fill-current opacity-60"
-                >
-                  <path d="M5.5 7.5 10 12l4.5-4.5H5.5Z" />
-                </svg>
-              )}
-            </a>
+  <div class="border-b border-accent/10 bg-white/95 shadow-sm shadow-accent/5 backdrop-blur">
+    <div class="container-site flex items-center justify-between gap-4 py-4">
+      <a
+        href={localePath(locale)}
+        class="flex shrink-0 items-center"
+        aria-label={site.name}
+      >
+        <img
+          src={mediaUrl(site.logo)}
+          alt={site.name}
+          width="160"
+          height="48"
+          class="h-10 w-auto md:h-12"
+          loading="eager"
+          decoding="async"
+        />
+      </a>
 
-            {item.children.length > 0 && (
-              <ul class="invisible absolute left-0 top-full z-50 w-64 rounded-2xl border border-muted bg-white p-2 opacity-0 shadow-lg transition-opacity group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                {item.children.map((child) => (
-                  <li>
-                    <a
-                      href={child.href}
-                      class="block rounded-xl px-4 py-2 text-sm transition-colors hover:bg-surface hover:text-accent"
-                    >
-                      {child.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-        ))}
-      </ul>
-    </nav>
-
-    <div class="flex items-center gap-3">
-      <details class="group relative hidden sm:block">
-        <summary
-          class="flex cursor-pointer list-none items-center gap-1.5 rounded-pill border border-muted px-3 py-2 text-sm transition-colors hover:border-accent hover:text-accent"
-          aria-label={ui.chooseLanguage}
-        >
-          <svg aria-hidden="true" viewBox="0 0 24 24" class="size-4 fill-current">
-            <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm7.93 9h-3.02a15.7 15.7 0 0 0-1.2-5.4A8.03 8.03 0 0 1 19.93 11ZM12 4.04c.83 1.2 1.5 3.02 1.7 4.96h-3.4C10.5 7.06 11.17 5.24 12 4.04ZM4.07 13h3.02c.15 1.92.58 3.74 1.2 5.4A8.03 8.03 0 0 1 4.07 13Zm3.02-2H4.07a8.03 8.03 0 0 1 4.22-5.4 15.7 15.7 0 0 0-1.2 5.4Zm4.91 9.36c-.83-1.2-1.5-3.02-1.7-4.96h3.4c-.2 1.94-.87 3.76-1.7 4.96ZM14.26 13H9.74a13.9 13.9 0 0 1 0-2h4.52a13.9 13.9 0 0 1 0 2Zm.25 5.4c.62-1.66 1.05-3.48 1.2-5.4h3.02a8.03 8.03 0 0 1-4.22 5.4ZM16.1 11a15.7 15.7 0 0 0-1.2-5.4 8.03 8.03 0 0 1 4.22 5.4h-3.02Z" />
-          </svg>
-          <span class="font-display font-medium">{localeInfo[locale].labelEn}</span>
-        </summary>
-        <ul class="absolute right-0 top-full z-50 mt-2 w-48 rounded-2xl border border-muted bg-white p-2 shadow-lg">
-          {locales.map((code) => (
-            <li>
+      <nav class="hidden lg:block" aria-label={ui.mainMenu}>
+        <ul class="flex items-center gap-1">
+          {nav.map((item) => (
+            <li class="relative group">
               <a
-                href={localePath(code, currentSlug)}
-                lang={localeInfo[code].htmlLang}
-                hreflang={localeInfo[code].hreflang}
-                aria-current={code === locale ? 'true' : undefined}
+                href={item.href}
+                aria-current={isActive(item.href) ? 'page' : undefined}
                 class:list={[
-                  'block rounded-xl px-4 py-2 text-sm transition-colors hover:bg-surface hover:text-accent',
-                  code === locale && 'bg-surface font-medium text-accent',
+                  'inline-flex items-center gap-1 rounded-pill px-4 py-2 font-display text-sm font-medium text-secondary transition-colors hover:bg-tint hover:text-accent',
+                  isActive(item.href) && 'bg-tint font-semibold text-accent',
                 ]}
               >
-                {localeInfo[code].label}
+                {item.label}
+                {item.children.length > 0 && (
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 20 20"
+                    class="size-3.5 fill-current opacity-60"
+                  >
+                    <path d="M5.5 7.5 10 12l4.5-4.5H5.5Z" />
+                  </svg>
+                )}
               </a>
+
+              {item.children.length > 0 && (
+                <ul class="invisible absolute left-0 top-full z-50 mt-2 w-64 rounded-2xl border border-accent/10 bg-white p-2 opacity-0 shadow-lg shadow-accent/10 transition-opacity group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                  {item.children.map((child) => (
+                    <li>
+                      <a
+                        href={child.href}
+                        class="block rounded-xl px-4 py-2 text-sm text-secondary transition-colors hover:bg-tint hover:text-accent"
+                      >
+                        {child.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
           ))}
         </ul>
-      </details>
+      </nav>
 
-      <a href={donatePath(locale)} class="btn-primary btn-sm hidden sm:inline-flex">
-        {ui.donate}
-      </a>
+      <div class="flex items-center gap-3">
+        <details class="group relative hidden sm:block">
+          <summary
+            class="flex cursor-pointer list-none items-center gap-1.5 rounded-pill border border-accent/15 px-3 py-2 text-sm text-secondary transition-colors hover:border-accent hover:text-accent"
+            aria-label={ui.chooseLanguage}
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24" class="size-4 fill-current">
+              <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm7.93 9h-3.02a15.7 15.7 0 0 0-1.2-5.4A8.03 8.03 0 0 1 19.93 11ZM12 4.04c.83 1.2 1.5 3.02 1.7 4.96h-3.4C10.5 7.06 11.17 5.24 12 4.04ZM4.07 13h3.02c.15 1.92.58 3.74 1.2 5.4A8.03 8.03 0 0 1 4.07 13Zm3.02-2H4.07a8.03 8.03 0 0 1 4.22-5.4 15.7 15.7 0 0 0-1.2 5.4Zm4.91 9.36c-.83-1.2-1.5-3.02-1.7-4.96h3.4c-.2 1.94-.87 3.76-1.7 4.96ZM14.26 13H9.74a13.9 13.9 0 0 1 0-2h4.52a13.9 13.9 0 0 1 0 2Zm.25 5.4c.62-1.66 1.05-3.48 1.2-5.4h3.02a8.03 8.03 0 0 1-4.22 5.4ZM16.1 11a15.7 15.7 0 0 0-1.2-5.4 8.03 8.03 0 0 1 4.22 5.4h-3.02Z" />
+            </svg>
+            <span class="font-display font-medium">{localeInfo[locale].labelEn}</span>
+          </summary>
+          <ul class="absolute right-0 top-full z-50 mt-2 w-48 rounded-2xl border border-accent/10 bg-white p-2 shadow-lg shadow-accent/10">
+            {locales.map((code) => (
+              <li>
+                <a
+                  href={localePath(code, currentSlug)}
+                  lang={localeInfo[code].htmlLang}
+                  hreflang={localeInfo[code].hreflang}
+                  aria-current={code === locale ? 'true' : undefined}
+                  class:list={[
+                    'block rounded-xl px-4 py-2 text-sm text-secondary transition-colors hover:bg-tint hover:text-accent',
+                    code === locale && 'bg-tint font-medium text-accent',
+                  ]}
+                >
+                  {localeInfo[code].label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </details>
 
-      <button
-        type="button"
-        id="menu-toggle"
-        class="inline-flex size-11 items-center justify-center rounded-pill border border-muted lg:hidden"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-        aria-label={ui.openMenu}
-        data-open-label={ui.openMenu}
-        data-close-label={ui.closeMenu}
-      >
-        <svg aria-hidden="true" viewBox="0 0 24 24" class="size-5 fill-current">
-          <path d="M3 6h18v2H3V6Zm0 5h18v2H3v-2Zm0 5h18v2H3v-2Z" />
-        </svg>
-      </button>
-    </div>
-  </div>
-
-  <div id="mobile-menu" class="hidden border-t border-muted bg-white lg:hidden">
-    <nav class="container-site py-4" aria-label={ui.mainMenu}>
-      <ul class="flex flex-col gap-1">
-        {nav.map((item) => (
-          <li>
-            <a
-              href={item.href}
-              class="block rounded-xl px-4 py-3 font-display font-medium transition-colors hover:bg-surface hover:text-accent"
-            >
-              {item.label}
-            </a>
-            {item.children.length > 0 && (
-              <ul class="ml-4 border-l border-muted pl-4">
-                {item.children.map((child) => (
-                  <li>
-                    <a
-                      href={child.href}
-                      class="block rounded-xl px-4 py-2 text-sm text-secondary transition-colors hover:bg-surface hover:text-accent"
-                    >
-                      {child.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-        ))}
-      </ul>
-
-      <div class="mt-4 flex flex-wrap items-center gap-3 border-t border-muted pt-4">
-        <a href={donatePath(locale)} class="btn-primary btn-sm">
+        <a href={donatePath(locale)} class="btn-donate btn-sm hidden sm:inline-flex">
           {ui.donate}
         </a>
-        <span class="text-sm text-secondary">{ui.chooseLanguage}:</span>
-        {locales.map((code) => (
-          <a
-            href={localePath(code, currentSlug)}
-            lang={localeInfo[code].htmlLang}
-            class:list={[
-              'text-sm underline underline-offset-4 hover:text-accent',
-              code === locale && 'font-semibold text-accent',
-            ]}
-          >
-            {localeInfo[code].label}
-          </a>
-        ))}
+
+        <button
+          type="button"
+          id="menu-toggle"
+          class="inline-flex size-11 items-center justify-center rounded-pill border border-accent/15 text-accent transition-colors hover:border-accent hover:bg-tint lg:hidden"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label={ui.openMenu}
+          data-open-label={ui.openMenu}
+          data-close-label={ui.closeMenu}
+        >
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="size-5 fill-current">
+            <path d="M3 6h18v2H3V6Zm0 5h18v2H3v-2Zm0 5h18v2H3v-2Z" />
+          </svg>
+        </button>
       </div>
-    </nav>
+    </div>
+
+    <div id="mobile-menu" class="hidden border-t border-accent/10 bg-white lg:hidden">
+      <nav class="container-site py-4" aria-label={ui.mainMenu}>
+        <ul class="flex flex-col gap-1">
+          {nav.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class="block rounded-xl px-4 py-3 font-display font-medium text-secondary transition-colors hover:bg-tint hover:text-accent"
+              >
+                {item.label}
+              </a>
+              {item.children.length > 0 && (
+                <ul class="ml-4 border-l border-accent/15 pl-4">
+                  {item.children.map((child) => (
+                    <li>
+                      <a
+                        href={child.href}
+                        class="block rounded-xl px-4 py-2 text-sm text-secondary transition-colors hover:bg-tint hover:text-accent"
+                      >
+                        {child.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ul>
+
+        <div class="mt-4 flex flex-wrap items-center gap-3 border-t border-accent/10 pt-4">
+          <a href={donatePath(locale)} class="btn-donate btn-sm">
+            {ui.donate}
+          </a>
+          <span class="text-sm text-secondary">{ui.chooseLanguage}:</span>
+          {locales.map((code) => (
+            <a
+              href={localePath(code, currentSlug)}
+              lang={localeInfo[code].htmlLang}
+              class:list={[
+                'text-sm underline underline-offset-4 hover:text-accent',
+                code === locale && 'font-semibold text-accent',
+              ]}
+            >
+              {localeInfo[code].label}
+            </a>
+          ))}
+        </div>
+      </nav>
+    </div>
   </div>
 </header>
 

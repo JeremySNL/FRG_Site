@@ -18,6 +18,9 @@
   --color-muted: #e4e4e4;
   --color-salmon: #db7365;
   --color-transition: #ffbc7d;
+  --color-tint: #f1f5ff;
+  --color-tint-strong: #e3ebff;
+  --color-blush: #fff2f0;
   --color-white: #ffffff;
   --color-black: #000000;
 
@@ -123,11 +126,43 @@
   }
 
   .section-surface {
-    @apply bg-surface py-16 md:py-24;
+    @apply bg-tint py-16 md:py-24;
   }
 
   .section-surface-tight {
-    @apply bg-surface py-12 md:py-16;
+    @apply bg-tint py-12 md:py-16;
+  }
+
+  /*
+   * Gradient washes — the anti-white toolkit.
+   *
+   * `section-sweep` is a soft blue band used behind alternating sections,
+   * `section-dawn` is the brand gradient (white → light blue → red-tinted)
+   * for hero-like openers, and `section-blush` carries the donation/action
+   * sections in the red family.
+   */
+  .section-sweep {
+    @apply via-tint to-tint-strong bg-linear-to-br from-white py-16 md:py-24;
+  }
+
+  .section-sweep-tight {
+    @apply via-tint to-tint-strong bg-linear-to-br from-white py-12 md:py-16;
+  }
+
+  .section-dawn {
+    @apply via-tint to-blush bg-linear-to-br from-white py-16 md:py-24;
+  }
+
+  .section-dawn-tight {
+    @apply via-tint to-blush bg-linear-to-br from-white py-12 md:py-16;
+  }
+
+  .section-blush {
+    @apply bg-blush py-16 md:py-24;
+  }
+
+  .section-blush-tight {
+    @apply bg-blush py-12 md:py-16;
   }
 
   /*
@@ -141,12 +176,13 @@
   .btn,
   .btn-primary,
   .btn-outline,
-  .btn-white {
-    @apply rounded-pill font-display inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-medium transition-colors duration-200;
+  .btn-white,
+  .btn-donate {
+    @apply rounded-pill font-display inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-medium transition-all duration-200;
   }
 
   .btn-primary {
-    @apply bg-accent hover:bg-accent-hover text-white;
+    @apply bg-accent hover:bg-accent-hover shadow-accent/20 hover:shadow-accent/30 text-white shadow-sm hover:shadow-md;
   }
 
   .btn-outline {
@@ -155,6 +191,11 @@
 
   .btn-white {
     @apply text-accent hover:bg-accent-hover bg-white hover:text-white;
+  }
+
+  /* The donation action — always red, always visible. */
+  .btn-donate {
+    @apply bg-accent-hover shadow-accent-hover/30 hover:shadow-accent-hover/40 text-white shadow-sm hover:bg-[#b01f0c] hover:shadow-md;
   }
 
   .btn-sm {
@@ -166,15 +207,15 @@
   }
 
   .card {
-    @apply border-muted rounded-2xl border bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+    @apply border-muted/70 hover:border-accent/30 hover:shadow-accent/10 rounded-2xl border bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
   }
 
   .card-surface {
-    @apply bg-surface rounded-2xl p-6;
+    @apply bg-tint rounded-2xl p-6;
   }
 
   .card-link {
-    @apply border-muted block rounded-2xl border bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+    @apply border-muted/70 hover:border-accent/30 hover:shadow-accent/10 block rounded-2xl border bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
   }
 
   /*

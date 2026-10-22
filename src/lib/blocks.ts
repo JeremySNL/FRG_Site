@@ -21,10 +21,10 @@ export interface Link {
 /**
  * The background a block's section renders on.
  *
- * Every section block can put itself on the light grey surface (`surface:
- * true`) or on white (`surface: false`), so a long page can alternate tones
- * instead of being one white sheet. Blocks that always looked better on grey
- * (stats, programs, testimonials) default to `true`.
+ * Every section block can put itself on a blue-tinted gradient band
+ * (`surface: true`) or on white (`surface: false`), so a long page alternates
+ * tones instead of being one white sheet. Blocks that always looked better on
+ * a band (stats, programs, testimonials) default to `true`.
  */
 export function sectionClass(
   surface: boolean | undefined,
@@ -33,8 +33,18 @@ export function sectionClass(
 ): string {
   const toned = surface ?? defaultSurface;
 
-  if (toned) return tight ? 'section-surface-tight' : 'section-surface';
+  if (toned) return tight ? 'section-sweep-tight' : 'section-sweep';
   return tight ? 'section-tight' : 'section';
+}
+
+/**
+ * Whether a CTA is a donation ask, so it can be painted in the brand red.
+ *
+ * Content editors are not forced to remember a flag: the wording already
+ * says it. Add a synonym here rather than editing every component.
+ */
+export function isDonationCta(...parts: (string | undefined)[]): boolean {
+  return /donar|donaci|aporte|donativo/i.test(parts.filter(Boolean).join(' '));
 }
 
 export interface ImageRef {
