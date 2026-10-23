@@ -1,31 +1,53 @@
 /**
  * Cloudflare Turnstile verification.
  *
- * Turnstile replaces the reCAPTCHA v3 that WPForms used. When no secret key
- * is configured the check is skipped, so local development works out of the
- * box — but the endpoint refuses to be silently open in production.
+ * Turnstile replaces the reCAPTCHA v3 that WPForms used. The widget renders in
+ * the form, solves a challenge in the browser and leaves a token in a hidden
+ * field; the endpoint then exchanges that token through `siteverify` to get a
+ * verdict. The check has to happen on the server: a bot that posts the form
+ * directly never renders the widget, so the token is only worth something once
+ * Cloudflare confirms it.
+ *
+ * The secret is read from the runtime environment the endpoint passes in, not
+ * from `import.meta.env`: secret schema variables are not inlined by the
+ * build, so a built worker would otherwise always see them as unset.
+ *
+ * When no secret key is configured the check is skipped while developing, so
+ * the forms work out of the box. A production deployment is different: without
+ * the secret there is nothing to verify against, and the answer says so
+ * instead of accepting every submission.
  */
+import type { RuntimeEnv } from './runtime-env.ts';
 
 const VERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
 
-/** True when a Turnstile secret key is configured. */
-export function isTurnstileEnabled(): boolean {
-  return Boolean(import.meta.env.TURNSTILE_SECRET_KEY);
-}
+/**
+ * What the endpoint should do with a submission.
+ *
+ *  - `valid`        the token was accepted (or the check is disabled in dev).
+ *  - `invalid`      the token is missing, rejected, or Cloudflare is down.
+ *  - `unconfigured` a production build has no secret, so nothing can be
+ *                   verified. This is a deployment mistake, not a bad visitor.
+ */
+export type TurnstileVerdict = 'valid' | 'invalid' | 'unconfigured';
 
 /**
  * Verify a Turnstile token.
  *
- * Returns `true` when the token is valid, or when Turnstile is not
- * configured at all.
+ * `env` is the runtime environment of the request (`locals.runtime.env` on
+ * Cloudflare). Without a configured secret the answer depends on the build:
+ * development skips the check, production reports `unconfigured` so the
+ * endpoint can fail closed.
  */
 export async function verifyTurnstile(
   token: string | undefined,
-  remoteIp?: string,
-): Promise<boolean> {
-  const secret = import.meta.env.TURNSTILE_SECRET_KEY;
-  if (!secret) return true;
-  if (!token) return false;
+  remoteIp: string | undefined,
+  env: RuntimeEnv | undefined,
+): Promise<TurnstileVerdict> {
+  const secret = env?.TURNSTILE_SECRET_KEY;
+
+  if (!secret) return import.meta.env.PROD ? 'unconfigured' : 'valid';
+  if (!token) return 'invalid';
 
   const body = new URLSearchParams({ secret, response: token });
   if (remoteIp) body.set('remoteip', remoteIp);
@@ -37,11 +59,11 @@ export async function verifyTurnstile(
       body,
     });
 
-    if (!response.ok) return false;
+    if (!response.ok) return 'invalid';
 
     const result = (await response.json()) as { success?: boolean };
-    return result.success === true;
+    return result.success === true ? 'valid' : 'invalid';
   } catch {
-    return false;
+    return 'invalid';
   }
 }

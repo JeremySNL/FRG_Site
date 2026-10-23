@@ -17,6 +17,7 @@ import type { APIRoute } from 'astro';
 import type { z } from 'astro/zod';
 
 import { sendNotification, type Notification } from './mail.ts';
+import type { RuntimeEnv } from './runtime-env.ts';
 import { checkRateLimit } from './rate-limit.ts';
 import { verifyTurnstile } from './turnstile.ts';
 
@@ -70,7 +71,12 @@ function clientAddressOf(request: Request, fallback?: string): string {
 export function createFormHandler<T>(options: FormHandlerOptions<T>): APIRoute {
   const listFields = options.listFields ?? [];
 
-  return async ({ request, clientAddress }) => {
+  return async ({ request, clientAddress, locals }) => {
+    // Secret-schema variables (`TURNSTILE_SECRET_KEY`, `RESEND_API_KEY`,
+    // `FORM_NOTIFICATION_EMAIL`) only exist in the runtime environment the
+    // adapter exposes; they are never inlined by the build.
+    const env: RuntimeEnv =
+      (locals as { runtime?: { env?: RuntimeEnv } }).runtime?.env ?? {};
     if (request.method !== 'POST') {
       return json({ ok: false, error: 'server', message: 'Method not allowed' }, 405);
     }
@@ -126,11 +132,22 @@ export function createFormHandler<T>(options: FormHandlerOptions<T>): APIRoute {
       );
     }
 
-    if (!(await verifyTurnstile(token, address))) {
+    const verdict = await verifyTurnstile(token, address, env);
+
+    // A missing secret is a deployment mistake, not something the visitor did
+    // wrong: answer with a server error so the form never runs unprotected.
+    if (verdict === 'unconfigured') {
+      console.error(
+        '[form] TURNSTILE_SECRET_KEY is not set; the submission was refused',
+      );
+      return json({ ok: false, error: 'server' }, 500);
+    }
+
+    if (verdict === 'invalid') {
       return json({ ok: false, error: 'invalid-token' }, 403);
     }
 
-    const delivery = await sendNotification(options.notification(parsed.data));
+    const delivery = await sendNotification(options.notification(parsed.data), env);
 
     if (delivery === 'failed') {
       return json({ ok: false, error: 'server' }, 500);

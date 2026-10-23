@@ -10,6 +10,7 @@
  * keeps local development usable.
  */
 import { site } from './site.ts';
+import type { RuntimeEnv } from './runtime-env.ts';
 
 export interface Notification {
   /** Subject line of the notification. */
@@ -24,12 +25,19 @@ export interface Notification {
 
 export type SendResult = 'sent' | 'skipped' | 'failed';
 
-/** Send a notification e-mail. */
+/**
+ * Send a notification e-mail.
+ *
+ * `env` is the runtime environment of the request (`locals.runtime.env` on
+ * Cloudflare); the Resend key is a secret-schema variable and is never
+ * inlined by the build.
+ */
 export async function sendNotification(
   notification: Notification,
+  env: RuntimeEnv | undefined,
 ): Promise<SendResult> {
-  const apiKey = import.meta.env.RESEND_API_KEY;
-  const to = import.meta.env.FORM_NOTIFICATION_EMAIL ?? site.email;
+  const apiKey = env?.RESEND_API_KEY;
+  const to = env?.FORM_NOTIFICATION_EMAIL ?? site.email;
 
   if (!apiKey) {
     // Without a key the mail cannot be sent. The message goes to the log so
