@@ -34,3 +34,6 @@ yarn-error.log*
 *.log
 # Local AI runtime state
 .atl/
+
+# CodeGraph local index
+.codegraph/
