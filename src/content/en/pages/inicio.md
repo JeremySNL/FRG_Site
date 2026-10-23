@@ -16,9 +16,9 @@ blocks:
     backgroundImageAlt: "Fundación Rosario Gatón"
     buttons:
       - label: "Join"
-        href: "/voluntariado/"
+        href: "/en/voluntariado/"
       - label: "Donate now"
-        href: "/donar/"
+        href: "/en/donar/"
     cards:
       - type: "solidBlue"
         title: "Areas of Action"
@@ -40,7 +40,7 @@ blocks:
     imageAlt: "Working meeting of Fundación Rosario Gatón with the ambassador of Guatemala in the Dominican Republic."
     buttons:
       - label: "Learn more"
-        href: "/nosotros/"
+        href: "/en/nosotros/"
   - type: "video"
     title: "Meet Fundación Rosario Gatón"
     youtubeId: "xFp8-2GVoH8"
@@ -136,7 +136,7 @@ blocks:
       text: "Be part of our network of collaborators and transform lives alongside us."
       button:
         label: "Join today!"
-        href: "/voluntariado/"
+        href: "/en/voluntariado/"
       image: "2025/07/194769352_3779589362140210_1311684501893869371_n.jpg"
       imageAlt: "Volunteers"
     donate:
@@ -144,7 +144,7 @@ blocks:
       text: "Your support is vital to continue educating, training, and empowering vulnerable communities."
       button:
         label: "Donate now"
-        href: "/donar/"
+        href: "/en/donar/"
       image: "2025/07/50470030_1872829336149565_5349142202482163712_n.jpg"
       imageAlt: "Donations"
   - type: "cards"

@@ -283,6 +283,16 @@ for (const target of targets) {
 
   const uiRefs = collectAllStrings(sourceUi);
 
+  // Like the content documents: the interface translations are committed
+  // files, so never overwrite the manual edits of an already generated
+  // locale. Re-runs only translate locales that do not exist yet, and
+  // `--force` regenerates them on purpose.
+  const uiFile = join(i18nDir, `${target}.json`);
+  if (!dryRun && !force && existsSync(uiFile)) {
+    console.log(`  i18n/${target}.json: skipped (already translated)`);
+    continue;
+  }
+
   if (dryRun) {
     console.log(`  i18n/${target}.json: ${uiRefs.length} strings`);
     summary[target].strings += uiRefs.length;
