@@ -59,10 +59,28 @@ export async function verifyTurnstile(
       body,
     });
 
-    if (!response.ok) return 'invalid';
+    if (!response.ok) {
+      console.error(
+        '[form] Turnstile siteverify rejected the request:',
+        response.status,
+      );
+      return 'invalid';
+    }
 
-    const result = (await response.json()) as { success?: boolean };
-    return result.success === true ? 'valid' : 'invalid';
+    const result = (await response.json()) as {
+      success?: boolean;
+      'error-codes'?: string[];
+    };
+
+    if (result.success !== true) {
+      console.error(
+        '[form] Turnstile siteverify reported a failed verdict:',
+        JSON.stringify(result['error-codes'] ?? []),
+      );
+      return 'invalid';
+    }
+
+    return 'valid';
   } catch {
     return 'invalid';
   }
