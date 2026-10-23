@@ -1,5 +1,5 @@
 ---
-title: "La Cámara de Comercio de las Minorías de los Estados Unidos lanza un innovador Programa de Turismo Médico en Honduras"
+title: "The United States Minority Chamber of Commerce Launches an Innovative Medical Tourism Program in Honduras"
 slug: "la-camara-de-comercio-de-las-minorias-de-los-estados-unidos-lanza-un-innovador-programa-de-turismo-medico-en-honduras"
 locale: "en"
 date: "2026-02-13T23:49:54"
