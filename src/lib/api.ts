@@ -71,12 +71,15 @@ function clientAddressOf(request: Request, fallback?: string): string {
 export function createFormHandler<T>(options: FormHandlerOptions<T>): APIRoute {
   const listFields = options.listFields ?? [];
 
-  return async ({ request, clientAddress, locals }) => {
+  return async ({ request, clientAddress }) => {
     // Secret-schema variables (`TURNSTILE_SECRET_KEY`, `RESEND_API_KEY`,
-    // `FORM_NOTIFICATION_EMAIL`) only exist in the runtime environment the
-    // adapter exposes; they are never inlined by the build.
-    const env: RuntimeEnv =
-      (locals as { runtime?: { env?: RuntimeEnv } }).runtime?.env ?? {};
+    // `FORM_NOTIFICATION_EMAIL`) only exist in the runtime environment of the
+    // Worker; they are never inlined by the build. `cloudflare:workers` is the
+    // Astro 6+ replacement for the removed `Astro.locals.runtime.env`.
+    // Imported lazily, as a top-level import breaks the Node prerendering
+    // environment (same reason the adapter does it).
+    const { env } = await import('cloudflare:workers');
+    const envMap: RuntimeEnv = env as unknown as RuntimeEnv;
     if (request.method !== 'POST') {
       return json({ ok: false, error: 'server', message: 'Method not allowed' }, 405);
     }
@@ -132,7 +135,7 @@ export function createFormHandler<T>(options: FormHandlerOptions<T>): APIRoute {
       );
     }
 
-    const verdict = await verifyTurnstile(token, address, env);
+    const verdict = await verifyTurnstile(token, address, envMap);
 
     // A missing secret is a deployment mistake, not something the visitor did
     // wrong: answer with a server error so the form never runs unprotected.
@@ -147,7 +150,7 @@ export function createFormHandler<T>(options: FormHandlerOptions<T>): APIRoute {
       return json({ ok: false, error: 'invalid-token' }, 403);
     }
 
-    const delivery = await sendNotification(options.notification(parsed.data), env);
+    const delivery = await sendNotification(options.notification(parsed.data), envMap);
 
     if (delivery === 'failed') {
       return json({ ok: false, error: 'server' }, 500);
