@@ -20,8 +20,21 @@ export type TagEntry = CollectionEntry<'tags'>;
 export async function availableLocales(): Promise<Locale[]> {
   const locales = new Set<Locale>();
 
-  for (const entry of await getCollection('pages')) {
-    locales.add(entry.data.locale);
+  // Every collection counts, not only `pages`: a locale with posts but no
+  // pages yet would otherwise be invisible to `resolveLocale` and render an
+  // empty blog instead of falling back to Spanish.
+  const collections = [
+    'pages',
+    'posts',
+    'programs',
+    'team',
+    'categories',
+    'tags',
+  ] as const;
+  for (const collection of collections) {
+    for (const entry of await getCollection(collection)) {
+      locales.add(entry.data.locale);
+    }
   }
 
   return [...locales];

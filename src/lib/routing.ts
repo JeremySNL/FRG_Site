@@ -38,7 +38,12 @@ export interface StaticPath {
 export async function enumerateStaticPaths(): Promise<StaticPath[]> {
   const paths: StaticPath[] = [];
   const contentLocales = await availableLocales();
-  const source = contentLocales[0] ?? defaultLocale;
+  // Collection iteration order is not guaranteed, so prefer the default
+  // locale as the source of the URL structure instead of `[0]`: a translated
+  // locale must never change the slugs of the Spanish URLs.
+  const source = contentLocales.includes(defaultLocale)
+    ? defaultLocale
+    : (contentLocales[0] ?? defaultLocale);
 
   const pages = await getPages(source);
   const posts = await getPosts(source);

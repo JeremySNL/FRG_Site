@@ -14,7 +14,7 @@ import {
   getPosts,
   getTags,
 } from '~/lib/content.ts';
-import { localeInfo, localePath, type Locale } from '~/lib/locales.ts';
+import { defaultLocale, localeInfo, localePath } from '~/lib/locales.ts';
 import { site } from '~/lib/site.ts';
 
 interface Entry {
@@ -43,7 +43,11 @@ export const GET: APIRoute = async () => {
     });
   }
 
-  const [source] = contentLocales as [Locale, ...Locale[]];
+  // Same rule as the route enumerator: the slugs of the sitemap must always
+  // come from the default locale, whatever order the collections came in.
+  const source = contentLocales.includes(defaultLocale)
+    ? defaultLocale
+    : (contentLocales[0] ?? defaultLocale);
 
   const pages = await getPages(source);
   const posts = await getPosts(source);
