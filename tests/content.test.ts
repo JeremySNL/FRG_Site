@@ -128,14 +128,14 @@ describe('the content', () => {
     }
   });
 
-  it('marks the ethics and donation pages as noAutoTranslate', async () => {
+  it('marks the legal policy page as noAutoTranslate', async () => {
+    // Only the ethics/security policy stays untranslated on purpose: legal
+    // text must be reviewed by the foundation, not signed by an AI model.
+    // The donation and volunteering pages were released from this rule so
+    // their CTAs resolve to translated pages.
     const pages = await collectFiles(join(root, 'src', 'content', 'es', 'pages'));
 
-    const targets = new Set([
-      'politica-de-etica-y-seguridad.md',
-      'donar.md',
-      'voluntariado.md',
-    ]);
+    const targets = new Set(['politica-de-etica-y-seguridad.md']);
 
     for (const file of pages) {
       if (!targets.has(file.split(/[\\\\/]/).pop() ?? '')) continue;

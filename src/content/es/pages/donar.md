@@ -6,7 +6,7 @@ order: 60
 nav: false
 description: "Realiza tu donación y cambia vidas con la Fundación Rosario Gatón."
 legacyPath: "/donar/"
-noAutoTranslate: true
+noAutoTranslate: false
 blocks:
   - type: "hero"
     title: "Haz tu donación y cambia vidas"

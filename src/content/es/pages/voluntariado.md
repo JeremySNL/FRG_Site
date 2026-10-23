@@ -6,7 +6,7 @@ order: 61
 nav: false
 description: "Únete como voluntario o aliado de la Fundación Rosario Gatón."
 legacyPath: "/voluntariado/"
-noAutoTranslate: true
+noAutoTranslate: false
 blocks:
   - type: "hero"
     title: "Alianzas y Voluntariado"
