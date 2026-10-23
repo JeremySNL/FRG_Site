@@ -18,6 +18,10 @@
   --color-muted: #e4e4e4;
   --color-salmon: #db7365;
   --color-transition: #ffbc7d;
+  --color-brand-navy: #16205c;
+  --color-brand-navy-strong: #0f1647;
+  --color-brand-red: #ce2610;
+  --color-brand-red-strong: #b01f0c;
   --color-tint: #f1f5ff;
   --color-tint-strong: #e3ebff;
   --color-blush: #fff2f0;
@@ -165,6 +169,36 @@
     @apply bg-blush py-12 md:py-16;
   }
 
+  /* Strong brand blocks */
+  .section-brand-navy {
+    @apply bg-linear-to-br from-brand-navy to-brand-navy-strong text-white py-16 md:py-24;
+  }
+
+  .section-brand-navy-tight {
+    @apply bg-linear-to-br from-brand-navy to-brand-navy-strong text-white py-12 md:py-16;
+  }
+
+  .section-brand-red {
+    @apply bg-linear-to-br from-brand-red to-brand-red-strong text-white py-16 md:py-24;
+  }
+
+  .section-brand-red-tight {
+    @apply bg-linear-to-br from-brand-red to-brand-red-strong text-white py-12 md:py-16;
+  }
+
+  .section-dark-overlay {
+    @apply relative overflow-hidden py-16 md:py-24;
+  }
+
+  .section-dark-overlay::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-brand-navy/90 via-brand-navy/80 to-black/80;
+  }
+
+  .section-dark-overlay > * {
+    @apply relative z-10;
+  }
+
   /*
    * Buttons — pill shaped, 16px/32px padding, accent fill, red hover.
    *
@@ -207,15 +241,19 @@
   }
 
   .card {
-    @apply border-muted/70 hover:border-accent/30 hover:shadow-accent/10 rounded-2xl border bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+    @apply border-accent/10 hover:border-accent/40 hover:shadow-accent/15 rounded-2xl border bg-white p-6 shadow-md shadow-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
   }
 
   .card-surface {
-    @apply bg-tint rounded-2xl p-6;
+    @apply bg-tint rounded-2xl p-6 shadow-sm shadow-black/5;
   }
 
   .card-link {
-    @apply border-muted/70 hover:border-accent/30 hover:shadow-accent/10 block rounded-2xl border bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+    @apply border-accent/10 hover:border-accent/40 hover:shadow-accent/15 block rounded-2xl border bg-white p-6 shadow-md shadow-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+
+  .card-brand {
+    @apply rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg shadow-black/10 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
   }
 
   /*

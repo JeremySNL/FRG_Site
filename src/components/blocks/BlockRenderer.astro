@@ -28,6 +28,7 @@ import Tabs from './Tabs.astro';
 import Team from './Team.astro';
 import Testimonial from './Testimonial.astro';
 import Video from './Video.astro';
+import Ambassadors from './Ambassadors.astro';
 
 interface Props {
   blocks: Block[];
@@ -77,5 +78,7 @@ const { blocks, locale } = Astro.props;
       return <Progress block={block} />;
     case 'richText':
       return <RichText block={block} />;
+    case 'ambassadors':
+      return <Ambassadors block={block} />;
   }
 })}

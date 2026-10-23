@@ -190,6 +190,35 @@ const blockSchema = z.discriminatedUnion('type', [
     html: z.string(),
     surface: z.boolean().optional(),
   }),
+  z.object({
+    type: z.literal('ambassadors'),
+    title: z.string().optional(),
+    intro: z.string().optional(),
+    surface: z.boolean().optional(),
+    continents: z.array(
+      z.object({
+        name: z.string(),
+        code: z.string().optional(),
+        generalAmbassador: z.object({
+          name: z.string(),
+          country: z.string().optional(),
+          role: z.string().optional(),
+          image: z.string().optional(),
+          imageAlt: z.string().optional(),
+        }),
+        ambassadors: z.array(
+          z.object({
+            name: z.string(),
+            country: z.string().optional(),
+            area: z.string().optional(),
+            role: z.string().optional(),
+            image: z.string().optional(),
+            imageAlt: z.string().optional(),
+          }),
+        ),
+      }),
+    ),
+  }),
 ]);
 
 const pages = defineCollection({

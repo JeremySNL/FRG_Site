@@ -228,6 +228,33 @@ export interface RichTextBlock {
   surface?: boolean;
 }
 
+export interface AmbassadorsBlock {
+  type: 'ambassadors';
+  title?: string;
+  intro?: string;
+  /** Defaults to `false`. */
+  surface?: boolean;
+  continents: Array<{
+    name: string;
+    code?: string;
+    generalAmbassador: {
+      name: string;
+      country?: string;
+      role?: string;
+      image?: string;
+      imageAlt?: string;
+    };
+    ambassadors: Array<{
+      name: string;
+      country?: string;
+      area?: string;
+      role?: string;
+      image?: string;
+      imageAlt?: string;
+    }>;
+  }>;
+}
+
 export type Block =
   | HeroBlock
   | StatsBlock
@@ -247,7 +274,8 @@ export type Block =
   | MapBlock
   | TeamBlock
   | ProgressBlock
-  | RichTextBlock;
+  | RichTextBlock
+  | AmbassadorsBlock;
 
 /** Every block type name, in a stable order. */
 export const blockTypes = [
@@ -270,6 +298,7 @@ export const blockTypes = [
   'team',
   'progress',
   'richText',
+  'ambassadors',
 ] as const satisfies readonly Block['type'][];
 
 export type BlockType = (typeof blockTypes)[number];

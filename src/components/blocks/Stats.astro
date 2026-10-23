@@ -16,7 +16,7 @@ const { block } = Astro.props;
   <div class="container-site">
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       {block.items.map((item) => (
-        <article class="rounded-2xl border border-muted bg-white px-6 py-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+        <article class="rounded-2xl border border-accent/15 bg-white px-6 py-8 text-center shadow-md shadow-black/5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-accent/10">
           <p class="font-display text-display-md md:text-display-lg text-accent">
             {item.value}
           </p>

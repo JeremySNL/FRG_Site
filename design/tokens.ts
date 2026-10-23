@@ -24,6 +24,11 @@ export const tokens = {
   'color-muted': '#E4E4E4', // borders, dividers
   'color-salmon': '#DB7365', // secondary accent
   'color-transition': '#FFBC7D', // section transition band
+  // Brand identity — deeper institutional colors
+  'color-brand-navy': '#16205C', // deeper institutional blue
+  'color-brand-navy-strong': '#0F1647', // stronger navy for overlays/footers
+  'color-brand-red': '#CE2610', // rich brand red
+  'color-brand-red-strong': '#B01F0C', // deeper red
   // Blue-tinted off-whites — section backgrounds that avoid plain white.
   'color-tint': '#F1F5FF', // subtle blue band
   'color-tint-strong': '#E3EBFF', // deeper blue band
@@ -65,6 +70,10 @@ export const colors = {
   muted: tokens['color-muted'],
   salmon: tokens['color-salmon'],
   transition: tokens['color-transition'],
+  brandNavy: tokens['color-brand-navy'],
+  brandNavyStrong: tokens['color-brand-navy-strong'],
+  brandRed: tokens['color-brand-red'],
+  brandRedStrong: tokens['color-brand-red-strong'],
   tint: tokens['color-tint'],
   tintStrong: tokens['color-tint-strong'],
   blush: tokens['color-blush'],
