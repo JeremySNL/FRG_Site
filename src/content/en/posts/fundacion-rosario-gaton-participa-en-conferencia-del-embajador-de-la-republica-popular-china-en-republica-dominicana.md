@@ -1,5 +1,5 @@
 ---
-title: "Fundación Rosario Gatón participates in conference by the Ambassador of the People's Republic of China in República Dominicana"
+title: "Fundación Rosario Gatón participates in conference by the Ambassador of the People's Republic of China in the Dominican Republic"
 slug: "fundacion-rosario-gaton-participa-en-conferencia-del-embajador-de-la-republica-popular-china-en-republica-dominicana"
 locale: "en"
 date: "2026-07-16T21:32:01"
