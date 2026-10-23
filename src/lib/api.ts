@@ -136,6 +136,7 @@ export function createFormHandler<T>(options: FormHandlerOptions<T>): APIRoute {
     }
 
     const verdict = await verifyTurnstile(token, address, envMap);
+    console.log('[form] turnstile verdict:', verdict);
 
     // A missing secret is a deployment mistake, not something the visitor did
     // wrong: answer with a server error so the form never runs unprotected.
@@ -151,6 +152,7 @@ export function createFormHandler<T>(options: FormHandlerOptions<T>): APIRoute {
     }
 
     const delivery = await sendNotification(options.notification(parsed.data), envMap);
+    console.log('[form] delivery:', delivery);
 
     if (delivery === 'failed') {
       return json({ ok: false, error: 'server' }, 500);
