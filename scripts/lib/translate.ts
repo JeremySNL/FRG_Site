@@ -263,6 +263,9 @@ export interface TranslatorOptions {
 export class Translator {
   readonly #options: TranslatorOptions;
 
+  /** Timestamp of the last request, used to respect the per-minute quota. */
+  #lastRequestAt = 0;
+
   constructor(options: TranslatorOptions) {
     this.#options = options;
   }
@@ -325,6 +328,13 @@ export class Translator {
 
     for (let attempt = 0; attempt < 3; attempt += 1) {
       try {
+        // Free tiers of OpenAI-compatible providers cap the requests per
+        // minute (Gemini's free tier is around 15), so pace the calls:
+        // each request waits until the next free slot of the pacer.
+        const gap = 4500 - (Date.now() - this.#lastRequestAt);
+        if (gap > 0) await delay(gap);
+        this.#lastRequestAt = Date.now();
+
         const response = await fetch(url, {
           method: 'POST',
           headers: {
@@ -332,6 +342,8 @@ export class Translator {
             authorization: `Bearer ${this.#options.apiKey}`,
           },
           body: JSON.stringify(body),
+          // Never hang forever on a stalled connection.
+          signal: AbortSignal.timeout(120_000),
         });
 
         if (!response.ok) {
@@ -354,7 +366,14 @@ export class Translator {
         return content;
       } catch (error) {
         lastError = error;
-        await delay(1000 * 2 ** attempt);
+
+        const message = error instanceof Error ? error.message : '';
+        if (message.includes('429')) {
+          // Rate limited: the window is a minute, so wait it out.
+          await delay(61_000);
+        } else {
+          await delay(1000 * 2 ** attempt);
+        }
       }
     }
 
