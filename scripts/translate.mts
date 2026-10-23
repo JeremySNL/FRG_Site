@@ -137,6 +137,76 @@ function parseDocument(source: string): Document {
   return { data, body: match[2] ?? '' };
 }
 
+/** Read an existing interface table, tolerating a missing or broken file. */
+async function loadUiTable(
+  file: string,
+): Promise<Record<string, unknown> | undefined> {
+  if (!existsSync(file)) return undefined;
+
+  try {
+    const parsed = JSON.parse(await readFile(file, 'utf8')) as unknown;
+    return parsed && typeof parsed === 'object'
+      ? (parsed as Record<string, unknown>)
+      : undefined;
+  } catch {
+    console.warn(`  warning: ${file} is not valid JSON and will be regenerated`);
+    return undefined;
+  }
+}
+
+function isPlainObj(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+/** Whether a non-empty value already exists at a `(string | number)[]` path. */
+function hasPath(node: unknown, path: (string | number)[]): boolean {
+  let current: unknown = node;
+
+  for (const step of path) {
+    if (current === undefined || current === null) return false;
+
+    if (Array.isArray(current)) {
+      current = current[step as number];
+    } else if (typeof current === 'object') {
+      current = (current as Record<string, unknown>)[String(step)];
+    } else {
+      return false;
+    }
+  }
+
+  return current !== undefined && current !== null && current !== '';
+}
+
+/**
+ * Overlay the regenerated table with a previously generated one, which wins
+ * on every conflict: manual polish is never overwritten, and keys the base
+ * does not know yet are kept from the regeneration.
+ */
+function mergeBaseWins(
+  regenerated: Record<string, unknown>,
+  base: Record<string, unknown>,
+): Record<string, unknown> {
+  const out: Record<string, unknown> = {};
+  const keys = new Set([...Object.keys(regenerated), ...Object.keys(base)]);
+
+  for (const key of keys) {
+    const fromBase = base[key];
+    const fresh = regenerated[key];
+
+    if (isPlainObj(fromBase) && isPlainObj(fresh)) {
+      out[key] = mergeBaseWins(
+        fresh as Record<string, unknown>,
+        fromBase as Record<string, unknown>,
+      );
+      continue;
+    }
+
+    out[key] = fromBase !== undefined ? fromBase : fresh;
+  }
+
+  return out;
+}
+
 /**
  * Split a Markdown body into chunks that can be translated one by one.
  *
@@ -283,41 +353,61 @@ for (const target of targets) {
 
   const uiRefs = collectAllStrings(sourceUi);
 
-  // Like the content documents: the interface translations are committed
-  // files, so never overwrite the manual edits of an already generated
-  // locale. Re-runs only translate locales that do not exist yet, and
-  // `--force` regenerates them on purpose.
-  const uiFile = join(i18nDir, `${target}.json`);
-  if (!dryRun && !force && existsSync(uiFile)) {
-    console.log(`  i18n/${target}.json: skipped (already translated)`);
-    continue;
-  }
-
   if (dryRun) {
     console.log(`  i18n/${target}.json: ${uiRefs.length} strings`);
     summary[target].strings += uiRefs.length;
     continue;
   }
 
-  const uiTranslations = await translator.translate(
-    language,
-    uiRefs.map((ref) => ref.value),
+  // Merge mode: an existing table only receives the keys it is missing, so
+  // the manual polish of an already generated locale survives re-runs AND a
+  // partial or empty table left behind by a crashed run gets completed.
+  // `--force` regenerates the whole table on purpose.
+  const uiFile = join(i18nDir, `${target}.json`);
+  const base = await loadUiTable(uiFile);
+
+  const pendingRefs = base
+    ? uiRefs.filter((ref) => !hasPath(base, ref.path))
+    : uiRefs;
+
+  if (pendingRefs.length === 0) {
+    console.log(`  i18n/${target}.json: complete (nothing to add)`);
+    continue;
+  }
+
+  console.log(
+    `  i18n/${target}.json: ${pendingRefs.length} missing strings` +
+      (base ? ` (merging into an existing table)` : ''),
   );
 
-  const translatedUi = applyTranslations(sourceUi, uiRefs, uiTranslations) as Record<
-    string,
-    unknown
-  >;
+  const uiTranslations = await translator.translate(
+    language,
+    pendingRefs.map((ref) => ref.value),
+  );
+
+  // Translate the missing keys over a fresh copy of the Spanish table and
+  // then overlay whatever the existing table already held, so its manual
+  // polish always wins and a partially filled file never loses a key.
+  const regenerated = applyTranslations(
+    structuredClone(sourceUi),
+    pendingRefs,
+    uiTranslations,
+  ) as Record<string, unknown>;
+  const translatedUi = base
+    ? mergeBaseWins(regenerated, base)
+    : regenerated;
 
   await mkdir(i18nDir, { recursive: true });
   await writeFile(
-    join(i18nDir, `${target}.json`),
+    uiFile,
     `${JSON.stringify(translatedUi, null, 2)}\n`,
     'utf8',
   );
 
-  console.log(`  i18n/${target}.json: ${uiRefs.length} strings`);
-  summary[target].strings += uiRefs.length;
+  const total = collectAllStrings(translatedUi).length;
+
+  console.log(`  i18n/${target}.json: ${total} strings`);
+  summary[target].strings += pendingRefs.length;
 }
 
 if (dryRun) {

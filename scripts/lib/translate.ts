@@ -307,17 +307,35 @@ export class Translator {
       ],
     };
 
-    const answer = await this.#request(body);
+    const lastError = new Error('unreachable');
 
-    const translations = extractArray(answer);
+    for (let attempt = 0; attempt < 3; attempt += 1) {
+      const answer = await this.#request(body);
 
-    if (translations.length !== strings.length) {
-      throw new Error(
-        `The API returned ${translations.length} translations for ${strings.length} strings.`,
-      );
+      try {
+        const translations = extractArray(answer);
+
+        if (translations.length !== strings.length) {
+          throw new Error(
+            `The API returned ${translations.length} translations for ${strings.length} strings.`,
+          );
+        }
+
+        return translations;
+      } catch (error) {
+        // A malformed answer is a sampling failure of the model: asking
+        // again usually produces a clean one. HTTP and rate-limit errors
+        // are already retried inside `#request`; only answer-shape
+        // problems land here.
+        if (attempt === 2) throw error;
+        console.warn(
+          `  warning: retried a batch for ${language} — ${error instanceof Error ? error.message.slice(0, 120) : String(error)}`,
+        );
+        await delay(2_000);
+      }
     }
 
-    return translations;
+    throw lastError;
   }
 
   /** Send one request, with a couple of retries when the API is busy. */
@@ -428,6 +446,20 @@ export function extractTable(answer: string): Record<string, unknown> {
  * explain themselves before the JSON. Both are handled here.
  */
 export function parseJson(answer: string): unknown {
+  try {
+    return decodeJson(answer);
+  } catch (error) {
+    // The models writing CJK locales sometimes emit a broken `\uXXXX` escape
+    // (non-hex characters after `\u`). Drop the malformed escapes and try
+    // once more: losing an occasional character beats losing the batch.
+    const sanitized = answer.replace(/\\u(?![0-9a-fA-F]{4})/g, '');
+
+    if (sanitized === answer) throw error;
+    return decodeJson(sanitized);
+  }
+}
+
+function decodeJson(answer: string): unknown {
   const cleaned = answer
     .replace(/^\s*```(?:json)?\s*/i, '')
     .replace(/\s*```\s*$/, '')
