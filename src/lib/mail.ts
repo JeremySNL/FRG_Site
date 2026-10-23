@@ -65,7 +65,15 @@ export async function sendNotification(
       }),
     });
 
-    return response.ok ? 'sent' : 'failed';
+    if (!response.ok) {
+      console.error(
+        `[form] Resend rejected the notification (HTTP ${response.status}):`,
+        (await response.text()).slice(0, 200),
+      );
+      return 'failed';
+    }
+
+    return 'sent';
   } catch (error) {
     console.error('[form] could not send the notification', error);
     return 'failed';
