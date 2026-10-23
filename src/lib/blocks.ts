@@ -255,8 +255,56 @@ export interface AmbassadorsBlock {
   }>;
 }
 
+export interface HeroBentoBlock {
+  type: 'heroBento';
+  title: string;
+  text?: string;
+  backgroundImage?: string;
+  backgroundImageAlt?: string;
+  buttons: Link[];
+  cards: Array<{
+    type: 'solidBlue' | 'imageRed' | 'imageBlue' | 'solidRed';
+    title: string;
+    value?: string;
+    image?: string;
+    imageAlt?: string;
+    href?: string;
+  }>;
+}
+
+export interface SplitCtaBlock {
+  type: 'splitCta';
+  title?: string;
+  volunteer: {
+    title: string;
+    text?: string;
+    button: Link;
+    image?: string;
+    imageAlt?: string;
+  };
+  donate: {
+    title: string;
+    text?: string;
+    button: Link;
+    image?: string;
+    imageAlt?: string;
+  };
+}
+
+export interface ContactSectionBlock {
+  type: 'contactSection';
+  title?: string;
+  intro?: string;
+  email?: string;
+  phone?: string;
+  address?: string;
+  form?: 'contact';
+  surface?: boolean;
+}
+
 export type Block =
   | HeroBlock
+  | HeroBentoBlock
   | StatsBlock
   | ProgramsBlock
   | CardsBlock
@@ -275,11 +323,14 @@ export type Block =
   | TeamBlock
   | ProgressBlock
   | RichTextBlock
-  | AmbassadorsBlock;
+  | AmbassadorsBlock
+  | SplitCtaBlock
+  | ContactSectionBlock;
 
 /** Every block type name, in a stable order. */
 export const blockTypes = [
   'hero',
+  'heroBento',
   'stats',
   'programs',
   'cards',
@@ -299,6 +350,8 @@ export const blockTypes = [
   'progress',
   'richText',
   'ambassadors',
+  'splitCta',
+  'contactSection',
 ] as const satisfies readonly Block['type'][];
 
 export type BlockType = (typeof blockTypes)[number];

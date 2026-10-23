@@ -1,0 +1,152 @@
+---
+/**
+ * Hero section with overlapping Bento cards.
+ */
+import type { HeroBentoBlock } from '~/lib/blocks.ts';
+import { isDonationCta } from '~/lib/blocks.ts';
+import { mediaUrl } from '~/lib/site.ts';
+
+interface Props {
+  block: HeroBentoBlock;
+}
+
+const { block } = Astro.props;
+---
+
+<section class="relative overflow-hidden">
+  <!-- Background image with dark overlay -->
+  <div class="absolute inset-0">
+    {block.backgroundImage ? (
+      <img
+        src={mediaUrl(block.backgroundImage)}
+        alt={block.backgroundImageAlt ?? ''}
+        loading="eager"
+        decoding="async"
+        class="h-full w-full object-cover"
+      />
+    ) : (
+      <div class="h-full w-full bg-gradient-to-br from-brand-navy to-brand-navy-strong"></div>
+    )}
+    <div class="absolute inset-0 bg-gradient-to-b from-brand-navy/90 via-brand-navy/80 to-black/70"></div>
+  </div>
+
+  <div class="container-site relative pt-16 pb-32 md:pt-24 md:pb-40">
+    <div class="max-w-3xl">
+      <h1 class="text-display-lg md:text-display-2xl text-white text-balance">
+        {block.title}
+      </h1>
+      {block.text && (
+        <p class="mt-6 text-lg leading-relaxed text-white/90">
+          {block.text}
+        </p>
+      )}
+      {block.buttons.length > 0 && (
+        <div class="mt-10 flex flex-wrap gap-4">
+          {block.buttons.map((button, index) => {
+            const isDonation = isDonationCta(button.href, button.label);
+            return (
+              <a
+                href={button.href}
+                class:list={[
+                  isDonation ? 'btn-donate' : index === 0 ? 'btn-white' : 'btn-outline border-white text-white hover:bg-white hover:text-brand-navy',
+                ]}
+              >
+                {button.label}
+              </a>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  </div>
+
+  <!-- Overlapping Bento cards -->
+  <div class="container-site relative -mt-20 pb-16 md:-mt-28 md:pb-24">
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {block.cards.map((card) => {
+        if (card.type === 'solidBlue') {
+          return (
+            <article class="group relative overflow-hidden rounded-3xl bg-brand-navy p-6 shadow-xl shadow-brand-navy/40 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl md:p-8">
+              <div class="relative">
+                {card.value && (
+                  <p class="font-display text-display-md md:text-display-lg text-white">
+                    {card.value}
+                  </p>
+                )}
+                <h3 class="mt-2 text-xl font-semibold text-white">{card.title}</h3>
+              </div>
+            </article>
+          );
+        } else if (card.type === 'solidRed') {
+          return (
+            <article class="group relative overflow-hidden rounded-3xl bg-brand-red p-6 shadow-xl shadow-brand-red/40 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl md:p-8">
+              <div class="relative">
+                {card.value && (
+                  <p class="font-display text-display-md md:text-display-lg text-white">
+                    {card.value}
+                  </p>
+                )}
+                <h3 class="mt-2 text-xl font-semibold text-white">{card.title}</h3>
+              </div>
+            </article>
+          );
+        } else if (card.type === 'imageRed') {
+          return (
+            <article class="group relative overflow-hidden rounded-3xl shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <div class="absolute inset-0">
+                {card.image ? (
+                  <img
+                    src={mediaUrl(card.image)}
+                    alt={card.imageAlt ?? ''}
+                    loading="lazy"
+                    decoding="async"
+                    class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                ) : (
+                  <div class="h-full w-full bg-gradient-to-br from-brand-red to-brand-red-strong"></div>
+                )}
+                <div class="absolute inset-0 bg-gradient-to-br from-brand-red/90 to-brand-red-strong/90"></div>
+              </div>
+              <div class="relative p-6 md:p-8">
+                {card.value && (
+                  <p class="font-display text-display-md md:text-display-lg text-white">
+                    {card.value}
+                  </p>
+                )}
+                <h3 class="mt-2 text-xl font-semibold text-white">{card.title}</h3>
+              </div>
+            </article>
+          );
+        } else if (card.type === 'imageBlue') {
+          return (
+            <article class="group relative overflow-hidden rounded-3xl shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <div class="absolute inset-0">
+                {card.image ? (
+                  <img
+                    src={mediaUrl(card.image)}
+                    alt={card.imageAlt ?? ''}
+                    loading="lazy"
+                    decoding="async"
+                    class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                ) : (
+                  <div class="h-full w-full bg-gradient-to-br from-brand-navy to-brand-navy-strong"></div>
+                )}
+                <div class="absolute inset-0 bg-gradient-to-br from-brand-navy/90 to-brand-navy-strong/90"></div>
+              </div>
+              <div class="relative p-6 md:p-8">
+                {card.value && (
+                  <p class="font-display text-display-md md:text-display-lg text-white">
+                    {card.value}
+                  </p>
+                )}
+                <h3 class="mt-2 text-xl font-semibold text-white">{card.title}</h3>
+              </div>
+            </article>
+          );
+        }
+        return null;
+      })}
+    </div>
+  </div>
+</section>

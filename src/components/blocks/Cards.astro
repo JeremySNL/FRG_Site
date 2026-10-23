@@ -17,7 +17,7 @@ const { block } = Astro.props;
 const ui = getUi(parseRoute(Astro.url.pathname).locale);
 ---
 
-<section class={sectionClass(block.surface)}>
+<section class={block.title === 'Áreas de acción' ? 'bg-white py-16 md:py-24' : sectionClass(block.surface)}>
   <div class="container-site">
     {(block.title || block.intro) && (
       <div class="mb-10 max-w-2xl">
@@ -46,17 +46,17 @@ const ui = getUi(parseRoute(Astro.url.pathname).locale);
             {icon && (
               <span
                 aria-hidden="true"
-                class="mb-5 inline-flex size-11 items-center justify-center rounded-pill bg-accent text-white"
+                class="mb-5 inline-flex size-11 items-center justify-center rounded-none bg-brand-navy text-white"
               >
                 <svg viewBox="0 0 24 24" class="size-5 fill-current">
                   <path d={icon} />
                 </svg>
               </span>
             )}
-            <h3 class="text-display-xs">{item.title}</h3>
+            <h3 class="text-display-xs text-brand-navy">{item.title}</h3>
             {item.text && <p class="mt-2 text-base text-secondary">{item.text}</p>}
             {item.href && (
-              <span class="link-underline mt-4 inline-flex items-center gap-2 text-sm">
+              <span class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-red">
                 {ui.readMore}
                 <svg
                   aria-hidden="true"
@@ -80,11 +80,11 @@ const ui = getUi(parseRoute(Astro.url.pathname).locale);
         );
 
         return item.href ? (
-          <a class="card-link group" href={item.href}>
+          <a class="group block rounded-2xl border-2 border-brand-navy bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-brand-red hover:shadow-xl" href={item.href}>
             {content}
           </a>
         ) : (
-          <article class="card group">{content}</article>
+          <article class="group rounded-2xl border-2 border-brand-navy bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-brand-red hover:shadow-xl">{content}</article>
         );
       })}
     </div>

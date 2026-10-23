@@ -3,7 +3,6 @@
  * Highlighted figures about the foundation's impact.
  */
 import type { StatsBlock } from '~/lib/blocks.ts';
-import { sectionClass } from '~/lib/blocks.ts';
 
 interface Props {
   block: StatsBlock;
@@ -12,15 +11,19 @@ interface Props {
 const { block } = Astro.props;
 ---
 
-<section class={sectionClass(block.surface, true)}>
+<section class="bg-brand-navy py-16 md:py-24">
   <div class="container-site">
+    <div class="mb-10 text-center">
+      <h2 class="text-display-md md:text-display-lg text-white">Impacto y Logros</h2>
+      <p class="mt-4 text-lg text-white/90">Resultados que construyen confianza</p>
+    </div>
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       {block.items.map((item) => (
-        <article class="rounded-2xl border border-accent/15 bg-white px-6 py-8 text-center shadow-md shadow-black/5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-accent/10">
-          <p class="font-display text-display-md md:text-display-lg text-accent">
+        <article class="rounded-2xl border-2 border-white/20 bg-white px-6 py-10 text-center shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-brand-red hover:shadow-2xl">
+          <p class="font-display text-display-md md:text-display-xl text-brand-navy">
             {item.value}
           </p>
-          <p class="mt-2 text-base font-medium text-secondary">{item.label}</p>
+          <p class="mt-3 text-base font-semibold text-secondary">{item.label}</p>
         </article>
       ))}
     </div>

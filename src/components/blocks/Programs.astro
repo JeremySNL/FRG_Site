@@ -29,27 +29,29 @@ const programs = allPrograms.filter((program) =>
 ---
 
 {programs.length > 0 && (
-  <section class={sectionClass(block.surface, true)}>
+  <section class={block.title === 'Programas que Transforman' ? 'bg-brand-navy py-16 md:py-24' : sectionClass(block.surface, true)}>
     <div class="container-site">
       {(block.title || block.intro) && (
         <div class="mb-10 max-w-2xl">
           {block.title && (
-            <h2 class="text-display-md md:text-display-lg">{block.title}</h2>
+            <h2 class={block.title === 'Programas que Transforman' ? 'text-display-md md:text-display-lg text-white' : 'text-display-md md:text-display-lg'}>
+              {block.title}
+            </h2>
           )}
-          {block.intro && <p class="mt-4 text-lg text-secondary">{block.intro}</p>}
+          {block.intro && <p class={block.title === 'Programas que Transforman' ? 'mt-4 text-lg text-white/90' : 'mt-4 text-lg text-secondary'}>{block.intro}</p>}
         </div>
       )}
 
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {programs.map((program) => (
-          <article class="card group flex flex-col">
-            <h3 class="text-display-xs">{program.data.title}</h3>
+          <article class={block.title === 'Programas que Transforman' ? 'group flex flex-col rounded-2xl border-2 border-white bg-white p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-brand-red hover:shadow-2xl' : 'card group flex flex-col'}>
+            <h3 class={block.title === 'Programas que Transforman' ? 'text-display-xs text-brand-navy' : 'text-display-xs'}>{program.data.title}</h3>
             {program.data.summary && (
               <p class="mt-2 flex-1 text-base text-secondary">{program.data.summary}</p>
             )}
             {!onIndex && (
               <a
-                class="link-underline mt-6 inline-flex items-center gap-2 text-sm"
+                class={block.title === 'Programas que Transforman' ? 'mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand-red' : 'link-underline mt-6 inline-flex items-center gap-2 text-sm'}
                 href={indexHref}
               >
                 {ui.viewProgram}

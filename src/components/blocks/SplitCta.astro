@@ -1,0 +1,100 @@
+---
+/**
+ * Volunteering & Donations split section.
+ */
+import type { SplitCtaBlock } from '~/lib/blocks.ts';
+import { mediaUrl } from '~/lib/site.ts';
+
+interface Props {
+  block: SplitCtaBlock;
+}
+
+const { block } = Astro.props;
+---
+
+<section class="py-16 md:py-24">
+  <div class="container-site">
+    {block.title && (
+      <div class="mb-10 max-w-2xl">
+        <h2 class="text-display-md md:text-display-lg">{block.title}</h2>
+      </div>
+    )}
+    <div class="grid gap-6 lg:grid-cols-2">
+      <!-- Volunteer panel -->
+      <article class="group relative overflow-hidden rounded-3xl shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+        <div class="absolute inset-0">
+          {block.volunteer.image ? (
+            <img
+              src={mediaUrl(block.volunteer.image)}
+              alt={block.volunteer.imageAlt ?? ''}
+              loading="lazy"
+              decoding="async"
+              class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+          ) : (
+            <div class="h-full w-full bg-gradient-to-br from-brand-navy to-brand-navy-strong"></div>
+          )}
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-navy/90 via-brand-navy/80 to-brand-navy/90"></div>
+        </div>
+        <div class="relative flex h-full flex-col justify-between p-8 md:p-10">
+          <div>
+            <div class="mb-4 inline-flex items-center gap-2 rounded-pill bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-white">
+              Voluntariado
+            </div>
+            <h3 class="text-display-sm md:text-display-md text-white">
+              {block.volunteer.title}
+            </h3>
+            {block.volunteer.text && (
+              <p class="mt-4 max-w-md text-lg leading-relaxed text-white/90">
+                {block.volunteer.text}
+              </p>
+            )}
+          </div>
+          <div class="mt-8">
+            <a href={block.volunteer.button.href} class="btn-white">
+              {block.volunteer.button.label}
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Donate panel -->
+      <article class="group relative overflow-hidden rounded-3xl shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+        <div class="absolute inset-0">
+          {block.donate.image ? (
+            <img
+              src={mediaUrl(block.donate.image)}
+              alt={block.donate.imageAlt ?? ''}
+              loading="lazy"
+              decoding="async"
+              class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+          ) : (
+            <div class="h-full w-full bg-gradient-to-br from-brand-red to-brand-red-strong"></div>
+          )}
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-red/90 via-brand-red/80 to-brand-red-strong/90"></div>
+        </div>
+        <div class="relative flex h-full flex-col justify-between p-8 md:p-10">
+          <div>
+            <div class="mb-4 inline-flex items-center gap-2 rounded-pill bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-white">
+              Donaciones
+            </div>
+            <h3 class="text-display-sm md:text-display-md text-white">
+              {block.donate.title}
+            </h3>
+            {block.donate.text && (
+              <p class="mt-4 max-w-md text-lg leading-relaxed text-white/90">
+                {block.donate.text}
+              </p>
+            )}
+          </div>
+          <div class="mt-8">
+            <a href={block.donate.button.href} class="btn-donate">
+              {block.donate.button.label}
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

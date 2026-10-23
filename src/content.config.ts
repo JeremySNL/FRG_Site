@@ -219,6 +219,52 @@ const blockSchema = z.discriminatedUnion('type', [
       }),
     ),
   }),
+  z.object({
+    type: z.literal('heroBento'),
+    title: z.string(),
+    text: z.string().optional(),
+    backgroundImage: z.string().optional(),
+    backgroundImageAlt: z.string().optional(),
+    buttons: z.array(linkSchema).default([]),
+    cards: z.array(
+      z.object({
+        type: z.enum(['solidBlue', 'imageRed', 'imageBlue', 'solidRed']),
+        title: z.string(),
+        value: z.string().optional(),
+        image: z.string().optional(),
+        imageAlt: z.string().optional(),
+        href: z.string().optional(),
+      }),
+    ),
+  }),
+  z.object({
+    type: z.literal('splitCta'),
+    title: z.string().optional(),
+    volunteer: z.object({
+      title: z.string(),
+      text: z.string().optional(),
+      button: linkSchema,
+      image: z.string().optional(),
+      imageAlt: z.string().optional(),
+    }),
+    donate: z.object({
+      title: z.string(),
+      text: z.string().optional(),
+      button: linkSchema,
+      image: z.string().optional(),
+      imageAlt: z.string().optional(),
+    }),
+  }),
+  z.object({
+    type: z.literal('contactSection'),
+    title: z.string().optional(),
+    intro: z.string().optional(),
+    email: z.string().optional(),
+    phone: z.string().optional(),
+    address: z.string().optional(),
+    form: z.enum(['contact']).optional(),
+    surface: z.boolean().optional(),
+  }),
 ]);
 
 const pages = defineCollection({

@@ -3,7 +3,6 @@
  * Testimonials.
  */
 import type { TestimonialBlock } from '~/lib/blocks.ts';
-import { sectionClass } from '~/lib/blocks.ts';
 import { mediaUrl } from '~/lib/site.ts';
 
 interface Props {
@@ -14,18 +13,18 @@ const { block } = Astro.props;
 ---
 
 {block.items.length > 0 && (
-  <section class={sectionClass(block.surface, true)}>
+  <section class="bg-white py-16 md:py-24">
     <div class="container-site">
-      {block.title && <h2 class="text-display-md">{block.title}</h2>}
+      {block.title && <h2 class="text-display-md md:text-display-lg">{block.title}</h2>}
 
       <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {block.items.map((item) => (
-          <figure class="flex h-full flex-col rounded-2xl border border-muted bg-white p-7">
-            <svg aria-hidden="true" viewBox="0 0 24 24" class="size-8 fill-accent/20">
+          <figure class="flex h-full flex-col rounded-2xl border-4 border-brand-navy bg-white p-7 shadow-xl">
+            <svg aria-hidden="true" viewBox="0 0 24 24" class="size-8 fill-brand-red">
               <path d="M7.5 6C5 6 3 8 3 10.5S5 15 7.5 15c.2 0 .4 0 .5-.1-.6 1.2-1.9 2.1-3.5 2.4l.4 1.7C8.3 18.4 11 15.6 11 11.5 11 8.4 9.5 6 7.5 6Zm10 0C15 6 13 8 13 10.5s2 4.5 4.5 4.5c.2 0 .4 0 .5-.1-.6 1.2-1.9 2.1-3.5 2.4l.4 1.7c3.4-.6 6.1-3.4 6.1-7.5C21 8.4 19.5 6 17.5 6Z" />
             </svg>
 
-            <blockquote class="mt-4 flex-1 text-base leading-relaxed text-text">
+            <blockquote class="mt-4 flex-1 text-base leading-relaxed text-brand-navy">
               “{item.quote}”
             </blockquote>
 
@@ -36,12 +35,17 @@ const { block } = Astro.props;
                   alt={item.author ?? ''}
                   loading="lazy"
                   decoding="async"
-                  class="size-11 rounded-pill object-cover"
+                  class="size-11 rounded-full object-cover ring-2 ring-brand-navy"
                 />
+              )}
+              {!item.image && (
+                <div class="flex size-11 items-center justify-center rounded-full bg-brand-navy text-xs font-semibold text-white">
+                  {(item.author ?? '?').slice(0, 2).toUpperCase()}
+                </div>
               )}
               <span>
                 {item.author && (
-                  <span class="block font-display text-sm font-semibold">
+                  <span class="block font-display text-sm font-semibold text-brand-navy">
                     {item.author}
                   </span>
                 )}

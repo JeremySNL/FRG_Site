@@ -4,7 +4,6 @@
  * Continental General Ambassador and a grid of Country/Area Ambassadors below.
  */
 import type { AmbassadorsBlock } from '~/lib/blocks.ts';
-import { sectionClass } from '~/lib/blocks.ts';
 import { mediaUrl } from '~/lib/site.ts';
 
 interface Props {
@@ -14,7 +13,7 @@ interface Props {
 const { block } = Astro.props;
 ---
 
-<section class={sectionClass(block.surface, false)}>
+<section id="continentes" class="bg-white py-16 md:py-24">
   <div class="container-site">
     {(block.title || block.intro) && (
       <div class="mb-12 max-w-3xl">
@@ -31,29 +30,18 @@ const { block } = Astro.props;
 
     <div class="space-y-16">
       {block.continents.map((continent) => (
-        <article class="space-y-8">
-          <header class="flex flex-col gap-2">
+        <article id={`continente-${continent.name.toLowerCase().replace(/\s+/g, '-')}`} class="space-y-8 scroll-mt-28">
+          <header class="flex flex-col gap-3">
             <div class="flex items-center gap-3">
-              <span class="h-1 w-10 rounded-full bg-accent"></span>
+              <span class="h-1.5 w-12 bg-brand-red"></span>
               <h3 class="text-display-sm md:text-display-md">{continent.name}</h3>
             </div>
-            <p class="text-base text-secondary">
-              Embajadores de Buena Voluntad por continente
-            </p>
           </header>
 
           <!-- Continental General Ambassador - prominent -->
-          <div class="relative overflow-hidden rounded-3xl border border-accent/20 bg-linear-to-br from-white via-tint to-tint-strong p-6 shadow-lg shadow-accent/10 md:p-10">
-            <div
-              aria-hidden="true"
-              class="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-accent/10 blur-3xl"
-            ></div>
-            <div class="relative grid items-center gap-6 md:grid-cols-[auto,1fr] md:gap-10">
+          <div class="relative overflow-hidden rounded-3xl border-4 border-brand-navy bg-white p-6 shadow-xl md:p-12">
+            <div class="relative grid items-center gap-8 md:grid-cols-[auto,1fr] md:gap-12">
               <div class="relative mx-auto md:mx-0">
-                <div
-                  aria-hidden="true"
-                  class="absolute -inset-2 rounded-full bg-linear-to-br from-accent to-accent-hover opacity-20 blur-xl"
-                ></div>
                 {continent.generalAmbassador.image ? (
                   <img
                     src={mediaUrl(continent.generalAmbassador.image)}
@@ -63,14 +51,14 @@ const { block } = Astro.props;
                     }
                     loading="lazy"
                     decoding="async"
-                    class="relative h-40 w-40 rounded-full object-cover shadow-xl shadow-accent/20 ring-4 ring-white md:h-56 md:w-56"
+                    class="relative h-48 w-48 rounded-full object-cover shadow-xl ring-4 ring-brand-navy md:h-64 md:w-64"
                   />
                 ) : (
-                  <div class="relative flex h-40 w-40 items-center justify-center rounded-full bg-white shadow-xl shadow-accent/20 ring-4 ring-white md:h-56 md:w-56">
+                  <div class="relative flex h-48 w-48 items-center justify-center rounded-full bg-brand-navy/10 shadow-xl ring-4 ring-brand-navy md:h-64 md:w-64">
                     <svg
                       aria-hidden="true"
                       viewBox="0 0 24 24"
-                      class="h-16 w-16 fill-accent/40 md:h-24 md:w-24"
+                      class="h-20 w-20 fill-brand-navy md:h-32 md:w-32"
                     >
                       <path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-3.33 0-10 1.67-10 5v1h20v-1c0-3.33-6.67-5-10-5Z" />
                     </svg>
@@ -78,29 +66,29 @@ const { block } = Astro.props;
                 )}
               </div>
               <div class="text-center md:text-left">
-                <div class="mb-4 inline-flex items-center gap-2 rounded-pill bg-accent px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-white shadow-md shadow-accent/30">
+                <div class="mb-4 inline-flex items-center gap-2 rounded-none bg-brand-red px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] text-white">
                   <svg
                     aria-hidden="true"
                     viewBox="0 0 20 20"
-                    class="h-3.5 w-3.5 fill-current"
+                    class="h-4 w-4 fill-current"
                   >
                     <path d="M10 2 12.09 7.26H18l-4.545 3.3L15.545 16 10 12.7 4.455 16l1.09-5.44L1 7.26h5.91L10 2Z" />
                   </svg>
                   Embajador General Continental
                 </div>
-                <h4 class="text-display-sm md:text-display-md">
+                <h4 class="text-display-sm md:text-display-lg">
                   {continent.generalAmbassador.name}
                 </h4>
                 {(continent.generalAmbassador.country ||
                   continent.generalAmbassador.role) && (
-                  <p class="mt-2 text-lg text-secondary">
+                  <p class="mt-3 text-xl font-medium text-accent">
                     {[continent.generalAmbassador.role, continent.generalAmbassador.country]
                       .filter(Boolean)
                       .join(' · ')}
                   </p>
                 )}
-                <p class="mt-4 text-base text-secondary/80">
-                  Representante principal en {continent.name}
+                <p class="mt-4 text-base leading-relaxed text-secondary">
+                  Representante principal y portavoz de la Fundación Rosario Gatón en {continent.name}, promoviendo la cooperación internacional, la solidaridad y el desarrollo sostenible.
                 </p>
               </div>
             </div>
@@ -113,15 +101,11 @@ const { block } = Astro.props;
                 <h5 class="text-display-xs md:text-display-sm">
                   Embajadores por País / Área
                 </h5>
-                <div class="h-px flex-1 bg-gradient-to-r from-accent/30 to-transparent"></div>
+                <div class="h-px flex-1 bg-brand-navy"></div>
               </div>
               <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {continent.ambassadors.map((ambassador) => (
-                  <article class="group relative overflow-hidden rounded-2xl border border-accent/10 bg-white p-6 shadow-md shadow-black/5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-accent/10">
-                    <div
-                      aria-hidden="true"
-                      class="absolute -top-10 -right-10 h-24 w-24 rounded-full bg-tint transition-transform duration-300 group-hover:scale-110"
-                    ></div>
+                  <article class="group relative overflow-hidden rounded-2xl border-2 border-brand-navy bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-brand-red hover:shadow-xl">
                     <div class="relative flex flex-col items-center text-center">
                       <div class="mb-4">
                         {ambassador.image ? (
@@ -130,25 +114,25 @@ const { block } = Astro.props;
                             alt={ambassador.imageAlt ?? ambassador.name}
                             loading="lazy"
                             decoding="async"
-                            class="h-24 w-24 rounded-full object-cover shadow-lg shadow-accent/15 ring-2 ring-white"
+                            class="h-24 w-24 rounded-full object-cover shadow-lg ring-2 ring-brand-navy"
                           />
                         ) : (
-                          <div class="flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-tint to-tint-strong shadow-lg shadow-accent/15 ring-2 ring-white">
+                          <div class="flex h-24 w-24 items-center justify-center rounded-full bg-brand-navy/10 shadow-lg ring-2 ring-brand-navy">
                             <svg
                               aria-hidden="true"
                               viewBox="0 0 24 24"
-                              class="h-12 w-12 fill-accent/40"
+                              class="h-12 w-12 fill-brand-navy"
                             >
                               <path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-3.33 0-10 1.67-10 5v1h20v-1c0-3.33-6.67-5-10-5Z" />
                             </svg>
                           </div>
                         )}
                       </div>
-                      <h6 class="font-display text-lg font-semibold">
+                      <h6 class="font-display text-lg font-semibold text-brand-navy">
                         {ambassador.name}
                       </h6>
                       {(ambassador.country || ambassador.area || ambassador.role) && (
-                        <p class="mt-1 text-sm text-secondary">
+                        <p class="mt-1 text-sm font-medium text-brand-red">
                           {[
                             ambassador.role,
                             ambassador.area || ambassador.country,
@@ -158,7 +142,7 @@ const { block } = Astro.props;
                         </p>
                       )}
                       {ambassador.country && ambassador.area && (
-                        <p class="mt-1 text-xs text-secondary/70">
+                        <p class="mt-1 text-xs text-secondary">
                           {ambassador.country}
                         </p>
                       )}

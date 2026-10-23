@@ -43,8 +43,8 @@ describe('the blocks', () => {
 
   it('are in a stable order', () => {
     expect(blockTypes[0]).toBe('hero');
-    expect(blockTypes[blockTypes.length - 1]).toBe('richText');
-    expect(blockTypes.length).toBe(19);
+    expect(blockTypes[blockTypes.length - 1]).toBe('contactSection');
+    expect(blockTypes.length).toBe(23);
   });
 
   it('cover the pages of the site', async () => {

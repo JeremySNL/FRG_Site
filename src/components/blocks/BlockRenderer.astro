@@ -29,6 +29,9 @@ import Team from './Team.astro';
 import Testimonial from './Testimonial.astro';
 import Video from './Video.astro';
 import Ambassadors from './Ambassadors.astro';
+import HeroBento from './HeroBento.astro';
+import SplitCta from './SplitCta.astro';
+import ContactSection from './ContactSection.astro';
 
 interface Props {
   blocks: Block[];
@@ -42,6 +45,8 @@ const { blocks, locale } = Astro.props;
   switch (block.type) {
     case 'hero':
       return <Hero block={block} />;
+    case 'heroBento':
+      return <HeroBento block={block} />;
     case 'stats':
       return <Stats block={block} />;
     case 'programs':
@@ -80,5 +85,9 @@ const { blocks, locale } = Astro.props;
       return <RichText block={block} />;
     case 'ambassadors':
       return <Ambassadors block={block} />;
+    case 'splitCta':
+      return <SplitCta block={block} />;
+    case 'contactSection':
+      return <ContactSection block={block} locale={locale} />;
   }
 })}

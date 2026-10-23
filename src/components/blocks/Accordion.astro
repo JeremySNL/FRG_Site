@@ -6,7 +6,6 @@
  * and is accessible out of the box.
  */
 import type { AccordionBlock } from '~/lib/blocks.ts';
-import { sectionClass } from '~/lib/blocks.ts';
 
 interface Props {
   block: AccordionBlock;
@@ -16,18 +15,18 @@ const { block } = Astro.props;
 ---
 
 {block.items.length > 0 && (
-  <section class={sectionClass(block.surface)}>
+  <section class="bg-white py-16 md:py-24">
     <div class="container-site">
-      {block.title && <h2 class="text-display-md">{block.title}</h2>}
+      {block.title && <h2 class="text-display-md md:text-display-lg">{block.title}</h2>}
 
       <div class="mt-10 space-y-3">
         {block.items.map((item) => (
-          <details class="group rounded-2xl border border-accent/10 bg-white px-6 py-5 transition-colors open:border-accent/30 open:bg-tint">
-            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-base font-medium marker:hidden">
+          <details class="group rounded-none border-2 border-brand-navy bg-white">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 bg-brand-navy px-6 py-5 font-display text-base font-medium text-white marker:hidden">
               <span>{item.title}</span>
               <span
                 aria-hidden="true"
-                class="inline-flex size-7 shrink-0 items-center justify-center rounded-pill bg-accent text-white transition-transform duration-200 group-open:rotate-45"
+                class="inline-flex size-7 shrink-0 items-center justify-center bg-white text-brand-navy transition-transform duration-200 group-open:rotate-45"
               >
                 <svg viewBox="0 0 24 24" class="size-4 fill-current">
                   <path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5Z" />
@@ -35,7 +34,7 @@ const { block } = Astro.props;
               </span>
             </summary>
             {item.text && (
-              <div class="prose prose-frg mt-4 text-sm" set:html={item.text} />
+              <div class="prose prose-frg px-6 py-4 text-sm" set:html={item.text} />
             )}
           </details>
         ))}
