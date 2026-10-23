@@ -23,7 +23,7 @@
     "migrate:extract": "node scripts/extract-wp.mts",
     "migrate:media": "node scripts/migrate-media.mts",
     "migrate:redirects": "node scripts/generate-redirects.mts",
-    "translate": "node scripts/translate.mts",
+    "translate": "node --env-file-if-exists=.env scripts/translate.mts",
     "deploy": "astro build && wrangler deploy --config dist/server/wrangler.json",
     "deploy:preview": "astro build && wrangler deploy --config dist/server/wrangler.json --dry-run"
   },
