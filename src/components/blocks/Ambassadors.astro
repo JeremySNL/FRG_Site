@@ -4,6 +4,8 @@
  * Continental General Ambassador and a grid of Country/Area Ambassadors below.
  */
 import type { AmbassadorsBlock } from '~/lib/blocks.ts';
+import { parseRoute } from '~/lib/locales.ts';
+import { getUi } from '~/lib/ui.ts';
 import { mediaUrl } from '~/lib/site.ts';
 
 interface Props {
@@ -11,6 +13,8 @@ interface Props {
 }
 
 const { block } = Astro.props;
+const { locale } = parseRoute(Astro.url.pathname);
+const ui = getUi(locale);
 ---
 
 <section id="continentes" class="bg-white py-16 md:py-24">
@@ -74,7 +78,7 @@ const { block } = Astro.props;
                   >
                     <path d="M10 2 12.09 7.26H18l-4.545 3.3L15.545 16 10 12.7 4.455 16l1.09-5.44L1 7.26h5.91L10 2Z" />
                   </svg>
-                  Embajador General Continental
+                  {ui.ambassadorGeneralRole}
                 </div>
                 <h4 class="text-display-sm md:text-display-lg">
                   {continent.generalAmbassador.name}
@@ -88,7 +92,7 @@ const { block } = Astro.props;
                   </p>
                 )}
                 <p class="mt-4 text-base leading-relaxed text-secondary">
-                  Representante principal y portavoz de la Fundación Rosario Gatón en {continent.name}, promoviendo la cooperación internacional, la solidaridad y el desarrollo sostenible.
+                  {ui.ambassadorGeneralIntro.replace('{continent}', continent.name)}
                 </p>
               </div>
             </div>
@@ -99,7 +103,7 @@ const { block } = Astro.props;
             <div>
               <div class="mb-6 flex items-center gap-3">
                 <h5 class="text-display-xs md:text-display-sm">
-                  Embajadores por País / Área
+                  {ui.ambassadorAreaHeading}
                 </h5>
                 <div class="h-px flex-1 bg-brand-navy"></div>
               </div>

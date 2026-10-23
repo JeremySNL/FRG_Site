@@ -4,6 +4,7 @@
  */
 import type { ContactSectionBlock } from '~/lib/blocks.ts';
 import type { Locale } from '~/lib/locales.ts';
+import { getUi } from '~/lib/ui.ts';
 import Form from './Form.astro';
 
 interface Props {
@@ -12,6 +13,7 @@ interface Props {
 }
 
 const { block, locale } = Astro.props;
+const ui = getUi(locale);
 ---
 
 <section class="bg-brand-navy py-16 md:py-24">
@@ -38,7 +40,7 @@ const { block, locale } = Astro.props;
 
       <div class="space-y-6">
         <article class="rounded-2xl border-2 border-white bg-white p-6 shadow-xl md:p-8">
-          <h3 class="text-display-xs md:text-display-sm text-brand-navy">Información de Contacto</h3>
+          <h3 class="text-display-xs md:text-display-sm text-brand-navy">{ui.contactInfoTitle}</h3>
           <div class="mt-6 space-y-4">
             {block.email && (
               <div class="flex items-start gap-4">
@@ -48,7 +50,7 @@ const { block, locale } = Astro.props;
                   </svg>
                 </span>
                 <div>
-                  <p class="font-semibold text-brand-navy">Correo Electrónico</p>
+                  <p class="font-semibold text-brand-navy">{ui.contactEmailLabel}</p>
                   <a href={`mailto:${block.email}`} class="text-brand-red hover:underline">
                     {block.email}
                   </a>
@@ -63,7 +65,7 @@ const { block, locale } = Astro.props;
                   </svg>
                 </span>
                 <div>
-                  <p class="font-semibold text-brand-navy">Teléfono</p>
+                  <p class="font-semibold text-brand-navy">{ui.contactPhoneLabel}</p>
                   <a href={`tel:${block.phone}`} class="text-brand-red hover:underline">
                     {block.phone}
                   </a>
@@ -78,7 +80,7 @@ const { block, locale } = Astro.props;
                   </svg>
                 </span>
                 <div>
-                  <p class="font-semibold text-brand-navy">Dirección</p>
+                  <p class="font-semibold text-brand-navy">{ui.contactAddressLabel}</p>
                   <p class="text-secondary">{block.address}</p>
                 </div>
               </div>

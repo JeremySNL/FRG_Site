@@ -8,7 +8,8 @@
  */
 import { getUi } from '~/lib/ui.ts';
 import { mediaUrl, site } from '~/lib/site.ts';
-import { localePath, type Locale } from '~/lib/locales.ts';
+import { defaultLocale, localePath, type Locale } from '~/lib/locales.ts';
+import { getPages } from '~/lib/content.ts';
 import { donatePath } from '~/lib/navigation.ts';
 import Newsletter from './Newsletter.astro';
 
@@ -19,18 +20,34 @@ interface Props {
 const { locale } = Astro.props;
 const ui = getUi(locale);
 
+// The quick links are a curated slug list, but their labels are the page
+// titles of the rendered locale (`navLabel ?? title`, same rule as the main
+// navigation). Spanish titles stay as the fallback, matching the pages that
+// are still served in Spanish with the translation-pending notice.
+const [currentPages, sourcePages] = await Promise.all([
+  getPages(locale),
+  getPages(defaultLocale),
+]);
+const titles = new Map<string, string>();
+for (const page of sourcePages) {
+  titles.set(page.data.slug, page.data.navLabel ?? page.data.title);
+}
+for (const page of currentPages) {
+  titles.set(page.data.slug, page.data.navLabel ?? page.data.title);
+}
+
 const quickLinks = [
-  { label: 'Inicio', href: localePath(locale) },
-  { label: 'Actualidades', href: localePath(locale, 'actualidades') },
-  { label: 'Programas y Proyectos', href: localePath(locale, 'programas-y-proyectos') },
-  { label: 'Galería de Imágenes', href: localePath(locale, 'galeria-de-imagenes') },
-  { label: 'Nuestro Equipo', href: localePath(locale, 'nuestro-equipo') },
-  {
-    label: 'Política de Ética y Seguridad',
-    href: localePath(locale, 'politica-de-etica-y-seguridad'),
-  },
-  { label: 'Contacto', href: localePath(locale, 'contacto') },
-];
+  '',
+  'actualidades',
+  'programas-y-proyectos',
+  'galeria-de-imagenes',
+  'nuestro-equipo',
+  'politica-de-etica-y-seguridad',
+  'contacto',
+].map((slug) => ({
+  label: titles.get(slug) ?? slug,
+  href: localePath(locale, slug),
+}));
 
 const address = `${site.address.street}, ${site.address.city}, ${site.address.region}, ${site.address.country}`;
 const year = new Date().getFullYear();

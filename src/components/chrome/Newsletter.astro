@@ -21,7 +21,8 @@ const ui = getUi(locale);
   class="space-y-4"
   method="post"
   action="/api/newsletter/"
-  data-locale={locale}
+  data-success={ui.newsletterSuccess}
+  data-error={ui.newsletterError}
 >
   <h2 class="font-display text-lg font-semibold">{ui.newsletterTitle}</h2>
   <p class="text-sm text-white/70">{ui.newsletterText}</p>
@@ -69,18 +70,11 @@ const ui = getUi(locale);
   const status = document.querySelector<HTMLElement>('#newsletter-status');
 
   if (form && status) {
-    const locale = form.dataset.locale ?? 'es';
-    const messages: Record<string, { ok: string; error: string }> = {
-      es: {
-        ok: '¡Gracias! Te has suscrito correctamente.',
-        error: 'No fue posible completar la suscripción. Inténtalo de nuevo.',
-      },
-      en: {
-        ok: 'Thank you! You have been subscribed.',
-        error: 'We could not complete the subscription. Please try again.',
-      },
-    };
-    const copy = messages[locale] ?? messages['es']!;
+    // The messages come from the i18n string table, rendered into the form's
+    // data attributes by the server, so every locale gets its own copy
+    // without a dict in the client bundle.
+    const okMessage = form.dataset.success ?? '';
+    const errorMessage = form.dataset.error ?? '';
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
@@ -99,13 +93,13 @@ const ui = getUi(locale);
         });
 
         const result = (await response.json()) as { ok?: boolean };
-        status.textContent = result.ok ? copy.ok : copy.error;
+        status.textContent = result.ok ? okMessage : errorMessage;
         status.classList.toggle('text-white', result.ok === true);
         status.classList.toggle('text-accent-hover', result.ok !== true);
 
         if (result.ok) form.reset();
       } catch {
-        status.textContent = copy.error;
+        status.textContent = errorMessage;
         status.classList.add('text-accent-hover');
       } finally {
         if (button) button.disabled = false;

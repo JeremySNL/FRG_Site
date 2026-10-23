@@ -3,19 +3,23 @@
  * Highlighted figures about the foundation's impact.
  */
 import type { StatsBlock } from '~/lib/blocks.ts';
+import { parseRoute } from '~/lib/locales.ts';
+import { getUi } from '~/lib/ui.ts';
 
 interface Props {
   block: StatsBlock;
 }
 
 const { block } = Astro.props;
+const { locale } = parseRoute(Astro.url.pathname);
+const ui = getUi(locale);
 ---
 
 <section class="bg-brand-navy py-16 md:py-24">
   <div class="container-site">
     <div class="mb-10 text-center">
-      <h2 class="text-display-md md:text-display-lg text-white">Impacto y Logros</h2>
-      <p class="mt-4 text-lg text-white/90">Resultados que construyen confianza</p>
+      <h2 class="text-display-md md:text-display-lg text-white">{ui.statsTitle}</h2>
+      <p class="mt-4 text-lg text-white/90">{ui.statsSubtitle}</p>
     </div>
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       {block.items.map((item) => (

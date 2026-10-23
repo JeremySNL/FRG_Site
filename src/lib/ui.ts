@@ -26,6 +26,21 @@ export interface UiStrings {
   donate: string;
   quickLinks: string;
   contact: string;
+  /** Heading of the impact/figures block on the home page. */
+  statsTitle: string;
+  /** Subtitle of the impact/figures block on the home page. */
+  statsSubtitle: string;
+  /** Badge over the featured general ambassador card. */
+  ambassadorGeneralRole: string;
+  /** Subheading above the country/area ambassador grid. */
+  ambassadorAreaHeading: string;
+  /** Introduction of the featured general ambassador; `{continent}` becomes the continent name. */
+  ambassadorGeneralIntro: string;
+  /** Contact page: contact details card. */
+  contactInfoTitle: string;
+  contactEmailLabel: string;
+  contactPhoneLabel: string;
+  contactAddressLabel: string;
   newsletterTitle: string;
   newsletterText: string;
   newsletterPlaceholder: string;
@@ -64,6 +79,10 @@ export interface UiStrings {
     error: string;
     rateLimited: string;
     invalidToken: string;
+    /** Client-side validation: an empty required field. */
+    fieldRequired: string;
+    /** Client-side validation: a malformed e-mail address. */
+    invalidEmail: string;
     contactTitle: string;
     contactText: string;
     donateTitle: string;
