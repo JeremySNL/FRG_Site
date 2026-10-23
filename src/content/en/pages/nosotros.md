@@ -17,7 +17,7 @@ blocks:
     youtubeId: "xFp8-2GVoH8"
   - type: "stats"
     items:
-      - label: "Years of foundation"
+      - label: "Years of service"
         value: "20+"
       - label: "People impacted"
         value: "15,000+"
@@ -54,15 +54,15 @@ blocks:
     text: "At Fundación Rosario Gatón, we believe in the power of individuals committed to transforming their environment. Therefore, we invite you to join our network of partners and volunteers working toward a fairer, more inclusive, and sustainable society."
     buttons: []
   - type: "cards"
-    title: "Formas de colaborar"
+    title: "Ways to Contribute"
     items:
-      - title: "Voluntario en actividades comunitarias"
+      - title: "Community activity volunteer"
         icon: "heart"
         text: ""
-      - title: "Aliado institucional"
+      - title: "Institutional partner"
         icon: "users"
         text: ""
-      - title: "Apoyo administrativo o logístico"
+      - title: "Administrative or logistics support"
         icon: "briefcase"
         text: ""
 ---

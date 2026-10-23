@@ -18,7 +18,7 @@ blocks:
     items:
       - title: "Location"
         icon: "pin"
-        text: "C/ Castillo Esq. 27 de Febrero, Edificio Plaza Park 2do. Nivel, SFM, República Dominicana"
+        text: "C/ Castillo Esq. 27 de Febrero, Edificio Plaza Park 2do. Nivel, SFM, Dominican Republic"
       - title: "Phone / WhatsApp"
         icon: "phone"
         text: "(829) 649-3189"

@@ -1,19 +1,19 @@
 ---
-title: "Nuestro Equipo"
+title: "Our Team"
 slug: "nuestro-equipo"
 locale: "en"
 order: 41
 nav: true
-description: "El equipo de la Fundación Rosario Gatón."
+description: "The team of Fundación Rosario Gatón."
 legacyPath: "/nuestro-equipo/"
 noAutoTranslate: false
 blocks:
   - type: "hero"
-    title: "Nuestro Equipo"
-    text: "Las personas que hacen posible nuestro trabajo."
+    title: "Our Team"
+    text: "The people who make our work possible."
     buttons: []
   - type: "team"
-    title: "Equipo de la Fundación Rosario Gatón"
+    title: "Fundación Rosario Gatón Team"
     surface: true
-    intro: "Las personas que sostienen nuestro trabajo en las comunidades."
+    intro: "The people who sustain our work in the communities."
 ---
