@@ -67,3 +67,7 @@ with mechanical + delegated human-review rigor.
   locale). One cosmetic defect: zh-TW `translationPendingText` was missing
   its negation ("尚提供" -> "尚未提供"), fixed and committed as `4ce62b8`.
   `npm run build` prerendered the full route tree for en/fr/ja/zh-TW.
+- L4 (2026-10-23): user asked for the English ethics and safety policy that
+  the pipeline skipped on purpose. Hand-written in legal register
+  (commit `a513543`); the EN copy keeps `noAutoTranslate: true` so pipeline
+  re-runs cannot overwrite it. fr/ja/zh-TW still lack the policy by design.
