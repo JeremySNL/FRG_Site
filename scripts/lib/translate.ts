@@ -132,6 +132,46 @@ export function collectTranslatableStrings(
 }
 
 /**
+ * Overlay the regenerated table with a previously generated one, which wins
+ * on every conflict *where it actually holds a readable value*: manual polish
+ * is never overwritten, `null`/`''` base values lose to the fresh
+ * translation, and keys that no longer exist in the Spanish source are
+ * dropped instead of being resurrected into the output.
+ */
+export function mergeBaseWins(
+  regenerated: Record<string, unknown>,
+  base: Record<string, unknown>,
+): Record<string, unknown> {
+  const out: Record<string, unknown> = {};
+
+  for (const [key, fresh] of Object.entries(regenerated)) {
+    const fromBase = base[key];
+
+    if (isPlainObject(fromBase) && isPlainObject(fresh)) {
+      out[key] = mergeBaseWins(
+        fresh as Record<string, unknown>,
+        fromBase as Record<string, unknown>,
+      );
+      continue;
+    }
+
+    out[key] = holdsReadableValue(fromBase) ? fromBase : fresh;
+  }
+
+  return out;
+}
+
+/**
+ * Whether a previous-table value would survive the overlay: anything the
+ * reader could actually see — a non-empty string, object, or array.
+ */
+export function holdsReadableValue(value: unknown): boolean {
+  if (typeof value === 'string') return value.trim() !== '';
+  if (Array.isArray(value)) return value.length > 0;
+  return isPlainObject(value);
+}
+
+/**
  * Collect every string of a document, whatever its key is.
  *
  * Used for the interface strings of `src/i18n/`, where the keys are the

@@ -36,6 +36,7 @@ import {
   applyTranslations,
   collectAllStrings,
   collectTranslatableStrings,
+  mergeBaseWins,
   Translator,
 } from './lib/translate.ts';
 
@@ -154,10 +155,6 @@ async function loadUiTable(
   }
 }
 
-function isPlainObj(value: unknown): value is Record<string, unknown> {
-  return typeof value === 'object' && value !== null && !Array.isArray(value);
-}
-
 /** Whether a non-empty value already exists at a `(string | number)[]` path. */
 function hasPath(node: unknown, path: (string | number)[]): boolean {
   let current: unknown = node;
@@ -175,36 +172,6 @@ function hasPath(node: unknown, path: (string | number)[]): boolean {
   }
 
   return current !== undefined && current !== null && current !== '';
-}
-
-/**
- * Overlay the regenerated table with a previously generated one, which wins
- * on every conflict: manual polish is never overwritten, and keys the base
- * does not know yet are kept from the regeneration.
- */
-function mergeBaseWins(
-  regenerated: Record<string, unknown>,
-  base: Record<string, unknown>,
-): Record<string, unknown> {
-  const out: Record<string, unknown> = {};
-  const keys = new Set([...Object.keys(regenerated), ...Object.keys(base)]);
-
-  for (const key of keys) {
-    const fromBase = base[key];
-    const fresh = regenerated[key];
-
-    if (isPlainObj(fromBase) && isPlainObj(fresh)) {
-      out[key] = mergeBaseWins(
-        fresh as Record<string, unknown>,
-        fromBase as Record<string, unknown>,
-      );
-      continue;
-    }
-
-    out[key] = fromBase !== undefined ? fromBase : fresh;
-  }
-
-  return out;
 }
 
 /**
