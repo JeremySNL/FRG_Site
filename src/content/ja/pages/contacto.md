@@ -31,7 +31,7 @@ blocks:
     form: "contact"
     surface: true
   - type: "map"
-    title: "SNSリンク"
+    title: "所在地"
     query: "fundacion rosario gaton"
     zoom: 14
 ---

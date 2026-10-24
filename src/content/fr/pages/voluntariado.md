@@ -25,7 +25,7 @@ blocks:
       - "Participer à des campagnes de collecte de fonds"
       - "Accompagner des processus de formation ou de mentorat auprès d'entrepreneurs"
   - type: "list"
-    title: "À quoi destinent-nous votre don ?"
+    title: "À quoi destinons-nous votre don ?"
     items:
       - "Alimentation pour les familles vulnérables"
       - "Construction et amélioration de logements"

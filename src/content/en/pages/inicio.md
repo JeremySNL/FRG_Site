@@ -46,7 +46,7 @@ blocks:
     youtubeId: "xFp8-2GVoH8"
   - type: "stats"
     items:
-      - label: "Years of service"
+      - label: "Years since founding"
         value: "20+"
       - label: "People impacted"
         value: "15,000+"

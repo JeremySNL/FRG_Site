@@ -45,7 +45,7 @@ blocks:
     title: "Leadership"
     items:
       - title: "Rosario Gaton"
-        text: "Président"
+        text: "Présidente"
         image: "2025/07/rosario-gaton.jpg"
         imageAlt: "Rosario Gaton"
   - type: "cta"

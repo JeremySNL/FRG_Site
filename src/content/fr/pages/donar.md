@@ -13,7 +13,7 @@ blocks:
     text: "À la Fundación Rosario Gatón, nous œuvrons chaque jour pour une société plus juste, inclusive et durable. Votre soutien est essentiel pour continuer à développer des programmes qui profitent aux personnes en situation de vulnérabilité dans des domaines tels que la santé, l'éducation, le logement, l'entrepreneuriat et l'environnement. Chaque contribution, aussi modeste soit-elle, a le pouvoir de transformer des réalités. Ensemble, nous pouvons réduire l'extrême pauvreté, promouvoir l'égalité et bâtir des communautés résilientes."
     buttons: []
   - type: "list"
-    title: "À quoi destinent-nous votre don ?"
+    title: "À quoi destinons-nous votre don ?"
     surface: true
     items:
       - "Alimentation pour les familles vulnérables"
