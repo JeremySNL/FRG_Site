@@ -71,3 +71,7 @@ with mechanical + delegated human-review rigor.
   the pipeline skipped on purpose. Hand-written in legal register
   (commit `a513543`); the EN copy keeps `noAutoTranslate: true` so pipeline
   re-runs cannot overwrite it. fr/ja/zh-TW still lack the policy by design.
+- L5 (2026-10-23): the user then requested the policy in the remaining
+  locales too. Hand-written in fr/ja/zh-TW with the same legal register
+  (commit `17d230d`), verified by the full suite, typecheck, and build.
+  The policy now exists in all four locales with `noAutoTranslate: true`.
