@@ -30,11 +30,18 @@ with mechanical + delegated human-review rigor.
 
 ## Tasks
 
-- T1 (S1): run `npm run translate` — inline, background — status: running.
-- T2 (S2): write `tests/locales.test.ts` gate — inline — status: written,
-  run pending generation.
-- T3 (S3): delegated reviewer pass — status: pending.
-- T4 (S4): fix defects, per-locale commits — status: pending.
+- T1 (S1): run `npm run translate` — inline, background — DONE (3 runs;
+  crashes of the CJK output required translator hardening: batch retry +
+  `\uXXXX` escape repair + merge-mode UI tables).
+- T2 (S2): write `tests/locales.test.ts` gate — inline — DONE (GREEN).
+- T3 (S3): delegated reviewer pass — DONE (verdict fr/ja/zh-TW = PASS;
+  frontmatter sampled, idiomatic quality of inicio/donar/nosotros/
+  voluntariado + i18n tables verified, mojibake/garbage hunt clean,
+  simplified-Chinese mix scan clean, 15 posts per locale complete).
+- T4 (S4): fix defects, per-locale commits — DONE as commits
+  `1a7f419` (tooling), `41d1251` (fr), `4fd7de2` (ja), `d68dfdf` (zh-TW),
+  `3f583c9` (en polish), `4ce62b8` (zh-TW negation fix from the review);
+  build verified: all four locales prerender their full route tree.
 
 ## Log
 
@@ -43,3 +50,20 @@ with mechanical + delegated human-review rigor.
   and analyze rigor. Layer one is the mechanical gate test; layer two is the
   delegated fresh-context review. Free-tier rate limit means the three
   locales generate sequentially inside one CLI process.
+- L2 (2026-10-23): run #1 generated fr content + ja partial then crashed on
+  a malformed model answer (YAML-style list). run #2 skipped everything
+  (old skip rule) and crashed on zh-TW with broken `\uXXXX` escapes.
+  Root-cause fixes landed in `translate.mts`/`lib/translate.ts` (merge-mode
+  tables, batch retry, escape repair); run #3 completed everything:
+  fr/ja tables 65 strings, zh-TW 53 docs, 2 in-flight batch retries
+  observed successful. Mechanical gate GREEN after hand-fixing
+  republica-dominicana tags (fr/ja/zh-TW), fr category filiales, 3 ja post
+  titles, a garbled zh-TW post title, and the EN country tail; proper-noun
+  allowlist extended (interlatitudes-medicos, dr-cruz-jiminian).
+- L3 (2026-10-23): delegated fresh-context reviewer returned PASS for all
+  three locales (frontmatter sampling, idiomatic quality of the key pages
+  and i18n tables, mojibake/`\u`/U+FFFD hunt clean, zero simplified-Chinese
+  characters mixed into zh-TW, body completeness verified on 15 posts per
+  locale). One cosmetic defect: zh-TW `translationPendingText` was missing
+  its negation ("尚提供" -> "尚未提供"), fixed and committed as `4ce62b8`.
+  `npm run build` prerendered the full route tree for en/fr/ja/zh-TW.
