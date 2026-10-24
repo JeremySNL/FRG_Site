@@ -25,16 +25,14 @@ describe('sendNotification', () => {
   it('skips the mail when the runtime environment has no API key', async () => {
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => undefined);
 
-    await expect(
-      sendNotification(notification, {}),
-    ).resolves.toBe('skipped');
+    await expect(sendNotification(notification, {})).resolves.toBe('skipped');
 
     expect(warn).toHaveBeenCalledTimes(1);
   });
 
   it('delivers the mail through Resend when the key is configured', async () => {
     const fetchMock = vi.fn(
-      async (_url: unknown, init?: unknown) =>
+      async (_url: unknown, _init?: unknown) =>
         new Response(JSON.stringify({ id: 'm1' }), { status: 200 }),
     );
     vi.stubGlobal('fetch', fetchMock);
@@ -47,8 +45,7 @@ describe('sendNotification', () => {
     ).resolves.toBe('sent');
 
     const request = fetchMock.mock.calls[0]?.[1] as
-      | { headers?: { authorization?: string }; body?: string }
-      | undefined;
+      { headers?: { authorization?: string }; body?: string } | undefined;
     expect(request?.headers?.authorization).toBe('Bearer re-key');
 
     const body = JSON.parse(String(request?.body)) as {

@@ -31,17 +31,13 @@ describe('verifyTurnstile', () => {
   it('skips the check while developing without a secret', async () => {
     vi.stubEnv('PROD', false);
 
-    await expect(
-      verifyTurnstile('', '203.0.113.7', {}),
-    ).resolves.toBe('valid');
+    await expect(verifyTurnstile('', '203.0.113.7', {})).resolves.toBe('valid');
   });
 
   it('refuses the submission in production without a secret', async () => {
     vi.stubEnv('PROD', true);
 
-    await expect(
-      verifyTurnstile('', '203.0.113.7', {}),
-    ).resolves.toBe('unconfigured');
+    await expect(verifyTurnstile('', '203.0.113.7', {})).resolves.toBe('unconfigured');
   });
 
   it('rejects a missing token when the secret is configured', async () => {
@@ -66,7 +62,7 @@ describe('verifyTurnstile', () => {
 
   it('sends the token and the secret to the siteverify endpoint', async () => {
     const fetchMock = vi.fn(
-      async (_url: unknown, init?: unknown) =>
+      async (_url: unknown, _init?: unknown) =>
         new Response(JSON.stringify({ success: true }), { status: 200 }),
     );
     vi.stubGlobal('fetch', fetchMock);
