@@ -62,7 +62,7 @@ blocks:
       - name: "美洲"
         generalAmbassador:
           name: "待指派"
-          country: "Por asignar"
+          country: "待指派"
           role: "大洲總大使"
         ambassadors:
           - name: "待指派"
@@ -76,7 +76,7 @@ blocks:
       - name: "歐洲"
         generalAmbassador:
           name: "待指派"
-          country: "Por asignar"
+          country: "待指派"
           role: "大洲總大使"
         ambassadors:
           - name: "待指派"
@@ -90,7 +90,7 @@ blocks:
       - name: "非洲"
         generalAmbassador:
           name: "待指派"
-          country: "Por asignar"
+          country: "待指派"
           role: "大洲總大使"
         ambassadors:
           - name: "待指派"
@@ -104,7 +104,7 @@ blocks:
       - name: "亞洲"
         generalAmbassador:
           name: "待指派"
-          country: "Por asignar"
+          country: "待指派"
           role: "大洲總大使"
         ambassadors:
           - name: "待指派"
@@ -118,7 +118,7 @@ blocks:
       - name: "大洋洲"
         generalAmbassador:
           name: "待指派"
-          country: "Por asignar"
+          country: "待指派"
           role: "大洲總大使"
         ambassadors:
           - name: "待指派"

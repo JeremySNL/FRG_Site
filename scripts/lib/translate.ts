@@ -23,6 +23,7 @@ const TRANSLATABLE_KEYS = new Set([
   'alt',
   'author',
   'bio',
+  'country',
   'description',
   'excerpt',
   'html',

@@ -62,7 +62,7 @@ blocks:
       - name: "Amérique"
         generalAmbassador:
           name: "À pourvoir"
-          country: "Por asignar"
+          country: "À définir"
           role: "Ambassadeur Général Continental"
         ambassadors:
           - name: "À pourvoir"
@@ -76,7 +76,7 @@ blocks:
       - name: "Europe"
         generalAmbassador:
           name: "À pourvoir"
-          country: "Por asignar"
+          country: "À définir"
           role: "Ambassadeur Général Continental"
         ambassadors:
           - name: "À pourvoir"
@@ -90,7 +90,7 @@ blocks:
       - name: "Afrique"
         generalAmbassador:
           name: "À pourvoir"
-          country: "Por asignar"
+          country: "À définir"
           role: "Ambassadeur Général Continental"
         ambassadors:
           - name: "À pourvoir"
@@ -104,7 +104,7 @@ blocks:
       - name: "Asie"
         generalAmbassador:
           name: "À pourvoir"
-          country: "Por asignar"
+          country: "À définir"
           role: "Ambassadeur Général Continental"
         ambassadors:
           - name: "À pourvoir"
@@ -118,7 +118,7 @@ blocks:
       - name: "Océanie"
         generalAmbassador:
           name: "À pourvoir"
-          country: "Por asignar"
+          country: "À définir"
           role: "Ambassadeur Général Continental"
         ambassadors:
           - name: "À pourvoir"
