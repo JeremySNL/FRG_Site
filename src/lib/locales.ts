@@ -13,11 +13,10 @@
  * the locale is parsed out of the path here.
  */
 
-export const locales = ['es', 'en', 'fr', 'ja', 'zh-TW'] as const;
+import { defaultLocale, locales, type Locale } from './locale-registry.ts';
 
-export type Locale = (typeof locales)[number];
-
-export const defaultLocale: Locale = 'es';
+export { defaultLocale, locales } from './locale-registry.ts';
+export type { Locale } from './locale-registry.ts';
 
 export interface LocaleInfo {
   /** Name of the language in that language (shown in the switcher). */
