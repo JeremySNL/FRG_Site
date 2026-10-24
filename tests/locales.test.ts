@@ -26,18 +26,28 @@ const COLLECTIONS = ['pages', 'posts', 'categories', 'tags', 'programs', 'team']
 const POSTS_SINCE = '2025-01-01';
 
 /**
- * Documents whose translated title may equal the Spanish source: the entity
- * proper noun and the person name of the own doctor are kept as is.
+ * Documents whose translated title may equal the Spanish source, keyed as
+ * `collection/name` so a future document with the same file name in another
+ * collection cannot silently escape the check: the entity proper noun and
+ * the person name of the founder-adjacent tag are kept as is.
  */
 const TITLE_EXCEPTIONS = new Set([
-  'fundacion-rosario-gaton.md',
-  // Branded proper names that stay as is in every locale.
-  'interlatitudes-medicos.md',
-  'dr-cruz-jiminian.md',
+  // Proper nouns that stay as is in every locale.
+  'tags/fundacion-rosario-gaton.md',
+  'pages/interlatitudes-medicos.md',
+  'tags/dr-cruz-jiminian.md',
 ]);
 
-/** Contact data that must survive every locale byte-identical. */
+/** Contact data that must survive every locale byte-identical, per page. */
 const CONTACT = ['(809) 290-2255', 'info@fundacionrosariogaton.org'];
+const CONTACTO_CONTACT = ['(829) 649-3189', 'info@fundacionrosariogaton.org'];
+
+/** Per-page contact data that must survive every locale byte-identical. */
+const CONTACT_PAGES: Record<string, string[]> = {
+  donar: CONTACT,
+  voluntariado: CONTACT,
+  contacto: CONTACTO_CONTACT,
+};
 
 interface Doc {
   data: Record<string, unknown>;
@@ -53,6 +63,25 @@ function parseDoc(source: string): Doc {
 function listJson(dir: string): string[] {
   if (!existsSync(dir)) return [];
   return readdirSync(dir).filter((name) => name.endsWith('.md'));
+}
+
+/**
+ * Remove everything a locale must keep identical — URLs, images, bare
+ * autolinks, and inline HTML tags — so only prose remains for the
+ * letter-level body comparison.
+ */
+function stripLinks(text: string): string {
+  return text
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ') // images
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1') // links keep their label
+    .replace(/<https?:\/\/[^>\s]+>/g, ' ') // bare autolinks
+    .replace(/https?:\/\/\S+/g, ' ') // bare URLs
+    .replace(/<[^>]+>/g, ' '); // inline HTML tags
+}
+
+/** Every Unicode letter of the text, in order — a language-free fingerprint. */
+function extractLetters(text: string): string {
+  return (text.match(/\p{L}/gu) ?? []).join('');
 }
 
 it('generated locales mirror the Spanish content with their identity fields intact', () => {
@@ -115,12 +144,36 @@ it('generated locales mirror the Spanish content with their identity fields inta
           defects.push(`${locale}/${collection}/${name}: image path drifted`);
         }
 
+        const key = `${collection}/${name}`;
+        const checkable = ['pages', 'posts', 'categories', 'tags', 'programs'];
+
         if (
-          ['pages', 'posts', 'categories', 'tags', 'programs'].includes(collection) &&
-          !TITLE_EXCEPTIONS.has(name) &&
+          checkable.includes(collection) &&
+          !TITLE_EXCEPTIONS.has(key) &&
           generated.data['title'] === source.data['title']
         ) {
           defects.push(`${locale}/${collection}/${name}: title was not translated`);
+        }
+
+        const sourceExcerpt = String(source.data['excerpt'] ?? '');
+        if (
+          checkable.includes(collection) &&
+          extractLetters(stripLinks(sourceExcerpt)).length >= 30 &&
+          String(generated.data['excerpt'] ?? '') === sourceExcerpt
+        ) {
+          defects.push(`${locale}/${collection}/${name}: excerpt was not translated`);
+        }
+
+        // A full body that still equals the Spanish source (ignoring URLs
+        // and images, which are locale-independent) is a half-done mirror
+        // of the kind a crashed translation batch used to leave behind.
+        const sourceBody = extractLetters(stripLinks(source.body));
+        if (
+          ['posts', 'pages'].includes(collection) &&
+          sourceBody.length >= 40 &&
+          extractLetters(stripLinks(generated.body)) === sourceBody
+        ) {
+          defects.push(`${locale}/${collection}/${name}: body was not translated`);
         }
 
         if (
@@ -134,12 +187,11 @@ it('generated locales mirror the Spanish content with their identity fields inta
     }
 
     // The contact card data must be identical in every locale.
-    const contactPages = ['donar', 'voluntariado'];
-    for (const slug of contactPages) {
+    for (const [slug, expected] of Object.entries(CONTACT_PAGES)) {
       const file = join(contentDir, locale, 'pages', `${slug}.md`);
       if (!existsSync(file)) continue;
       const raw = readFileSync(file, 'utf8');
-      for (const value of CONTACT) {
+      for (const value of expected) {
         if (!raw.includes(value)) {
           defects.push(`${locale}/pages/${slug}.md: contact "${value}" was altered`);
         }
