@@ -12,6 +12,7 @@ blocks:
     title: "プログラムとプロジェクト"
     text: "Fundación Rosario Gatónの活動分野"
     buttons: []
+    image: "2025/07/taller-de-capacitacion-del-campus-virtual-a-estudiantes-becados-en-el-area-de-formacion-del-profesorado.jpg"
   - type: "richText"
     surface: true
     html: "<p>私たちの活動は、コミュニティの総合的な発展に貢献することに焦点を当てています。これらが私たちの主な活動分野です：</p>"

@@ -201,6 +201,25 @@ it('localizes the G7 post dateline in English and French', () => {
   expect(french.body).toContain('**Santo Domingo, République dominicaine.**');
 });
 
+it('uses the English Programas y Proyectos hero image in every locale', () => {
+  const page = 'programas-y-proyectos.md';
+  const heroImage = (locale: string): unknown => {
+    const document = parseDoc(
+      readFileSync(join(contentDir, locale, 'pages', page), 'utf8'),
+    );
+    const blocks = document.data['blocks'] as Array<Record<string, unknown>>;
+    return blocks.find((block) => block['type'] === 'hero')?.['image'];
+  };
+
+  const expected =
+    '2025/07/taller-de-capacitacion-del-campus-virtual-a-estudiantes-becados-en-el-area-de-formacion-del-profesorado.jpg';
+
+  expect(heroImage('en')).toBe(expected);
+  for (const locale of LOCALES) {
+    expect(heroImage(locale), `${locale}/pages/${page}`).toBe(expected);
+  }
+});
+
 it('keeps audited English translations free of Spanish leftovers', () => {
   const foodPost = readFileSync(
     join(

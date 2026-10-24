@@ -12,6 +12,7 @@ blocks:
     title: "Programas y Proyectos"
     text: "Áreas de acción de la Fundación Rosario Gatón."
     buttons: []
+    image: "2025/07/taller-de-capacitacion-del-campus-virtual-a-estudiantes-becados-en-el-area-de-formacion-del-profesorado.jpg"
   - type: "richText"
     surface: true
     html: "<p>Nuestra labor se enfoca en contribuir con el desarrollo integral de las comunidades. Estas son nuestras principales áreas de acción:</p>"
