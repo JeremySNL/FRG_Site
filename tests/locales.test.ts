@@ -87,10 +87,7 @@ it('generated locales mirror the Spanish content with their identity fields inta
         );
 
         if (source.data['noAutoTranslate'] === true) continue;
-        if (
-          collection === 'posts' &&
-          String(source.data['date'] ?? '') < POSTS_SINCE
-        ) {
+        if (collection === 'posts' && String(source.data['date'] ?? '') < POSTS_SINCE) {
           continue;
         }
 
@@ -104,12 +101,17 @@ it('generated locales mirror the Spanish content with their identity fields inta
         const generated = parseDoc(readFileSync(target, 'utf8'));
 
         if (generated.data['locale'] !== locale) {
-          defects.push(`${locale}/${collection}/${name}: wrong locale "${generated.data['locale']}"`);
+          defects.push(
+            `${locale}/${collection}/${name}: wrong locale "${generated.data['locale']}"`,
+          );
         }
         if (generated.data['slug'] !== source.data['slug']) {
           defects.push(`${locale}/${collection}/${name}: slug drifted`);
         }
-        if ('legacyPath' in source.data && generated.data['legacyPath'] !== source.data['legacyPath']) {
+        if (
+          'legacyPath' in source.data &&
+          generated.data['legacyPath'] !== source.data['legacyPath']
+        ) {
           defects.push(`${locale}/${collection}/${name}: legacyPath drifted`);
         }
         if (collection === 'posts' && generated.data['date'] !== source.data['date']) {
@@ -122,7 +124,10 @@ it('generated locales mirror the Spanish content with their identity fields inta
         ) {
           defects.push(`${locale}/posts/${name}: categories drifted`);
         }
-        if ('image' in source.data && generated.data['image'] !== source.data['image']) {
+        if (
+          'image' in source.data &&
+          generated.data['image'] !== source.data['image']
+        ) {
           defects.push(`${locale}/${collection}/${name}: image path drifted`);
         }
 
@@ -184,6 +189,18 @@ it('generated locales mirror the Spanish content with their identity fields inta
   expect(defects, defects.join('\n')).toEqual([]);
 });
 
+it('localizes the G7 post dateline in English and French', () => {
+  const post =
+    'fundacion-rosario-gaton-sostiene-encuentro-con-representante-del-g7-de-argentina-y-autoridades-dominicanas-del-sector-agricola.md';
+  const english = parseDoc(readFileSync(join(contentDir, 'en', 'posts', post), 'utf8'));
+  const french = parseDoc(readFileSync(join(contentDir, 'fr', 'posts', post), 'utf8'));
+
+  expect(english.data['excerpt']).toMatch(/^Santo Domingo, Dominican Republic\./);
+  expect(english.body).toContain('**Santo Domingo, Dominican Republic.**');
+  expect(french.data['excerpt']).toMatch(/^Santo Domingo, République dominicaine\./);
+  expect(french.body).toContain('**Santo Domingo, République dominicaine.**');
+});
+
 /** Flatten an object into "dotted.path" string leaves. */
 function flatten(value: unknown, prefix = ''): Map<string, string> {
   const out = new Map<string, string>();
@@ -201,9 +218,7 @@ function flatten(value: unknown, prefix = ''): Map<string, string> {
 
 it('every locale has a complete i18n table with no Spanish leftovers', () => {
   const defects: string[] = [];
-  const source = flatten(
-    JSON.parse(readFileSync(join(i18nDir, 'es.json'), 'utf8')),
-  );
+  const source = flatten(JSON.parse(readFileSync(join(i18nDir, 'es.json'), 'utf8')));
 
   for (const locale of LOCALES) {
     const file = join(i18nDir, `${locale}.json`);
@@ -221,7 +236,7 @@ it('every locale has a complete i18n table with no Spanish leftovers', () => {
         defects.push(`i18n/${locale}.json: missing key "${path}"`);
         continue;
       }
-      if (translated === '' ) {
+      if (translated === '') {
         defects.push(`i18n/${locale}.json: empty value at "${path}"`);
         continue;
       }
