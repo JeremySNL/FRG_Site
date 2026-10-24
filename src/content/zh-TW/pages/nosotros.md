@@ -40,7 +40,7 @@ blocks:
       - title: "願景"
         html: "<p>成為一個在我們工作所在的社區和國家中以其影響力聞名的國內與國際組織，以誠信、團結和公平推動收入創造、培訓和公民賦權。</p>"
       - title: "價值觀"
-        html: "<ul><li><strong>團結：</strong>致力於最弱勢群體的福祉。</li><li><strong>社會正義：</strong>我們促進公平、包容與人權。</li><li><strong>透明度：</strong>我們以責任感和道德行事。</li><li><strong>承諾：</strong>我們以熱情和毅力為永續發展努力。</li><li><strong>合作：</strong>我們促進機構間的夥伴關係。<ul><li><strong>尊重：</strong>我們重視人的尊嚴與環境。</li><li><strong>社會創新：</strong>我們支持能夠改變生命的創造性解決方案。</li></ul><div><hr /></div>"
+        html: "<ul><li><strong>團結：</strong>致力於最弱勢群體的福祉。</li><li><strong>社會正義：</strong>我們促進公平、包容與人權。</li><li><strong>透明度：</strong>我們以責任感和道德行事。</li><li><strong>承諾：</strong>我們以熱情和毅力為永續發展努力。</li><li><strong>合作：</strong>我們促進機構間的夥伴關係。</li><li><strong>尊重：</strong>我們重視人的尊嚴與環境。</li><li><strong>社會創新：</strong>我們支持能夠改變生命的創造性解決方案。</li></ul><div><hr /></div>"
   - type: "cards"
     title: "領導層"
     items:

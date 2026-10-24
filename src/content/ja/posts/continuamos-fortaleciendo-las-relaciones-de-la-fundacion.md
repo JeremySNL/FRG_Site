@@ -1,5 +1,5 @@
 ---
-title: "私たちはFundación Rosario Gatónの关系をさらに強化し続けています。"
+title: "私たちはFundación Rosario Gatónの関係をさらに強化し続けています。"
 slug: "continuamos-fortaleciendo-las-relaciones-de-la-fundacion"
 locale: "ja"
 date: "2026-06-28T17:07:34"

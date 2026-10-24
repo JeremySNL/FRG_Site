@@ -1,5 +1,5 @@
 ---
-title: "Fundación Rosario Gatón y Dr. Cruz Jiminián: 连帯の行動"
+title: "Fundación Rosario Gatón y Dr. Cruz Jiminián: 連帯の行動"
 slug: "fundacion-rosario-gaton-y-dr-cruz-jiminian-solidaridad-en-accion"
 locale: "ja"
 date: "2025-11-13T15:09:16"

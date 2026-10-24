@@ -3,7 +3,7 @@ title: "Fundación Rosario Gatón、アルゼンチンのG7代表およびドミ
 slug: "fundacion-rosario-gaton-sostiene-encuentro-con-representante-del-g7-de-argentina-y-autoridades-dominicanas-del-sector-agricola"
 locale: "ja"
 date: "2025-07-22T12:19:59"
-excerpt: "Santo Domingo, República Dominicana. La Fundación Rosario Gatón (FRG) continúa fortaleciendo sus relaciones institucionales en busca de soluciones sostenibles para el desarrollo nacional. En esta…"
+excerpt: "ドミニカ共和国、サントドミンゴ。Fundación Rosario Gatón（FRG）は、国家の持続可能な発展に資する解決策を求めて、組織間の連携強化を今後も続けています。このたび…"
 categories:
   - "cooperacion-internacional"
   - "desarrollo-agropecuario"
@@ -14,4 +14,4 @@ noAutoTranslate: false
 ---
 
 **Santo Domingo, República Dominicana.**
-La **Fundación Rosario Gatón (FRG)** continúa fortaleciendo sus relaciones institucionales en busca de soluciones sostenibles para el desarrollo nacional. En esta ocasión, sostuvo un encuentro de alto nivel con el **Ing. Bartolo**, representante del **G7 de Argentina**, y el **Lic. Elías**, Director del Departamento de Agricultura de República Dominicana. Durante la reunión se trataron temas estratégicos relacionados con la cooperación internacional, el impulso de la productividad agrícola, el desarrollo rural y el fortalecimiento de la seguridad alimentaria en el país. Se discutieron posibles alianzas que promuevan el uso de tecnología, capacitación técnica y sostenibilidad en comunidades agrícolas. Este encuentro se alinea con el **Objetivo de Desarrollo Sostenible No. 2 (Hambre Cero)** y el **Objetivo No. 17 (Alianzas para lograr los objetivos)** de la Agenda 2030 de las Naciones Unidas, así como con la **Estrategia Nacional de Desarrollo (END)** del Estado Dominicano. La Fundación reafirma así su compromiso de articular esfuerzos nacionales e internacionales que contribuyan al crecimiento económico, social y ambiental del país.
+**Fundación Rosario Gatón（FRG）**は、国家の持続可能な発展に資する解決策を求めて、組織間の連携強化を今後も続けてまいります。このたび当財団は、**アルゼンチンG7**代表の**Ing. Bartolo氏**、およびドミニカ共和国農業局局長の**Lic. Elías氏**とのハイレベルな会談を開催いたしました。会談では、国際協力、農業生産性の向上、農村開発、そして食料安全保障の強化に関する戦略的テーマが協議されました。また、農業地域における技術の活用、技術研修、持続可能性を促す提携の可能性についても意見が交わされました。この会談は、国連「2030アジェンダ」が掲げる**持続可能な開発目標第2号（飢餓ゼロ）**および**第17号（パートナーシップで目標を達成しよう）**、さらにドミニカ共和国の**国家開発戦略（END）**とも整合するものです。当財団は、この国の経済・社会・環境の成長に貢献する国内外の取り組みを連携させる決意を、改めてここに表明いたします。
