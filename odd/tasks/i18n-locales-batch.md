@@ -75,3 +75,21 @@ with mechanical + delegated human-review rigor.
   locales too. Hand-written in fr/ja/zh-TW with the same legal register
   (commit `17d230d`), verified by the full suite, typecheck, and build.
   The policy now exists in all four locales with `noAutoTranslate: true`.
+
+- L6 (2026-10-24): follow-up batch from the Judgment Day dual review
+  (verdict APPROVED). The INFO items were resolved in ascending complexity:
+  T1 zh-TW role badge made continent-generic (52ab22e); T2 "Por asignar"
+  country placeholders localized in fr/zh-TW and the root cause fixed by
+  adding `country` to TRANSLATABLE_KEYS (c5d796d); T3 merge-mode moved to
+  the shared lib with readable-value semantics + unit tests (23ef4f9);
+  T4 the locale gate now pins excerpts, bodies (locale-independent markup
+  ignored), collection-keyed title exceptions, a previously dead team-role
+  check, and the contacto page data — it immediately caught the real fr G7
+  excerpt defect, also fixed (528af7c); T5 the translator gained two
+  safeguards: --force stashes and restores locale copies whose source is
+  skipped by rule (hand-written noAutoTranslate policy pages survive), and
+  a plain re-run regenerates existing copies whose prose still equals the
+  Spanish source instead of freezing crashed-batch leftovers (ea11904).
+  Suite 39/39 GREEN, tsc clean, dry-run verified each step. Remaining info
+  items deferred to the user: fr dateline-spanish convention, deeper
+  --force redesign.
