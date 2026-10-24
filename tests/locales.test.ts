@@ -13,6 +13,7 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { parse as parseYaml } from 'yaml';
+import { proseLetters, stripLocaleIndependent } from '../scripts/lib/translate.ts';
 import { expect, it } from 'vitest';
 
 const root = process.cwd();
@@ -63,25 +64,6 @@ function parseDoc(source: string): Doc {
 function listJson(dir: string): string[] {
   if (!existsSync(dir)) return [];
   return readdirSync(dir).filter((name) => name.endsWith('.md'));
-}
-
-/**
- * Remove everything a locale must keep identical — URLs, images, bare
- * autolinks, and inline HTML tags — so only prose remains for the
- * letter-level body comparison.
- */
-function stripLinks(text: string): string {
-  return text
-    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ') // images
-    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1') // links keep their label
-    .replace(/<https?:\/\/[^>\s]+>/g, ' ') // bare autolinks
-    .replace(/https?:\/\/\S+/g, ' ') // bare URLs
-    .replace(/<[^>]+>/g, ' '); // inline HTML tags
-}
-
-/** Every Unicode letter of the text, in order — a language-free fingerprint. */
-function extractLetters(text: string): string {
-  return (text.match(/\p{L}/gu) ?? []).join('');
 }
 
 it('generated locales mirror the Spanish content with their identity fields intact', () => {
@@ -158,7 +140,7 @@ it('generated locales mirror the Spanish content with their identity fields inta
         const sourceExcerpt = String(source.data['excerpt'] ?? '');
         if (
           checkable.includes(collection) &&
-          extractLetters(stripLinks(sourceExcerpt)).length >= 30 &&
+          proseLetters(stripLocaleIndependent(sourceExcerpt)).length >= 30 &&
           String(generated.data['excerpt'] ?? '') === sourceExcerpt
         ) {
           defects.push(`${locale}/${collection}/${name}: excerpt was not translated`);
@@ -167,11 +149,11 @@ it('generated locales mirror the Spanish content with their identity fields inta
         // A full body that still equals the Spanish source (ignoring URLs
         // and images, which are locale-independent) is a half-done mirror
         // of the kind a crashed translation batch used to leave behind.
-        const sourceBody = extractLetters(stripLinks(source.body));
+        const sourceBody = proseLetters(stripLocaleIndependent(source.body));
         if (
           ['posts', 'pages'].includes(collection) &&
           sourceBody.length >= 40 &&
-          extractLetters(stripLinks(generated.body)) === sourceBody
+          proseLetters(stripLocaleIndependent(generated.body)) === sourceBody
         ) {
           defects.push(`${locale}/${collection}/${name}: body was not translated`);
         }

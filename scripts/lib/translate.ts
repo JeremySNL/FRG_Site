@@ -8,10 +8,73 @@
  * words change.
  */
 
+/* --- source guards ------------------------------------------------------ */
+
+/**
+ * Posts published before this date are not translated.
+ *
+ * The archive of the foundation goes back to 2019 and is of little value in
+ * four more languages; translating it would cost a lot and slow the launch
+ * down. The evergreen pages are always translated.
+ */
+export const POSTS_SINCE = '2025-01-01';
+
+/**
+ * Whether the pipeline skips a Spanish source document by rule: an explicit
+ * `noAutoTranslate` flag, or a post older than the translation cutoff.
+ */
+export function isSkippedSource(
+  data: Record<string, unknown>,
+  collection: string | null,
+): boolean {
+  if (data['noAutoTranslate'] === true) return true;
+
+  if (collection === 'posts') {
+    const date = data['date'];
+    if (typeof date === 'string' && date.slice(0, 10) < POSTS_SINCE) return true;
+  }
+
+  return false;
+}
+
+/**
+ * Remove everything a locale must keep identical — URLs, images, bare
+ * autolinks, and inline HTML tags — so only prose remains for
+ * language-free comparisons.
+ */
+export function stripLocaleIndependent(text: string): string {
+  return text
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ') // images
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1') // links keep their label
+    .replace(/<https?:\/\/[^>\s]+>/g, ' ') // bare autolinks
+    .replace(/https?:\/\/\S+/g, ' ') // bare URLs
+    .replace(/<[^>]+>/g, ' '); // inline HTML tags
+}
+
+/** Every Unicode letter of the text, in order — a language-free fingerprint. */
+export function proseLetters(text: string): string {
+  return (text.match(/\p{L}/gu) ?? []).join('');
+}
+
+/**
+ * Whether a generated copy still carries the Spanish prose of its source:
+ * that is the fingerprint of a crashed translation batch, not a finished
+ * translation. URL-only and empty bodies are untranslatable by design and
+ * are never flagged.
+ */
+export function isIdentityProse(sourceBody: string, copyBody: string): boolean {
+  const source = proseLetters(stripLocaleIndependent(sourceBody));
+
+  if (source.length === 0) return false;
+
+  return proseLetters(stripLocaleIndependent(copyBody)) === source;
+}
+
 /** Where a string lives inside a document. */
 export interface StringRef {
   path: (string | number)[];
   value: string;
+
 }
 
 /**

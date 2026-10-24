@@ -18,6 +18,13 @@
  *   npm run translate -- --dry-run         # print the plan, call no API
  *   npm run translate -- --force           # translate again, overwriting
  *
+ * A plain re-run keeps every existing locale file and merges missing keys
+ * into the interface tables; copies whose prose still equals the Spanish
+ * source are treated as crashed-batch leftovers and regenerated. `--force`
+ * rebuilds a locale from scratch but never deletes the locale copies of
+ * documents the pipeline skips by rule (`noAutoTranslate`, pre-cutoff
+ * posts), which are usually hand-written.
+ *
  * Environment:
  *
  *   OPENAI_API_KEY      the key of the translation API (required)
@@ -26,7 +33,7 @@
  */
 import { readdir, readFile, writeFile, mkdir, rm } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
+import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { parse as parseYaml } from 'yaml';
@@ -36,7 +43,10 @@ import {
   applyTranslations,
   collectAllStrings,
   collectTranslatableStrings,
+  isIdentityProse,
+  isSkippedSource,
   mergeBaseWins,
+  POSTS_SINCE,
   Translator,
 } from './lib/translate.ts';
 
@@ -71,15 +81,6 @@ const COLLECTIONS = [
 ] as const;
 
 type Collection = (typeof COLLECTIONS)[number];
-
-/**
- * Posts published before this year are not translated.
- *
- * The archive of the foundation goes back to 2019 and is of little value in
- * four more languages; translating it would cost a lot and slow the launch
- * down. The evergreen pages are always translated.
- */
-const POSTS_SINCE = '2025-01-01';
 
 /* --- command line ------------------------------------------------------- */
 
@@ -211,12 +212,70 @@ async function readCollection(collection: Collection): Promise<string[]> {
   return files.filter((file) => file.endsWith('.md')).sort();
 }
 
-/** The posts that are old enough to be skipped. */
-function isOldPost(data: Record<string, unknown>): boolean {
-  const date = data['date'];
-  if (typeof date !== 'string') return false;
+/**
+ * Snapshot the locale copies whose Spanish source is skipped by rule —
+ * hand-written `noAutoTranslate` documents and the pre-cutoff posts. They
+ * have no regeneration path, so a forced wipe of the target locale must
+ * not lose them: they are put back after the rebuild.
+ */
+async function collectKeptCopies(targetDir: string): Promise<Map<string, string>> {
+  const kept = new Map<string, string>();
+  if (!existsSync(targetDir)) return kept;
 
-  return date.slice(0, 10) < POSTS_SINCE;
+  const entries = await readdir(targetDir, { withFileTypes: true, recursive: true });
+
+  for (const entry of entries) {
+    if (!entry.isFile() || !entry.name.endsWith('.md')) continue;
+
+    const file = join(entry.parentPath, entry.name);
+    const sourceFile = join(contentDir, SOURCE, relative(targetDir, file));
+
+    if (!existsSync(sourceFile)) {
+      // No Spanish source to regenerate it from — never lose it.
+      kept.set(file, await readFile(file, 'utf8'));
+      continue;
+    }
+
+    const document = parseDocument(await readFile(sourceFile, 'utf8'));
+    const collection = dirname(relative(targetDir, file)).split(/[\\/]/)[0] ?? null;
+
+    if (isSkippedSource(document.data, collection)) {
+      kept.set(file, await readFile(file, 'utf8'));
+    }
+  }
+
+  return kept;
+}
+
+/**
+ * Whether an existing locale copy is an untranslated fingerprint of a
+ * crashed batch: its prose is still the Spanish source and the source
+ * itself is not skipped by rule (an untranslated copy of a skipped
+ * document is correct, not broken).
+ */
+async function isIdentityCopy(
+  targetFile: string,
+  sourceFile: string,
+  collection: Collection,
+): Promise<boolean> {
+  if (!existsSync(sourceFile)) return false;
+
+  let source: Document;
+  let target: Document;
+
+  try {
+    source = parseDocument(await readFile(sourceFile, 'utf8'));
+    target = parseDocument(await readFile(targetFile, 'utf8'));
+  } catch {
+    // A copy that cannot even be parsed is not a finished translation,
+    // but mangling it silently is worse than leaving it to be repaired
+    // on purpose.
+    return false;
+  }
+
+  if (isSkippedSource(source.data, collection)) return false;
+
+  return isIdentityProse(source.body, target.body);
 }
 
 /* --- the run ------------------------------------------------------------ */
@@ -241,8 +300,19 @@ for (const target of targets) {
   const targetDir = join(contentDir, target);
 
   if (!dryRun && force) {
-    // A forced run rebuilds the target locale from scratch.
+    // A forced run rebuilds the target locale from scratch, but the copies
+    // of documents the pipeline skips by source rule have no regeneration
+    // path: they are either hand-written (`noAutoTranslate`) or the
+    // deliberate pre-cutoff archive, so they are stashed around the wipe
+    // and put back after it.
+    const keptCopies = await collectKeptCopies(targetDir);
+
     await rm(targetDir, { recursive: true, force: true });
+
+    for (const [file, content] of keptCopies) {
+      await mkdir(dirname(file), { recursive: true });
+      await writeFile(file, content, 'utf8');
+    }
   }
 
   for (const collection of COLLECTIONS) {
@@ -252,22 +322,25 @@ for (const target of targets) {
       const targetFile = join(targetDir, collection, file);
 
       // Without `--force` the existing translations are kept: a second run
-      // only fills in what is missing.
+      // only fills in what is missing. A copy whose prose still equals the
+      // Spanish source is not a translation but the fingerprint of a
+      // crashed batch, so it is treated as missing and regenerated.
       if (!dryRun && !force && existsSync(targetFile)) {
-        summary[target].skipped += 1;
-        continue;
+        if (
+          !(await isIdentityCopy(targetFile, join(contentDir, SOURCE, collection, file), collection))
+        ) {
+          summary[target].skipped += 1;
+          continue;
+        }
+
+        console.log(`  ${collection}/${file}: still equals the Spanish source, regenerating`);
       }
 
       const source = await readFile(join(contentDir, SOURCE, collection, file), 'utf8');
 
       const document = parseDocument(source);
 
-      if (document.data['noAutoTranslate'] === true) {
-        summary[target].skipped += 1;
-        continue;
-      }
-
-      if (collection === 'posts' && isOldPost(document.data)) {
+      if (isSkippedSource(document.data, collection)) {
         summary[target].skipped += 1;
         continue;
       }
