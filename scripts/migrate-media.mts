@@ -29,6 +29,11 @@ import { fileURLToPath } from 'node:url';
 
 import { AwsClient } from 'aws4fetch';
 import sharp from 'sharp';
+import {
+  collectMarkdownMediaReferences,
+  extractSiteLogoPath,
+  webpVariantKey,
+} from './lib/media.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const contentDir = join(root, 'src', 'content');
@@ -60,12 +65,6 @@ const MIME_TYPES: Record<string, string> = {
   '.webp': 'image/webp',
 };
 
-/** The hosts whose media belongs to this site. */
-const OWN_HOSTS = new Set([
-  'fundacionrosariogaton.org',
-  'www.fundacionrosariogaton.org',
-]);
-
 function mimeType(path: string): string {
   const extension = path.slice(path.lastIndexOf('.')).toLowerCase();
   return MIME_TYPES[extension] ?? 'application/octet-stream';
@@ -87,30 +86,6 @@ async function collectReferencedMedia(): Promise<{
   const own = new Set<string>();
   const external = new Set<string>();
 
-  const add = (value: string): void => {
-    if (!value) return;
-
-    let url: URL;
-    try {
-      url = new URL(value);
-    } catch {
-      return;
-    }
-
-    const marker = '/wp-content/uploads/';
-    const index = url.pathname.indexOf(marker);
-    if (index === -1) return;
-
-    const path = url.pathname.slice(index + marker.length);
-    if (path === '') return;
-
-    if (OWN_HOSTS.has(url.hostname.toLowerCase())) {
-      own.add(path);
-    } else {
-      external.add(`${url.hostname}${url.pathname}`);
-    }
-  };
-
   const walk = async (directory: string): Promise<void> => {
     if (!existsSync(directory)) return;
 
@@ -126,16 +101,25 @@ async function collectReferencedMedia(): Promise<{
 
       const source = await readFile(full, 'utf8');
 
-      // Every `wp-content/uploads/…` occurrence, wherever it appears.
-      for (const match of source.matchAll(
-        /https?:\/\/[^\s"')<>]*\/wp-content\/uploads\/[^\s"')<>]+/g,
-      )) {
-        add(match[0]);
+      let media: ReturnType<typeof collectMarkdownMediaReferences>;
+      try {
+        media = collectMarkdownMediaReferences(source);
+      } catch (error) {
+        throw new Error(
+          `Could not scan media in ${relative(root, full)}: ${error instanceof Error ? error.message : String(error)}`,
+          { cause: error },
+        );
       }
+      for (const path of media.own) own.add(path);
+      for (const path of media.external) external.add(path);
     }
   };
 
   await walk(contentDir);
+
+  const siteSource = await readFile(join(root, 'src', 'lib', 'site.ts'), 'utf8');
+  const logo = extractSiteLogoPath(siteSource);
+  if (logo) own.add(logo);
 
   return { own, external };
 }
@@ -175,12 +159,6 @@ if (missing.length > 0) {
 if (external.size > 0) {
   console.log('\nImages hotlinked from other websites (not moved):');
   for (const path of [...external].sort()) console.log(`  ${path}`);
-}
-
-/** The key of the WebP variant of an image. */
-function variantKey(key: string): string {
-  const dot = key.lastIndexOf('.');
-  return `${key.slice(0, dot)}-${VARIANT_WIDTH}w.webp`;
 }
 
 if (!upload) {
@@ -230,13 +208,14 @@ for (const file of files) {
   await put(file.key, new Uint8Array(buffer), mimeType(file.key));
   uploaded += 1;
 
-  if (withVariants && /\.(jpe?g|png|webp)$/i.test(file.key)) {
+  const variant = webpVariantKey(file.key);
+  if (withVariants && variant) {
     const variant = await sharp(buffer)
       .resize({ width: VARIANT_WIDTH, withoutEnlargement: true })
       .webp({ quality: 82 })
       .toBuffer();
 
-    await put(variantKey(file.key), new Uint8Array(variant), 'image/webp');
+    await put(webpVariantKey(file.key)!, new Uint8Array(variant), 'image/webp');
     uploaded += 1;
   }
 
