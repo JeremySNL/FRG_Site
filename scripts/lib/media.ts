@@ -25,6 +25,7 @@ const MEDIA_EXTENSIONS = new Set([
 
 const WEBP_SOURCE_EXTENSIONS = new Set(['.jpeg', '.jpg', '.png', '.webp']);
 const FRONTMATTER_MEDIA_KEYS = new Set(['image', 'backgroundImage', 'src']);
+export const WEBP_VARIANT_WIDTH = 1600;
 
 /**
  * Turn a WordPress media URL into the path used by the new media host.
@@ -61,6 +62,8 @@ export function toMediaReference(url: string): string {
 export function isMediaPath(path: string): boolean {
   const clean = path.split(/[?#]/, 1)[0] ?? '';
   const segments = clean.split('/');
+  // These keys are joined to the uploads root and later sent to R2, so reject
+  // absolute paths and traversal before either filesystem or network access.
   if (
     !clean ||
     clean.startsWith('/') ||
@@ -79,11 +82,15 @@ export function isMediaPath(path: string): boolean {
 export function webpVariantKey(path: string): string | undefined {
   const clean = path.split(/[?#]/, 1)[0] ?? '';
   const dot = clean.lastIndexOf('.');
-  if (dot < 0 || !WEBP_SOURCE_EXTENSIONS.has(clean.slice(dot).toLowerCase())) {
+  if (
+    !isMediaPath(clean) ||
+    dot < 0 ||
+    !WEBP_SOURCE_EXTENSIONS.has(clean.slice(dot).toLowerCase())
+  ) {
     return undefined;
   }
 
-  return `${clean.slice(0, dot)}-1600w.webp`;
+  return `${clean.slice(0, dot)}-${WEBP_VARIANT_WIDTH}w.webp`;
 }
 
 /** Collect relative paths from media-bearing Markdown frontmatter properties. */
@@ -113,7 +120,7 @@ export function collectRelativeMediaPaths(value: unknown): string[] {
     }
 
     if (Array.isArray(node)) {
-      for (const item of node) visit(item);
+      for (const item of node) visit(item, key);
       return;
     }
 
@@ -132,9 +139,11 @@ export function collectRelativeMediaPaths(value: unknown): string[] {
 export function collectMarkdownMediaReferences(source: string): {
   own: Set<string>;
   external: Set<string>;
+  errors: string[];
 } {
   const own = new Set<string>();
   const external = new Set<string>();
+  const errors: string[] = [];
 
   const add = (value: string): void => {
     const clean = value.trim();
@@ -180,8 +189,12 @@ export function collectMarkdownMediaReferences(source: string): {
 
   const frontmatter = /^---\r?\n([\s\S]*?)\r?\n---/.exec(source)?.[1];
   if (frontmatter) {
-    const data = parseYaml(frontmatter) as unknown;
-    for (const path of collectRelativeMediaPaths(data)) add(path);
+    try {
+      const data = parseYaml(frontmatter) as unknown;
+      for (const path of collectRelativeMediaPaths(data)) add(path);
+    } catch {
+      errors.push('Frontmatter could not be parsed as YAML');
+    }
   }
 
   const uploadUrlPattern =
@@ -191,14 +204,40 @@ export function collectMarkdownMediaReferences(source: string): {
     add(url);
   }
 
-  return { own, external };
+  return { own, external, errors };
 }
 
 /** Extract the static site logo's path without importing Astro runtime config. */
 export function extractSiteLogoPath(source: string): string | undefined {
   const match = /^\s*logo:\s*(['"])([^'"]+)\1\s*,?\s*$/m.exec(source);
-  const path = match?.[2];
-  return path && isMediaPath(path) ? path : undefined;
+  const value = match?.[2]?.trim();
+  if (!value) return undefined;
+
+  if (/^(?:https?:)?\/\//i.test(value)) {
+    try {
+      const url = new URL(value.startsWith('//') ? `https:${value}` : value);
+      if (!OWN_MEDIA_HOSTS.has(url.hostname.toLowerCase())) return undefined;
+      const index = url.pathname.indexOf(UPLOADS_MARKER);
+      if (index < 0) return undefined;
+
+      let path = url.pathname.slice(index + UPLOADS_MARKER.length);
+      try {
+        path = decodeURIComponent(path);
+      } catch {
+        // Keep the encoded key if a legacy URL has invalid percent escapes.
+      }
+      return isMediaPath(path) ? path : undefined;
+    } catch {
+      return undefined;
+    }
+  }
+
+  const path =
+    value
+      .replace(/^\/+/, '')
+      .replace(/^wp-content\/uploads\//, '')
+      .split(/[?#]/, 1)[0] ?? '';
+  return isMediaPath(path) ? path : undefined;
 }
 
 /** Slugs that are known to be junk in the original blog. */

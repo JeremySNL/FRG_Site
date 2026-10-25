@@ -23,8 +23,9 @@
  *   R2_BUCKET             name of the bucket
  */
 import { readdir, readFile } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
-import { dirname, join, relative, resolve, sep } from 'node:path';
+import { createReadStream, existsSync, realpathSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { dirname, isAbsolute, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { AwsClient } from 'aws4fetch';
@@ -32,8 +33,15 @@ import sharp from 'sharp';
 import {
   collectMarkdownMediaReferences,
   extractSiteLogoPath,
+  isMediaPath,
+  WEBP_VARIANT_WIDTH,
   webpVariantKey,
 } from './lib/media.ts';
+import {
+  buildUploadKeyManifest,
+  isMatchingR2Etag,
+  isValidR2PublicUrl,
+} from './lib/r2.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const contentDir = join(root, 'src', 'content');
@@ -48,9 +56,6 @@ const PUBLIC_URL = process.env.R2_PUBLIC_URL ?? '';
 
 const upload = process.argv.includes('--upload');
 const withVariants = process.argv.includes('--variants');
-
-/** Width of the generated WebP variant, in pixels. */
-const VARIANT_WIDTH = 1600;
 
 const MIME_TYPES: Record<string, string> = {
   '.avif': 'image/avif',
@@ -82,9 +87,11 @@ function mimeType(path: string): string {
 async function collectReferencedMedia(): Promise<{
   own: Set<string>;
   external: Set<string>;
+  scanErrors: string[];
 }> {
   const own = new Set<string>();
   const external = new Set<string>();
+  const scanErrors: string[] = [];
 
   const walk = async (directory: string): Promise<void> => {
     if (!existsSync(directory)) return;
@@ -104,14 +111,15 @@ async function collectReferencedMedia(): Promise<{
       let media: ReturnType<typeof collectMarkdownMediaReferences>;
       try {
         media = collectMarkdownMediaReferences(source);
-      } catch (error) {
-        throw new Error(
-          `Could not scan media in ${relative(root, full)}: ${error instanceof Error ? error.message : String(error)}`,
-          { cause: error },
-        );
+      } catch {
+        scanErrors.push(`${relative(root, full)}: media scan failed`);
+        continue;
       }
       for (const path of media.own) own.add(path);
       for (const path of media.external) external.add(path);
+      for (const error of media.errors) {
+        scanErrors.push(`${relative(root, full)}: ${error}`);
+      }
     }
   };
 
@@ -121,17 +129,43 @@ async function collectReferencedMedia(): Promise<{
   const logo = extractSiteLogoPath(siteSource);
   if (logo) own.add(logo);
 
-  return { own, external };
+  return { own, external, scanErrors };
 }
 
 /** The file of the uploads folder that matches a media path. */
 function localFileFor(mediaPath: string): string | undefined {
-  const candidate = join(UPLOADS_DIR, mediaPath.replace(/\//g, sep));
+  if (!isMediaPath(mediaPath)) {
+    throw new Error(`Unsafe media key rejected before local file access: ${mediaPath}`);
+  }
 
-  return existsSync(candidate) ? candidate : undefined;
+  const uploadsRoot = resolve(UPLOADS_DIR);
+  const candidate = resolve(uploadsRoot, mediaPath.replace(/\//g, sep));
+  const relativeCandidate = relative(uploadsRoot, candidate);
+  if (
+    relativeCandidate === '..' ||
+    relativeCandidate.startsWith(`..${sep}`) ||
+    isAbsolute(relativeCandidate)
+  ) {
+    throw new Error(`Media key escapes the uploads directory: ${mediaPath}`);
+  }
+
+  if (!existsSync(candidate) || !existsSync(uploadsRoot)) return undefined;
+
+  const realRoot = realpathSync(uploadsRoot);
+  const realCandidate = realpathSync(candidate);
+  const relativeRealCandidate = relative(realRoot, realCandidate);
+  if (
+    relativeRealCandidate === '..' ||
+    relativeRealCandidate.startsWith(`..${sep}`) ||
+    isAbsolute(relativeRealCandidate)
+  ) {
+    throw new Error(`Media file resolves outside the uploads directory: ${mediaPath}`);
+  }
+
+  return realCandidate;
 }
 
-const { own: referenced, external } = await collectReferencedMedia();
+const { own: referenced, external, scanErrors } = await collectReferencedMedia();
 
 const missing: string[] = [];
 const files: Array<{ key: string; local: string }> = [];
@@ -161,19 +195,82 @@ if (external.size > 0) {
   for (const path of [...external].sort()) console.log(`  ${path}`);
 }
 
+if (scanErrors.length > 0) {
+  console.log('\nMedia scan warnings:');
+  for (const error of scanErrors) console.log(`  ${error}`);
+}
+
 if (!upload) {
   console.log('\nDry run. Add --upload to copy the files to the bucket.');
   console.log('\nFirst files:');
   for (const file of files.slice(0, 10)) {
-    console.log(`  ${file.key}  (${relative(root, file.local)})`);
+    console.log(`  ${file.key}`);
   }
   process.exit(0);
 }
 
-if (!BUCKET || !ACCOUNT_ID) {
-  console.error('R2_BUCKET and R2_ACCOUNT_ID are required to upload. Aborting.');
+if (scanErrors.length > 0) {
+  console.error('Media inventory is incomplete; no R2 uploads were attempted.');
   process.exit(1);
 }
+
+if (files.length === 0) {
+  console.error('No local media files are available to upload.');
+  process.exit(1);
+}
+
+if (
+  BUCKET !== 'frg-media' ||
+  !/^[a-f0-9]{32}$/i.test(ACCOUNT_ID) ||
+  !process.env.R2_ACCESS_KEY_ID ||
+  !process.env.R2_SECRET_ACCESS_KEY ||
+  !isValidR2PublicUrl(PUBLIC_URL)
+) {
+  console.error(
+    'R2 upload configuration is incomplete or invalid; no upload was attempted.',
+  );
+  process.exit(1);
+}
+
+const uploadManifest = buildUploadKeyManifest(
+  files.map((file) => file.key),
+  withVariants,
+);
+if (uploadManifest.collisions.length > 0) {
+  console.error(
+    `The upload manifest contains ${uploadManifest.collisions.length} key collision(s); no upload was attempted.`,
+  );
+  for (const key of uploadManifest.collisions) console.error(`  ${key}`);
+  process.exit(1);
+}
+
+interface UploadObject {
+  key: string;
+  local: string;
+  variant: boolean;
+  contentType: string;
+}
+
+const uploadObjects: UploadObject[] = files.flatMap((file) => {
+  const objects: UploadObject[] = [
+    {
+      key: file.key,
+      local: file.local,
+      variant: false,
+      contentType: mimeType(file.key),
+    },
+  ];
+  const variantKey = withVariants ? webpVariantKey(file.key) : undefined;
+  if (variantKey) {
+    objects.push({
+      key: variantKey,
+      local: file.local,
+      variant: true,
+      contentType: 'image/webp',
+    });
+  }
+  return objects;
+});
 
 const client = new AwsClient({
   accessKeyId: process.env.R2_ACCESS_KEY_ID ?? '',
@@ -184,43 +281,116 @@ const client = new AwsClient({
 
 const endpoint = `https://${ACCOUNT_ID}.r2.cloudflarestorage.com`;
 
+function s3ObjectUrl(key: string): string {
+  const encodedKey = key.split('/').map(encodeURIComponent).join('/');
+  return `${endpoint}/${BUCKET}/${encodedKey}`;
+}
+
+/** Refuse a non-empty destination before the first write. */
+async function preflightDestination(): Promise<Set<string>> {
+  const existingIdentical = new Set<string>();
+
+  const md5For = async (object: UploadObject): Promise<string> => {
+    if (!object.variant) {
+      return new Promise((resolveHash, rejectHash) => {
+        const hash = createHash('md5');
+        const stream = createReadStream(object.local);
+        stream.on('data', (chunk: Buffer) => hash.update(chunk));
+        stream.on('error', rejectHash);
+        stream.on('end', () => resolveHash(hash.digest('hex')));
+      });
+    }
+
+    const source = await readFile(object.local);
+    const variantBuffer = await sharp(source)
+      .resize({ width: WEBP_VARIANT_WIDTH, withoutEnlargement: true })
+      .webp({ quality: 82 })
+      .toBuffer();
+    return createHash('md5').update(variantBuffer).digest('hex');
+  };
+
+  for (let offset = 0; offset < uploadObjects.length; offset += 8) {
+    const batch = uploadObjects.slice(offset, offset + 8);
+    const results = await Promise.all(
+      batch.map(async (object) => {
+        const response = await client.fetch(s3ObjectUrl(object.key), {
+          method: 'HEAD',
+        });
+        return { object, response };
+      }),
+    );
+
+    for (const { object, response } of results) {
+      if (response.status === 404) continue;
+      if (response.status >= 200 && response.status < 300) {
+        const expectedMd5 = await md5For(object);
+        if (!isMatchingR2Etag(response.headers.get('etag'), expectedMd5)) {
+          throw new Error(
+            `R2 object ${object.key} exists with different or unverifiable content; refusing to overwrite it.`,
+          );
+        }
+        existingIdentical.add(object.key);
+        continue;
+      }
+      throw new Error(
+        `R2 destination preflight failed (${response.status}); no object uploads were attempted.`,
+      );
+    }
+  }
+
+  return existingIdentical;
+}
+
+let existingIdentical: Set<string>;
+try {
+  existingIdentical = await preflightDestination();
+} catch (error) {
+  console.error(
+    error instanceof Error ? error.message : 'R2 destination preflight failed.',
+  );
+  process.exit(1);
+}
+
 /** Upload one file. */
 async function put(key: string, body: BodyInit, type: string): Promise<void> {
-  const response = await client.fetch(`${endpoint}/${BUCKET}/${key}`, {
+  const response = await client.fetch(s3ObjectUrl(key), {
     method: 'PUT',
     body,
     headers: {
       'content-type': type,
       'cache-control': 'public, max-age=31536000, immutable',
+      'if-none-match': '*',
     },
   });
 
   if (!response.ok) {
-    throw new Error(`${key}: ${response.status} ${await response.text()}`);
+    throw new Error(`${key}: upload failed (${response.status}).`);
   }
 }
 
 let uploaded = 0;
+let skipped = 0;
 
-for (const file of files) {
-  const buffer = await readFile(file.local);
-
-  await put(file.key, new Uint8Array(buffer), mimeType(file.key));
-  uploaded += 1;
-
-  const variant = webpVariantKey(file.key);
-  if (withVariants && variant) {
-    const variant = await sharp(buffer)
-      .resize({ width: VARIANT_WIDTH, withoutEnlargement: true })
-      .webp({ quality: 82 })
-      .toBuffer();
-
-    await put(webpVariantKey(file.key)!, new Uint8Array(variant), 'image/webp');
-    uploaded += 1;
+for (const object of uploadObjects) {
+  if (existingIdentical.has(object.key)) {
+    skipped += 1;
+    continue;
   }
+
+  const source = await readFile(object.local);
+  const body = object.variant
+    ? await sharp(source)
+        .resize({ width: WEBP_VARIANT_WIDTH, withoutEnlargement: true })
+        .webp({ quality: 82 })
+        .toBuffer()
+    : source;
+
+  await put(object.key, new Uint8Array(body), object.contentType);
+  uploaded += 1;
 
   if (uploaded % 25 === 0) console.log(`  ${uploaded} objects uploaded`);
 }
 
-console.log(`\nDone. ${uploaded} objects uploaded to ${BUCKET}.`);
-if (PUBLIC_URL) console.log(`Public URL: ${PUBLIC_URL}`);
+console.log(
+  `\nDone. ${uploaded} objects uploaded and ${skipped} identical existing objects reused in ${BUCKET}.`,
+);
