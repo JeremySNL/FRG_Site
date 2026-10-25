@@ -5,16 +5,19 @@
  */
 import type { RichTextBlock } from '~/lib/blocks.ts';
 import { sectionClass } from '~/lib/blocks.ts';
+import { rewriteMediaHtml } from '~/lib/media-html.ts';
+import { mediaUrlOptions } from '~/lib/site.ts';
 
 interface Props {
   block: RichTextBlock;
 }
 
 const { block } = Astro.props;
+const html = rewriteMediaHtml(block.html, mediaUrlOptions);
 ---
 
 <section class={sectionClass(block.surface)}>
   <div class="container-site">
-    <div class="prose prose-frg max-w-3xl" set:html={block.html} />
+    <div class="prose prose-frg max-w-3xl" set:html={html} />
   </div>
 </section>

@@ -6,7 +6,7 @@
  * `hreflang` alternates that GTranslate could not produce — are rebuilt here
  * from the content frontmatter.
  */
-import { site } from './site.ts';
+import { mediaUrl, site } from './site.ts';
 import {
   alternateLinks,
   defaultLocale,
@@ -42,12 +42,6 @@ export interface SeoMeta {
   alternates: Array<{ hreflang: string; href: string }>;
 }
 
-function absolute(path: string): string {
-  if (!path) return '';
-  if (/^https?:\/\//.test(path)) return path;
-  return new URL(path, site.url).toString();
-}
-
 /** Build the SEO metadata for a page. */
 export function buildSeo(input: SeoInput, available: readonly Locale[]): SeoMeta {
   const contentLocale = input.contentLocale ?? input.locale;
@@ -59,7 +53,7 @@ export function buildSeo(input: SeoInput, available: readonly Locale[]): SeoMeta
     title,
     description,
     canonical,
-    image: absolute(input.image ?? ''),
+    image: mediaUrl(input.image ?? ''),
     type: input.type ?? 'website',
     // A page served in a locale it has not been translated into must not be
     // indexed, otherwise it competes with the Spanish original.
@@ -112,7 +106,7 @@ export function articleSchema(input: {
     headline: input.title,
     description: input.description,
     url: input.url,
-    image: input.image ? absolute(input.image) : undefined,
+    image: input.image ? mediaUrl(input.image) : undefined,
     datePublished: input.publishedTime,
     inLanguage: localeInfo[input.locale].htmlLang,
     author: { '@type': 'Organization', name: site.name },

@@ -5,6 +5,13 @@
  * (`wp_options`, the Elementor header template id 182 and the footer
  * template id 481) — nothing is invented.
  */
+import { createMediaUrlOptions, resolveMediaUrl } from './media-url.ts';
+
+const configuredMediaBaseUrl =
+  import.meta.env.MEDIA_BASE_URL ?? import.meta.env.R2_PUBLIC_URL;
+
+export const mediaUrlOptions = createMediaUrlOptions(configuredMediaBaseUrl);
+
 export const site = {
   name: 'Fundación Rosario Gatón',
   shortName: 'FRG',
@@ -36,14 +43,10 @@ export const site = {
   /**
    * Where migrated media is served from.
    *
-   * The default still points at the WordPress uploads folder so the site
-   * shows the real pictures while the R2 bucket is being filled. Once the
-   * migration is done, set `MEDIA_BASE_URL` to the media host and the paths
-   * stay the same.
+   * Set `MEDIA_BASE_URL` to override the public R2 URL for later domain changes.
+   * `R2_PUBLIC_URL` is the migration host; WordPress remains the fallback.
    */
-  mediaBaseUrl:
-    import.meta.env.MEDIA_BASE_URL ??
-    'https://fundacionrosariogaton.org/wp-content/uploads',
+  mediaBaseUrl: mediaUrlOptions.baseUrl,
 
   /** Attachment id 201 in WordPress — the FRG logo used in header and footer. */
   logo: '2025/07/309789749_177982111461367_3349876411011993474_n-Photoroom.png',
@@ -51,8 +54,5 @@ export const site = {
 
 /** Build an absolute media URL from a path stored in content frontmatter. */
 export function mediaUrl(path: string): string {
-  if (!path) return '';
-  if (/^https?:\/\//.test(path)) return path;
-  const base = site.mediaBaseUrl.replace(/\/+$/, '');
-  return `${base}/${path.replace(/^\/+/, '')}`;
+  return resolveMediaUrl(path, mediaUrlOptions);
 }

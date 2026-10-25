@@ -3,29 +3,19 @@
  */
 
 import { parse as parseYaml } from 'yaml';
+import {
+  isMediaPath,
+  isOwnedWordPressMediaHost,
+  mediaKeyFromReference,
+  WORDPRESS_UPLOADS_MARKER,
+} from '../../src/lib/media-keys.ts';
 
-const UPLOADS_MARKER = '/wp-content/uploads/';
-const OWN_MEDIA_HOSTS = new Set([
-  'fundacionrosariogaton.org',
-  'www.fundacionrosariogaton.org',
-]);
-
-const MEDIA_EXTENSIONS = new Set([
-  '.avif',
-  '.gif',
-  '.jpeg',
-  '.jpg',
-  '.mp4',
-  '.pdf',
-  '.png',
-  '.svg',
-  '.webm',
-  '.webp',
-]);
-
-const WEBP_SOURCE_EXTENSIONS = new Set(['.jpeg', '.jpg', '.png', '.webp']);
+export {
+  isMediaPath,
+  WEBP_VARIANT_WIDTH,
+  webpVariantKey,
+} from '../../src/lib/media-keys.ts';
 const FRONTMATTER_MEDIA_KEYS = new Set(['image', 'backgroundImage', 'src']);
-export const WEBP_VARIANT_WIDTH = 1600;
 
 /**
  * Turn a WordPress media URL into the path used by the new media host.
@@ -37,9 +27,9 @@ export const WEBP_VARIANT_WIDTH = 1600;
  */
 export function toMediaPath(url: string): string {
   if (!url) return '';
-  const index = url.indexOf(UPLOADS_MARKER);
+  const index = url.indexOf(WORDPRESS_UPLOADS_MARKER);
   if (index === -1) return url;
-  return url.slice(index + UPLOADS_MARKER.length).replace(/^\/+/, '');
+  return url.slice(index + WORDPRESS_UPLOADS_MARKER.length).replace(/^\/+/, '');
 }
 
 /** The file name of a media path, without the extension. */
@@ -56,41 +46,6 @@ export function toMediaReference(url: string): string {
   const path = toMediaPath(url);
   if (!path) return '';
   return path;
-}
-
-/** Whether a path has a media extension handled by the migration script. */
-export function isMediaPath(path: string): boolean {
-  const clean = path.split(/[?#]/, 1)[0] ?? '';
-  const segments = clean.split('/');
-  // These keys are joined to the uploads root and later sent to R2, so reject
-  // absolute paths and traversal before either filesystem or network access.
-  if (
-    !clean ||
-    clean.startsWith('/') ||
-    clean.includes('\\') ||
-    clean.includes(':') ||
-    segments.some((segment) => segment === '' || segment === '.' || segment === '..')
-  ) {
-    return false;
-  }
-
-  const dot = clean.lastIndexOf('.');
-  return dot >= 0 && MEDIA_EXTENSIONS.has(clean.slice(dot).toLowerCase());
-}
-
-/** Raster formats for which the migration creates a WebP delivery variant. */
-export function webpVariantKey(path: string): string | undefined {
-  const clean = path.split(/[?#]/, 1)[0] ?? '';
-  const dot = clean.lastIndexOf('.');
-  if (
-    !isMediaPath(clean) ||
-    dot < 0 ||
-    !WEBP_SOURCE_EXTENSIONS.has(clean.slice(dot).toLowerCase())
-  ) {
-    return undefined;
-  }
-
-  return `${clean.slice(0, dot)}-${WEBP_VARIANT_WIDTH}w.webp`;
 }
 
 /** Collect relative paths from media-bearing Markdown frontmatter properties. */
@@ -157,10 +112,10 @@ export function collectMarkdownMediaReferences(source: string): {
         return;
       }
 
-      const index = url.pathname.indexOf(UPLOADS_MARKER);
+      const index = url.pathname.indexOf(WORDPRESS_UPLOADS_MARKER);
       if (index < 0) return;
 
-      const encodedPath = url.pathname.slice(index + UPLOADS_MARKER.length);
+      const encodedPath = url.pathname.slice(index + WORDPRESS_UPLOADS_MARKER.length);
       if (!encodedPath) return;
 
       let path = encodedPath;
@@ -171,7 +126,7 @@ export function collectMarkdownMediaReferences(source: string): {
       }
 
       if (!isMediaPath(path)) return;
-      if (OWN_MEDIA_HOSTS.has(url.hostname.toLowerCase())) {
+      if (isOwnedWordPressMediaHost(url.hostname)) {
         own.add(path);
       } else {
         external.add(`${url.hostname}${url.pathname}`);
@@ -211,33 +166,7 @@ export function collectMarkdownMediaReferences(source: string): {
 export function extractSiteLogoPath(source: string): string | undefined {
   const match = /^\s*logo:\s*(['"])([^'"]+)\1\s*,?\s*$/m.exec(source);
   const value = match?.[2]?.trim();
-  if (!value) return undefined;
-
-  if (/^(?:https?:)?\/\//i.test(value)) {
-    try {
-      const url = new URL(value.startsWith('//') ? `https:${value}` : value);
-      if (!OWN_MEDIA_HOSTS.has(url.hostname.toLowerCase())) return undefined;
-      const index = url.pathname.indexOf(UPLOADS_MARKER);
-      if (index < 0) return undefined;
-
-      let path = url.pathname.slice(index + UPLOADS_MARKER.length);
-      try {
-        path = decodeURIComponent(path);
-      } catch {
-        // Keep the encoded key if a legacy URL has invalid percent escapes.
-      }
-      return isMediaPath(path) ? path : undefined;
-    } catch {
-      return undefined;
-    }
-  }
-
-  const path =
-    value
-      .replace(/^\/+/, '')
-      .replace(/^wp-content\/uploads\//, '')
-      .split(/[?#]/, 1)[0] ?? '';
-  return isMediaPath(path) ? path : undefined;
+  return value ? mediaKeyFromReference(value) : undefined;
 }
 
 /** Slugs that are known to be junk in the original blog. */
