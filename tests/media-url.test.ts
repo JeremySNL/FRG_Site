@@ -38,19 +38,6 @@ it('keeps third-party media unchanged and preserves unsupported file formats', (
   );
 });
 
-it('leaves unavailable source assets on their original WordPress URL', () => {
-  const path = '2025/07/308990619_177982108128034_4272015722118422953_n.png';
-  const options = createMediaUrlOptions(R2_BASE);
-
-  expect(resolveMediaUrl(path, options)).toBe(`${WP_BASE}/${path}`);
-  expect(
-    resolveMediaUrl(
-      `https://fundacionrosariogaton.org/wp-content/uploads/${path}`,
-      options,
-    ),
-  ).toBe(`https://fundacionrosariogaton.org/wp-content/uploads/${path}`);
-});
-
 it('keeps original formats when no migrated media base is configured', () => {
   const options = createMediaUrlOptions();
 

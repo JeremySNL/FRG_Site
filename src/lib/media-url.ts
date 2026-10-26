@@ -1,4 +1,3 @@
-import { unavailableMediaKeys } from './media-availability.ts';
 import { mediaKeyFromReference, webpVariantKey } from './media-keys.ts';
 
 export const WORDPRESS_MEDIA_BASE_URL =
@@ -36,11 +35,6 @@ export function resolveMediaUrl(path: string, options: MediaUrlOptions): string 
     }
 
     return '';
-  }
-
-  if (unavailableMediaKeys.has(key)) {
-    if (/^(?:https?:)?\/\//i.test(value)) return path;
-    return `${WORDPRESS_MEDIA_BASE_URL}/${encodeMediaKey(key)}`;
   }
 
   const deliveryKey = options.useWebp ? (webpVariantKey(key) ?? key) : key;
