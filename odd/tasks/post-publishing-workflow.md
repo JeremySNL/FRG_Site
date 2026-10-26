@@ -1,7 +1,7 @@
 # FRG_Site post publishing workflow
 
 Objective: Generate a Spanish Markdown article with the AI prompt, prepare one post's translations and validations with a single command, then publish by pushing to `main`.
-Branch: `feat/post-publishing-workflow`; delivery: `ask-on-risk`; test runner: `npx vitest run --test-timeout=30000`, `npm run check`, `npm run typecheck`, `npm run lint`, `npm run build`.
+Branch: `feat/post-publishing-workflow`; delivery: `ask-on-risk` (forecast ~800 authored changed lines); chain strategy: `stacked-to-main` (the user's previously selected strategy for future PR slices); test runner: `npx vitest run --test-timeout=30000`, `npm run check`, `npm run typecheck`, `npm run lint`, `npm run build`.
 
 ## Specs
 
@@ -12,9 +12,9 @@ Branch: `feat/post-publishing-workflow`; delivery: `ask-on-risk`; test runner: `
 
 ## Tasks
 
-- **T1** — S1; inline; status: completed; commit: pending — Add post/locale-scoped translation selection and regression tests without changing existing global translation behavior.
-- **T2** — S2; inline; status: partial (Needs your decision: full-suite locale check is blocked by the user's untranslated draft, and real API translation was not run); commit: pending — Add `post:ready`, slug/taxonomy/content preflight, safe translation orchestration, checks/build/preview output, and CLI tests. No upload, push, or deploy.
-- **T3** — S3–S4; inline; status: completed; commit: pending — Add a site administration guide with editorial and technical workflows, link it from README, and document the AI prompt, separate image upload, checks, preview, and push-to-main publication.
+- **T1** — S1; inline; status: completed; commit: `1fb3734` — Add post/locale-scoped translation selection and regression tests without changing existing global translation behavior.
+- **T2** — S2; inline; status: partial (Needs your decision: full-suite locale check is blocked by the user's untranslated draft, and real API translation was not run); commit: `1fb3734` — Add `post:ready`, slug/taxonomy/content preflight, safe translation orchestration, checks/build/preview output, and CLI tests. No upload, push, or deploy.
+- **T3** — S3–S4; inline; status: completed; commit: `1fb3734` — Add a site administration guide with editorial and technical workflows, link it from README, and document the AI prompt, separate image upload, checks, preview, and push-to-main publication.
 
 ## Log
 
@@ -25,3 +25,4 @@ Branch: `feat/post-publishing-workflow`; delivery: `ask-on-risk`; test runner: `
 - **L5 (2026-10-26):** Existing uncommitted content in `src/content/es/posts/la-fundacion-rosario-gaton-es-galardonada-en-los-csr-awards-2026-por-acquisition-international.md` and `src/content/es/posts/asamblea-extraordinaria-2026.md` is user-owned and must remain untouched and unstaged. `POST_AUTHORING_PROMPT.md` already exists as an authorized untracked artifact and should be preserved.
 - **L6 (2026-10-26):** T1 RED/GREEN evidence: the new scoped dry-run test failed before implementation because the CLI processed unrelated pages/posts/taxonomies and UI strings; after adding `--post` and `--locales`, `npx vitest run tests/translate-cli.test.ts --test-timeout=30000` passed 7/7, including existing locale-wide behavior, scoped locale selection, missing post, invalid locale, and rejecting `--force` in scoped mode. Risk: none (new flags are opt-in; existing locale-wide behavior remains covered).
 - **L7 (2026-10-26):** T2 implementation passes focused CLI tests (13/13), Astro check (0 errors/warnings/hints), typecheck, lint, and static build. Full Vitest has one failure in `tests/locales.test.ts`: the pre-existing untracked user post `asamblea-extraordinaria-2026.md` has no generated `en/fr/ja/zh-TW` copies. The other 15 test files/73 tests pass when that locale-wide check is excluded. `git diff --check` also reports trailing whitespace in the user's unrelated modified post; it was not changed. No real translation API call, media upload, push, or deploy was performed. Needs your decision: authorize translating that exact draft to generate locale copies, or leave the draft untouched and accept the locale test as pending. Risk: none (new command avoids upload/deploy and scoped translation cannot force-overwrite existing localized posts).
+- **L8 (2026-10-26):** The feature work unit is committed as `1fb3734` (`feat(posts): scope translations to one post`). Native assessment: medium, `review_due=false`, reason `under_budget`; no review lifecycle was due. The commit contains 799 authored changed lines because the translator scope, preparation command, regression tests, prompt, and operator guide form one cohesive publishing workflow. Local `main` was not changed; no push or deploy occurred. User-owned post changes remain unstaged/untracked.
