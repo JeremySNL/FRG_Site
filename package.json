@@ -20,6 +20,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
+    "post:ready": "node --env-file-if-exists=.env scripts/post-ready.mts",
     "migrate:extract": "node scripts/extract-wp.mts",
     "migrate:media": "node scripts/migrate-media.mts",
     "migrate:redirects": "node scripts/generate-redirects.mts",

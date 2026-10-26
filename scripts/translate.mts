@@ -90,16 +90,67 @@ export async function main(args: string[] = process.argv.slice(2)): Promise<void
 
   const dryRun = flag('dry-run');
   const force = flag('force');
+  const postSlug = option('post');
+  const hasPostOption = args.includes('--post');
 
   const requested = option('locale');
-  const targets: Target[] = requested
-    ? translationLocales.filter((locale) => locale === requested)
-    : [...translationLocales];
+  const requestedLocales = option('locales');
+  const hasLocaleOption = args.includes('--locale');
+  const hasLocalesOption = args.includes('--locales');
 
-  if (requested && targets.length === 0) {
+  if (hasPostOption && !postSlug) {
+    console.error('--post requires a slug.');
+    process.exit(1);
+  }
+
+  if (hasLocaleOption && !requested) {
+    console.error('--locale requires a locale.');
+    process.exit(1);
+  }
+
+  if (hasLocalesOption && !requestedLocales) {
+    console.error('--locales requires a comma-separated locale list.');
+    process.exit(1);
+  }
+
+  if (hasLocaleOption && hasLocalesOption) {
+    console.error('Use either --locale or --locales, not both.');
+    process.exit(1);
+  }
+
+  const selectedLocales = requestedLocales
+    ? requestedLocales.split(',').map((locale) => locale.trim())
+    : requested
+      ? [requested]
+      : [...translationLocales];
+  const invalidLocales = selectedLocales.filter(
+    (locale) => !translationLocales.includes(locale as Target),
+  );
+  const targets = translationLocales.filter((locale) =>
+    selectedLocales.includes(locale),
+  );
+
+  if (invalidLocales.length > 0 || targets.length === 0) {
     console.error(
-      `Unknown locale "${requested}". Available: ${translationLocales.join(', ')}.`,
+      `Unknown or missing locale${invalidLocales.length === 1 ? '' : 's'} "${invalidLocales.join(', ')}". Available: ${translationLocales.join(', ')}.`,
     );
+    process.exit(1);
+  }
+
+  if (postSlug && !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(postSlug)) {
+    console.error(`Invalid post slug "${postSlug}".`);
+    process.exit(1);
+  }
+
+  if (postSlug && force) {
+    console.error(
+      '--force cannot be combined with --post; scoped runs never overwrite translations.',
+    );
+    process.exit(1);
+  }
+
+  if (postSlug && !existsSync(join(contentDir, SOURCE, 'posts', `${postSlug}.md`))) {
+    console.error(`Spanish source post "${postSlug}" was not found.`);
     process.exit(1);
   }
 
@@ -204,7 +255,13 @@ export async function main(args: string[] = process.argv.slice(2)): Promise<void
 
     const files = await readdir(directory);
 
-    return files.filter((file) => file.endsWith('.md')).sort();
+    return files
+      .filter(
+        (file) =>
+          file.endsWith('.md') &&
+          (!postSlug || (collection === 'posts' && file === `${postSlug}.md`)),
+      )
+      .sort();
   }
 
   /**
@@ -294,7 +351,7 @@ export async function main(args: string[] = process.argv.slice(2)): Promise<void
 
     const targetDir = join(contentDir, target);
 
-    if (!dryRun && force) {
+    if (!dryRun && force && !postSlug) {
       // A forced run rebuilds the target locale from scratch, but the copies
       // of documents the pipeline skips by source rule have no regeneration
       // path: they are either hand-written (`noAutoTranslate`) or the
@@ -310,7 +367,8 @@ export async function main(args: string[] = process.argv.slice(2)): Promise<void
       }
     }
 
-    for (const collection of COLLECTIONS) {
+    const collections: readonly Collection[] = postSlug ? ['posts'] : COLLECTIONS;
+    for (const collection of collections) {
       const files = await readCollection(collection);
 
       for (const file of files) {
@@ -388,6 +446,8 @@ export async function main(args: string[] = process.argv.slice(2)): Promise<void
         summary[target].strings += strings.length;
       }
     }
+
+    if (postSlug) continue;
 
     /* --- the interface strings -------------------------------------------- */
 
