@@ -15,4 +15,8 @@
   "observability": {
     "enabled": true,
   },
+  "vars": {
+    "MEDIA_BASE_URL": "https://media.fundacionrosariogaton.org",
+    "R2_PUBLIC_URL": "https://media.fundacionrosariogaton.org"
+  },
 }
