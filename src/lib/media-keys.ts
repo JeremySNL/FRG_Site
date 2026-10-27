@@ -18,9 +18,9 @@ const MEDIA_EXTENSIONS = new Set([
   '.webp',
 ]);
 
-const WEBP_SOURCE_EXTENSIONS = new Set(['.jpeg', '.jpg', '.png', '.webp']);
+const WEBP_CONVERT_EXTENSIONS = new Set(['.jpeg', '.jpg', '.png']);
 
-export const WEBP_VARIANT_WIDTH = 1600;
+export const WEBP_DELIVERY_WIDTH = 1600;
 
 export function isOwnedWordPressMediaHost(hostname: string): boolean {
   return OWN_WORDPRESS_MEDIA_HOSTS.has(hostname.toLowerCase());
@@ -79,17 +79,17 @@ export function mediaKeyFromReference(reference: string): string | undefined {
   return isMediaPath(path) ? path : undefined;
 }
 
-/** Raster formats for which the migration creates a WebP delivery variant. */
-export function webpVariantKey(path: string): string | undefined {
+/** Raster formats for which the migration creates a WebP delivery copy. */
+export function webpDeliveryKey(path: string): string | undefined {
   const clean = path.split(/[?#]/, 1)[0] ?? '';
   const dot = clean.lastIndexOf('.');
   if (
     !isMediaPath(clean) ||
     dot < 0 ||
-    !WEBP_SOURCE_EXTENSIONS.has(clean.slice(dot).toLowerCase())
+    !WEBP_CONVERT_EXTENSIONS.has(clean.slice(dot).toLowerCase())
   ) {
     return undefined;
   }
 
-  return `${clean.slice(0, dot)}-${WEBP_VARIANT_WIDTH}w.webp`;
+  return `${clean.slice(0, dot)}.webp`;
 }

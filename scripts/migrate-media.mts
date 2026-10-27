@@ -11,8 +11,10 @@
  * Usage:
  *
  *   node scripts/migrate-media.mts              # dry run: print the plan
- *   node scripts/migrate-media.mts --upload     # upload the files
- *   node scripts/migrate-media.mts --upload --variants
+ *   node scripts/migrate-media.mts --upload     # upload originals only
+ *   node scripts/migrate-media.mts --upload --webp
+ *
+ * The `--variants` flag is kept as an alias for `--webp`.
  *
  * Environment:
  *
@@ -34,8 +36,8 @@ import {
   collectMarkdownMediaReferences,
   extractSiteLogoPath,
   isMediaPath,
-  WEBP_VARIANT_WIDTH,
-  webpVariantKey,
+  WEBP_DELIVERY_WIDTH,
+  webpDeliveryKey,
 } from './lib/media.ts';
 import {
   buildUploadKeyManifest,
@@ -44,6 +46,12 @@ import {
 } from './lib/r2.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+
+// Load local environment the same way `astro.config.ts` does, so the
+// migration script can be run directly without `--env-file`.
+const envFile = join(root, '.env');
+if (existsSync(envFile)) process.loadEnvFile(envFile);
+
 const contentDir = join(root, 'src', 'content');
 
 const UPLOADS_DIR =
@@ -55,7 +63,8 @@ const ACCOUNT_ID = process.env.R2_ACCOUNT_ID ?? '';
 const PUBLIC_URL = process.env.R2_PUBLIC_URL ?? '';
 
 const upload = process.argv.includes('--upload');
-const withVariants = process.argv.includes('--variants');
+const withWebp =
+  process.argv.includes('--webp') || process.argv.includes('--variants');
 
 const MIME_TYPES: Record<string, string> = {
   '.avif': 'image/avif',
@@ -200,8 +209,24 @@ if (scanErrors.length > 0) {
   for (const error of scanErrors) console.log(`  ${error}`);
 }
 
+const uploadManifest = buildUploadKeyManifest(
+  files.map((file) => file.key),
+  withWebp,
+);
+
+if (uploadManifest.collisions.length > 0) {
+  console.error(
+    `The upload manifest contains ${uploadManifest.collisions.length} key collision(s).`,
+  );
+  for (const key of uploadManifest.collisions) console.error(`  ${key}`);
+  process.exit(1);
+}
+
 if (!upload) {
-  console.log('\nDry run. Add --upload to copy the files to the bucket.');
+  console.log(
+    `\nDry run. ${uploadManifest.keys.length} object keys would be written.`,
+  );
+  if (withWebp) console.log('WebP delivery conversion enabled.');
   console.log('\nFirst files:');
   for (const file of files.slice(0, 10)) {
     console.log(`  ${file.key}`);
@@ -232,18 +257,6 @@ if (
   process.exit(1);
 }
 
-const uploadManifest = buildUploadKeyManifest(
-  files.map((file) => file.key),
-  withVariants,
-);
-if (uploadManifest.collisions.length > 0) {
-  console.error(
-    `The upload manifest contains ${uploadManifest.collisions.length} key collision(s); no upload was attempted.`,
-  );
-  for (const key of uploadManifest.collisions) console.error(`  ${key}`);
-  process.exit(1);
-}
-
 interface UploadObject {
   key: string;
   local: string;
@@ -260,10 +273,10 @@ const uploadObjects: UploadObject[] = files.flatMap((file) => {
       contentType: mimeType(file.key),
     },
   ];
-  const variantKey = withVariants ? webpVariantKey(file.key) : undefined;
-  if (variantKey) {
+  const webpKey = withWebp ? webpDeliveryKey(file.key) : undefined;
+  if (webpKey && webpKey !== file.key) {
     objects.push({
-      key: variantKey,
+      key: webpKey,
       local: file.local,
       variant: true,
       contentType: 'image/webp',
@@ -303,7 +316,7 @@ async function preflightDestination(): Promise<Set<string>> {
 
     const source = await readFile(object.local);
     const variantBuffer = await sharp(source)
-      .resize({ width: WEBP_VARIANT_WIDTH, withoutEnlargement: true })
+      .resize({ width: WEBP_DELIVERY_WIDTH, withoutEnlargement: true })
       .webp({ quality: 82 })
       .toBuffer();
     return createHash('md5').update(variantBuffer).digest('hex');
@@ -380,7 +393,7 @@ for (const object of uploadObjects) {
   const source = await readFile(object.local);
   const body = object.variant
     ? await sharp(source)
-        .resize({ width: WEBP_VARIANT_WIDTH, withoutEnlargement: true })
+        .resize({ width: WEBP_DELIVERY_WIDTH, withoutEnlargement: true })
         .webp({ quality: 82 })
         .toBuffer()
     : source;

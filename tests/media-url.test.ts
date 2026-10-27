@@ -8,24 +8,24 @@ const R2_BASE = 'https://pub-example.r2.dev';
 const WP_BASE = 'https://fundacionrosariogaton.org/wp-content/uploads';
 const R2_CUSTOM_BASE = 'https://media.fundacionrosariogaton.org';
 
-it('uses WebP variants for owned relative and absolute WordPress image paths', () => {
+it('uses WebP delivery keys for owned relative and absolute WordPress image paths', () => {
   const options = createMediaUrlOptions(R2_BASE);
 
   expect(resolveMediaUrl('2025/07/photo.jpg', options)).toBe(
-    `${R2_BASE}/2025/07/photo-1600w.webp`,
+    `${R2_BASE}/2025/07/photo.webp`,
   );
   expect(
     resolveMediaUrl(
       'https://www.fundacionrosariogaton.org/wp-content/uploads/2025/07/photo.png',
       options,
     ),
-  ).toBe(`${R2_BASE}/2025/07/photo-1600w.webp`);
+  ).toBe(`${R2_BASE}/2025/07/photo.webp`);
   expect(
     resolveMediaUrl(
       '//fundacionrosariogaton.org/wp-content/uploads/2025/07/photo.webp',
       options,
     ),
-  ).toBe(`${R2_BASE}/2025/07/photo-1600w.webp`);
+  ).toBe(`${R2_BASE}/2025/07/photo.webp`);
 });
 
 it('keeps third-party media unchanged and preserves unsupported file formats', () => {
@@ -88,7 +88,7 @@ it('rewrites Markdown HAST image sources but not external links', () => {
   rewriteHastMediaUrls(tree, options);
 
   const children = tree.children;
-  expect(children[0]?.properties['src']).toBe(`${R2_BASE}/2025/07/photo-1600w.webp`);
+  expect(children[0]?.properties['src']).toBe(`${R2_BASE}/2025/07/photo.webp`);
   expect(children[1]?.properties['href']).toBe(
     'https://fundacionrosariogaton.org/wp-content/uploads/2025/07/photo.jpg',
   );
@@ -102,7 +102,7 @@ it('registers the image transformer with the actual Sätteri processor', () => {
     { hastPlugins: [rehypeMediaUrls(options)] },
   );
 
-  expect(html).toContain(`src="${R2_BASE}/2025/07/photo-1600w.webp"`);
+  expect(html).toContain(`src="${R2_BASE}/2025/07/photo.webp"`);
 });
 
 it('rewrites HTML image src and srcset attributes while preserving third-party media', () => {
@@ -111,6 +111,6 @@ it('rewrites HTML image src and srcset attributes while preserving third-party m
     '<p><img src="https://fundacionrosariogaton.org/wp-content/uploads/2025/07/photo.jpg" srcset="https://fundacionrosariogaton.org/wp-content/uploads/2025/07/photo.jpg 1x, https://images.example/other.jpg 2x"></p>';
 
   expect(rewriteMediaHtml(html, options)).toBe(
-    `<p><img src="${R2_BASE}/2025/07/photo-1600w.webp" srcset="${R2_BASE}/2025/07/photo-1600w.webp 1x, https://images.example/other.jpg 2x"></p>`,
+    `<p><img src="${R2_BASE}/2025/07/photo.webp" srcset="${R2_BASE}/2025/07/photo.webp 1x, https://images.example/other.jpg 2x"></p>`,
   );
 });

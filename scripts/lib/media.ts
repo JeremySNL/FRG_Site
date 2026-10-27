@@ -12,8 +12,8 @@ import {
 
 export {
   isMediaPath,
-  WEBP_VARIANT_WIDTH,
-  webpVariantKey,
+  WEBP_DELIVERY_WIDTH,
+  webpDeliveryKey,
 } from '../../src/lib/media-keys.ts';
 const FRONTMATTER_MEDIA_KEYS = new Set(['image', 'backgroundImage', 'src']);
 

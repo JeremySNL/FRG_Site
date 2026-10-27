@@ -12,7 +12,7 @@ blocks:
   - type: "hero"
     title: "Galería de Imágenes"
     text: "Un vistazo a nuestro trabajo en las comunidades."
-    image: "https://pub-d192fd39159b48a08c7852300a39f355.r2.dev/2025/07/124902322_3241301375969014_3017039964780380682_n-1600w.webp"
+    image: "/2025/07/124902322_3241301375969014_3017039964780380682_n.jpg"
     buttons: []
   - type: "gallery"
     title: "Galería"

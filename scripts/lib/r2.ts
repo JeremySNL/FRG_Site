@@ -1,4 +1,4 @@
-import { isMediaPath, webpVariantKey } from './media.ts';
+import { isMediaPath, webpDeliveryKey } from './media.ts';
 
 export interface UploadKeyManifest {
   keys: string[];
@@ -11,7 +11,8 @@ export function isValidR2PublicUrl(value: string): boolean {
     const url = new URL(value);
     return (
       url.protocol === 'https:' &&
-      url.hostname.endsWith('.r2.dev') &&
+      (url.hostname.endsWith('.r2.dev') ||
+        url.hostname === 'media.fundacionrosariogaton.org') &&
       !url.username &&
       !url.password &&
       !url.search &&
@@ -60,8 +61,8 @@ export function buildUploadKeyManifest(
 
     add(mediaPath, `original:${mediaPath}`);
 
-    const variant = withVariants ? webpVariantKey(mediaPath) : undefined;
-    if (variant) add(variant, `variant:${mediaPath}`);
+    const webp = withVariants ? webpDeliveryKey(mediaPath) : undefined;
+    if (webp && webp !== mediaPath) add(webp, `webp:${mediaPath}`);
   }
 
   return { keys, collisions: [...collisions].sort() };

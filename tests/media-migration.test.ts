@@ -3,7 +3,7 @@ import {
   collectRelativeMediaPaths,
   collectMarkdownMediaReferences,
   extractSiteLogoPath,
-  webpVariantKey,
+  webpDeliveryKey,
 } from '../scripts/lib/media.ts';
 import {
   buildUploadKeyManifest,
@@ -59,12 +59,13 @@ it('rejects media keys that could escape the WordPress uploads directory', () =>
   expect(paths).toEqual([]);
 });
 
-it('creates stable WebP variant keys for supported raster formats only', () => {
-  expect(webpVariantKey('2025/07/photo.jpg')).toBe('2025/07/photo-1600w.webp');
-  expect(webpVariantKey('2025/07/photo.jpeg')).toBe('2025/07/photo-1600w.webp');
-  expect(webpVariantKey('2025/07/photo.png')).toBe('2025/07/photo-1600w.webp');
-  expect(webpVariantKey('2025/07/photo.gif')).toBeUndefined();
-  expect(webpVariantKey('2025/07/guide.pdf')).toBeUndefined();
+it('creates WebP delivery keys for supported raster formats only', () => {
+  expect(webpDeliveryKey('2025/07/photo.jpg')).toBe('2025/07/photo.webp');
+  expect(webpDeliveryKey('2025/07/photo.jpeg')).toBe('2025/07/photo.webp');
+  expect(webpDeliveryKey('2025/07/photo.png')).toBe('2025/07/photo.webp');
+  expect(webpDeliveryKey('2025/07/photo.webp')).toBeUndefined();
+  expect(webpDeliveryKey('2025/07/photo.gif')).toBeUndefined();
+  expect(webpDeliveryKey('2025/07/guide.pdf')).toBeUndefined();
 });
 
 it('reads the site-level logo media path from the site config', () => {
@@ -118,6 +119,7 @@ it('validates public R2 URLs without accepting non-public endpoints', () => {
   expect(isValidR2PublicUrl('https://pub-example.r2.dev')).toBe(true);
   expect(isValidR2PublicUrl('http://pub-example.r2.dev')).toBe(false);
   expect(isValidR2PublicUrl('https://media.example.com')).toBe(false);
+  expect(isValidR2PublicUrl('https://media.fundacionrosariogaton.org')).toBe(true);
   expect(isValidR2PublicUrl('https://pub-example.r2.dev?token=value')).toBe(false);
 });
 
@@ -142,20 +144,29 @@ it('builds a collision-free original and WebP key manifest', () => {
 
   expect(manifest.keys).toEqual([
     '2025/07/photo.jpg',
-    '2025/07/photo-1600w.webp',
+    '2025/07/photo.webp',
     '2025/07/logo.png',
-    '2025/07/logo-1600w.webp',
+    '2025/07/logo.webp',
   ]);
   expect(manifest.collisions).toEqual([]);
 });
 
-it('detects a source key that collides with another image WebP variant', () => {
+it('detects a source key that collides with another image WebP delivery', () => {
   const manifest = buildUploadKeyManifest(
-    ['2025/07/photo.jpg', '2025/07/photo-1600w.webp'],
+    ['2025/07/photo.jpg', '2025/07/photo.webp'],
     true,
   );
 
-  expect(manifest.collisions).toEqual(['2025/07/photo-1600w.webp']);
+  expect(manifest.collisions).toEqual(['2025/07/photo.webp']);
+});
+
+it('detects two sources that collide on the same WebP delivery key', () => {
+  const manifest = buildUploadKeyManifest(
+    ['2025/07/photo.jpg', '2025/07/photo.png'],
+    true,
+  );
+
+  expect(manifest.collisions).toEqual(['2025/07/photo.webp']);
 });
 
 it('rejects unsafe paths before they enter the upload manifest', () => {

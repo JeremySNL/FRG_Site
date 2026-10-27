@@ -1,4 +1,4 @@
-import { mediaKeyFromReference, webpVariantKey } from './media-keys.ts';
+import { mediaKeyFromReference, webpDeliveryKey } from './media-keys.ts';
 
 /** R2 custom domain intended for production. Set via `MEDIA_BASE_URL`. */
 export const R2_MEDIA_BASE_URL = 'https://media.fundacionrosariogaton.org';
@@ -40,6 +40,6 @@ export function resolveMediaUrl(path: string, options: MediaUrlOptions): string 
     return '';
   }
 
-  const deliveryKey = options.useWebp ? (webpVariantKey(key) ?? key) : key;
+  const deliveryKey = options.useWebp ? (webpDeliveryKey(key) ?? key) : key;
   return `${options.baseUrl}/${encodeMediaKey(deliveryKey)}`;
 }
