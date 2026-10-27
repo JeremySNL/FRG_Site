@@ -3,6 +3,7 @@ title: "Asamblea Extraordinaria 2026: Alianza por la Salud y el Bienestar Comuni
 slug: "asamblea-extraordinaria-2026"
 locale: "es"
 date: "2026-10-23"
+excerpt: "En la Asamblea Extraordinaria 2026, la Fundación Rosario Gatón (FRG), en conjunto con el reconocido Dr. Cruz Jiminián, la Fundación de Pesca y Buen Andar, así como entidades..."
 categories:
   - "alianzas-institucionales"
   - "alimentacion-y-salud"

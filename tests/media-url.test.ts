@@ -6,6 +6,7 @@ import { rehypeMediaUrls, rewriteHastMediaUrls } from '../src/lib/rehype-media.t
 
 const R2_BASE = 'https://pub-example.r2.dev';
 const WP_BASE = 'https://fundacionrosariogaton.org/wp-content/uploads';
+const R2_CUSTOM_BASE = 'https://media.fundacionrosariogaton.org';
 
 it('uses WebP variants for owned relative and absolute WordPress image paths', () => {
   const options = createMediaUrlOptions(R2_BASE);
@@ -45,6 +46,12 @@ it('keeps original formats when no migrated media base is configured', () => {
   expect(resolveMediaUrl('2025/07/photo.jpg', options)).toBe(
     `${WP_BASE}/2025/07/photo.jpg`,
   );
+});
+
+it('uses the production R2 custom domain when configured', () => {
+  const options = createMediaUrlOptions(R2_CUSTOM_BASE);
+
+  expect(options).toEqual({ baseUrl: R2_CUSTOM_BASE, useWebp: true });
 });
 
 it('rewrites Markdown HAST image sources but not external links', () => {

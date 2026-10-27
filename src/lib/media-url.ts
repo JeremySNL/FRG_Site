@@ -1,5 +1,8 @@
 import { mediaKeyFromReference, webpVariantKey } from './media-keys.ts';
 
+/** R2 custom domain intended for production. Set via `MEDIA_BASE_URL`. */
+export const R2_MEDIA_BASE_URL = 'https://media.fundacionrosariogaton.org';
+
 export const WORDPRESS_MEDIA_BASE_URL =
   'https://fundacionrosariogaton.org/wp-content/uploads';
 
