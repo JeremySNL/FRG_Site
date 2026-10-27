@@ -11,6 +11,7 @@ blocks:
   - type: "hero"
     title: "Contacto"
     text: "Estamos siempre abiertos a escuchar y responder."
+    image: "https://fundacionrosariogaton.org/wp-content/uploads/2025/07/75407622_2352186168213877_4414493572967956480_n.jpg"
     buttons: []
   - type: "cards"
     title: "Cómo contactarnos"

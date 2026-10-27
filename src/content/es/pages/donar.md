@@ -11,6 +11,7 @@ blocks:
   - type: "hero"
     title: "Haz tu donación y cambia vidas"
     text: "En la Fundación Rosario Gatón trabajamos día a día por una sociedad más justa, inclusiva y sostenible. Tu apoyo es fundamental para continuar desarrollando programas que benefician a personas en situación de vulnerabilidad en áreas como salud, educación, vivienda, emprendimiento y medioambiente. Cada aporte, por pequeño que sea, tiene el poder de transformar realidades. Juntos podemos reducir la pobreza extrema, promover la igualdad y construir comunidades resilientes."
+    image: "https://pub-5cbacf607eb04817843a662da004678f.r2.dev/2025/07/118761928_3023846601047827_437596050276805905_n.jpg"
     buttons: []
   - type: "list"
     title: "¿A qué destinamos tu donación?"

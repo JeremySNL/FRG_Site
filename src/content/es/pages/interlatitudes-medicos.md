@@ -12,6 +12,7 @@ blocks:
   - type: "hero"
     title: "Interlatitudes Médicos"
     text: "Convenio de cooperación médica internacional."
+    image: "https://fundacionrosariogaton.org/wp-content/uploads/2025/09/Afiche-JPEG.jpg"
     buttons: []
   - type: "richText"
     surface: true
@@ -23,10 +24,6 @@ blocks:
     imageAlt: "Interlatitudes Médicos"
     reverse: false
     buttons: []
-  - type: "video"
-    title: "Presentación del proyecto"
-    youtubeId: "XHOmBV4js_E"
-    surface: true
   - type: "video"
     title: "Presentación del equipo médico base"
     youtubeId: "lvagm1ejuzc"

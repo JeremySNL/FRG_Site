@@ -11,6 +11,7 @@ blocks:
   - type: "hero"
     title: "Nosotros"
     text: "Trabajamos por un mundo más justo, humano y sostenible."
+    image: "https://pub-d192fd39159b48a08c7852300a39f355.r2.dev/2025/07/49342964_607833472968220_6866193096028192768_n-1600w.webp"
     buttons: []
   - type: "video"
     title: "Fundación Rosario Gatón en acción"
