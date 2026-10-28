@@ -25,10 +25,6 @@ blocks:
     reverse: false
     buttons: []
   - type: "video"
-    title: "Project presentation"
-    url: "https://www.youtube.com/watch?v=XHOmBV4js_E"
-    surface: true
-  - type: "video"
     title: "Presentation of the core medical team"
     url: "https://www.youtube.com/watch?v=lvagm1ejuzc"
   - type: "video"

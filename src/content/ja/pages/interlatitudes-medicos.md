@@ -25,10 +25,6 @@ blocks:
     reverse: false
     buttons: []
   - type: "video"
-    title: "プロジェクト概要"
-    url: "https://www.youtube.com/watch?v=XHOmBV4js_E"
-    surface: true
-  - type: "video"
     title: "基幹医療チームの紹介"
     url: "https://www.youtube.com/watch?v=lvagm1ejuzc"
   - type: "video"

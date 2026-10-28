@@ -3,6 +3,7 @@ import { readdir, readFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse as parseYaml } from 'yaml';
+import { parseYouTubeUrl } from '../src/lib/youtube.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const contentDir = join(root, 'src', 'content');
@@ -62,6 +63,51 @@ function mediaReferences(source: string): string[] {
   return found.map((value) => value.replace(MEDIA_HOST, '').replace(/^\/+/, ''));
 }
 
+/** Every video reference of a document, reduced to a comparable signature. */
+function videoReferences(source: string): string[] {
+  const match = /^---\r?\n([\s\S]*?)\r?\n---/.exec(source);
+  const data = match ? ((parseYaml(match[1] ?? '') ?? {}) as unknown) : {};
+
+  const found: string[] = [];
+
+  const walk = (node: unknown): void => {
+    if (Array.isArray(node)) {
+      for (const item of node) walk(item);
+      return;
+    }
+    if (node === null || typeof node !== 'object') return;
+
+    const record = node as Record<string, unknown>;
+
+    // A post carries one video in `videoUrl`; a page embeds them as blocks.
+    const candidate =
+      typeof record['videoUrl'] === 'string'
+        ? record['videoUrl']
+        : record['type'] === 'video' && typeof record['url'] === 'string'
+          ? record['url']
+          : record['type'] === 'video' && typeof record['youtubeId'] === 'string'
+            ? record['youtubeId']
+            : undefined;
+
+    if (candidate) {
+      const info = parseYouTubeUrl(candidate);
+      // The declared aspect overrides the one derived from the URL, so both
+      // belong to the signature: the same video can render in two shapes.
+      const declared = typeof record['aspect'] === 'string' ? record['aspect'] : '';
+      found.push(
+        info ? `${info.id}/${info.aspect}/${declared}` : `unparsed:${candidate}`,
+      );
+      return;
+    }
+
+    for (const value of Object.values(record)) walk(value);
+  };
+
+  walk(data);
+
+  return found;
+}
+
 async function documentsOf(locale: string, collection: string): Promise<string[]> {
   try {
     const files = await readdir(join(contentDir, locale, collection));
@@ -94,6 +140,37 @@ describe('media parity between the Spanish source and every translation', () => 
           if (source.join('\n') !== translated.join('\n')) {
             comparisons.push(
               `${locale}/${collection}/${file} has ${translated.length} image(s), source has ${source.length}`,
+            );
+          }
+        }
+      }
+
+      expect(comparisons).toEqual([]);
+    });
+  }
+});
+
+describe('video parity between the Spanish source and every translation', () => {
+  for (const collection of COLLECTIONS) {
+    it(`keeps ${collection} videos identical to the source`, async () => {
+      const sourceFiles = await documentsOf(SOURCE, collection);
+      const comparisons: string[] = [];
+
+      for (const file of sourceFiles) {
+        const source = videoReferences(
+          await readFile(join(contentDir, SOURCE, collection, file), 'utf8'),
+        );
+
+        for (const locale of LOCALES) {
+          if (!(await documentsOf(locale, collection)).includes(file)) continue;
+
+          const translated = videoReferences(
+            await readFile(join(contentDir, locale, collection, file), 'utf8'),
+          );
+
+          if (source.join('\n') !== translated.join('\n')) {
+            comparisons.push(
+              `${locale}/${collection}/${file} has [${translated.join(', ')}], source has [${source.join(', ')}]`,
             );
           }
         }

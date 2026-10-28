@@ -25,10 +25,6 @@ blocks:
     reverse: false
     buttons: []
   - type: "video"
-    title: "Présentation du projet"
-    url: "https://www.youtube.com/watch?v=XHOmBV4js_E"
-    surface: true
-  - type: "video"
     title: "Présentation de l'équipe médicale de base"
     url: "https://www.youtube.com/watch?v=lvagm1ejuzc"
   - type: "video"

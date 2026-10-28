@@ -25,10 +25,6 @@ blocks:
     reverse: false
     buttons: []
   - type: "video"
-    title: "專案簡介"
-    url: "https://www.youtube.com/watch?v=XHOmBV4js_E"
-    surface: true
-  - type: "video"
     title: "核心醫療團隊介紹"
     url: "https://www.youtube.com/watch?v=lvagm1ejuzc"
   - type: "video"
