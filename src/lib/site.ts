@@ -43,8 +43,9 @@ export const site = {
   /**
    * Where migrated media is served from.
    *
-   * Set `MEDIA_BASE_URL` to override the public R2 URL for later domain changes.
-   * `R2_PUBLIC_URL` is the migration host; WordPress remains the fallback.
+   * `MEDIA_BASE_URL` overrides the public R2 host for later domain changes.
+   * When unset, the media custom domain is the default; WordPress is no longer
+   * a fallback, because the bucket only holds the migrated keys.
    */
   mediaBaseUrl: mediaUrlOptions.baseUrl,
 
