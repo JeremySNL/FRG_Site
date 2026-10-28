@@ -11,6 +11,7 @@ blocks:
   - type: "hero"
     title: "Notre Équipe"
     text: "Les personnes qui rendent notre travail possible."
+    image: "photos/2019-04-30-universidad-politecnica-internacional-refuerzan-alianza/01.webp"
     buttons: []
   - type: "team"
     title: "Équipe de la Fundación Rosario Gatón"

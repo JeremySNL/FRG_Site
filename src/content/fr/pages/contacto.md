@@ -11,6 +11,7 @@ blocks:
   - type: "hero"
     title: "Contact"
     text: "Nous sommes toujours à votre écoute pour vous répondre."
+    image: "photos/2019-11-14-se-reune-con-el-embajador-de-israel-durante-encuentro/01.webp"
     buttons: []
   - type: "cards"
     title: "Comment nous contacter"

@@ -12,6 +12,7 @@ blocks:
   - type: "hero"
     title: "相片庫"
     text: "一窺我們在社區中的工作。"
+    image: "photos/2025-07-22-embajador-florentino-rodriguez-y-su-equipo-llevan-ayuda/01.webp"
     buttons: []
   - type: "gallery"
     title: "相片庫"

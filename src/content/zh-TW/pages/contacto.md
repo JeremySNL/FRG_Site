@@ -11,6 +11,7 @@ blocks:
   - type: "hero"
     title: "聯絡我們"
     text: "我們隨時傾聽並樂意回覆。"
+    image: "photos/2019-11-14-se-reune-con-el-embajador-de-israel-durante-encuentro/01.webp"
     buttons: []
   - type: "cards"
     title: "如何聯絡我們"

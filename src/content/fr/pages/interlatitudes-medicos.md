@@ -12,6 +12,7 @@ blocks:
   - type: "hero"
     title: "Interlatitudes Médicos"
     text: "Convention de coopération médicale internationale."
+    image: "pages/interlatitudes-medicos/01-afiche.webp"
     buttons: []
   - type: "richText"
     surface: true

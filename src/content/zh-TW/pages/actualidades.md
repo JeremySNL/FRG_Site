@@ -11,5 +11,6 @@ blocks:
   - type: "hero"
     title: "最新動態"
     text: "Fundación Rosario Gatón 的新聞、報告與活動。"
+    image: "pages/actualidades/01.webp"
     buttons: []
 ---

@@ -11,5 +11,6 @@ blocks:
   - type: "hero"
     title: "お知らせ"
     text: "Fundación Rosario Gatónのニュース、レポート、活動情報。"
+    image: "pages/actualidades/01.webp"
     buttons: []
 ---

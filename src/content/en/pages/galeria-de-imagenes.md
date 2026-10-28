@@ -12,6 +12,7 @@ blocks:
   - type: "hero"
     title: "Image Gallery"
     text: "A glimpse into our work in the communities."
+    image: "photos/2025-07-22-embajador-florentino-rodriguez-y-su-equipo-llevan-ayuda/01.webp"
     buttons: []
   - type: "gallery"
     title: "Gallery"

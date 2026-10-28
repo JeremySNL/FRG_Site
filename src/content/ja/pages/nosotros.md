@@ -11,6 +11,7 @@ blocks:
   - type: "hero"
     title: "私たちについて"
     text: "私たちは、より公正で人間味あふれる持続可能な世界の実現に向けて取り組んでいます。"
+    image: "photos/2019-01-23-se-reunen-con-autoridades-para-fortalecer-compromisos/01.webp"
     buttons: []
   - type: "video"
     title: "活動中のFundación Rosario Gatón"

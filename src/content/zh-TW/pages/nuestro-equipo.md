@@ -11,6 +11,7 @@ blocks:
   - type: "hero"
     title: "我們的團隊"
     text: "讓我們的工作得以實現的人們。"
+    image: "photos/2019-04-30-universidad-politecnica-internacional-refuerzan-alianza/01.webp"
     buttons: []
   - type: "team"
     title: "Fundación Rosario Gatón團隊"

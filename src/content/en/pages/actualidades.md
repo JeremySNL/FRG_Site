@@ -11,5 +11,6 @@ blocks:
   - type: "hero"
     title: "News"
     text: "News, reports, and activities of the Fundación Rosario Gatón."
+    image: "pages/actualidades/01.webp"
     buttons: []
 ---

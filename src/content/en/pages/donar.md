@@ -11,6 +11,7 @@ blocks:
   - type: "hero"
     title: "Make your donation and change lives"
     text: "At the Fundación Rosario Gatón we work day by day for a fairer, more inclusive and sustainable society. Your support is essential to continue developing programs that benefit vulnerable people in areas such as health, education, housing, entrepreneurship and the environment. Every contribution, no matter how small, has the power to transform realities. Together we can reduce extreme poverty, promote equality and build resilient communities."
+    image: "pages/donar/01.webp"
     buttons: []
   - type: "list"
     title: "Where does your donation go?"

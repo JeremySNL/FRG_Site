@@ -12,6 +12,7 @@ blocks:
   - type: "hero"
     title: "Interlatitudes Médicos"
     text: "International medical cooperation agreement."
+    image: "pages/interlatitudes-medicos/01-afiche.webp"
     buttons: []
   - type: "richText"
     surface: true

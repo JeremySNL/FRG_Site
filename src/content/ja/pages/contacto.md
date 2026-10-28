@@ -11,6 +11,7 @@ blocks:
   - type: "hero"
     title: "お問い合わせ"
     text: "私たちはいつでも皆様の声に耳を傾け、お答えいたします。"
+    image: "photos/2019-11-14-se-reune-con-el-embajador-de-israel-durante-encuentro/01.webp"
     buttons: []
   - type: "cards"
     title: "連絡方法"

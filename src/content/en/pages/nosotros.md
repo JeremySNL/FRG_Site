@@ -11,6 +11,7 @@ blocks:
   - type: "hero"
     title: "About Us"
     text: "We work for a fairer, more humane, and sustainable world."
+    image: "photos/2019-01-23-se-reunen-con-autoridades-para-fortalecer-compromisos/01.webp"
     buttons: []
   - type: "video"
     title: "Fundación Rosario Gatón in Action"
