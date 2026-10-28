@@ -25,13 +25,13 @@ blocks:
     buttons: []
   - type: "video"
     title: "專案簡介"
-    youtubeId: "XHOmBV4js_E"
+    url: "https://www.youtube.com/watch?v=XHOmBV4js_E"
     surface: true
   - type: "video"
     title: "核心醫療團隊介紹"
-    youtubeId: "lvagm1ejuzc"
+    url: "https://www.youtube.com/watch?v=lvagm1ejuzc"
   - type: "video"
     title: "簽署合作協議"
-    youtubeId: "arTZGoGGmn8"
+    url: "https://www.youtube.com/watch?v=arTZGoGGmn8"
     surface: true
 ---

@@ -137,12 +137,22 @@ const blockSchema = z.discriminatedUnion('type', [
     title: z.string().optional(),
     surface: z.boolean().optional(),
   }),
-  z.object({
-    type: z.literal('video'),
-    title: z.string().optional(),
-    youtubeId: z.string(),
-    surface: z.boolean().optional(),
-  }),
+  z
+    .object({
+      type: z.literal('video'),
+      title: z.string().optional(),
+      youtubeId: z.string().optional(),
+      url: z.string().optional(),
+      aspect: z.enum(['landscape', 'vertical']).optional(),
+      surface: z.boolean().optional(),
+    })
+    .refine(
+      (data) => Boolean(data.youtubeId?.trim()) || Boolean(data.url?.trim()),
+      {
+        message: 'A video block needs either youtubeId or url.',
+        path: ['youtubeId'],
+      },
+    ),
   z.object({
     type: z.literal('gallery'),
     title: z.string().optional(),
@@ -315,6 +325,8 @@ const posts = defineCollection({
     tags: z.array(z.string()).default([]),
     image: z.string().optional(),
     imageAlt: z.string().optional(),
+    /** YouTube URL to render as an embedded video block inside the post. */
+    videoUrl: z.string().optional(),
     /** Path of the post in the original WordPress site, used for redirects. */
     legacyPath: z.string().optional(),
     seo: seoSchema.optional(),

@@ -14,6 +14,7 @@ tags:
   - "comunidades"
 image: "2026/10/AsambleExtraordinaria2026_post_1.webp"
 imageAlt: "Fundación Rosario Gatón 2026年特別大會影像"
+videoUrl: "https://youtube.com/shorts/ds5RyTGLvtQ?si=rXK17BzDklb5FuDI"
 ---
 
 在**2026年特別大會**上，**Fundación Rosario Gatón (FRG)** 攜手知名的 **Dr. Cruz Jiminián**、**Fundación de Pesca y Buen Andar**，以及 San Francisco de Macorís 的各個機構與企業界人士，共同探討了影響健康的多元因素相關議題，以及滿足**身心障礙者**需求的可能介入措施。
@@ -26,6 +27,3 @@ Fundación Rosario Gatón 會長 **Dr. Julio César Rosario Gatón**、**Dr. Cru
 
 基金會、機構與企業界的共同參與，彰顯了凝聚力量以造福身心障礙者的重要性，並關注他們在健康、醫療追蹤及物資方面的需求。
 
-## 會議影片
-
-[在 YouTube 上觀看 2026 年特別大會影片](https://youtube.com/shorts/ds5RyTGLvtQ?si=rXK17BzDklb5FuDI)

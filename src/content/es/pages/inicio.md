@@ -44,7 +44,7 @@ blocks:
         href: "/nosotros/"
   - type: "video"
     title: "Conoce la Fundación Rosario Gatón"
-    youtubeId: "xFp8-2GVoH8"
+    url: "https://www.youtube.com/watch?v=xFp8-2GVoH8"
   - type: "stats"
     items:
       - label: "Años de fundación"

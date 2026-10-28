@@ -43,7 +43,7 @@ blocks:
         href: "/nosotros/"
   - type: "video"
     title: "Fundación Rosario Gatónについて知る"
-    youtubeId: "xFp8-2GVoH8"
+    url: "https://www.youtube.com/watch?v=xFp8-2GVoH8"
   - type: "stats"
     items:
       - label: "設立からの年数"

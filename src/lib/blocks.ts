@@ -161,7 +161,12 @@ export interface SocialBlock {
 export interface VideoBlock {
   type: 'video';
   title?: string;
-  youtubeId: string;
+  /** Legacy canonical id. Either this or `url` must be provided. */
+  youtubeId?: string;
+  /** Full YouTube URL (watch, youtu.be, shorts, embed, live). */
+  url?: string;
+  /** Overrides the aspect ratio inferred from `url`. */
+  aspect?: 'landscape' | 'vertical';
   /** Defaults to `false`. */
   surface?: boolean;
 }

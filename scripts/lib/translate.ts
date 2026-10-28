@@ -110,6 +110,7 @@ const TRANSLATABLE_KEYS = new Set([
  * `programs` of a program list) but are actually identifiers.
  */
 const SKIP_KEYS = new Set([
+  'aspect',
   'categories',
   'date',
   'form',
@@ -135,6 +136,7 @@ const SKIP_KEYS = new Set([
   'type',
   'updated',
   'url',
+  'videoUrl',
   'youtubeId',
 ]);
 

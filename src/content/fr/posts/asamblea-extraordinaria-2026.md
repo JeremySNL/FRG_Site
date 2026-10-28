@@ -14,6 +14,7 @@ tags:
   - "comunidades"
 image: "2026/10/AsambleExtraordinaria2026_post_1.webp"
 imageAlt: "Image de l'Assemblée Extraordinaria 2026 de la Fundación Rosario Gatón"
+videoUrl: "https://youtube.com/shorts/ds5RyTGLvtQ?si=rXK17BzDklb5FuDI"
 ---
 
 Lors de l'**Asamblea Extraordinaria 2026**, la **Fundación Rosario Gatón (FRG)**, aux côtés du célèbre **Dr. Cruz Jiminián**, de la **Fundación de Pesca y Buen Andar**, ainsi que d'organismes et d'entrepreneurs de San Francisco de Macorís, a abordé des questions liées aux multiples facteurs qui affectent la santé et aux interventions possibles pour répondre aux besoins des **personnes en situation de handicap**.
@@ -26,6 +27,3 @@ Le président de la Fundación Rosario Gatón, le **Dr. Julio César Rosario Gat
 
 La participation conjointe de fondations, d'entités et d'entrepreneurs représente un espace pour souligner l'importance d'unir nos efforts en faveur des personnes en situation de handicap, en prêtant attention à leurs besoins en matière de santé, de suivi médical et de fournitures.
 
-## Vidéo de la rencontre
-
-[Voir la vidéo de l'Assemblée Extraordinaria 2026 sur YouTube](https://youtube.com/shorts/ds5RyTGLvtQ?si=rXK17BzDklb5FuDI)

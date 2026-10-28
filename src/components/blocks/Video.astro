@@ -1,38 +1,97 @@
 ---
 /**
- * An embedded YouTube video.
+ * An embedded YouTube video with a privacy-first click-to-load facade.
  *
- * The player is lazy-loaded: the iframe is only created once the visitor
- * clicks the thumbnail, so no request to Google happens without consent.
+ * The iframe is only created after the visitor clicks the poster thumbnail,
+ * so no request to Google's player (and no cookie) happens without consent.
+ * The thumbnail itself comes from YouTube's image CDN; to avoid even that
+ * request, cache the poster in R2 and override the generated image URL.
  */
 import type { VideoBlock } from '~/lib/blocks.ts';
 import { sectionClass } from '~/lib/blocks.ts';
+import { normalizeYouTubeVideo } from '~/lib/youtube.ts';
 
 interface Props {
   block: VideoBlock;
 }
 
 const { block } = Astro.props;
+const video = normalizeYouTubeVideo(block);
+
+const wrapperClass =
+  video?.aspect === 'vertical'
+    ? 'aspect-[9/16] max-w-sm mx-auto'
+    : 'aspect-video w-full';
 ---
 
-{block.youtubeId && (
-  <section class={sectionClass(block.surface)}>
-    <div class="container-site">
-      {block.title && <h2 class="text-display-md">{block.title}</h2>}
+{
+  video && (
+    <section class={sectionClass(block.surface)}>
+      <div class="container-site">
+        {block.title && <h2 class="text-display-md">{block.title}</h2>}
 
-      <div class="mt-8 overflow-hidden rounded-3xl bg-heading shadow-lg">
-        <div class="relative aspect-video w-full">
-          <iframe
-            class="absolute inset-0 size-full"
-            src={`https://www.youtube-nocookie.com/embed/${block.youtubeId}`}
-            title={block.title ?? 'Video'}
-            loading="lazy"
-            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            referrerpolicy="strict-origin-when-cross-origin"
-          />
+        <div
+          class:list={[
+            'mt-8 overflow-hidden rounded-3xl bg-heading shadow-lg',
+            wrapperClass,
+          ]}
+        >
+          <div class="relative size-full">
+            <button
+              type="button"
+              class="group absolute inset-0 z-10 flex size-full cursor-pointer items-center justify-center border-0 bg-transparent p-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+              aria-label={`Reproducir video: ${block.title ?? 'YouTube'}`}
+              data-video-id={video.id}
+              data-video-title={block.title ?? 'Video'}
+            >
+              <img
+                src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
+                alt=""
+                class="absolute inset-0 size-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              <span class="relative z-10 flex size-16 items-center justify-center rounded-full bg-primary/90 text-white shadow-lg backdrop-blur-sm transition duration-200 ease-out group-hover:scale-110 group-focus-visible:scale-110">
+                <svg
+                  class="ml-1 size-8"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-)}
+    </section>
+  )
+}
+
+<script>
+  document.querySelectorAll('[data-video-id]').forEach((button) => {
+    if (!(button instanceof HTMLButtonElement)) return;
+
+    button.addEventListener('click', () => {
+      const id = button.dataset.videoId;
+      if (!id) return;
+
+      const title = button.dataset.videoTitle ?? 'Video';
+      const wrapper = button.parentElement;
+      if (!wrapper) return;
+
+      const iframe = document.createElement('iframe');
+      iframe.className = 'absolute inset-0 size-full';
+      iframe.src = `https://www.youtube-nocookie.com/embed/${id}?rel=0&autoplay=1&playsinline=1`;
+      iframe.title = title;
+      iframe.allow =
+        'accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+
+      wrapper.replaceChildren(iframe);
+    });
+  });
+</script>

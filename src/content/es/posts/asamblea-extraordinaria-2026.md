@@ -15,6 +15,7 @@ tags:
   - "comunidades"
 image: "2026/10/AsambleExtraordinaria2026_post_1.webp"
 imageAlt: "Imagen de la Asamblea Extraordinaria 2026 de la Fundación Rosario Gatón"
+videoUrl: "https://youtube.com/shorts/ds5RyTGLvtQ?si=rXK17BzDklb5FuDI"
 ---
 
 En la **Asamblea Extraordinaria 2026**, la **Fundación Rosario Gatón (FRG)**, en conjunto con el reconocido **Dr. Cruz Jiminián**, la **Fundación de Pesca y Buen Andar**, así como entidades y empresarios de San Francisco de Macorís, abordó temáticas relacionadas con los múltiples factores que afectan la salud y las posibles intervenciones para atender las necesidades de las **personas con discapacidad**.
@@ -27,6 +28,3 @@ El presidente de la Fundación Rosario Gatón, **Dr. Julio César Rosario Gatón
 
 La participación conjunta de fundaciones, entidades y empresarios representa un espacio para destacar la importancia de sumar esfuerzos en favor de las personas con discapacidad, prestando atención a sus necesidades de salud, seguimiento médico e insumos.
 
-## Video del encuentro
-
-[Ver video de la Asamblea Extraordinaria 2026 en YouTube](https://youtube.com/shorts/ds5RyTGLvtQ?si=rXK17BzDklb5FuDI)

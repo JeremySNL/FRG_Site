@@ -14,6 +14,7 @@ tags:
   - "comunidades"
 image: "2026/10/AsambleExtraordinaria2026_post_1.webp"
 imageAlt: "Fundación Rosario Gatónの2026年臨時総会の画像"
+videoUrl: "https://youtube.com/shorts/ds5RyTGLvtQ?si=rXK17BzDklb5FuDI"
 ---
 
 **2026年臨時総会**において、**Fundación Rosario Gatón (FRG)**は、著名な**Dr. Cruz Jiminián**氏、**Fundación de Pesca y Buen Andar**、ならびにサン・フランシスコ・デ・マコリスの諸団体および実業家らとともに、**障害を持つ人々**の健康に影響を与える多様な要因や、そのニーズに応えるための介入策について協議しました。
@@ -26,6 +27,3 @@ Fundación Rosario Gatónの理事長である**Dr. Julio César Rosario Gatón*
 
 財団、諸団体、実業家による共同の参加は、障害を持つ人々のために力を合わせ、その健康ニーズ、医療フォローアップ、および物資に注意を払うことの重要性を強調する場となりました。
 
-## 集会の動画
-
-[YouTubeで2026年臨時総会の動画を見る](https://youtube.com/shorts/ds5RyTGLvtQ?si=rXK17BzDklb5FuDI)

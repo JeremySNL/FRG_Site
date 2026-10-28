@@ -25,13 +25,13 @@ blocks:
     buttons: []
   - type: "video"
     title: "プロジェクト概要"
-    youtubeId: "XHOmBV4js_E"
+    url: "https://www.youtube.com/watch?v=XHOmBV4js_E"
     surface: true
   - type: "video"
     title: "基幹医療チームの紹介"
-    youtubeId: "lvagm1ejuzc"
+    url: "https://www.youtube.com/watch?v=lvagm1ejuzc"
   - type: "video"
     title: "協力協定の締結"
-    youtubeId: "arTZGoGGmn8"
+    url: "https://www.youtube.com/watch?v=arTZGoGGmn8"
     surface: true
 ---

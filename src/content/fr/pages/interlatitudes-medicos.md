@@ -25,13 +25,13 @@ blocks:
     buttons: []
   - type: "video"
     title: "Présentation du projet"
-    youtubeId: "XHOmBV4js_E"
+    url: "https://www.youtube.com/watch?v=XHOmBV4js_E"
     surface: true
   - type: "video"
     title: "Présentation de l'équipe médicale de base"
-    youtubeId: "lvagm1ejuzc"
+    url: "https://www.youtube.com/watch?v=lvagm1ejuzc"
   - type: "video"
     title: "Signature de la convention de coopération"
-    youtubeId: "arTZGoGGmn8"
+    url: "https://www.youtube.com/watch?v=arTZGoGGmn8"
     surface: true
 ---

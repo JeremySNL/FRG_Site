@@ -26,9 +26,9 @@ blocks:
     buttons: []
   - type: "video"
     title: "Presentación del equipo médico base"
-    youtubeId: "lvagm1ejuzc"
+    url: "https://www.youtube.com/watch?v=lvagm1ejuzc"
   - type: "video"
     title: "Firma del convenio de cooperación"
-    youtubeId: "arTZGoGGmn8"
+    url: "https://www.youtube.com/watch?v=arTZGoGGmn8"
     surface: true
 ---

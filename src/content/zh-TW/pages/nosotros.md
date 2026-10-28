@@ -14,7 +14,7 @@ blocks:
     buttons: []
   - type: "video"
     title: "Fundación Rosario Gatón 行動中"
-    youtubeId: "xFp8-2GVoH8"
+    url: "https://www.youtube.com/watch?v=xFp8-2GVoH8"
   - type: "stats"
     items:
       - label: "成立年數"

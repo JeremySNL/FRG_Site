@@ -10,6 +10,7 @@ import { getUi } from '~/lib/ui.ts';
 import { localePath, type Locale } from '~/lib/locales.ts';
 import { mediaUrl } from '~/lib/site.ts';
 import { getCategories, getTags, type PostEntry } from '~/lib/content.ts';
+import Video from '~/components/blocks/Video.astro';
 
 interface Props {
   post: PostEntry;
@@ -54,6 +55,10 @@ const tagTitle = (slug: string): string =>
           <p class="mt-5 text-lg leading-relaxed text-secondary">{post.data.excerpt}</p>
         )}
       </header>
+
+      {post.data.videoUrl && (
+        <Video block={{ type: 'video', url: post.data.videoUrl, surface: false }} />
+      )}
 
       {post.data.image && (
         <img

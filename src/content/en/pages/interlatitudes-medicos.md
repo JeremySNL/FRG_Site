@@ -25,13 +25,13 @@ blocks:
     buttons: []
   - type: "video"
     title: "Project presentation"
-    youtubeId: "XHOmBV4js_E"
+    url: "https://www.youtube.com/watch?v=XHOmBV4js_E"
     surface: true
   - type: "video"
     title: "Presentation of the core medical team"
-    youtubeId: "lvagm1ejuzc"
+    url: "https://www.youtube.com/watch?v=lvagm1ejuzc"
   - type: "video"
     title: "Signing of the cooperation agreement"
-    youtubeId: "arTZGoGGmn8"
+    url: "https://www.youtube.com/watch?v=arTZGoGGmn8"
     surface: true
 ---
