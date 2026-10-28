@@ -1,15 +1,15 @@
 # Manual de comandos
 
-Qué podés hacer en este proyecto, por tarea, con el comando exacto.
+Qué puedes hacer en este proyecto, por tarea, con el comando exacto.
 
-Todo se corre desde la raíz del proyecto (`D:\Devspace\Astro\FRG_Site`).
+Todo se ejecuta desde la raíz del proyecto (`D:\Devspace\Astro\FRG_Site`).
 
 ## Cómo leer esto
 
 | Marca | Significa |
 | --- | --- |
 | 🟢 | Seguro. No rompe nada aunque lo repitas. |
-| 🟡 | Escribe archivos o llama una API. Revisá el resultado. |
+| 🟡 | Escribe archivos o llama una API. Revisa el resultado. |
 | 🔴 | Borra o reescribe contenido. Solo con intención y respaldo. |
 
 Dos reglas de sintaxis:
@@ -22,12 +22,12 @@ Dos reglas de sintaxis:
 ## T1. Empezar a trabajar (primera vez o máquina nueva) 🟢
 
 ```bash
-node -v            # tiene que ser >= 22.23.4 (mirá .nvmrc)
+node -v            # tiene que ser >= 22.23.4 (mira .nvmrc)
 npm install
 npm run dev        # http://localhost:4321
 ```
 
-El archivo `.env` **no está en el repo** (está ignorado por git). Si no lo tenés, pedímelo: sin él no funcionan las traducciones ni las subidas.
+El archivo `.env` **no está en el repo** (está ignorado por git). Si no lo tienes, pídemelo: sin él no funcionan las traducciones ni las subidas.
 
 Necesita estas claves: `OPENAI_API_KEY` (traducir), `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `R2_BUCKET` (subir imágenes). `MEDIA_BASE_URL` es opcional: por defecto apunta al dominio de media.
 
@@ -38,13 +38,13 @@ npm run dev        # servidor local con recarga
 npm run check      # valida .astro, frontmatter y content collections
 ```
 
-`check` es el que te avisa si un bloque o un campo de frontmatter está mal. `dev` puede verse bien y `check` fallar igual — corré `check` antes de pushear.
+`check` es el que te avisa si un bloque o un campo de frontmatter está mal. `dev` puede verse bien y `check` fallar igual: ejecuta `check` antes de hacer push.
 
 ## T3. Publicar un post nuevo 🟡
 
-Son cinco pasos. Los idiomas **no los escribís vos**.
+Son cinco pasos. Los idiomas **no los escribes tú**.
 
-**1. Creá el archivo** `src/content/es/posts/<slug>.md`
+**1. Crea el archivo** `src/content/es/posts/<slug>.md`
 
 ```yaml
 ---
@@ -58,35 +58,35 @@ tags: ["jornada-medica"]
 image: "PENDIENTE"
 imageAlt: "Pacientes esperando atención"
 ---
-Escribí el cuerpo en Markdown normal.
+Escribe el cuerpo en Markdown normal.
 
 ![Pacientes esperando atención](https://media.fundacionrosariogaton.org/photos/.../01-foto.webp)
 ```
 
 El nombre del archivo y el `slug` tienen que ser **idénticos**. `categories` y `tags` solo aceptan slugs que ya existan en `src/content/es/categories/` y `src/content/es/tags/`.
 
-**2. Subí las fotos**
+**2. Sube las fotos**
 
 ```bash
 npm run media:add -- --post jornada-medica-santo-domingo-este --file ./fotos/entrega.jpg ./fotos/IMG-2025.jpg
 ```
 
-Codifica a WebP, las sube y te imprime dos bloques listos para copiar. Agregá `--dry-run` para ver qué haría sin subir nada.
+Codifica a WebP, las sube y te imprime dos bloques listos para copiar. Agrega `--dry-run` para ver qué haría sin subir nada.
 
-**3. Pegá lo que te imprimió**
+**3. Pega lo que imprimió**
 
 - `image:` del frontmatter → **key relativa** (`photos/2026-11-05-.../01.webp`)
 - imágenes del cuerpo → **URL absoluta** (`https://media.fundacionrosariogaton.org/photos/...`)
 
 Esto no es opcional: Astro resuelve una ruta relativa del cuerpo como archivo local y **rompe el build** con `ImageNotFound`.
 
-**4. Prepará el post**
+**4. Prepara el post**
 
 ```bash
 npm run post:ready -- --slug jornada-medica-santo-domingo-este
 ```
 
-Traduce ese post a `en`, `fr`, `ja` y `zh-TW`, y después corre `check`, `typecheck`, `lint`, los tests y el build. Si algo falla, te dice qué.
+Traduce ese post a `en`, `fr`, `ja` y `zh-TW`, y después ejecuta `check`, `typecheck`, `lint`, los tests y el build. Si algo falla, te dice qué.
 
 Opcional: `--locales en,fr` para traducir solo algunos idiomas. `--dry-run` para ver el alcance sin llamar a la API ni escribir.
 
@@ -106,13 +106,13 @@ Las páginas viven en `src/content/es/pages/<slug>.md` y se arman con **bloques*
 npm run check      # después de editar
 ```
 
-Ojo: los otros idiomas ya están generados. Si cambiás el texto en español, la versión traducida **no se actualiza sola**. Para regenerarla:
+Ojo: los otros idiomas ya están generados. Si cambias el texto en español, la versión traducida **no se actualiza sola**. Para regenerarla:
 
 ```bash
 npm run translate -- --locale en
 ```
 
-Y si querés ver qué haría antes: `npm run translate -- --locale en --dry-run`.
+Y si quieres ver qué haría antes: `npm run translate -- --locale en --dry-run`.
 
 ## T6. Traducir contenido 🟡
 
@@ -137,7 +137,7 @@ Cada programa tiene su portada en `programs/<slug>/cover.webp` y su texto en `sr
 npm run media:add -- --event 2026-11-05-nombre-del-evento --file ./nueva-portada.jpg
 ```
 
-y poné la key que imprime en el campo `image`. La tarjeta de programa muestra esa imagen con recorte 4:3, así que conviene una foto apaisada.
+y pon la key que imprime en el campo `image`. La tarjeta de programa muestra esa imagen con recorte 4:3, así que conviene una foto apaisada.
 
 ## T8. Cambiar colores o tipografías 🔴 (por el test, no por riesgo)
 
@@ -150,7 +150,7 @@ Los tokens están en **dos lugares que deben coincidir**:
 npm run test       # tests/tokens.test.ts falla si uno de los dos quedó atrás
 ```
 
-Si cambiás uno solo, el test lo detecta. Es a propósito.
+Si cambias uno solo, el test lo detecta. Es a propósito.
 
 ## T9. Agregar un tipo de bloque nuevo 🔴 (toca cuatro archivos)
 
@@ -164,7 +164,7 @@ npm run test       # tests/blocks.test.ts exige que tipo y schema coincidan
 npm run check
 ```
 
-## T10. Probar antes de pushear 🟢
+## T10. Probar antes de hacer push 🟢
 
 ```bash
 npm run check      # Astro + content collections
@@ -218,7 +218,7 @@ Ese último existe, pero el camino normal es el push. Ojo: **no** agregues `main
 
 ## T12. Migración desde WordPress — histórico 🔴 NO REPETIR
 
-Estos comandos ya se corrieron una vez. Existen como registro de cómo se hizo el sitio, no como herramientas de trabajo.
+Estos comandos ya se ejecutaron una vez. Existen como registro de cómo se hizo el sitio, no como herramientas de trabajo.
 
 | Comando | Qué hace | Riesgo |
 | --- | --- | --- |
@@ -226,7 +226,7 @@ Estos comandos ya se corrieron una vez. Existen como registro de cómo se hizo e
 | `npm run migrate:media` | Recrea las keys viejas `YYYY/MM/...` en el bucket | 🔴 desordena el bucket |
 | `npm run migrate:redirects` | Regenera `public/_redirects` desde el frontmatter | 🟢 seguro, determinista |
 
-Si alguna vez hay que tocarlos, hablamos primero.
+Si alguna vez hay que tocarlos, hablemos primero.
 
 Las herramientas de media modernas (`plan-media-keys`, `apply-media-keys`) tampoco son de uso diario: ya cumplieron. Para imágenes nuevas, siempre `media:add`.
 
@@ -257,9 +257,9 @@ Las herramientas de media modernas (`plan-media-keys`, `apply-media-keys`) tampo
 | Error | Qué significa |
 | --- | --- |
 | `ImageNotFound` al construir | Una imagen del cuerpo usa ruta relativa. Tiene que ser URL absoluta. |
-| `tests/tokens.test.ts` falla | Cambiaste un color en un solo archivo. Tocá `design/tokens.ts` y `global.css`. |
+| `tests/tokens.test.ts` falla | Cambiaste un color en un solo archivo. Toca `design/tokens.ts` y `global.css`. |
 | `tests/blocks.test.ts` falla | El tipo del bloque y el schema Zod no coinciden. |
 | `format:check` falla en cientos de archivos | Es el estado actual del repo, no tu cambio. No lo mezcles con otro trabajo. |
-| Un post nuevo no aparece traducido | Revisá que `date` no sea anterior a 2025-01-01, o si tiene `noAutoTranslate: true`. |
-| Una imagen da 404 | La key del contenido no coincide con el objeto del bucket. Confirmá con `media:add --dry-run` o mirá el campo `image`. |
-| El deploy no arranca | El push tiene que ir a `main`. Revisá el estado en el panel de Cloudflare. |
+| Un post nuevo no aparece traducido | Revisa que `date` no sea anterior a 2025-01-01, o si tiene `noAutoTranslate: true`. |
+| Una imagen da 404 | La key del contenido no coincide con el objeto del bucket. Confirma con `media:add --dry-run` o mira el campo `image`. |
+| El deploy no arranca | El push tiene que ir a `main`. Revisa el estado en el panel de Cloudflare. |

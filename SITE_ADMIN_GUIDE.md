@@ -1,115 +1,115 @@
-# FRG_Site Administration Guide
+# Guía de administración de FRG_Site
 
-This guide covers routine editorial work and the technical checks for the FRG_Site website. The project keeps content in Markdown and Astro Content Collections; article preparation is local, while publishing is triggered by pushing to `main`.
+Esta guía cubre el trabajo editorial habitual y las verificaciones técnicas del sitio de FRG_Site. El proyecto guarda el contenido en Markdown con Astro Content Collections: la preparación del artículo es local y la publicación se dispara al hacer push a `main`.
 
-## Quick path: prepare and publish a post
+## Camino rápido: preparar y publicar un post
 
-1. Use [`POST_AUTHORING_PROMPT.md`](POST_AUTHORING_PROMPT.md) with the article facts and source material. The prompt returns one Spanish Markdown post; translations are handled separately by the publishing workflow.
-2. Save the result as `src/content/es/posts/<slug>.md`. Keep the filename and the frontmatter `slug` identical.
-3. Upload the post's images with `npm run media:add -- --post <slug> --file <paths...>`. It encodes them, uploads them, and prints the relative frontmatter key plus the absolute body URLs. `post:ready` still never uploads media.
-4. Run `npm run post:ready -- --slug <slug>`. To choose locales, add `--locales en,fr`; if omitted, all configured translation locales are selected. Add `--dry-run` to inspect the translation scope without API calls or file writes.
-5. Review the translated Markdown and the local preview routes reported by the command. Run `npm run preview` to inspect the build locally.
-6. Commit the reviewed changes and push to `main`. Per the configured publishing workflow, that push triggers Cloudflare's automatic deployment. The post-preparation command does not commit, push, or deploy.
+1. Usa [`POST_AUTHORING_PROMPT.md`](POST_AUTHORING_PROMPT.md) con los datos del artículo y el material de origen. El prompt devuelve un post en Markdown en español; las traducciones se manejan aparte en el flujo de publicación.
+2. Guárdalo como `src/content/es/posts/<slug>.md`. El nombre del archivo y el `slug` del frontmatter tienen que ser idénticos.
+3. Sube las imágenes del post con `npm run media:add -- --post <slug> --file <rutas...>`. El comando las codifica, las sube e imprime la key relativa para el frontmatter y las URL absolutas para el cuerpo. `post:ready` sigue sin subir medios nunca.
+4. Ejecuta `npm run post:ready -- --slug <slug>`. Para elegir idiomas, agrega `--locales en,fr`; si lo omites, se seleccionan todos los idiomas de traducción configurados. Agrega `--dry-run` para ver el alcance de la traducción sin llamadas a la API ni escrituras en disco.
+5. Revisa el Markdown traducido y las rutas de vista previa que informa el comando. Ejecuta `npm run preview` para inspeccionar el build en local.
+6. Haz commit de los cambios revisados y push a `main`. Según el flujo de publicación configurado, ese push dispara el despliegue automático de Cloudflare. El comando de preparación no hace commit, push ni deploy.
 
-The preparation command requires `OPENAI_API_KEY` in the ignored `.env` file when machine translation is needed. Never copy secrets into content or commit `.env`.
+El comando de preparación necesita `OPENAI_API_KEY` en el archivo `.env` (ignorado por git) cuando hace falta traducción automática. Nunca copies secretos dentro del contenido ni hagas commit de `.env`.
 
-## How posts are structured
+## Cómo se estructuran los posts
 
-Posts are Markdown files under `src/content/<locale>/posts/`. The Spanish source is `src/content/es/posts/`. Required frontmatter fields are:
+Los posts son archivos Markdown dentro de `src/content/<locale>/posts/`. La fuente en español es `src/content/es/posts/`. Los campos obligatorios del frontmatter son:
 
 ```yaml
-title: 'Article title'
-slug: 'article-slug'
+title: 'Título del artículo'
+slug: 'slug-del-articulo'
 locale: 'es'
 date: '2026-10-26'
 ```
 
-Optional fields include `updated`, `excerpt`, `author`, `categories`, `tags`, `image`, `imageAlt`, `legacyPath`, `seo`, and `noAutoTranslate`. Use category and tag slugs that already exist under the Spanish taxonomy directories. The AI prompt lists the current allowed values.
+Los campos opcionales son `updated`, `excerpt`, `author`, `categories`, `tags`, `image`, `imageAlt`, `legacyPath`, `seo` y `noAutoTranslate`. Usa slugs de categoría y etiqueta que ya existan en los directorios de taxonomía en español. El prompt de redacción lista los valores permitidos actuales.
 
-The post title, date, optional excerpt, and featured image are rendered by `PostView.astro`. The body is ordinary Markdown, so headings, paragraphs, lists, links, and inline images can appear in any editorial order.
+`PostView.astro` renderiza el título, la fecha, el extracto opcional y la imagen destacada. El cuerpo es Markdown normal, así que títulos, párrafos, listas, enlaces e imágenes en línea pueden aparecer en cualquier orden editorial.
 
-Image references are asymmetric on purpose: the `image` frontmatter field takes the **relative media key** (it resolves through `mediaUrl()`), while images in the Markdown body need the **absolute media URL**. Astro's content pipeline treats a bare relative path in the body as a local asset and fails the build with `ImageNotFound`.
+Las referencias a imágenes son asimétricas a propósito: el campo `image` del frontmatter lleva la **key relativa del medio** (se resuelve con `mediaUrl()`), mientras que las imágenes del cuerpo en Markdown necesitan la **URL absoluta del medio**. El pipeline de contenido de Astro interpreta una ruta relativa suelta del cuerpo como un asset local y rompe el build con `ImageNotFound`.
 
-Posts do not use the typed page-block system. The `VideoBlock` is currently a page block; post Markdown should use a plain video link rather than an unverified iframe embed.
+Los posts no usan el sistema de bloques tipados de las páginas. `VideoBlock` es hoy un bloque de página; en el Markdown de un post conviene usar un enlace de video normal en lugar de un iframe sin verificar.
 
-## Translation behavior
+## Comportamiento de la traducción
 
-- `npm run post:ready -- --slug <slug> [--locales en,fr]` translates only the selected post and does not touch page, category, tag, program, team, or UI translation files.
-- Existing translated copies are preserved by the normal non-forced translation mode. If an existing translation is skipped, review it manually when the Spanish source changes; the preparation command does not overwrite it.
-- Posts marked `noAutoTranslate: true` and posts older than the translator's configured cutoff are intentionally skipped.
-- The locale-wide command remains available: `npm run translate -- --locale en --dry-run` previews work for one target locale. Running `npm run translate` without a locale processes all configured target locales and all supported collections.
-- Avoid `--force` for routine publication. It can rebuild an entire target locale and replace existing generated translations.
+- `npm run post:ready -- --slug <slug> [--locales en,fr]` traduce solo el post seleccionado y no toca los archivos de traducción de páginas, categorías, etiquetas, programas, equipo ni interfaz.
+- Las copias ya traducidas se conservan en el modo normal (sin `--force`). Si una traducción existente se omite, revísala a mano cuando cambie la fuente en español; el comando de preparación no la sobrescribe.
+- Los posts marcados con `noAutoTranslate: true` y los anteriores a la fecha de corte del traductor se omiten a propósito.
+- El comando por idioma sigue disponible: `npm run translate -- --locale en --dry-run` muestra el trabajo de un idioma destino. Ejecutar `npm run translate` sin idioma procesa todos los idiomas destino configurados y todas las colecciones admitidas.
+- Evita `--force` para publicar de rutina. Puede reconstruir un idioma destino completo y reemplazar traducciones ya generadas.
 
-## Validation and local preview
+## Validación y vista previa local
 
-`post:ready` validates the source with Astro before translation, then runs typecheck, lint, tests, and a production build after translation:
+`post:ready` valida la fuente con Astro antes de traducir y, después de traducir, ejecuta typecheck, lint, tests y un build de producción:
 
-| Command                                | Purpose                                                    |
-| -------------------------------------- | ---------------------------------------------------------- |
-| `npm run check`                        | Astro and content-collection validation before translation |
-| `npm run typecheck`                    | TypeScript validation                                      |
-| `npm run lint`                         | ESLint checks                                              |
-| `npm run test -- --test-timeout=30000` | Vitest suite with the repository's supported timeout       |
-| `npm run build`                        | Generate and validate the static site                      |
-| `npm run preview`                      | Serve the local build for visual review                    |
+| Comando                                | Para qué sirve                                              |
+| -------------------------------------- | ----------------------------------------------------------- |
+| `npm run check`                        | Validación de Astro y content collections antes de traducir |
+| `npm run typecheck`                    | Validación de TypeScript                                    |
+| `npm run lint`                         | Comprobaciones de ESLint                                    |
+| `npm run test -- --test-timeout=30000` | Suite de Vitest con el timeout que admite el repositorio     |
+| `npm run build`                        | Genera y valida el sitio estático                           |
+| `npm run preview`                      | Sirve el build local para revisión visual                   |
 
-If a command fails after translations have been written, those generated files remain in the worktree. Fix the reported issue and rerun the preparation command; do not use `--force` to recover.
+Si un comando falla después de que se escribieron las traducciones, esos archivos generados quedan en el árbol de trabajo. Corrige el problema informado y vuelve a ejecutar el comando de preparación; no uses `--force` para recuperarte.
 
-## Other editorial content
+## Otro contenido editorial
 
-### Pages
+### Páginas
 
-Pages live under `src/content/<locale>/pages/`. Their frontmatter includes a typed `blocks` array, unlike posts. The `blocks` schema is declared in `src/content.config.ts`, TypeScript types are in `src/lib/blocks.ts`, and `src/components/blocks/BlockRenderer.astro` maps each type to a component. Adding a new block requires keeping those definitions, the renderer, and block tests in sync.
+Las páginas viven en `src/content/<locale>/pages/`. Su frontmatter incluye un arreglo `blocks` tipado, a diferencia de los posts. El schema de `blocks` se declara en `src/content.config.ts`, los tipos de TypeScript están en `src/lib/blocks.ts` y `src/components/blocks/BlockRenderer.astro` mapea cada tipo a un componente. Agregar un bloque nuevo obliga a mantener sincronizados esas definiciones, el renderer y los tests de bloques.
 
-Navigation is controlled by page frontmatter: `nav`, `navLabel`, and `navParent`. Use an existing page or block pattern as a reference before changing page composition.
+La navegación se controla con el frontmatter de la página: `nav`, `navLabel` y `navParent`. Antes de cambiar la composición de una página, usa una página o un bloque existente como referencia.
 
-### Categories and tags
+### Categorías y etiquetas
 
-Spanish category and tag records live in `src/content/es/categories/` and `src/content/es/tags/`. Their generated translations live in the corresponding locale directories. Posts reference their slugs, not display names.
+Los registros de categorías y etiquetas en español viven en `src/content/es/categories/` y `src/content/es/tags/`. Sus traducciones generadas viven en los directorios del idioma correspondiente. Los posts referencian sus slugs, no los nombres visibles.
 
-### Interface text
+### Textos de interfaz
 
-Shared interface strings live in `src/i18n/<locale>.json`. Content translation and interface translation are handled by `scripts/translate.mts`; the post-specific preparation command deliberately excludes UI strings.
+Las cadenas compartidas de la interfaz viven en `src/i18n/<locale>.json`. La traducción de contenido y la de interfaz las maneja `scripts/translate.mts`; el comando de preparación de un post excluye a propósito las cadenas de interfaz.
 
-## Images and other media
+## Imágenes y otros medios
 
-Rendered site media is served from the public R2 media base (`https://media.fundacionrosariogaton.org`). For a new article image:
+Los medios del sitio se sirven desde la base pública de R2 (`https://media.fundacionrosariogaton.org`). Para una imagen nueva de un artículo:
 
-1. Run `npm run media:add -- --post <slug> --file <paths...>` (or `--event <YYYY-MM-DD-slug>` for media that has no post). Add `--dry-run` to preview without uploading.
-2. The command encodes each file to a single WebP, numbers it inside the post's event folder, uploads it, verifies the public URL, and prints two blocks:
-   - the relative key for the `image` frontmatter field,
-   - the absolute URLs for inline Markdown images.
-3. Review alt text and the local build output before pushing.
+1. Ejecuta `npm run media:add -- --post <slug> --file <rutas...>` (o `--event <AAAA-MM-DD-slug>` para medios que no pertenecen a un post). Agrega `--dry-run` para ver qué haría sin subir nada.
+2. El comando codifica cada archivo a un único WebP, lo numera dentro de la carpeta del evento del post, lo sube, verifica la URL pública e imprime dos bloques:
+   - la key relativa para el campo `image` del frontmatter,
+   - las URL absolutas para las imágenes en línea del Markdown.
+3. Revisa el texto alternativo y el build local antes de hacer push.
 
-Keys are immutable in the cache, so the command refuses to overwrite an existing key with different bytes. To replace a photo, upload it under a new key and update the reference. The old WordPress migration utilities (`npm run migrate:media`) are for migration work, not the routine per-article upload workflow. Do not put credentials or private URLs into Markdown.
+Las keys son inmutables en la caché, así que el comando se niega a sobrescribir una key existente con otros bytes. Para reemplazar una foto, súbela con una key nueva y actualiza la referencia. Las utilidades antiguas de migración desde WordPress (`npm run migrate:media`) son para trabajo de migración, no para el flujo de subida de cada artículo. No pongas credenciales ni URL privadas dentro del Markdown.
 
-## Site code and forms
+## Código del sitio y formularios
 
-- Routing and locale selection are implemented in `src/pages/[...path].astro` and `src/lib/locales.ts`; Spanish is the default locale.
-- Form endpoints are under `src/pages/api/`. They use the shared validation and rate-limit helpers in `src/lib/api.ts` and secrets from the deployment environment.
-- Never put Turnstile or Resend secrets in content, client-side files, or committed configuration. Manage them through the approved Cloudflare secret workflow.
-- Root `wrangler.jsonc` intentionally omits generated `main`/`assets` settings. Routine deployments should use the configured push-to-`main` pipeline, not edit the generated deployment config.
+- El ruteo y la selección de idioma están en `src/pages/[...path].astro` y `src/lib/locales.ts`; el español es el idioma por defecto.
+- Los endpoints de formularios están en `src/pages/api/`. Usan los ayudantes compartidos de validación y rate limit de `src/lib/api.ts`, y secretos del entorno de despliegue.
+- Nunca pongas secretos de Turnstile o Resend en el contenido, en archivos de cliente ni en configuración versionada. Manéjalos con el flujo de secretos de Cloudflare.
+- El `wrangler.jsonc` de la raíz omite a propósito `main`/`assets`, que son generados. Los despliegues de rutina deben usar el pipeline de push a `main`, no editar la configuración generada.
 
-## Troubleshooting
+## Problemas frecuentes
 
-- **A post is missing from another locale:** check its translated file under `src/content/<locale>/posts/`; rerun `post:ready` for that slug and locale. Existing translations are not overwritten automatically.
-- **A category or tag is not displayed correctly:** verify the exact slug against the files under `src/content/es/categories/` or `src/content/es/tags/`.
-- **An image is broken:** check that the frontmatter `image` is the relative key and that body images use the absolute media URL. A relative path in the body fails the build with `ImageNotFound`; a mistyped key returns 404 from the media host.
-- **Astro check or build fails:** fix the reported frontmatter/schema or Markdown issue before pushing.
-- **Deployment does not start:** verify that the change was pushed to `main` and inspect the configured Cloudflare deployment status. The repository files alone do not expose Cloudflare dashboard state.
+- **Un post falta en otro idioma:** revisa su archivo traducido en `src/content/<locale>/posts/`; vuelve a ejecutar `post:ready` para ese slug e idioma. Las traducciones existentes no se sobrescriben automáticamente.
+- **Una categoría o etiqueta no se muestra bien:** verifica el slug exacto contra los archivos de `src/content/es/categories/` o `src/content/es/tags/`.
+- **Una imagen aparece rota:** confirma que el `image` del frontmatter sea la key relativa y que las imágenes del cuerpo usen la URL absoluta. Una ruta relativa en el cuerpo rompe el build con `ImageNotFound`; una key mal escrita devuelve 404 desde el host de medios.
+- **Falla `astro check` o el build:** corrige el problema de frontmatter, schema o Markdown que se informe antes de hacer push.
+- **El despliegue no arranca:** verifica que el cambio se haya pusheado a `main` y revisa el estado del despliegue en Cloudflare. Los archivos del repositorio por sí solos no exponen el estado del panel de Cloudflare.
 
-## Commands reference
+## Referencia de comandos
 
-| Task                     | Command                                                      |
-| ------------------------ | ------------------------------------------------------------ |
-| Start local development  | `npm run dev`                                                |
-| Upload a post's images   | `npm run media:add -- --post <slug> --file <paths...>`       |
-| Prepare one post         | `npm run post:ready -- --slug <slug>`                        |
-| Preview translation work | `npm run translate -- --locale <locale> --dry-run`           |
-| Validate Astro/content   | `npm run check`                                              |
-| Run tests                | `npm run test -- --test-timeout=30000`                       |
-| Build static site        | `npm run build`                                              |
-| Preview static build     | `npm run preview`                                            |
-| Publish                  | Commit and push to `main` (Cloudflare deploys automatically) |
+| Tarea                        | Comando                                                      |
+| ---------------------------- | ------------------------------------------------------------ |
+| Iniciar desarrollo local     | `npm run dev`                                                |
+| Subir las imágenes de un post | `npm run media:add -- --post <slug> --file <rutas...>`       |
+| Preparar un post             | `npm run post:ready -- --slug <slug>`                        |
+| Ver el trabajo de traducción | `npm run translate -- --locale <locale> --dry-run`           |
+| Validar Astro y contenido    | `npm run check`                                              |
+| Ejecutar los tests           | `npm run test -- --test-timeout=30000`                       |
+| Generar el sitio estático    | `npm run build`                                              |
+| Ver el build estático        | `npm run preview`                                            |
+| Publicar                     | Commit y push a `main` (Cloudflare despliega automáticamente) |
 
-`npm run deploy` is a separate direct Wrangler deployment command and is not part of the normal push-to-`main` publishing path.
+`npm run deploy` es un comando aparte de despliegue directo con Wrangler y no forma parte del camino normal de publicación por push a `main`.

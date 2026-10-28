@@ -21,6 +21,10 @@
 - **Forms/API**: Endpoints in `src/pages/api/*.ts` (contact/donar/voluntariado/newsletter) are the only non-prerendered routes. They use Zod, Turnstile, rate limiting, Resend. Public Turnstile key is client-safe; secrets are server/secret env vars.
 - **i18n UI**: Strings in `src/i18n/*.json`, merged via `src/lib/ui.ts` with ES fallback.
 
+## Documentation language
+- Human-facing docs (`README.md`, `COMMANDS.md`, `SITE_ADMIN_GUIDE.md`, `POST_AUTHORING_PROMPT.md` and any new guide, manual or prompt for editors) are written in **Spanish**. They are read by the owner and authorised staff, so new human-facing docs follow the same rule.
+- Agent-facing files stay in English: `AGENTS.md`, code comments, commit messages and PR descriptions.
+
 ## Gotchas
 - **Token sync**: If you change colors/fonts/spacing tokens, update `design/tokens.ts` and `src/styles/global.css` together or tests will fail.
 - **Content contracts**: `tests/blocks.test.ts` and `tests/content.test.ts` enforce schema/order/slug/locale rules. Don’t guess frontmatter shape — check them.
