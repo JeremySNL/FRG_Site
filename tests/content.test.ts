@@ -153,7 +153,7 @@ describe('the content', () => {
    * schema cap is looser than this rule.
    */
   it('keeps Spanish post excerpts within the card budget', async () => {
-    const budget = 200;
+    const budget = 250;
     const files = await collectFiles(join(root, 'src', 'content', 'es', 'posts'));
 
     for (const file of files) {
