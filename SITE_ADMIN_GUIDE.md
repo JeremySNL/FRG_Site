@@ -24,13 +24,13 @@ locale: 'es'
 date: '2026-10-26'
 ```
 
-Los campos opcionales son `updated`, `excerpt`, `author`, `categories`, `tags`, `image`, `imageAlt`, `legacyPath`, `seo` y `noAutoTranslate`. Usa slugs de categoría y etiqueta que ya existan en los directorios de taxonomía en español. El prompt de redacción lista los valores permitidos actuales.
+Los campos opcionales son `updated`, `excerpt`, `author`, `categories`, `tags`, `image`, `imageAlt`, `videoUrl`, `legacyPath`, `seo` y `noAutoTranslate`. Usa slugs de categoría y etiqueta que ya existan en los directorios de taxonomía en español. El prompt de redacción lista los valores permitidos actuales.
 
 `PostView.astro` renderiza el título, la fecha, el extracto opcional y la imagen destacada. El cuerpo es Markdown normal, así que títulos, párrafos, listas, enlaces e imágenes en línea pueden aparecer en cualquier orden editorial.
 
 Las referencias a imágenes son asimétricas a propósito: el campo `image` del frontmatter lleva la **key relativa del medio** (se resuelve con `mediaUrl()`), mientras que las imágenes del cuerpo en Markdown necesitan la **URL absoluta del medio**. El pipeline de contenido de Astro interpreta una ruta relativa suelta del cuerpo como un asset local y rompe el build con `ImageNotFound`.
 
-Los posts no usan el sistema de bloques tipados de las páginas. `VideoBlock` es hoy un bloque de página; en el Markdown de un post conviene usar un enlace de video normal en lugar de un iframe sin verificar.
+Los posts no usan el sistema de bloques tipados de las páginas. Para un video, usa el campo `videoUrl` del frontmatter con una URL de YouTube (`watch?v=`, `youtu.be`, `/shorts/` o `/live/`): el sitio lo renderiza como un reproductor con carga diferida, que solo crea el iframe cuando el visitante hace clic. No escribas HTML de embed ni pongas el enlace del video dentro del cuerpo, y no uses `videoUrl` con plataformas distintas de YouTube porque el reproductor no lo reconocería.
 
 ## Comportamiento de la traducción
 

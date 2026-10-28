@@ -65,6 +65,8 @@ Escribe el cuerpo en Markdown normal.
 
 El nombre del archivo y el `slug` tienen que ser **idénticos**. `categories` y `tags` solo aceptan slugs que ya existan en `src/content/es/categories/` y `src/content/es/tags/`.
 
+Si el post tiene video, va en el frontmatter como `videoUrl` con una URL de YouTube (`watch?v=`, `youtu.be` o `/shorts/`). Nunca dentro del cuerpo ni como iframe: el sitio construye el reproductor.
+
 **2. Sube las fotos**
 
 ```bash
