@@ -24,7 +24,7 @@ noAutoTranslate: false
 
 這個國際獎項肯定了 **Fundación Rosario Gatón** 長期以來在多明尼加共和國推動減貧、促進社會共融以及為弱勢社群創造機會等專案上的持續努力、嚴謹態度與深厚承諾。透過專注於社區發展、教育和直接社會支援的計畫，本基金會積極致力於創造永續的轉變，以改善最需要幫助者的生活品質。
 
-![Fundación Rosario Gatón y Cruz Jiminián unen esfuerzos para fortalecer acciones sociales](https://francomacorisanos.com/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-18-at-3.08.38-PM-4.jpeg)
+![Fundación Rosario Gatón y Cruz Jiminián unen esfuerzos para fortalecer acciones sociales](https://media.fundacionrosariogaton.org/photos/2026-10-15-fundacion-rosario-gaton-es-galardonada-en-los-csr-awards/02-cruz-jiminian-esfuerzos-sociales.webp)
 
 ## 重申我們對未來的承諾
 

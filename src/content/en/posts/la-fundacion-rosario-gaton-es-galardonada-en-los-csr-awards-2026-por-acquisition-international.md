@@ -24,7 +24,7 @@ noAutoTranslate: false
 
 This international award highlights the ongoing work, rigor, and deep commitment of **Fundación Rosario Gatón** to implementing projects aimed at reducing poverty, fostering social inclusion, and creating opportunities for vulnerable communities in the Dominican Republic. Through programs focused on community development, education, and direct social support, the Foundation has worked actively to generate sustainable transformations that improve the quality of life of those who need it most.
 
-![Fundación Rosario Gatón and Cruz Jiminián join efforts to strengthen social action](https://francomacorisanos.com/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-18-at-3.08.38-PM-4.jpeg)
+![Fundación Rosario Gatón and Cruz Jiminián join efforts to strengthen social action](https://media.fundacionrosariogaton.org/photos/2026-10-15-fundacion-rosario-gaton-es-galardonada-en-los-csr-awards/02-cruz-jiminian-esfuerzos-sociales.webp)
 
 ## Reaffirming Our Commitment to the Future
 

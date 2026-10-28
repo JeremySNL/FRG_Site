@@ -24,7 +24,7 @@ noAutoTranslate: false
 
 この国際的な賞は、República Dominicanaの脆弱なコミュニティにおける貧困削減、社会的包摂の促進、および機会創出を目的としたプロジェクトの実施に向けた、**Fundación Rosario Gatón**の継続的な取り組み、厳格さ、そして深いコミットメントを称えるものです。コミュニティ開発、教育、直接的な社会支援に焦点を当てたプログラムを通じて、当財団は最も必要としている人々の生活の質を向上させる持続可能な変革を生み出すために積極的に活動してまいりました。
 
-![Fundación Rosario Gatón y Cruz Jiminián unen esfuerzos para fortalecer acciones sociales](https://francomacorisanos.com/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-18-at-3.08.38-PM-4.jpeg)
+![Fundación Rosario Gatón y Cruz Jiminián unen esfuerzos para fortalecer acciones sociales](https://media.fundacionrosariogaton.org/photos/2026-10-15-fundacion-rosario-gaton-es-galardonada-en-los-csr-awards/02-cruz-jiminian-esfuerzos-sociales.webp)
 
 ## 未来へのコミットメントの再確認
 

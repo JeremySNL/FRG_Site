@@ -10,10 +10,12 @@ const R2_CUSTOM_BASE = 'https://media.fundacionrosariogaton.org';
 it('serves delivery keys from the bucket exactly as written', () => {
   const options = createMediaUrlOptions(R2_BASE);
 
-  expect(resolveMediaUrl('photos/2026-10-23-asamblea-extraordinaria-2026/01.webp', options)).toBe(
-    `${R2_BASE}/photos/2026-10-23-asamblea-extraordinaria-2026/01.webp`,
+  expect(
+    resolveMediaUrl('photos/2026-10-23-asamblea-extraordinaria-2026/01.webp', options),
+  ).toBe(`${R2_BASE}/photos/2026-10-23-asamblea-extraordinaria-2026/01.webp`);
+  expect(resolveMediaUrl('brand/logo.webp', options)).toBe(
+    `${R2_BASE}/brand/logo.webp`,
   );
-  expect(resolveMediaUrl('brand/logo.webp', options)).toBe(`${R2_BASE}/brand/logo.webp`);
   expect(resolveMediaUrl('programs/vivienda-digna/cover.webp', options)).toBe(
     `${R2_BASE}/programs/vivienda-digna/cover.webp`,
   );
@@ -29,7 +31,10 @@ it('maps absolute WordPress upload URLs to their migrated key', () => {
     ),
   ).toBe(`${R2_BASE}/2025/07/photo.jpg`);
   expect(
-    resolveMediaUrl('//fundacionrosariogaton.org/wp-content/uploads/2025/07/photo.webp', options),
+    resolveMediaUrl(
+      '//fundacionrosariogaton.org/wp-content/uploads/2025/07/photo.webp',
+      options,
+    ),
   ).toBe(`${R2_BASE}/2025/07/photo.webp`);
 });
 
@@ -46,7 +51,9 @@ it('defaults to the media custom domain when nothing is configured', () => {
   const options = createMediaUrlOptions();
 
   expect(options).toEqual({ baseUrl: R2_CUSTOM_BASE });
-  expect(resolveMediaUrl('brand/logo.webp', options)).toBe(`${R2_CUSTOM_BASE}/brand/logo.webp`);
+  expect(resolveMediaUrl('brand/logo.webp', options)).toBe(
+    `${R2_CUSTOM_BASE}/brand/logo.webp`,
+  );
 });
 
 it('uses the configured media host when one is provided', () => {

@@ -91,7 +91,10 @@ export function trimDanglingWords(slug: string): string {
   let previous = '';
   while (value !== previous) {
     previous = value;
-    value = value.replace(/-(?:de|del|la|el|los|las|en|para|con|por|al|y|a|e|o|u)$/, '');
+    value = value.replace(
+      /-(?:de|del|la|el|los|las|en|para|con|por|al|y|a|e|o|u)$/,
+      '',
+    );
   }
   return value;
 }

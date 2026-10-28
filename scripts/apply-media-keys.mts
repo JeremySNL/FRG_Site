@@ -80,6 +80,11 @@ interface Manifest {
 const manifest = JSON.parse(await readFile(manifestFile, 'utf8')) as Manifest;
 const byLegacy = new Map(manifest.entries.map((entry) => [entry.legacy, entry]));
 
+/** Third-party URLs that were pulled into the bucket, replaced verbatim. */
+const externalSources = manifest.entries.filter((entry) =>
+  entry.legacy.startsWith('http'),
+);
+
 const MIME_TYPES: Record<string, string> = {
   '.avif': 'image/avif',
   '.gif': 'image/gif',
@@ -144,7 +149,11 @@ const objectUrl = (key: string): string =>
   `${endpoint}/${BUCKET}/${key.split('/').map(encodeURIComponent).join('/')}`;
 
 /** Run `task` over `items` with a bounded number of in-flight requests. */
-async function pool<T>(items: T[], limit: number, task: (item: T, index: number) => Promise<void>) {
+async function pool<T>(
+  items: T[],
+  limit: number,
+  task: (item: T, index: number) => Promise<void>,
+) {
   let cursor = 0;
   const workers = Array.from({ length: Math.min(limit, items.length) }, async () => {
     while (cursor < items.length) {
@@ -254,6 +263,13 @@ function rewriteSource(text: string): { text: string; hits: number } {
   output = output.replace(R2_PUBLIC_URL, replace);
   output = output.replace(RELATIVE_KEY, replace);
 
+  // Assets that were hotlinked from another site and adopted into the bucket.
+  for (const entry of externalSources) {
+    if (!output.includes(entry.legacy)) continue;
+    output = output.split(entry.legacy).join(entry.target);
+    hits += 1;
+  }
+
   // Markdown and rich-text bodies cannot use a bare relative key: Astro's
   // content pipeline tries to resolve those as local assets and fails the
   // build. Frontmatter goes through `mediaUrl()`, bodies need a real URL.
@@ -309,7 +325,9 @@ async function rewriteContent(): Promise<void> {
   // The header/footer logo lives in the site config, not in content.
   const siteFile = join(root, 'src', 'lib', 'site.ts');
   const siteSource = await readFile(siteFile, 'utf8');
-  const logoEntry = manifest.entries.find((entry) => entry.owners.includes('site:logo'));
+  const logoEntry = manifest.entries.find((entry) =>
+    entry.owners.includes('site:logo'),
+  );
   if (logoEntry) {
     const next = siteSource.replace(
       /(\blogo:\s*')([^']+)(')/,

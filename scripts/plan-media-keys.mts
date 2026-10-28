@@ -177,7 +177,10 @@ async function collectOwners(): Promise<Album> {
 function primaryOwner(owners: Owner[]): string {
   const posts = owners
     .filter((owner) => owner.kind === 'post' && owner.date)
-    .sort((a, b) => (a.date ?? '').localeCompare(b.date ?? '') || a.slug.localeCompare(b.slug));
+    .sort(
+      (a, b) =>
+        (a.date ?? '').localeCompare(b.date ?? '') || a.slug.localeCompare(b.slug),
+    );
 
   const post = posts[0];
   if (post?.date) return `photos/${post.date}-${cleanEventSlug(post.slug)}`;
@@ -187,7 +190,9 @@ function primaryOwner(owners: Owner[]): string {
     .sort((a, b) => a.slug.localeCompare(b.slug))[0];
 
   if (entity) {
-    return entity.kind === 'program' ? `programs/${entity.slug}` : `team/${entity.slug}`;
+    return entity.kind === 'program'
+      ? `programs/${entity.slug}`
+      : `team/${entity.slug}`;
   }
 
   const pages = owners
@@ -206,11 +211,17 @@ function primaryOwner(owners: Owner[]): string {
  * reference points at `-300x226` the file worth publishing is the sibling
  * without the marker. Fall back to the derivative when nothing better exists.
  */
-function resolveSource(legacy: string): { key: string; kind: 'full-size' | 'as-uploaded' } {
+function resolveSource(legacy: string): {
+  key: string;
+  kind: 'full-size' | 'as-uploaded';
+} {
   const stripped = stripDerivativeSuffix(legacy);
   if (stripped !== legacy) {
     const stem = stripped.replace(/\.[a-z0-9]+$/i, '');
-    const candidates = [stripped, ...FALLBACK_EXTENSIONS.map((extension) => `${stem}${extension}`)];
+    const candidates = [
+      stripped,
+      ...FALLBACK_EXTENSIONS.map((extension) => `${stem}${extension}`),
+    ];
     for (const candidate of candidates) {
       if (existsSync(join(UPLOADS_DIR, candidate))) {
         return { key: candidate, kind: 'full-size' };
@@ -323,14 +334,20 @@ if (targets.size !== entries.length) {
     seen.add(entry.target);
     return false;
   });
-  console.error(`Target collision(s): ${collisions.map((entry) => entry.target).join(', ')}`);
+  console.error(
+    `Target collision(s): ${collisions.map((entry) => entry.target).join(', ')}`,
+  );
   process.exit(1);
 }
 
-const folders = new Set(entries.map((entry) => entry.target.slice(0, entry.target.lastIndexOf('/'))));
+const folders = new Set(
+  entries.map((entry) => entry.target.slice(0, entry.target.lastIndexOf('/'))),
+);
 const fromFullSize = entries.filter((entry) => entry.sourceKind === 'full-size').length;
 const noBetterSource = entries.filter(
-  (entry) => entry.sourceKind === 'as-uploaded' && DERIVATIVE_SUFFIX.test(baseNameOf(entry.legacy)),
+  (entry) =>
+    entry.sourceKind === 'as-uploaded' &&
+    DERIVATIVE_SUFFIX.test(baseNameOf(entry.legacy)),
 );
 const fromOrdinal = entries.filter((entry) => entry.nameKind === 'ordinal').length;
 const longest = entries.reduce((max, entry) => Math.max(max, entry.target.length), 0);
