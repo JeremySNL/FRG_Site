@@ -7,7 +7,7 @@ excerpt: "Chen Lunig 中華人民共和國駐 República Dominicana 特命全權
 categories:
   - "relaciones-internacionales"
 tags: []
-image: "2026/07/b90b9125-7a6c-4e9f-87f0-3c73db978cf0.jpg"
+image: "photos/2026-07-16-participa-en-conferencia-del-embajador-de-la-republica/01.webp"
 legacyPath: "/fundacion-rosario-gaton-participa-en-conferencia-del-embajador-de-la-republica-popular-china-en-republica-dominicana/"
 noAutoTranslate: false
 ---

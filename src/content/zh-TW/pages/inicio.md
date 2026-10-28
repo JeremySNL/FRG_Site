@@ -12,7 +12,7 @@ blocks:
   - type: "heroBento"
     title: "Fundación Rosario Gatón (FRG)"
     text: "我們致力於建立一個更公義、更有愛心且永續的世界。我們的使命是教育、培訓並賦能公民，使其成為改變的推動者，能夠透過生產性和永續的倡議，轉變其家庭與社區環境。"
-    backgroundImage: "https://fundacionrosariogaton.org/wp-content/uploads/2025/07/1416b2d2-c186-4c81-9cd1-351d8146f2aa.jpg"
+    backgroundImage: "pages/site/01.webp"
     backgroundImageAlt: "Fundación Rosario Gatón"
     buttons:
       - label: "加入我們"
@@ -25,18 +25,18 @@ blocks:
         value: "20+"
       - type: "imageRed"
         title: "加入變革"
-        image: "2025/07/50470030_1872829336149565_5349142202482163712_n.jpg"
+        image: "photos/2019-01-23-se-reune-con-el-embajador-de-guatemala-para-fortalecer/01.webp"
         imageAlt: "志工"
       - type: "imageBlue"
         title: "轉變人心的專案"
-        image: "2025/07/rosario-gaton.jpg"
+        image: "team/rosario-gaton.webp"
         imageAlt: "專案項目"
       - type: "solidRed"
         title: "我們的使命"
   - type: "imageText"
     title: "關於我們"
     text: "Fundación Rosario Gatón (FRG) 是一個非營利的人權與社會經濟發展組織，致力於在五大洲建立影響力。我們建立夥伴關係以減少極端貧窮、社會不平等和飢餓，並預防性別暴力、恐怖主義、人口販運和虐待動物。我們同時支持最弱勢的群體，推動包容性、有尊嚴的住房、微型經濟以及對基本服務的獲得。"
-    image: "2025/07/50470030_1872829336149565_5349142202482163712_n.jpg"
+    image: "photos/2019-01-23-se-reune-con-el-embajador-de-guatemala-para-fortalecer/01.webp"
     imageAlt: "Fundación Rosario Gatón 與瓜地馬拉駐多明尼加共和國大使舉行工作會議。"
     buttons:
       - label: "了解更多"
@@ -137,7 +137,7 @@ blocks:
       button:
         label: "立即加入！"
         href: "/voluntariado/"
-      image: "2025/07/194769352_3779589362140210_1311684501893869371_n.jpg"
+      image: "photos/2025-07-22-entrega-alimentos-a-familias-vulnerables-como-parte-de-su/06.webp"
       imageAlt: "志工"
     donate:
       title: "進行捐款"
@@ -145,7 +145,7 @@ blocks:
       button:
         label: "立即捐款"
         href: "/donar/"
-      image: "2025/07/50470030_1872829336149565_5349142202482163712_n.jpg"
+      image: "photos/2019-01-23-se-reune-con-el-embajador-de-guatemala-para-fortalecer/01.webp"
       imageAlt: "捐款"
   - type: "cards"
     title: "行動領域"

@@ -7,7 +7,7 @@ excerpt: "塞拉利昂 – 西非。對 Fundación Rosario Gatón 而言，社�
 categories:
   - "noticias-institucionales"
 tags: []
-image: "2025/07/124902322_3241301375969014_3017039964780380682_n.jpg"
+image: "photos/2025-07-22-embajador-florentino-rodriguez-y-su-equipo-llevan-ayuda/01.webp"
 legacyPath: "/embajador-florentino-rodriguez-y-su-equipo-llevan-ayuda-humanitaria-a-comunidades-vulnerables-en-sierra-leona/"
 noAutoTranslate: false
 ---

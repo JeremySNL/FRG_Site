@@ -15,7 +15,7 @@ tags:
   - "filantropia"
   - "comunidades"
   - "republica-dominicana"
-image: "2025/11/La-Fundacion-Rosario-Gaton-y-el-Distinguido-Dr.-Felix-Antonio-Cruz-Jiminian-trabajando-de-la-mano-por-los-mas-necesitados.jpg"
+image: "photos/2025-11-13-dr-cruz-jiminian-solidaridad-en-accion/01-el-distinguido-dr-felix-antonio-cruz-jiminian.webp"
 legacyPath: "/fundacion-rosario-gaton-y-dr-cruz-jiminian-solidaridad-en-accion/"
 noAutoTranslate: false
 ---

@@ -11,4 +11,4 @@ legacyPath: "/1047-2/"
 noAutoTranslate: false
 ---
 
-This Tuesday, July 4th of the current year 2025, we held an important meeting with the honorable Dr. Cruz Jiminian, where we discussed significant projects for this year. Working together for the well-being of the most vulnerable. (Fundación Rosario Gatón). ![](https://fundacionrosariogaton.org/wp-content/uploads/2025/08/IMG-20250806-WA0187-768x1024.jpg)
+This Tuesday, July 4th of the current year 2025, we held an important meeting with the honorable Dr. Cruz Jiminian, where we discussed significant projects for this year. Working together for the well-being of the most vulnerable. (Fundación Rosario Gatón). ![](https://media.fundacionrosariogaton.org/photos/2025-08-07-reunion-con-el-dr-cruz-jiminian-proyectos-2025/01.webp)

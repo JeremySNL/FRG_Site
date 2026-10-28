@@ -11,4 +11,4 @@ legacyPath: "/galeria/"
 noAutoTranslate: false
 ---
 
-Loida Eunice Cuello Colon 已接受子宮肌瘤手術 ![](https://fundacionrosariogaton.org/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-12-at-9.23.57-PM-225x300.jpeg)
+Loida Eunice Cuello Colon 已接受子宮肌瘤手術 ![](https://media.fundacionrosariogaton.org/photos/2026-01-13-loida-eunice-cuello-colon-operacion-de-mioma/01.webp)

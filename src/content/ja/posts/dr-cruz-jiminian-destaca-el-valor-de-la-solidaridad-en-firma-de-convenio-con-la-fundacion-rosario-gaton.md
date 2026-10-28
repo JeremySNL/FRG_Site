@@ -7,7 +7,7 @@ excerpt: "協力と社会的責任に関する感動的な式典の中で、著�
 categories:
   - "alianzas-institucionales"
 tags: []
-image: "2025/07/Sin-titulo.png"
+image: "photos/2025-07-22-dr-cruz-jiminian-destaca-el-valor-de-la-solidaridad/01.webp"
 legacyPath: "/dr-cruz-jiminian-destaca-el-valor-de-la-solidaridad-en-firma-de-convenio-con-la-fundacion-rosario-gaton/"
 noAutoTranslate: false
 ---

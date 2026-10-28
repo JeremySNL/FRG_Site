@@ -5,6 +5,15 @@
  * `wp-content/uploads/2025/07/logo.png` keeps the key `2025/07/logo.png`, so
  * every URL of the migrated content keeps working.
  *
+ * This is the first step of a three-step pipeline:
+ *
+ *   1. `migrate-media.mts`     WordPress uploads -> legacy `YYYY/MM` keys
+ *   2. `plan-media-keys.mts`   legacy keys -> structured `photos/pages/...` keys
+ *   3. `apply-media-keys.mts`  encode, upload, rewrite content, verify, prune
+ *
+ * Running this again after step 3 would re-create the legacy keys, so treat it
+ * as the one-time import it was.
+ *
  * The script only touches the files the new site actually uses. Everything
  * else in the uploads folder is an orphan of the old site and is left alone.
  *

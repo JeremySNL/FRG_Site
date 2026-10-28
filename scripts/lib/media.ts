@@ -17,6 +17,9 @@ export {
 } from '../../src/lib/media-keys.ts';
 const FRONTMATTER_MEDIA_KEYS = new Set(['image', 'backgroundImage', 'src']);
 
+/** Public media hosts whose path is already the object key. */
+const MEDIA_HOSTS = [/^pub-[a-z0-9]+\.r2\.dev$/i, /^media\.fundacionrosariogaton\.org$/i];
+
 /**
  * Turn a WordPress media URL into the path used by the new media host.
  *
@@ -112,6 +115,19 @@ export function collectMarkdownMediaReferences(source: string): {
         return;
       }
 
+      // Already on the media host: the pathname is the object key.
+      if (MEDIA_HOSTS.some((host) => host.test(url.hostname))) {
+        const encoded = url.pathname.replace(/^\/+/, '');
+        let key = encoded;
+        try {
+          key = decodeURIComponent(encoded);
+        } catch {
+          // Keep the encoded key if a URL has invalid percent escapes.
+        }
+        if (isMediaPath(key)) own.add(key);
+        return;
+      }
+
       const index = url.pathname.indexOf(WORDPRESS_UPLOADS_MARKER);
       if (index < 0) return;
 
@@ -155,6 +171,13 @@ export function collectMarkdownMediaReferences(source: string): {
   const uploadUrlPattern =
     /(?:https?:)?\/\/[^\s"')<>]*\/wp-content\/uploads\/[^\s"')<>]+/gi;
   for (const match of source.matchAll(uploadUrlPattern)) {
+    const url = match[0].replace(/[.,;!?]+$/, '');
+    add(url);
+  }
+
+  const mediaHostPattern =
+    /(?:https?:)?\/\/(?:media\.fundacionrosariogaton\.org|pub-[a-z0-9]+\.r2\.dev)\/[^\s"')<>]+/gi;
+  for (const match of source.matchAll(mediaHostPattern)) {
     const url = match[0].replace(/[.,;!?]+$/, '');
     add(url);
   }

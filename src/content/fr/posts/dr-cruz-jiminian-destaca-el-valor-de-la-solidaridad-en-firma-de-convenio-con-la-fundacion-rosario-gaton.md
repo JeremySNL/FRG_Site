@@ -7,7 +7,7 @@ excerpt: "Lors d'une cérémonie empreinte d'émotion, de coopération et d'enga
 categories:
   - "alianzas-institucionales"
 tags: []
-image: "2025/07/Sin-titulo.png"
+image: "photos/2025-07-22-dr-cruz-jiminian-destaca-el-valor-de-la-solidaridad/01.webp"
 legacyPath: "/dr-cruz-jiminian-destaca-el-valor-de-la-solidaridad-en-firma-de-convenio-con-la-fundacion-rosario-gaton/"
 noAutoTranslate: false
 ---

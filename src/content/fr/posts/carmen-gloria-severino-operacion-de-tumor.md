@@ -11,4 +11,4 @@ legacyPath: "/ayudas-medicas-2/"
 noAutoTranslate: false
 ---
 
-Carmen Gloria Severino opérée d'une tumeur. ![](https://fundacionrosariogaton.org/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-22-at-9.06.12-PM-225x300.jpeg)
+Carmen Gloria Severino opérée d'une tumeur. ![](https://media.fundacionrosariogaton.org/photos/2026-01-23-carmen-gloria-severino-operacion-de-tumor/01.webp)

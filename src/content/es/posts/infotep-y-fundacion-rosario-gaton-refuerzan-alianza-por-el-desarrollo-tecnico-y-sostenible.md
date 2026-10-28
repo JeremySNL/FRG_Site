@@ -7,7 +7,7 @@ excerpt: "Fundación Rosario Gatón e INFOTEP fortalecen alianza en favor del de
 categories:
   - "alianzas-educativas"
 tags: []
-image: "2025/07/54416713_1949911581774673_7367231177482043392_n.jpg"
+image: "photos/2019-03-20-infotep-y-fundacion-rosario-gaton-refuerzan-alianza/01.webp"
 legacyPath: "/infotep-y-fundacion-rosario-gaton-refuerzan-alianza-por-el-desarrollo-tecnico-y-sostenible/"
 noAutoTranslate: false
 ---

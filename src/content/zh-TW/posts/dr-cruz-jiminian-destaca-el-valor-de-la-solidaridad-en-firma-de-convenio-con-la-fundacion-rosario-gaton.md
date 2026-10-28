@@ -7,7 +7,7 @@ excerpt: "在一場充滿溫情與社會承擔的合作儀式上，知名醫師�
 categories:
   - "alianzas-institucionales"
 tags: []
-image: "2025/07/Sin-titulo.png"
+image: "photos/2025-07-22-dr-cruz-jiminian-destaca-el-valor-de-la-solidaridad/01.webp"
 legacyPath: "/dr-cruz-jiminian-destaca-el-valor-de-la-solidaridad-en-firma-de-convenio-con-la-fundacion-rosario-gaton/"
 noAutoTranslate: false
 ---

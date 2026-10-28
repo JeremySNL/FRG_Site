@@ -9,7 +9,7 @@ categories:
   - "relaciones-internacionales"
   - "cooperacion-internacional"
 tags: []
-image: "2026/10/ImagenPostCSRAwards-scaled.jpg"
+image: "photos/2026-10-15-fundacion-rosario-gaton-es-galardonada-en-los-csr-awards/01-imagenpostcsrawards.webp"
 legacyPath: "/la-fundacion-rosario-gaton-es-galardonada-en-los-csr-awards-2026-por-acquisition-international/"
 noAutoTranslate: false
 ---

@@ -1,0 +1,1587 @@
+{
+  "generatedAt": "2026-10-28T03:09:42.094Z",
+  "uploadsDir": "C:/Users/jeremy/Local Sites/fundacionrosariogaton/app/public/wp-content/uploads",
+  "entries": [
+    {
+      "legacy": "2025/07/101257098_2768436769922146_403019274127409152_n-1.jpg",
+      "target": "photos/2020-05-29-recibe-al-embajador-luis-gonzalez-para-dialogo/01.webp",
+      "source": "2025/07/101257098_2768436769922146_403019274127409152_n-1.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-recibe-al-embajador-luis-gonzalez-para-dialogo-de-cooperacion-internacional"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/118761928_3023846601047827_437596050276805905_n.jpg",
+      "target": "pages/donar/01.webp",
+      "source": "2025/07/118761928_3023846601047827_437596050276805905_n.jpg",
+      "sourceKind": "remote",
+      "owners": [
+        "page:donar"
+      ],
+      "nameKind": "ordinal",
+      "remoteUrl": "https://pub-5cbacf607eb04817843a662da004678f.r2.dev/2025/07/118761928_3023846601047827_437596050276805905_n.jpg"
+    },
+    {
+      "legacy": "2025/07/119037367_3058066080959212_1519807293402683179_n.png",
+      "target": "photos/2025-07-22-filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh/01.webp",
+      "source": "2025/07/119037367_3058066080959212_1519807293402683179_n.png",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh-entrega-alimentos-a-personas-en-situacion-de-vulnerabilidad"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/119054607_3058059200959900_1964614313946877378_n.png",
+      "target": "photos/2025-07-22-filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh/02.webp",
+      "source": "2025/07/119054607_3058059200959900_1964614313946877378_n.png",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh-entrega-alimentos-a-personas-en-situacion-de-vulnerabilidad"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/119061000_3058059977626489_518822333427617714_n.png",
+      "target": "photos/2025-07-22-filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh/03.webp",
+      "source": "2025/07/119061000_3058059977626489_518822333427617714_n.png",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh-entrega-alimentos-a-personas-en-situacion-de-vulnerabilidad"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/119070094_3058063867626100_8639727286493159552_n.png",
+      "target": "photos/2025-07-22-filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh/04.webp",
+      "source": "2025/07/119070094_3058063867626100_8639727286493159552_n.png",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh-entrega-alimentos-a-personas-en-situacion-de-vulnerabilidad"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/119072674_3058064374292716_1156553516868989116_n.png",
+      "target": "photos/2025-07-22-filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh/05.webp",
+      "source": "2025/07/119072674_3058064374292716_1156553516868989116_n.png",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh-entrega-alimentos-a-personas-en-situacion-de-vulnerabilidad"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/119080893_3058062334292920_341934461004559705_n.png",
+      "target": "photos/2025-07-22-filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh/06.webp",
+      "source": "2025/07/119080893_3058062334292920_341934461004559705_n.png",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh-entrega-alimentos-a-personas-en-situacion-de-vulnerabilidad"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/119099338_3058061314293022_6951537108766425304_n.png",
+      "target": "photos/2025-07-22-filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh/07.webp",
+      "source": "2025/07/119099338_3058061314293022_6951537108766425304_n.png",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh-entrega-alimentos-a-personas-en-situacion-de-vulnerabilidad"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/119114123_3058063047626182_302507697780677596_n.png",
+      "target": "photos/2025-07-22-filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh/08.webp",
+      "source": "2025/07/119114123_3058063047626182_302507697780677596_n.png",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh-entrega-alimentos-a-personas-en-situacion-de-vulnerabilidad"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/119116855_3058062714292882_3649491998564365596_n.png",
+      "target": "photos/2025-07-22-filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh/09.webp",
+      "source": "2025/07/119116855_3058062714292882_3649491998564365596_n.png",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh-entrega-alimentos-a-personas-en-situacion-de-vulnerabilidad"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/119157672_3058061820959638_5486343917342965581_n.png",
+      "target": "photos/2025-07-22-filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh/10.webp",
+      "source": "2025/07/119157672_3058061820959638_5486343917342965581_n.png",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh-entrega-alimentos-a-personas-en-situacion-de-vulnerabilidad"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/119503533_3058060590959761_2141002445055085828_n.png",
+      "target": "photos/2025-07-22-filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh/11.webp",
+      "source": "2025/07/119503533_3058060590959761_2141002445055085828_n.png",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh-entrega-alimentos-a-personas-en-situacion-de-vulnerabilidad"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/119510794_3058063457626141_3925894108112061703_n.png",
+      "target": "photos/2025-07-22-filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh/12.webp",
+      "source": "2025/07/119510794_3058063457626141_3925894108112061703_n.png",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh-entrega-alimentos-a-personas-en-situacion-de-vulnerabilidad"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/124902322_3241301375969014_3017039964780380682_n.jpg",
+      "target": "photos/2025-07-22-embajador-florentino-rodriguez-y-su-equipo-llevan-ayuda/01.webp",
+      "source": "2025/07/124902322_3241301375969014_3017039964780380682_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:embajador-florentino-rodriguez-y-su-equipo-llevan-ayuda-humanitaria-a-comunidades-vulnerables-en-sierra-leona"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/1416b2d2-c186-4c81-9cd1-351d8146f2aa.jpg",
+      "target": "pages/site/01.webp",
+      "source": "2025/07/1416b2d2-c186-4c81-9cd1-351d8146f2aa.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "page:inicio"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/152194905_3486246491474500_1094128402586501886_n.jpg",
+      "target": "photos/2025-07-22-continua-llevando-esperanza-a-familias-vulnerables/01.webp",
+      "source": "2025/07/152194905_3486246491474500_1094128402586501886_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-continua-llevando-esperanza-a-familias-vulnerables-con-entrega-de-alimentos"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/152194905_3486246511474498_7849458473572496383_n.jpg",
+      "target": "photos/2025-07-22-continua-llevando-esperanza-a-familias-vulnerables/02.webp",
+      "source": "2025/07/152194905_3486246511474498_7849458473572496383_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-continua-llevando-esperanza-a-familias-vulnerables-con-entrega-de-alimentos"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/152327757_3486246494807833_242944154639295931_n.jpg",
+      "target": "photos/2025-07-22-continua-llevando-esperanza-a-familias-vulnerables/03.webp",
+      "source": "2025/07/152327757_3486246494807833_242944154639295931_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-continua-llevando-esperanza-a-familias-vulnerables-con-entrega-de-alimentos"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/152546864_3486246514807831_8549730807493528115_n.jpg",
+      "target": "photos/2025-07-22-continua-llevando-esperanza-a-familias-vulnerables/04.webp",
+      "source": "2025/07/152546864_3486246514807831_8549730807493528115_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-continua-llevando-esperanza-a-familias-vulnerables-con-entrega-de-alimentos"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/152581537_3486246504807832_6978881936437505171_n.jpg",
+      "target": "photos/2025-07-22-continua-llevando-esperanza-a-familias-vulnerables/05.webp",
+      "source": "2025/07/152581537_3486246504807832_6978881936437505171_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-continua-llevando-esperanza-a-familias-vulnerables-con-entrega-de-alimentos"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/152691940_3486246508141165_6965434894000257240_n.jpg",
+      "target": "photos/2025-07-22-continua-llevando-esperanza-a-familias-vulnerables/06.webp",
+      "source": "2025/07/152691940_3486246508141165_6965434894000257240_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-continua-llevando-esperanza-a-familias-vulnerables-con-entrega-de-alimentos"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/152714597_3486246488141167_1582936361189586119_n.jpg",
+      "target": "photos/2025-07-22-continua-llevando-esperanza-a-familias-vulnerables/07.webp",
+      "source": "2025/07/152714597_3486246488141167_1582936361189586119_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-continua-llevando-esperanza-a-familias-vulnerables-con-entrega-de-alimentos"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/152735183_3486246498141166_4139285619324287667_n.jpg",
+      "target": "photos/2025-07-22-continua-llevando-esperanza-a-familias-vulnerables/08.webp",
+      "source": "2025/07/152735183_3486246498141166_4139285619324287667_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-continua-llevando-esperanza-a-familias-vulnerables-con-entrega-de-alimentos"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/152942829_3486246518141164_811300107023893931_n.jpg",
+      "target": "photos/2025-07-22-continua-llevando-esperanza-a-familias-vulnerables/09.webp",
+      "source": "2025/07/152942829_3486246518141164_811300107023893931_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-continua-llevando-esperanza-a-familias-vulnerables-con-entrega-de-alimentos"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/153419210_3486246501474499_3389036132229290343_n.jpg",
+      "target": "photos/2025-07-22-continua-llevando-esperanza-a-familias-vulnerables/10.webp",
+      "source": "2025/07/153419210_3486246501474499_3389036132229290343_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "page:nosotros",
+        "post:fundacion-rosario-gaton-continua-llevando-esperanza-a-familias-vulnerables-con-entrega-de-alimentos"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/167409147763c89bd5165dc_1674091477_3x2_md.jpg",
+      "target": "pages/politica-de-etica-y-seguridad/01.webp",
+      "source": "2025/07/167409147763c89bd5165dc_1674091477_3x2_md.jpg",
+      "sourceKind": "remote",
+      "owners": [
+        "page:politica-de-etica-y-seguridad"
+      ],
+      "nameKind": "ordinal",
+      "remoteUrl": "https://pub-5cbacf607eb04817843a662da004678f.r2.dev/2025/07/167409147763c89bd5165dc_1674091477_3x2_md.jpg"
+    },
+    {
+      "legacy": "2025/07/192499427_3779589355473544_7932872953154921549_n.jpg",
+      "target": "photos/2025-07-22-entrega-alimentos-a-familias-vulnerables-como-parte-de-su/01.webp",
+      "source": "2025/07/192499427_3779589355473544_7932872953154921549_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-entrega-alimentos-a-familias-vulnerables-como-parte-de-su-compromiso-con-la-salud-y-el-bienestar"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/193226807_3779589345473545_5041561472688224496_n.jpg",
+      "target": "photos/2025-07-22-entrega-alimentos-a-familias-vulnerables-como-parte-de-su/02.webp",
+      "source": "2025/07/193226807_3779589345473545_5041561472688224496_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-entrega-alimentos-a-familias-vulnerables-como-parte-de-su-compromiso-con-la-salud-y-el-bienestar"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/193288608_3779589348806878_8869084500417185872_n.jpg",
+      "target": "photos/2025-07-22-entrega-alimentos-a-familias-vulnerables-como-parte-de-su/03.webp",
+      "source": "2025/07/193288608_3779589348806878_8869084500417185872_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-entrega-alimentos-a-familias-vulnerables-como-parte-de-su-compromiso-con-la-salud-y-el-bienestar"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/194268476_3779589365473543_5903311271533166036_n.jpg",
+      "target": "photos/2025-07-22-entrega-alimentos-a-familias-vulnerables-como-parte-de-su/04.webp",
+      "source": "2025/07/194268476_3779589365473543_5903311271533166036_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-entrega-alimentos-a-familias-vulnerables-como-parte-de-su-compromiso-con-la-salud-y-el-bienestar"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/194482025_3779589372140209_6102377695419728770_n.jpg",
+      "target": "photos/2025-07-22-entrega-alimentos-a-familias-vulnerables-como-parte-de-su/05.webp",
+      "source": "2025/07/194482025_3779589372140209_6102377695419728770_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-entrega-alimentos-a-familias-vulnerables-como-parte-de-su-compromiso-con-la-salud-y-el-bienestar"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/194769352_3779589362140210_1311684501893869371_n.jpg",
+      "target": "photos/2025-07-22-entrega-alimentos-a-familias-vulnerables-como-parte-de-su/06.webp",
+      "source": "2025/07/194769352_3779589362140210_1311684501893869371_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "page:inicio",
+        "post:fundacion-rosario-gaton-entrega-alimentos-a-familias-vulnerables-como-parte-de-su-compromiso-con-la-salud-y-el-bienestar"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/194838693_3779589368806876_6367547319717260429_n.jpg",
+      "target": "photos/2025-07-22-entrega-alimentos-a-familias-vulnerables-como-parte-de-su/07.webp",
+      "source": "2025/07/194838693_3779589368806876_6367547319717260429_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-entrega-alimentos-a-familias-vulnerables-como-parte-de-su-compromiso-con-la-salud-y-el-bienestar"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/194865708_3779589342140212_8264192514272201068_n.jpg",
+      "target": "photos/2025-07-22-entrega-alimentos-a-familias-vulnerables-como-parte-de-su/08.webp",
+      "source": "2025/07/194865708_3779589342140212_8264192514272201068_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-entrega-alimentos-a-familias-vulnerables-como-parte-de-su-compromiso-con-la-salud-y-el-bienestar"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/196291111_3779589358806877_6869218971322080492_n.jpg",
+      "target": "photos/2025-07-22-entrega-alimentos-a-familias-vulnerables-como-parte-de-su/09.webp",
+      "source": "2025/07/196291111_3779589358806877_6869218971322080492_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-entrega-alimentos-a-familias-vulnerables-como-parte-de-su-compromiso-con-la-salud-y-el-bienestar"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/196853294_3779589352140211_2223174242837583812_n.jpg",
+      "target": "photos/2025-07-22-entrega-alimentos-a-familias-vulnerables-como-parte-de-su/10.webp",
+      "source": "2025/07/196853294_3779589352140211_2223174242837583812_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-entrega-alimentos-a-familias-vulnerables-como-parte-de-su-compromiso-con-la-salud-y-el-bienestar"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/1a7e2f32-a5c5-4081-ae77-ce12bf2ea987.jpg",
+      "target": "pages/galeria-de-imagenes/01.webp",
+      "source": "2025/07/1a7e2f32-a5c5-4081-ae77-ce12bf2ea987.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/20_econo_13_3p01.webp",
+      "target": "programs/reduccion-de-la-pobreza-y-desigualdad-social/cover.webp",
+      "source": "2025/07/20_econo_13_3p01.webp",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "program:reduccion-de-la-pobreza-y-desigualdad-social"
+      ],
+      "nameKind": "slug"
+    },
+    {
+      "legacy": "2025/07/308990619_177982108128034_4272015722118422953_n.png",
+      "target": "pages/actualidades/01.webp",
+      "source": "2025/07/308990619_177982108128034_4272015722118422953_n.png",
+      "sourceKind": "remote",
+      "owners": [
+        "page:actualidades"
+      ],
+      "nameKind": "ordinal",
+      "remoteUrl": "https://pub-5cbacf607eb04817843a662da004678f.r2.dev/2025/07/308990619_177982108128034_4272015722118422953_n.png"
+    },
+    {
+      "legacy": "2025/07/309789749_177982111461367_3349876411011993474_n-Photoroom.png",
+      "target": "brand/logo.webp",
+      "source": "2025/07/309789749_177982111461367_3349876411011993474_n-Photoroom.png",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "site:logo"
+      ],
+      "nameKind": "slug"
+    },
+    {
+      "legacy": "2025/07/38681233-6504-4457-ba35-df8773dd27de.jpg",
+      "target": "pages/galeria-de-imagenes/02.webp",
+      "source": "2025/07/38681233-6504-4457-ba35-df8773dd27de.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/49342964_607833472968220_6866193096028192768_n.jpg",
+      "target": "photos/2019-01-23-se-reunen-con-autoridades-para-fortalecer-compromisos/01.webp",
+      "source": "2025/07/49342964_607833472968220_6866193096028192768_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "page:nosotros",
+        "post:fundacion-rosario-gaton-se-reunen-con-autoridades-para-fortalecer-compromisos-con-los-ods-y-la-end"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/50470030_1872829336149565_5349142202482163712_n.jpg",
+      "target": "photos/2019-01-23-se-reune-con-el-embajador-de-guatemala-para-fortalecer/01.webp",
+      "source": "2025/07/50470030_1872829336149565_5349142202482163712_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "page:inicio",
+        "post:fundacion-rosario-gaton-se-reune-con-el-embajador-de-guatemala-para-fortalecer-cooperacion-internacional"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/509983178_9689660517799702_8595958488067212223_n.jpg",
+      "target": "photos/2025-07-22-sostiene-encuentro-con-representante-del-g7-de-argentina/01.webp",
+      "source": "2025/07/509983178_9689660517799702_8595958488067212223_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-sostiene-encuentro-con-representante-del-g7-de-argentina-y-autoridades-dominicanas-del-sector-agricola"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/53658714_1939775649454933_2642427106436317184_n.jpg",
+      "target": "photos/2019-03-12-policia-nacional-impulsan-diplomado-sobre-dignidad-humana/01.webp",
+      "source": "2025/07/53658714_1939775649454933_2642427106436317184_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-y-la-policia-nacional-impulsan-diplomado-sobre-dignidad-humana"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/53738136_1932303580202140_4310815386019823616_n.png",
+      "target": "photos/2019-03-06-se-une-a-la-iniciativa-cero-discriminacion-en-encuentro/01.webp",
+      "source": "2025/07/53738136_1932303580202140_4310815386019823616_n.png",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-se-une-a-la-iniciativa-cero-discriminacion-en-encuentro-con-la-union-europea"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/54356049_1948175055281659_5742185723574878208_n.jpg",
+      "target": "photos/2019-03-17-realiza-asamblea-general-2019-para-fortalecer-su-impacto/01.webp",
+      "source": "2025/07/54356049_1948175055281659_5742185723574878208_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-realiza-asamblea-general-2019-para-fortalecer-su-impacto-social"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/54416713_1949911581774673_7367231177482043392_n.jpg",
+      "target": "photos/2019-03-20-infotep-y-fundacion-rosario-gaton-refuerzan-alianza/01.webp",
+      "source": "2025/07/54416713_1949911581774673_7367231177482043392_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:infotep-y-fundacion-rosario-gaton-refuerzan-alianza-por-el-desarrollo-tecnico-y-sostenible"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/54523929_1956409611124870_3963572816351068160_n.jpg",
+      "target": "photos/2019-03-25-afianza-alianza-con-el-patronato-contra-el-cancer-en-apoyo/01.webp",
+      "source": "2025/07/54523929_1956409611124870_3963572816351068160_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-afianza-alianza-con-el-patronato-contra-el-cancer-en-apoyo-a-los-ods"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/58441313_1998895213542976_2891675994337312768_n.jpg",
+      "target": "photos/2019-04-24-fortalece-vinculos-con-el-bid-en-apoyo-a-los-ods-y-la-end/01.webp",
+      "source": "2025/07/58441313_1998895213542976_2891675994337312768_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-fortalece-vinculos-con-el-bid-en-apoyo-a-los-ods-y-la-end"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/58604198_2007871652645332_1074115417435275264_n.png",
+      "target": "photos/2019-04-30-universidad-politecnica-internacional-refuerzan-alianza/01.webp",
+      "source": "2025/07/58604198_2007871652645332_1074115417435275264_n.png",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "page:nuestro-equipo",
+        "post:fundacion-rosario-gaton-y-universidad-politecnica-internacional-refuerzan-alianza-entre-republica-dominicana-y-costa-rica"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/74651304_2349864461779381_971641036805767168_n.jpg",
+      "target": "photos/2019-11-13-amchamdr-impulsan-alianzas-estrategicas-para-el-desarrollo/01.webp",
+      "source": "2025/07/74651304_2349864461779381_971641036805767168_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:fundacion-rosario-gaton-y-amchamdr-impulsan-alianzas-estrategicas-para-el-desarrollo-sostenible"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/75407622_2352186168213877_4414493572967956480_n.jpg",
+      "target": "photos/2019-11-14-se-reune-con-el-embajador-de-israel-durante-encuentro/01.webp",
+      "source": "2025/07/75407622_2352186168213877_4414493572967956480_n.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "page:contacto",
+        "post:fundacion-rosario-gaton-se-reune-con-el-embajador-de-israel-durante-encuentro-diplomatico-en-el-ministerio-de-defensa"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/80237adb-59f2-416a-a9e9-ed7dba14d8d9.jpg",
+      "target": "pages/galeria-de-imagenes/03.webp",
+      "source": "2025/07/80237adb-59f2-416a-a9e9-ed7dba14d8d9.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/ab62be8d-2301-4226-baaa-5c89699bb5eb.jpg",
+      "target": "pages/galeria-de-imagenes/04.webp",
+      "source": "2025/07/ab62be8d-2301-4226-baaa-5c89699bb5eb.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/as.jpg",
+      "target": "pages/galeria-de-imagenes/05.webp",
+      "source": "2025/07/as.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/c074a16f-294b-465b-8207-b104e4eaa91f.jpg",
+      "target": "pages/galeria-de-imagenes/06.webp",
+      "source": "2025/07/c074a16f-294b-465b-8207-b104e4eaa91f.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/c5527033-54cb-416d-b078-4564ced555cf.jpg",
+      "target": "pages/galeria-de-imagenes/07.webp",
+      "source": "2025/07/c5527033-54cb-416d-b078-4564ced555cf.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/cd44ce519e37e68e392d0a66435c619e.jpg",
+      "target": "programs/vivienda-digna-e-infraestructura-basica/cover.webp",
+      "source": "2025/07/cd44ce519e37e68e392d0a66435c619e.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "program:vivienda-digna-e-infraestructura-basica"
+      ],
+      "nameKind": "slug"
+    },
+    {
+      "legacy": "2025/07/descarga-1.jpg",
+      "target": "programs/arte-cultura-deporte-y-turismo-sostenible/cover.webp",
+      "source": "2025/07/descarga-1.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "program:arte-cultura-deporte-y-turismo-sostenible"
+      ],
+      "nameKind": "slug"
+    },
+    {
+      "legacy": "2025/07/ee6e2f00e71311ea83a0567103a612d1.jpg",
+      "target": "programs/apoyo-a-emprendimientos-y-microeconomia/cover.webp",
+      "source": "2025/07/ee6e2f00e71311ea83a0567103a612d1.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "program:apoyo-a-emprendimientos-y-microeconomia"
+      ],
+      "nameKind": "slug"
+    },
+    {
+      "legacy": "2025/07/encuesta-nutricion-nvo-leon.jpg",
+      "target": "programs/salud-y-seguridad-alimentaria/cover.webp",
+      "source": "2025/07/encuesta-nutricion-nvo-leon.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "program:salud-y-seguridad-alimentaria"
+      ],
+      "nameKind": "slug"
+    },
+    {
+      "legacy": "2025/07/images-1.jpg",
+      "target": "programs/prevencion-de-violencia-genero-terrorismo-trata-de-personas/cover.webp",
+      "source": "2025/07/images-1.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "program:prevencion-de-violencia-genero-terrorismo-trata-de-personas"
+      ],
+      "nameKind": "slug"
+    },
+    {
+      "legacy": "2025/07/jovenes-colombia-1-2100x1402-1.jpg",
+      "target": "programs/fortalecimiento-institucional-y-valores-democraticos/cover.webp",
+      "source": "2025/07/jovenes-colombia-1-2100x1402-1.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "program:fortalecimiento-institucional-y-valores-democraticos"
+      ],
+      "nameKind": "slug"
+    },
+    {
+      "legacy": "2025/07/MicrosoftTeams-image-scaled.jpg",
+      "target": "programs/preservacion-ecologica-y-medioambiente/cover.webp",
+      "source": "2025/07/MicrosoftTeams-image-scaled.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "program:preservacion-ecologica-y-medioambiente"
+      ],
+      "nameKind": "slug"
+    },
+    {
+      "legacy": "2025/07/nnn.jpg",
+      "target": "pages/galeria-de-imagenes/08.webp",
+      "source": "2025/07/nnn.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/rosario-gaton.jpg",
+      "target": "team/rosario-gaton.webp",
+      "source": "2025/07/rosario-gaton.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:inicio",
+        "page:nosotros",
+        "team:rosario-gaton"
+      ],
+      "nameKind": "slug"
+    },
+    {
+      "legacy": "2025/07/seguridad-vial-rd-e9229e09-focus-0-0-375-240-1.jpg",
+      "target": "programs/transporte-y-ordenamiento-del-transito-escolar/cover.webp",
+      "source": "2025/07/seguridad-vial-rd-e9229e09-focus-0-0-375-240-1.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "program:transporte-y-ordenamiento-del-transito-escolar"
+      ],
+      "nameKind": "slug"
+    },
+    {
+      "legacy": "2025/07/Separacion-de-desechos-en-Guatemala-02-1140x815-1.webp",
+      "target": "programs/gestion-de-residuos-solidos-agua-potable-y-saneamiento/cover.webp",
+      "source": "2025/07/Separacion-de-desechos-en-Guatemala-02-1140x815-1.webp",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "program:gestion-de-residuos-solidos-agua-potable-y-saneamiento"
+      ],
+      "nameKind": "slug"
+    },
+    {
+      "legacy": "2025/07/Sin-titulo-1.jpg",
+      "target": "programs/inclusion-de-personas-con-discapacidad/cover.webp",
+      "source": "2025/07/Sin-titulo-1.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "program:inclusion-de-personas-con-discapacidad"
+      ],
+      "nameKind": "slug"
+    },
+    {
+      "legacy": "2025/07/Sin-titulo.png",
+      "target": "photos/2025-07-22-dr-cruz-jiminian-destaca-el-valor-de-la-solidaridad/01.webp",
+      "source": "2025/07/Sin-titulo.png",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes",
+        "post:dr-cruz-jiminian-destaca-el-valor-de-la-solidaridad-en-firma-de-convenio-con-la-fundacion-rosario-gaton"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/ss.jpg",
+      "target": "pages/galeria-de-imagenes/09.webp",
+      "source": "2025/07/ss.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/sss.jpg",
+      "target": "pages/galeria-de-imagenes/10.webp",
+      "source": "2025/07/sss.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/sssss.jpg",
+      "target": "pages/galeria-de-imagenes/11.webp",
+      "source": "2025/07/sssss.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:galeria-de-imagenes"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/07/taller-de-capacitacion-del-campus-virtual-a-estudiantes-becados-en-el-area-de-formacion-del-profesorado.jpg",
+      "target": "programs/educacion-y-formacion-ciudadana/cover.webp",
+      "source": "2025/07/taller-de-capacitacion-del-campus-virtual-a-estudiantes-becados-en-el-area-de-formacion-del-profesorado.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:programas-y-proyectos",
+        "program:educacion-y-formacion-ciudadana"
+      ],
+      "nameKind": "slug"
+    },
+    {
+      "legacy": "2025/08/IMG-20250806-WA0187-768x1024.jpg",
+      "target": "photos/2025-08-07-reunion-con-el-dr-cruz-jiminian-proyectos-2025/01.webp",
+      "source": "2025/08/IMG-20250806-WA0187.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:reunion-con-el-dr-cruz-jiminian-proyectos-2025"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/08/Sin-titulo.png",
+      "target": "photos/2025-08-07-neurologia-con-los-especialistas-de-venezuela/01.webp",
+      "source": "2025/08/Sin-titulo.png",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "post:neurologia-con-los-especialistas-de-venezuela-y-la-fundacion-rosario-gaton"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/09/Afiche-JPEG.jpg",
+      "target": "pages/interlatitudes-medicos/01-afiche.webp",
+      "source": "2025/09/Afiche-JPEG.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "page:interlatitudes-medicos"
+      ],
+      "nameKind": "slug"
+    },
+    {
+      "legacy": "2025/11/La-Fundacion-Rosario-Gaton-y-el-Distinguido-Dr.-Felix-Antonio-Cruz-Jiminian-trabajando-de-la-mano-por-los-mas-necesitados.jpg",
+      "target": "photos/2025-11-13-dr-cruz-jiminian-solidaridad-en-accion/01-el-distinguido-dr-felix-antonio-cruz-jiminian.webp",
+      "source": "2025/11/La-Fundacion-Rosario-Gaton-y-el-Distinguido-Dr.-Felix-Antonio-Cruz-Jiminian-trabajando-de-la-mano-por-los-mas-necesitados.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "post:fundacion-rosario-gaton-y-dr-cruz-jiminian-solidaridad-en-accion"
+      ],
+      "nameKind": "slug"
+    },
+    {
+      "legacy": "2025/12/IMG-20251108-WA0285-1-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/01.webp",
+      "source": "2025/12/IMG-20251108-WA0285-1.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251108-WA0285-2-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/02.webp",
+      "source": "2025/12/IMG-20251108-WA0285-2.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025-2"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251108-WA0286-1-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/03.webp",
+      "source": "2025/12/IMG-20251108-WA0286-1.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251108-WA0286-2-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/04.webp",
+      "source": "2025/12/IMG-20251108-WA0286-2.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025-2"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251108-WA02861-1-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/05.webp",
+      "source": "2025/12/IMG-20251108-WA02861-1.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251108-WA02861-2-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/06.webp",
+      "source": "2025/12/IMG-20251108-WA02861-2.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025-2"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251108-WA0288-1-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/07.webp",
+      "source": "2025/12/IMG-20251108-WA0288-1.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251108-WA0288-2-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/08.webp",
+      "source": "2025/12/IMG-20251108-WA0288-2.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025-2"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251119-WA0192-1-185x300.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/09.webp",
+      "source": "2025/12/IMG-20251119-WA0192-1.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025-2",
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251119-WA0192-2-185x300.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/10.webp",
+      "source": "2025/12/IMG-20251119-WA0192-2.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025-2"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251120-WA0351-1-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/11.webp",
+      "source": "2025/12/IMG-20251120-WA0351-1.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251120-WA0351-2-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/12.webp",
+      "source": "2025/12/IMG-20251120-WA0351-2.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025-2"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0159-1-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/13.webp",
+      "source": "2025/12/IMG-20251214-WA0159-1.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0159-2-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/14.webp",
+      "source": "2025/12/IMG-20251214-WA0159-2.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025-2"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0162-1-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/15.webp",
+      "source": "2025/12/IMG-20251214-WA0162-1.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0162-2-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/16.webp",
+      "source": "2025/12/IMG-20251214-WA0162-2.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025-2"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0163-1-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/17.webp",
+      "source": "2025/12/IMG-20251214-WA0163-1.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0163-2-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/18.webp",
+      "source": "2025/12/IMG-20251214-WA0163-2.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025-2"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0165-1-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/19.webp",
+      "source": "2025/12/IMG-20251214-WA0165-1.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0165-2-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/20.webp",
+      "source": "2025/12/IMG-20251214-WA0165-2.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025-2"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0165-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/21.webp",
+      "source": "2025/12/IMG-20251214-WA0165.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0166-1-300x225.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/22.webp",
+      "source": "2025/12/IMG-20251214-WA0166-1.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0166-2-300x225.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/23.webp",
+      "source": "2025/12/IMG-20251214-WA0166-2.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025-2"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0169-1-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/24.webp",
+      "source": "2025/12/IMG-20251214-WA0169-1.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0169-2-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/25.webp",
+      "source": "2025/12/IMG-20251214-WA0169-2.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025-2"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0171-1-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/26.webp",
+      "source": "2025/12/IMG-20251214-WA0171-1.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0171-2-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/27.webp",
+      "source": "2025/12/IMG-20251214-WA0171-2.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025-2"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0173-1-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/28.webp",
+      "source": "2025/12/IMG-20251214-WA0173-1.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0173-2-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/29.webp",
+      "source": "2025/12/IMG-20251214-WA0173-2.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025-2"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0174-1-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/30.webp",
+      "source": "2025/12/IMG-20251214-WA0174-1.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0174-2-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/31.webp",
+      "source": "2025/12/IMG-20251214-WA0174-2.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025-2"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0176-1-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/32.webp",
+      "source": "2025/12/IMG-20251214-WA0176-1.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0176-2-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/33.webp",
+      "source": "2025/12/IMG-20251214-WA0176-2.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025-2"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0179-1-300x225.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/34.webp",
+      "source": "2025/12/IMG-20251214-WA0179-1.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0179-2-300x225.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/35.webp",
+      "source": "2025/12/IMG-20251214-WA0179-2.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025-2"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0180-1-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/36.webp",
+      "source": "2025/12/IMG-20251214-WA0180-1.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0180-2-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/37.webp",
+      "source": "2025/12/IMG-20251214-WA0180-2.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025-2"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0181-1-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/38.webp",
+      "source": "2025/12/IMG-20251214-WA0181-1.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0181-2-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/39.webp",
+      "source": "2025/12/IMG-20251214-WA0181-2.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025-2"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0182-1-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/40.webp",
+      "source": "2025/12/IMG-20251214-WA0182-1.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0182-2-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/41.webp",
+      "source": "2025/12/IMG-20251214-WA0182-2.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025-2"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0183-1-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/42.webp",
+      "source": "2025/12/IMG-20251214-WA0183-1.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251214-WA0183-2-300x226.jpg",
+      "target": "photos/2025-12-14-acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton/43.webp",
+      "source": "2025/12/IMG-20251214-WA0183-2.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025-2"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251230-WA0020-1-225x300.jpg",
+      "target": "photos/2025-12-31-encuentro-con-embajador-de-comercio-de-china/01.webp",
+      "source": "2025/12/IMG-20251230-WA0020-1.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:encuentro-con-embajador-de-comercio-de-china"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/IMG-20251230-WA0021-1-226x300.jpg",
+      "target": "photos/2025-12-31-encuentro-con-embajador-de-comercio-de-china/02.webp",
+      "source": "2025/12/IMG-20251230-WA0021-1.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:encuentro-con-embajador-de-comercio-de-china"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2025/12/WhatsApp-Image-2025-12-31-at-9.41.31-AM-300x225.jpeg",
+      "target": "photos/2025-12-31-encuentro-con-el-dr-cruz-jiminian/01.webp",
+      "source": "2025/12/WhatsApp-Image-2025-12-31-at-9.41.31-AM.jpeg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:encuentro-con-el-dr-cruz-jiminian"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2026/01/WhatsApp-Image-2026-01-12-at-9.23.57-PM-225x300.jpeg",
+      "target": "photos/2026-01-13-loida-eunice-cuello-colon-operacion-de-mioma/01.webp",
+      "source": "2026/01/WhatsApp-Image-2026-01-12-at-9.23.57-PM.jpeg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:loida-eunice-cuello-colon-operacion-de-mioma"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2026/01/WhatsApp-Image-2026-01-13-at-10.29.15-PM-1-225x300.jpeg",
+      "target": "photos/2026-01-14-aplicacion-de-tornillos-en-el-pie/01.webp",
+      "source": "2026/01/WhatsApp-Image-2026-01-13-at-10.29.15-PM-1.jpeg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:aplicacion-de-tornillos-en-el-pie"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2026/01/WhatsApp-Image-2026-01-13-at-10.29.15-PM-300x225.jpeg",
+      "target": "photos/2026-01-14-aplicacion-de-tornillos-en-el-pie/02.webp",
+      "source": "2026/01/WhatsApp-Image-2026-01-13-at-10.29.15-PM.jpeg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:aplicacion-de-tornillos-en-el-pie"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2026/01/WhatsApp-Image-2026-01-15-at-7.14.40-PM-204x300.jpeg",
+      "target": "photos/2026-01-16-pablo-de-la-cruz-hernia-testicular/01.webp",
+      "source": "2026/01/WhatsApp-Image-2026-01-15-at-7.14.40-PM.jpeg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:pablo-de-la-cruz-hernia-testicular"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2026/01/WhatsApp-Image-2026-01-22-at-9.06.12-PM-225x300.jpeg",
+      "target": "photos/2026-01-23-carmen-gloria-severino-operacion-de-tumor/01.webp",
+      "source": "2026/01/WhatsApp-Image-2026-01-22-at-9.06.12-PM.jpeg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:carmen-gloria-severino-operacion-de-tumor"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2026/01/WhatsApp-Image-2026-01-30-at-10.01.47-AM-225x300.jpeg",
+      "target": "photos/2026-01-30-kamila-remires-espinosa-extirpacion-de-mioma/01.webp",
+      "source": "2026/01/WhatsApp-Image-2026-01-30-at-10.01.47-AM.jpeg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:kamila-remires-espinosa-extirpacion-de-mioma"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2026/01/WhatsApp-Image-2026-01-30-at-9.39.02-AM-225x300.jpeg",
+      "target": "photos/2026-01-30-marielly-capellan-reconstruccion-vaginal/01.webp",
+      "source": "2026/01/WhatsApp-Image-2026-01-30-at-9.39.02-AM.jpeg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:marielly-capellan-reconstruccion-vaginal"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2026/01/WhatsApp-Image-2026-01-30-at-9.39.06-AM-225x300.jpeg",
+      "target": "photos/2026-01-30-marielly-capellan-reconstruccion-vaginal/02.webp",
+      "source": "2026/01/WhatsApp-Image-2026-01-30-at-9.39.06-AM.jpeg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:marielly-capellan-reconstruccion-vaginal"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2026/02/WhatsApp-Image-2026-02-01-at-8.28.18-PM-300x167.jpeg",
+      "target": "photos/2026-02-02-invitacion-de-la-camara-de-comercio-de-ee-uu/01.webp",
+      "source": "2026/02/WhatsApp-Image-2026-02-01-at-8.28.18-PM.jpeg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:invitacion-de-la-camara-de-comercio-de-ee-uu"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2026/02/WhatsApp-Image-2026-02-01-at-8.29.48-PM-300x222.jpeg",
+      "target": "photos/2026-02-02-invitacion-de-la-camara-de-comercio-de-ee-uu/02.webp",
+      "source": "2026/02/WhatsApp-Image-2026-02-01-at-8.29.48-PM.jpeg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:invitacion-de-la-camara-de-comercio-de-ee-uu"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2026/02/WhatsApp-Image-2026-02-01-at-8.35.49-PM-300x161.jpeg",
+      "target": "photos/2026-02-02-invitacion-de-la-camara-de-comercio-de-ee-uu/03.webp",
+      "source": "2026/02/WhatsApp-Image-2026-02-01-at-8.35.49-PM.jpeg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:invitacion-de-la-camara-de-comercio-de-ee-uu"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2026/02/WhatsApp-Image-2026-02-10-at-11.54.44-AM-186x300.jpeg",
+      "target": "photos/2026-02-11-comunicado-oficial-nota-de-prensa/01.webp",
+      "source": "2026/02/WhatsApp-Image-2026-02-10-at-11.54.44-AM.jpeg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:comunicado-oficial-nota-de-prensa"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2026/02/WhatsApp-Image-2026-02-12-at-4.17.50-PM-200x300.jpeg",
+      "target": "photos/2026-02-13-camara-de-comercio-de-las-minorias-de-los-estados-unidos/01.webp",
+      "source": "2026/02/WhatsApp-Image-2026-02-12-at-4.17.50-PM.jpeg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:la-camara-de-comercio-de-las-minorias-de-los-estados-unidos-lanza-un-innovador-programa-de-turismo-medico-en-honduras"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2026/02/WhatsApp-Image-2026-02-17-at-9.31.48-AM-169x300.jpeg",
+      "target": "photos/2026-02-23-encuentro-amistoso-con-el-ex-ministro-de-agricultura/01.webp",
+      "source": "2026/02/WhatsApp-Image-2026-02-17-at-9.31.48-AM.jpeg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:encuentro-amistoso-con-el-ex-ministro-de-agricultura"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2026/03/balaguer-300x225.jpeg",
+      "target": "photos/2026-03-07-reconocimiento-al-general-de-los-bomberos-de-estados-unidos/01-balaguer.webp",
+      "source": "2026/03/balaguer.jpeg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:reconocimiento-al-general-de-los-bomberos-de-estados-unidos-juan-gutierrez"
+      ],
+      "nameKind": "slug"
+    },
+    {
+      "legacy": "2026/03/DELEGADOS-1-300x169.jpeg",
+      "target": "photos/2026-03-07-reconocimiento-al-general-de-los-bomberos-de-estados-unidos/02-delegados.webp",
+      "source": "2026/03/DELEGADOS-1.jpeg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:reconocimiento-al-general-de-los-bomberos-de-estados-unidos-juan-gutierrez"
+      ],
+      "nameKind": "slug"
+    },
+    {
+      "legacy": "2026/03/Delegados-300x169.jpeg",
+      "target": "photos/2026-03-07-reconocimiento-al-general-de-los-bomberos-de-estados-unidos/03-delegados.webp",
+      "source": "2026/03/Delegados.jpeg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:reconocimiento-al-general-de-los-bomberos-de-estados-unidos-juan-gutierrez"
+      ],
+      "nameKind": "slug"
+    },
+    {
+      "legacy": "2026/03/MAGISTRADA-300x251.jpeg",
+      "target": "photos/2026-03-07-reconocimiento-al-general-de-los-bomberos-de-estados-unidos/04-magistrada.webp",
+      "source": "2026/03/MAGISTRADA.jpeg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:reconocimiento-al-general-de-los-bomberos-de-estados-unidos-juan-gutierrez"
+      ],
+      "nameKind": "slug"
+    },
+    {
+      "legacy": "2026/03/ORACION-300x169.jpeg",
+      "target": "photos/2026-03-07-reconocimiento-al-general-de-los-bomberos-de-estados-unidos/05-oracion.webp",
+      "source": "2026/03/ORACION.jpeg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:reconocimiento-al-general-de-los-bomberos-de-estados-unidos-juan-gutierrez"
+      ],
+      "nameKind": "slug"
+    },
+    {
+      "legacy": "2026/03/RECONOCIMIENTO-194x300.jpeg",
+      "target": "photos/2026-03-07-reconocimiento-al-general-de-los-bomberos-de-estados-unidos/06-reconocimiento.webp",
+      "source": "2026/03/RECONOCIMIENTO.jpeg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:reconocimiento-al-general-de-los-bomberos-de-estados-unidos-juan-gutierrez"
+      ],
+      "nameKind": "slug"
+    },
+    {
+      "legacy": "2026/03/WhatsApp-Image-2026-03-07-at-8.23.24-AM-169x300.jpeg",
+      "target": "photos/2026-03-07-reconocimiento-al-general-de-los-bomberos-de-estados-unidos/07.webp",
+      "source": "2026/03/WhatsApp-Image-2026-03-07-at-8.23.24-AM.jpeg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:reconocimiento-al-general-de-los-bomberos-de-estados-unidos-juan-gutierrez"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2026/07/b90b9125-7a6c-4e9f-87f0-3c73db978cf0.jpg",
+      "target": "photos/2026-07-16-participa-en-conferencia-del-embajador-de-la-republica/01.webp",
+      "source": "2026/07/b90b9125-7a6c-4e9f-87f0-3c73db978cf0.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "post:fundacion-rosario-gaton-participa-en-conferencia-del-embajador-de-la-republica-popular-china-en-republica-dominicana"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2026/08/Imagen1.jpg",
+      "target": "photos/2026-08-21-presenta-al-senador-franklin-romero-innovador-proyecto/01.webp",
+      "source": "2026/08/Imagen1.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "post:fundacion-rosario-gaton-presenta-al-senador-franklin-romero-innovador-proyecto-para-aprovechar-la-cascara-del-cacao"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2026/08/Imagen2-300x206.jpg",
+      "target": "photos/2026-08-21-presenta-al-senador-franklin-romero-innovador-proyecto/02.webp",
+      "source": "2026/08/Imagen2.jpg",
+      "sourceKind": "full-size",
+      "owners": [
+        "post:fundacion-rosario-gaton-presenta-al-senador-franklin-romero-innovador-proyecto-para-aprovechar-la-cascara-del-cacao"
+      ],
+      "nameKind": "ordinal"
+    },
+    {
+      "legacy": "2026/10/AsambleExtraordinaria2026_post_1.webp",
+      "target": "photos/2026-10-23-asamblea-extraordinaria-2026/01-asambleextraordinaria2026-post-1.webp",
+      "source": "2026/10/AsambleExtraordinaria2026_post_1.webp",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "post:asamblea-extraordinaria-2026"
+      ],
+      "nameKind": "slug"
+    },
+    {
+      "legacy": "2026/10/ImagenPostCSRAwards-scaled.jpg",
+      "target": "photos/2026-10-15-fundacion-rosario-gaton-es-galardonada-en-los-csr-awards/01-imagenpostcsrawards.webp",
+      "source": "2026/10/ImagenPostCSRAwards-scaled.jpg",
+      "sourceKind": "as-uploaded",
+      "owners": [
+        "post:la-fundacion-rosario-gaton-es-galardonada-en-los-csr-awards-2026-por-acquisition-international"
+      ],
+      "nameKind": "slug"
+    }
+  ]
+}

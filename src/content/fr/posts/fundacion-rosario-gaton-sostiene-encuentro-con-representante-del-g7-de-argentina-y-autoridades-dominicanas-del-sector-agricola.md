@@ -8,7 +8,7 @@ categories:
   - "cooperacion-internacional"
   - "desarrollo-agropecuario"
 tags: []
-image: "2025/07/509983178_9689660517799702_8595958488067212223_n.jpg"
+image: "photos/2025-07-22-sostiene-encuentro-con-representante-del-g7-de-argentina/01.webp"
 legacyPath: "/fundacion-rosario-gaton-sostiene-encuentro-con-representante-del-g7-de-argentina-y-autoridades-dominicanas-del-sector-agricola/"
 noAutoTranslate: false
 ---

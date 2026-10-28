@@ -11,4 +11,4 @@ legacyPath: "/ayudas-medicas-3/"
 noAutoTranslate: false
 ---
 
-She was raped by 5 men. A vaginal reconstruction was performed. 14 years of age. Marielly capellán ![](https://fundacionrosariogaton.org/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-30-at-9.39.06-AM-225x300.jpeg) ![](https://fundacionrosariogaton.org/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-30-at-9.39.02-AM-225x300.jpeg)
+She was raped by 5 men. A vaginal reconstruction was performed. 14 years of age. Marielly capellán ![](https://media.fundacionrosariogaton.org/photos/2026-01-30-marielly-capellan-reconstruccion-vaginal/02.webp) ![](https://media.fundacionrosariogaton.org/photos/2026-01-30-marielly-capellan-reconstruccion-vaginal/01.webp)

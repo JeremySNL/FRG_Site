@@ -11,7 +11,7 @@ blocks:
   - type: "hero"
     title: "Nuestro Equipo"
     text: "Las personas que hacen posible nuestro trabajo."
-    image: "https://fundacionrosariogaton.org/wp-content/uploads/2025/07/58604198_2007871652645332_1074115417435275264_n.png"
+    image: "photos/2019-04-30-universidad-politecnica-internacional-refuerzan-alianza/01.webp"
     buttons: []
   - type: "team"
     title: "Equipo de la Fundación Rosario Gatón"

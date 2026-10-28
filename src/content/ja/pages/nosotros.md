@@ -28,7 +28,7 @@ blocks:
   - type: "imageText"
     title: "私たちとは"
     text: "Fundación Rosario Gatón（FRG）は、五大陸での活動展開を目指す非営利の人権・社会経済開発組織です。私たちは提携を通じて、極端な貧困、社会的不平等、飢餓の削減に取り組み、ジェンダーに基づく暴力、テロ、人身売買、動物虐待の予防に努めています。また、最も脆弱な立場にある人々を支援し、社会的包摂、尊厳ある住まい、ミクロ経済、そして基礎サービスへのアクセスを促進しています。"
-    image: "2025/07/153419210_3486246501474499_3389036132229290343_n.jpg"
+    image: "photos/2025-07-22-continua-llevando-esperanza-a-familias-vulnerables/10.webp"
     imageAlt: "Fundación Rosario Gatónのボランティアが、支援を必要とする家族に食料を届けています。"
     buttons: []
   - type: "tabs"
@@ -46,7 +46,7 @@ blocks:
     items:
       - title: "Rosario Gaton"
         text: "会長"
-        image: "2025/07/rosario-gaton.jpg"
+        image: "team/rosario-gaton.webp"
         imageAlt: "Rosario Gaton"
   - type: "cta"
     title: "参加する / ボランティア"

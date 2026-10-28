@@ -7,7 +7,7 @@ excerpt: "La Policía Nacional y la Fundación Rosario Gatón coordinan diplomad
 categories:
   - "alianzas-institucionales"
 tags: []
-image: "2025/07/53658714_1939775649454933_2642427106436317184_n.jpg"
+image: "photos/2019-03-12-policia-nacional-impulsan-diplomado-sobre-dignidad-humana/01.webp"
 legacyPath: "/fundacion-rosario-gaton-y-la-policia-nacional-impulsan-diplomado-sobre-dignidad-humana/"
 noAutoTranslate: false
 ---

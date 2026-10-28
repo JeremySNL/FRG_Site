@@ -12,7 +12,7 @@ blocks:
   - type: "heroBento"
     title: "Fundación Rosario Gatón (FRG)"
     text: "Nous œuvrons pour un monde plus juste, humain et durable. Notre mission est d'éduquer, de former et d'autonomiser les citoyens afin qu'ils deviennent des agents de changement, capables de transformer leur environnement familial et communautaire grâce à des initiatives productives et durables."
-    backgroundImage: "https://fundacionrosariogaton.org/wp-content/uploads/2025/07/1416b2d2-c186-4c81-9cd1-351d8146f2aa.jpg"
+    backgroundImage: "pages/site/01.webp"
     backgroundImageAlt: "Fundación Rosario Gatón"
     buttons:
       - label: "Rejoindre"
@@ -25,18 +25,18 @@ blocks:
         value: "20+"
       - type: "imageRed"
         title: "Rejoignez le changement"
-        image: "2025/07/50470030_1872829336149565_5349142202482163712_n.jpg"
+        image: "photos/2019-01-23-se-reune-con-el-embajador-de-guatemala-para-fortalecer/01.webp"
         imageAlt: "Bénévoles"
       - type: "imageBlue"
         title: "Des projets qui transforment"
-        image: "2025/07/rosario-gaton.jpg"
+        image: "team/rosario-gaton.webp"
         imageAlt: "Projets"
       - type: "solidRed"
         title: "Notre Mission"
   - type: "imageText"
     title: "Qui sommes-nous ?"
     text: "La Fundación Rosario Gatón (FRG) est une organisation à but non lucratif dédiée aux droits de l'homme et au développement socio-économique, qui œuvre pour être présente sur les cinq continents. Nous établissons des alliances pour réduire l'extrême pauvreté, l'inégalité sociale et la faim, ainsi que pour prévenir la violence sexiste, le terrorisme, la traite des êtres humains et la maltraitance animale. Nous soutenons également les secteurs les plus vulnérables en favorisant l'inclusion, un logement digne, la micro-économie et l'accès aux services de base."
-    image: "2025/07/50470030_1872829336149565_5349142202482163712_n.jpg"
+    image: "photos/2019-01-23-se-reune-con-el-embajador-de-guatemala-para-fortalecer/01.webp"
     imageAlt: "Réunion de travail de la Fundación Rosario Gatón avec l'ambassadeur du Guatemala en République Dominicana."
     buttons:
       - label: "En savoir plus"
@@ -137,7 +137,7 @@ blocks:
       button:
         label: "Rejoignez-nous !"
         href: "/voluntariado/"
-      image: "2025/07/194769352_3779589362140210_1311684501893869371_n.jpg"
+      image: "photos/2025-07-22-entrega-alimentos-a-familias-vulnerables-como-parte-de-su/06.webp"
       imageAlt: "Bénévoles"
     donate:
       title: "Faites un don"
@@ -145,7 +145,7 @@ blocks:
       button:
         label: "Faire un don"
         href: "/donar/"
-      image: "2025/07/50470030_1872829336149565_5349142202482163712_n.jpg"
+      image: "photos/2019-01-23-se-reune-con-el-embajador-de-guatemala-para-fortalecer/01.webp"
       imageAlt: "Dons"
   - type: "cards"
     title: "Domaines d'action"

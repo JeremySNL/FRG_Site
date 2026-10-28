@@ -7,7 +7,7 @@ excerpt: "La Fundación Rosario Gatón recibió con honor la visita de Su Excele
 categories:
   - "noticias-institucionales"
 tags: []
-image: "2025/07/101257098_2768436769922146_403019274127409152_n-1.jpg"
+image: "photos/2020-05-29-recibe-al-embajador-luis-gonzalez-para-dialogo/01.webp"
 legacyPath: "/fundacion-rosario-gaton-recibe-al-embajador-luis-gonzalez-para-dialogo-de-cooperacion-internacional/"
 noAutoTranslate: false
 ---

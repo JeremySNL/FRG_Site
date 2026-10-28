@@ -11,4 +11,4 @@ legacyPath: "/1267-2/"
 noAutoTranslate: false
 ---
 
-pose de vis dans tout le pied ![](https://fundacionrosariogaton.org/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-13-at-10.29.15-PM-300x225.jpeg) ![](https://fundacionrosariogaton.org/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-13-at-10.29.15-PM-1-225x300.jpeg)
+pose de vis dans tout le pied ![](https://media.fundacionrosariogaton.org/photos/2026-01-14-aplicacion-de-tornillos-en-el-pie/02.webp) ![](https://media.fundacionrosariogaton.org/photos/2026-01-14-aplicacion-de-tornillos-en-el-pie/01.webp)

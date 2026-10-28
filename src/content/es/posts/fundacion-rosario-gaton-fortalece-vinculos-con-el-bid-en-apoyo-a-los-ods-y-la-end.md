@@ -7,7 +7,7 @@ excerpt: "Luis Suárez, Secretario General de la Fundación Rosario Gatón, se r
 categories:
   - "cooperacion-internacional"
 tags: []
-image: "2025/07/58441313_1998895213542976_2891675994337312768_n.jpg"
+image: "photos/2019-04-24-fortalece-vinculos-con-el-bid-en-apoyo-a-los-ods-y-la-end/01.webp"
 legacyPath: "/fundacion-rosario-gaton-fortalece-vinculos-con-el-bid-en-apoyo-a-los-ods-y-la-end/"
 noAutoTranslate: false
 ---

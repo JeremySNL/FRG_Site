@@ -11,4 +11,4 @@ legacyPath: "/ayudas-medicas-4/"
 noAutoTranslate: false
 ---
 
-Kamila Remires Espinosa : Aide apportée pour l'exérèse d'un myome présentant de possibles complications cancéreuses ![](https://fundacionrosariogaton.org/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-30-at-10.01.47-AM-225x300.jpeg)
+Kamila Remires Espinosa : Aide apportée pour l'exérèse d'un myome présentant de possibles complications cancéreuses ![](https://media.fundacionrosariogaton.org/photos/2026-01-30-kamila-remires-espinosa-extirpacion-de-mioma/01.webp)

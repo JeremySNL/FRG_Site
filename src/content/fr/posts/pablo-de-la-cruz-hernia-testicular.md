@@ -11,4 +11,4 @@ legacyPath: "/ayudas-medicas/"
 noAutoTranslate: false
 ---
 
-Pablo de la Cruz : Hernie testiculaire résolue ![](https://fundacionrosariogaton.org/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-15-at-7.14.40-PM-204x300.jpeg)
+Pablo de la Cruz : Hernie testiculaire résolue ![](https://media.fundacionrosariogaton.org/photos/2026-01-16-pablo-de-la-cruz-hernia-testicular/01.webp)

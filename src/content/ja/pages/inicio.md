@@ -12,7 +12,7 @@ blocks:
   - type: "heroBento"
     title: "Fundación Rosario Gatón (FRG)"
     text: "私たちは、より公正で、人間味があり、持続可能な世界の実現を目指しています。私たちの使命は、市民が変革の担い手となるよう教育、育成、エンパワーメントを行い、生産的かつ持続可能なイニシアチブを通じて家庭や地域社会の環境を変革できるようにすることです。"
-    backgroundImage: "https://fundacionrosariogaton.org/wp-content/uploads/2025/07/1416b2d2-c186-4c81-9cd1-351d8146f2aa.jpg"
+    backgroundImage: "pages/site/01.webp"
     backgroundImageAlt: "Fundación Rosario Gatón"
     buttons:
       - label: "参加する"
@@ -25,18 +25,18 @@ blocks:
         value: "20+"
       - type: "imageRed"
         title: "変革に参加する"
-        image: "2025/07/50470030_1872829336149565_5349142202482163712_n.jpg"
+        image: "photos/2019-01-23-se-reune-con-el-embajador-de-guatemala-para-fortalecer/01.webp"
         imageAlt: "ボランティア"
       - type: "imageBlue"
         title: "社会を変えるプロジェクト"
-        image: "2025/07/rosario-gaton.jpg"
+        image: "team/rosario-gaton.webp"
         imageAlt: "プロジェクト"
       - type: "solidRed"
         title: "私たちの使命"
   - type: "imageText"
     title: "私たちについて"
     text: "Fundación Rosario Gatón (FRG)は、5大陸での活動展開を目指す非営利の人権および社会経済開発組織です。私たちは極度の貧困、社会的格差、飢餓を軽減し、ジェンダー暴力、テロ、人身売買、動物虐待を予防するためのパートナーシップを構築しています。また、最も脆弱な立場にある人々を支援し、社会的包摂、生活にふさわしい住まい、ミクロ経済、基本サービスへのアクセスを促進しています。"
-    image: "2025/07/50470030_1872829336149565_5349142202482163712_n.jpg"
+    image: "photos/2019-01-23-se-reune-con-el-embajador-de-guatemala-para-fortalecer/01.webp"
     imageAlt: "Fundación Rosario Gatónと、República Dominicanaに駐在するグアテマラ大使との会議。"
     buttons:
       - label: "詳しく見る"
@@ -137,7 +137,7 @@ blocks:
       button:
         label: "今すぐ参加！"
         href: "/voluntariado/"
-      image: "2025/07/194769352_3779589362140210_1311684501893869371_n.jpg"
+      image: "photos/2025-07-22-entrega-alimentos-a-familias-vulnerables-como-parte-de-su/06.webp"
       imageAlt: "ボランティア"
     donate:
       title: "寄付をする"
@@ -145,7 +145,7 @@ blocks:
       button:
         label: "今すぐ寄付する"
         href: "/donar/"
-      image: "2025/07/50470030_1872829336149565_5349142202482163712_n.jpg"
+      image: "photos/2019-01-23-se-reune-con-el-embajador-de-guatemala-para-fortalecer/01.webp"
       imageAlt: "寄付"
   - type: "cards"
     title: "活動分野"

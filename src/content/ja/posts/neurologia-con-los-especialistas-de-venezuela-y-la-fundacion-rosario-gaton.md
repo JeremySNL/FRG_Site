@@ -6,7 +6,7 @@ date: "2025-08-07T00:47:51"
 categories:
   - "cooperacion-internacional"
 tags: []
-image: "2025/08/Sin-titulo.png"
+image: "photos/2025-08-07-neurologia-con-los-especialistas-de-venezuela/01.webp"
 legacyPath: "/neurologia-con-los-especialistas-de-venezuela-y-la-fundacion-rosario-gaton/"
 videoUrl: "https://www.youtube.com/watch?v=UHA6kZ5so9o"
 noAutoTranslate: false

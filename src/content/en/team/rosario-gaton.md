@@ -4,7 +4,7 @@ slug: "rosario-gaton"
 locale: "en"
 role: "President"
 bio: ""
-image: "2025/07/rosario-gaton.jpg"
+image: "team/rosario-gaton.webp"
 imageAlt: "Rosario Gaton"
 order: 1
 ---

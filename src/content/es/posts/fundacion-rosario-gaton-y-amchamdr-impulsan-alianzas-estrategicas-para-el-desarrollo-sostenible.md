@@ -7,7 +7,7 @@ excerpt: "Santo Domingo, República Dominicana. La Fundación Rosario Gatón, en
 categories:
   - "alianzas-institucionales"
 tags: []
-image: "2025/07/74651304_2349864461779381_971641036805767168_n.jpg"
+image: "photos/2019-11-13-amchamdr-impulsan-alianzas-estrategicas-para-el-desarrollo/01.webp"
 legacyPath: "/fundacion-rosario-gaton-y-amchamdr-impulsan-alianzas-estrategicas-para-el-desarrollo-sostenible/"
 noAutoTranslate: false
 ---

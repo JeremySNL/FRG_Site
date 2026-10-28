@@ -11,7 +11,7 @@ blocks:
   - type: "hero"
     title: "Nosotros"
     text: "Trabajamos por un mundo más justo, humano y sostenible."
-    image: "/2025/07/49342964_607833472968220_6866193096028192768_n.jpg"
+    image: "photos/2019-01-23-se-reunen-con-autoridades-para-fortalecer-compromisos/01.webp"
     buttons: []
   - type: "video"
     title: "Fundación Rosario Gatón en acción"
@@ -29,7 +29,7 @@ blocks:
   - type: "imageText"
     title: "¿Quiénes somos?"
     text: "La Fundación Rosario Gatón (FRG) es una organización de derechos humanos y desarrollo socioeconómico sin fines de lucro, que trabaja para tener presencia en los cinco continentes. Establecemos alianzas para disminuir la extrema pobreza, la desigualdad social y el hambre, así como prevenir la violencia de género, el terrorismo, la trata de personas y el maltrato a la fauna. Apoyamos también a los sectores más vulnerables, promoviendo inclusión, vivienda digna, microeconomía y acceso a servicios básicos."
-    image: "2025/07/153419210_3486246501474499_3389036132229290343_n.jpg"
+    image: "photos/2025-07-22-continua-llevando-esperanza-a-familias-vulnerables/10.webp"
     imageAlt: "Voluntarios de la Fundación Rosario Gatón entregan alimentos a familias vulnerables."
     buttons: []
   - type: "tabs"
@@ -47,7 +47,7 @@ blocks:
     items:
       - title: "Rosario Gaton"
         text: "Presidente"
-        image: "2025/07/rosario-gaton.jpg"
+        image: "team/rosario-gaton.webp"
         imageAlt: "Rosario Gaton"
   - type: "cta"
     title: "Únete / Voluntariado"

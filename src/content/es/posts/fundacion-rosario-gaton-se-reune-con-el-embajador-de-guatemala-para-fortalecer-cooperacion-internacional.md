@@ -7,7 +7,7 @@ excerpt: "Fundación Rosario Gatón fortalece lazos diplomáticos con la Embajad
 categories:
   - "relaciones-internacionales"
 tags: []
-image: "2025/07/50470030_1872829336149565_5349142202482163712_n.jpg"
+image: "photos/2019-01-23-se-reune-con-el-embajador-de-guatemala-para-fortalecer/01.webp"
 legacyPath: "/fundacion-rosario-gaton-se-reune-con-el-embajador-de-guatemala-para-fortalecer-cooperacion-internacional/"
 noAutoTranslate: false
 ---

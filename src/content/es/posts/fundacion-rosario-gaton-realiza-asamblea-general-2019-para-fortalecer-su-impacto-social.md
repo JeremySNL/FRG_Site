@@ -7,7 +7,7 @@ excerpt: "Fundación Rosario Gatón celebra su Asamblea General 2019 en San Fran
 categories:
   - "gobernanza-y-gestion"
 tags: []
-image: "2025/07/54356049_1948175055281659_5742185723574878208_n.jpg"
+image: "photos/2019-03-17-realiza-asamblea-general-2019-para-fortalecer-su-impacto/01.webp"
 legacyPath: "/fundacion-rosario-gaton-realiza-asamblea-general-2019-para-fortalecer-su-impacto-social/"
 noAutoTranslate: false
 ---

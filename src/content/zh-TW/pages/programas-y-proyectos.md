@@ -12,7 +12,7 @@ blocks:
     title: "計劃與專案"
     text: "Fundación Rosario Gatón 的行動領域。"
     buttons: []
-    image: "2025/07/taller-de-capacitacion-del-campus-virtual-a-estudiantes-becados-en-el-area-de-formacion-del-profesorado.jpg"
+    image: "programs/educacion-y-formacion-ciudadana/cover.webp"
   - type: "richText"
     surface: true
     html: "<p>我們的工作旨在促成社區的全面發展。以下是我們的主要行動領域：</p>"

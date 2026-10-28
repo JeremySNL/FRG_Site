@@ -7,7 +7,7 @@ excerpt: "Santo Domingo, República Dominicana- Altos directivos de la Fundació
 categories:
   - "noticias-institucionales"
 tags: []
-image: "2025/07/49342964_607833472968220_6866193096028192768_n.jpg"
+image: "photos/2019-01-23-se-reunen-con-autoridades-para-fortalecer-compromisos/01.webp"
 legacyPath: "/fundacion-rosario-gaton-se-reunen-con-autoridades-para-fortalecer-compromisos-con-los-ods-y-la-end/"
 noAutoTranslate: false
 ---

@@ -13,7 +13,7 @@ tags:
   - "salud"
   - "solidaridad"
   - "comunidades"
-image: "2026/10/AsambleExtraordinaria2026_post_1.webp"
+image: "photos/2026-10-23-asamblea-extraordinaria-2026/01-asambleextraordinaria2026-post-1.webp"
 imageAlt: "Imagen de la Asamblea Extraordinaria 2026 de la Fundación Rosario Gatón"
 videoUrl: "https://youtube.com/shorts/ds5RyTGLvtQ?si=rXK17BzDklb5FuDI"
 ---

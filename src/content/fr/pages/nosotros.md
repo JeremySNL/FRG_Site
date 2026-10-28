@@ -28,7 +28,7 @@ blocks:
   - type: "imageText"
     title: "Qui sommes-nous ?"
     text: "La Fundación Rosario Gatón (FRG) est une organisation à but non lucratif dédiée aux droits de l'homme et au développement socio-économique, qui œuvre pour être présente sur les cinq continents. Nous établissons des partenariats pour réduire l'extrême pauvreté, l'inégalité sociale et la faim, ainsi que pour prévenir les violences basées sur le genre, le terrorisme, la traite des êtres humains et la maltraitance animale. Nous soutenons également les secteurs les plus vulnérables en promouvant l'inclusion, un logement digne, la microéconomie et l'accès aux services de base."
-    image: "2025/07/153419210_3486246501474499_3389036132229290343_n.jpg"
+    image: "photos/2025-07-22-continua-llevando-esperanza-a-familias-vulnerables/10.webp"
     imageAlt: "Des bénévoles de la Fundación Rosario Gatón distribuent des vivres à des familles vulnérables."
     buttons: []
   - type: "tabs"
@@ -46,7 +46,7 @@ blocks:
     items:
       - title: "Rosario Gaton"
         text: "Présidente"
-        image: "2025/07/rosario-gaton.jpg"
+        image: "team/rosario-gaton.webp"
         imageAlt: "Rosario Gaton"
   - type: "cta"
     title: "Rejoignez-nous / Bénévolat"

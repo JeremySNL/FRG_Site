@@ -7,7 +7,7 @@ excerpt: "República Dominicana y Costa Rica fortalecen la cooperación internac
 categories:
   - "cooperacion-internacional"
 tags: []
-image: "2025/07/58604198_2007871652645332_1074115417435275264_n.png"
+image: "photos/2019-04-30-universidad-politecnica-internacional-refuerzan-alianza/01.webp"
 legacyPath: "/fundacion-rosario-gaton-y-universidad-politecnica-internacional-refuerzan-alianza-entre-republica-dominicana-y-costa-rica/"
 noAutoTranslate: false
 ---

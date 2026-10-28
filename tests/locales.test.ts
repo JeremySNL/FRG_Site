@@ -211,8 +211,7 @@ it('uses the English Programas y Proyectos hero image in every locale', () => {
     return blocks.find((block) => block['type'] === 'hero')?.['image'];
   };
 
-  const expected =
-    '2025/07/taller-de-capacitacion-del-campus-virtual-a-estudiantes-becados-en-el-area-de-formacion-del-profesorado.jpg';
+  const expected = 'programs/educacion-y-formacion-ciudadana/cover.webp';
 
   expect(heroImage('en')).toBe(expected);
   for (const locale of LOCALES) {

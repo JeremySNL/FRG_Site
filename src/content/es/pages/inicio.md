@@ -12,7 +12,7 @@ blocks:
   - type: "heroBento"
     title: "Fundación Rosario Gatón (FRG)"
     text: "Trabajamos por un mundo más justo, humano y sostenible. Nuestra misión es educar, formar y empoderar a los ciudadanos para que se conviertan en agentes de cambio, capaces de transformar su entorno familiar y comunitario mediante iniciativas productivas y sostenibles."
-    backgroundImage: "https://fundacionrosariogaton.org/wp-content/uploads/2025/07/1416b2d2-c186-4c81-9cd1-351d8146f2aa.jpg"
+    backgroundImage: "pages/site/01.webp"
     backgroundImageAlt: "Fundación Rosario Gatón"
     buttons:
       - label: "Unirse"
@@ -25,11 +25,11 @@ blocks:
         value: "20+"
       - type: "imageRed"
         title: "Únete al Cambio"
-        image: "2025/07/50470030_1872829336149565_5349142202482163712_n.jpg"
+        image: "photos/2019-01-23-se-reune-con-el-embajador-de-guatemala-para-fortalecer/01.webp"
         imageAlt: "Voluntarios"
       - type: "imageBlue"
         title: "Proyectos que Transforman"
-        image: "2025/07/rosario-gaton.jpg"
+        image: "team/rosario-gaton.webp"
         imageAlt: "Proyectos"
       - type: "solidRed"
         title: "Nuestra Misión"
@@ -37,7 +37,7 @@ blocks:
   - type: "imageText"
     title: "¿Quiénes somos?"
     text: "La Fundación Rosario Gatón (FRG) es una organización de derechos humanos y desarrollo socioeconómico sin fines de lucro, que trabaja para tener presencia en los cinco continentes. Establecemos alianzas para disminuir la extrema pobreza, la desigualdad social y el hambre, así como prevenir la violencia de género, el terrorismo, la trata de personas y el maltrato a la fauna. Apoyamos también a los sectores más vulnerables, promoviendo inclusión, vivienda digna, microeconomía y acceso a servicios básicos."
-    image: "2025/07/50470030_1872829336149565_5349142202482163712_n.jpg"
+    image: "photos/2019-01-23-se-reune-con-el-embajador-de-guatemala-para-fortalecer/01.webp"
     imageAlt: "Reunión de trabajo de la Fundación Rosario Gatón con el embajador de Guatemala en República Dominicana."
     buttons:
       - label: "Saber más"
@@ -138,7 +138,7 @@ blocks:
       button:
         label: "¡Únete hoy!"
         href: "/voluntariado/"
-      image: "2025/07/194769352_3779589362140210_1311684501893869371_n.jpg"
+      image: "photos/2025-07-22-entrega-alimentos-a-familias-vulnerables-como-parte-de-su/06.webp"
       imageAlt: "Voluntarios"
     donate:
       title: "Haz tu Donación"
@@ -146,7 +146,7 @@ blocks:
       button:
         label: "Donar ahora"
         href: "/donar/"
-      image: "2025/07/50470030_1872829336149565_5349142202482163712_n.jpg"
+      image: "photos/2019-01-23-se-reune-con-el-embajador-de-guatemala-para-fortalecer/01.webp"
       imageAlt: "Donaciones"
   - type: "cards"
     title: "Áreas de acción"

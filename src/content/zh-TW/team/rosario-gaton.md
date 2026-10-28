@@ -4,7 +4,7 @@ slug: "rosario-gaton"
 locale: "zh-TW"
 role: "理事長"
 bio: ""
-image: "2025/07/rosario-gaton.jpg"
+image: "team/rosario-gaton.webp"
 imageAlt: "Rosario Gaton"
 order: 1
 ---

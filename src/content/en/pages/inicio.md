@@ -12,7 +12,7 @@ blocks:
   - type: "heroBento"
     title: "Fundación Rosario Gatón (FRG)"
     text: "We work for a fairer, more humane, and sustainable world. Our mission is to educate, train, and empower citizens so they become agents of change, capable of transforming their family and community environments through productive and sustainable initiatives."
-    backgroundImage: "https://fundacionrosariogaton.org/wp-content/uploads/2025/07/1416b2d2-c186-4c81-9cd1-351d8146f2aa.jpg"
+    backgroundImage: "pages/site/01.webp"
     backgroundImageAlt: "Fundación Rosario Gatón"
     buttons:
       - label: "Join"
@@ -25,18 +25,18 @@ blocks:
         value: "20+"
       - type: "imageRed"
         title: "Join the Change"
-        image: "2025/07/50470030_1872829336149565_5349142202482163712_n.jpg"
+        image: "photos/2019-01-23-se-reune-con-el-embajador-de-guatemala-para-fortalecer/01.webp"
         imageAlt: "Volunteers"
       - type: "imageBlue"
         title: "Projects that Transform"
-        image: "2025/07/rosario-gaton.jpg"
+        image: "team/rosario-gaton.webp"
         imageAlt: "Projects"
       - type: "solidRed"
         title: "Our Mission"
   - type: "imageText"
     title: "Who We Are"
     text: "Fundación Rosario Gatón (FRG) is a non-profit human rights and socioeconomic development organization working to establish a presence across all five continents. We forge partnerships to reduce extreme poverty, social inequality, and hunger, as well as to prevent gender-based violence, terrorism, human trafficking, and animal abuse. We also support the most vulnerable sectors by promoting inclusion, decent housing, microeconomics, and access to basic services."
-    image: "2025/07/50470030_1872829336149565_5349142202482163712_n.jpg"
+    image: "photos/2019-01-23-se-reune-con-el-embajador-de-guatemala-para-fortalecer/01.webp"
     imageAlt: "Working meeting of Fundación Rosario Gatón with the ambassador of Guatemala in the Dominican Republic."
     buttons:
       - label: "Learn more"
@@ -137,7 +137,7 @@ blocks:
       button:
         label: "Join today!"
         href: "/en/voluntariado/"
-      image: "2025/07/194769352_3779589362140210_1311684501893869371_n.jpg"
+      image: "photos/2025-07-22-entrega-alimentos-a-familias-vulnerables-como-parte-de-su/06.webp"
       imageAlt: "Volunteers"
     donate:
       title: "Make Your Donation"
@@ -145,7 +145,7 @@ blocks:
       button:
         label: "Donate now"
         href: "/en/donar/"
-      image: "2025/07/50470030_1872829336149565_5349142202482163712_n.jpg"
+      image: "photos/2019-01-23-se-reune-con-el-embajador-de-guatemala-para-fortalecer/01.webp"
       imageAlt: "Donations"
   - type: "cards"
     title: "Areas of Action"

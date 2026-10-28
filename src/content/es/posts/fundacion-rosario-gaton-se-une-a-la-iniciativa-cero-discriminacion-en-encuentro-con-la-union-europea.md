@@ -7,7 +7,7 @@ excerpt: "Fundación Rosario Gatón participa en charla sobre “Cero Discrimina
 categories:
   - "derechos-humanos"
 tags: []
-image: "2025/07/53738136_1932303580202140_4310815386019823616_n.png"
+image: "photos/2019-03-06-se-une-a-la-iniciativa-cero-discriminacion-en-encuentro/01.webp"
 legacyPath: "/fundacion-rosario-gaton-se-une-a-la-iniciativa-cero-discriminacion-en-encuentro-con-la-union-europea/"
 noAutoTranslate: false
 ---

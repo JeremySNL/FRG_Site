@@ -12,7 +12,7 @@ blocks:
     title: "Programs and Projects"
     text: "Areas of action of the Fundación Rosario Gatón."
     buttons: []
-    image: "2025/07/taller-de-capacitacion-del-campus-virtual-a-estudiantes-becados-en-el-area-de-formacion-del-profesorado.jpg"
+    image: "programs/educacion-y-formacion-ciudadana/cover.webp"
   - type: "richText"
     surface: true
     html: "<p>Our work focuses on contributing to the comprehensive development of communities. These are our main areas of action:</p>"

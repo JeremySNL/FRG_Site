@@ -11,7 +11,7 @@ blocks:
   - type: "hero"
     title: "Contacto"
     text: "Estamos siempre abiertos a escuchar y responder."
-    image: "https://fundacionrosariogaton.org/wp-content/uploads/2025/07/75407622_2352186168213877_4414493572967956480_n.jpg"
+    image: "photos/2019-11-14-se-reune-con-el-embajador-de-israel-durante-encuentro/01.webp"
     buttons: []
   - type: "cards"
     title: "Cómo contactarnos"

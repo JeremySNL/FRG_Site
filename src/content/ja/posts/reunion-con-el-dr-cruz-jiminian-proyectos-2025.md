@@ -11,4 +11,4 @@ legacyPath: "/1047-2/"
 noAutoTranslate: false
 ---
 
-本年2025年7月4日（金）、名誉あるDr. Cruz Jiminian氏と重要な会談を行い、今年度の重要なプロジェクトについて協議いたしました。最も弱い立場にある方々の福祉のために、共に力を合わせて取り組んでいます。（Fundación Rosario Gatón） ![](https://fundacionrosariogaton.org/wp-content/uploads/2025/08/IMG-20250806-WA0187-768x1024.jpg)
+本年2025年7月4日（金）、名誉あるDr. Cruz Jiminian氏と重要な会談を行い、今年度の重要なプロジェクトについて協議いたしました。最も弱い立場にある方々の福祉のために、共に力を合わせて取り組んでいます。（Fundación Rosario Gatón） ![](https://media.fundacionrosariogaton.org/photos/2025-08-07-reunion-con-el-dr-cruz-jiminian-proyectos-2025/01.webp)

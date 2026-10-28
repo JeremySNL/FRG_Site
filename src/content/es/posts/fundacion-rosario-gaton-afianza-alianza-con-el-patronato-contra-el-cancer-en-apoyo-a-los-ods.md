@@ -7,7 +7,7 @@ excerpt: "Fundación Rosario Gatón fortalece lazos con el Patronato Contra el C
 categories:
   - "alianzas-institucionales"
 tags: []
-image: "2025/07/54523929_1956409611124870_3963572816351068160_n.jpg"
+image: "photos/2019-03-25-afianza-alianza-con-el-patronato-contra-el-cancer-en-apoyo/01.webp"
 legacyPath: "/fundacion-rosario-gaton-afianza-alianza-con-el-patronato-contra-el-cancer-en-apoyo-a-los-ods/"
 noAutoTranslate: false
 ---

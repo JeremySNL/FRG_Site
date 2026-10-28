@@ -7,7 +7,7 @@ excerpt: "Altos ejecutivos de la Fundación Rosario Gatón participaron en una a
 categories:
   - "relaciones-internacionales"
 tags: []
-image: "2025/07/75407622_2352186168213877_4414493572967956480_n.jpg"
+image: "photos/2019-11-14-se-reune-con-el-embajador-de-israel-durante-encuentro/01.webp"
 legacyPath: "/fundacion-rosario-gaton-se-reune-con-el-embajador-de-israel-durante-encuentro-diplomatico-en-el-ministerio-de-defensa/"
 noAutoTranslate: false
 ---
