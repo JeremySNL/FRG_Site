@@ -74,9 +74,9 @@ If none of the existing tags accurately applies, omit `tags` or ask me; never in
 
 ## Images and video
 
-- A featured image uses the `image` and `imageAlt` frontmatter fields.
-- An inline image uses standard Markdown syntax: `![Spanish alt text](exact-asset-path)` at the requested location in the body.
-- Use only exact asset paths I provide. Do not fabricate paths, URLs, upload status, or alt-text facts. If an image is requested but its path is unknown, ask me before generating the file.
+- A featured image uses the `image` and `imageAlt` frontmatter fields. `image` is the relative media key exactly as provided (for example `photos/2026-11-05-evento/01-foto.webp`).
+- An inline image uses standard Markdown syntax: `![Spanish alt text](absolute-media-url)` at the requested location in the body. The URL must be absolute (it starts with `https://media.fundacionrosariogaton.org/`); a bare relative key in the body makes the build fail with `ImageNotFound`.
+- Use only exact asset paths and URLs I provide. Do not fabricate paths, URLs, upload status, or alt-text facts. If an image is requested but its path is unknown, ask me before generating the file.
 - Posts currently have no verified first-class video embed. Do not generate `<iframe>`, `<video>`, or custom embed HTML. If I provide a video URL, include it as a normal Markdown link unless I ask for a different supported treatment.
 
 ## Output rules

@@ -6,7 +6,7 @@ This guide covers routine editorial work and the technical checks for the FRG_Si
 
 1. Use [`POST_AUTHORING_PROMPT.md`](POST_AUTHORING_PROMPT.md) with the article facts and source material. The prompt returns one Spanish Markdown post; translations are handled separately by the publishing workflow.
 2. Save the result as `src/content/es/posts/<slug>.md`. Keep the filename and the frontmatter `slug` identical.
-3. Upload any new images to the media bucket separately. Put the exact uploaded key in the post's `image` field or inline Markdown image. `post:ready` reminds you that media must be uploaded separately but does not upload or remotely verify it.
+3. Upload the post's images with `npm run media:add -- --post <slug> --file <paths...>`. It encodes them, uploads them, and prints the relative frontmatter key plus the absolute body URLs. `post:ready` still never uploads media.
 4. Run `npm run post:ready -- --slug <slug>`. To choose locales, add `--locales en,fr`; if omitted, all configured translation locales are selected. Add `--dry-run` to inspect the translation scope without API calls or file writes.
 5. Review the translated Markdown and the local preview routes reported by the command. Run `npm run preview` to inspect the build locally.
 6. Commit the reviewed changes and push to `main`. Per the configured publishing workflow, that push triggers Cloudflare's automatic deployment. The post-preparation command does not commit, push, or deploy.
@@ -26,7 +26,9 @@ date: '2026-10-26'
 
 Optional fields include `updated`, `excerpt`, `author`, `categories`, `tags`, `image`, `imageAlt`, `legacyPath`, `seo`, and `noAutoTranslate`. Use category and tag slugs that already exist under the Spanish taxonomy directories. The AI prompt lists the current allowed values.
 
-The post title, date, optional excerpt, and featured image are rendered by `PostView.astro`. The body is ordinary Markdown, so headings, paragraphs, lists, links, and inline images can appear in any editorial order. Inline images use `![Alt text](exact-media-key)`.
+The post title, date, optional excerpt, and featured image are rendered by `PostView.astro`. The body is ordinary Markdown, so headings, paragraphs, lists, links, and inline images can appear in any editorial order.
+
+Image references are asymmetric on purpose: the `image` frontmatter field takes the **relative media key** (it resolves through `mediaUrl()`), while images in the Markdown body need the **absolute media URL**. Astro's content pipeline treats a bare relative path in the body as a local asset and fails the build with `ImageNotFound`.
 
 Posts do not use the typed page-block system. The `VideoBlock` is currently a page block; post Markdown should use a plain video link rather than an unverified iframe embed.
 
@@ -71,14 +73,15 @@ Shared interface strings live in `src/i18n/<locale>.json`. Content translation a
 
 ## Images and other media
 
-Rendered site media uses the configured public R2 media base. For a new article image:
+Rendered site media is served from the public R2 media base (`https://media.fundacionrosariogaton.org`). For a new article image:
 
-1. Upload the image to the approved media bucket separately.
-2. Record the exact object key returned or selected for the upload.
-3. Use that key in the featured-image frontmatter or inline Markdown.
-4. Review alt text and the local build output before pushing.
+1. Run `npm run media:add -- --post <slug> --file <paths...>` (or `--event <YYYY-MM-DD-slug>` for media that has no post). Add `--dry-run` to preview without uploading.
+2. The command encodes each file to a single WebP, numbers it inside the post's event folder, uploads it, verifies the public URL, and prints two blocks:
+   - the relative key for the `image` frontmatter field,
+   - the absolute URLs for inline Markdown images.
+3. Review alt text and the local build output before pushing.
 
-The old WordPress media migration utility (`npm run migrate:media`) is for migration work, not the routine per-article upload workflow. Do not put credentials or private URLs into Markdown.
+Keys are immutable in the cache, so the command refuses to overwrite an existing key with different bytes. To replace a photo, upload it under a new key and update the reference. The old WordPress migration utilities (`npm run migrate:media`) are for migration work, not the routine per-article upload workflow. Do not put credentials or private URLs into Markdown.
 
 ## Site code and forms
 
@@ -91,7 +94,7 @@ The old WordPress media migration utility (`npm run migrate:media`) is for migra
 
 - **A post is missing from another locale:** check its translated file under `src/content/<locale>/posts/`; rerun `post:ready` for that slug and locale. Existing translations are not overwritten automatically.
 - **A category or tag is not displayed correctly:** verify the exact slug against the files under `src/content/es/categories/` or `src/content/es/tags/`.
-- **An image is broken:** verify the object was uploaded separately and that the Markdown/frontmatter key matches the R2 object key exactly.
+- **An image is broken:** check that the frontmatter `image` is the relative key and that body images use the absolute media URL. A relative path in the body fails the build with `ImageNotFound`; a mistyped key returns 404 from the media host.
 - **Astro check or build fails:** fix the reported frontmatter/schema or Markdown issue before pushing.
 - **Deployment does not start:** verify that the change was pushed to `main` and inspect the configured Cloudflare deployment status. The repository files alone do not expose Cloudflare dashboard state.
 
@@ -100,6 +103,7 @@ The old WordPress media migration utility (`npm run migrate:media`) is for migra
 | Task                     | Command                                                      |
 | ------------------------ | ------------------------------------------------------------ |
 | Start local development  | `npm run dev`                                                |
+| Upload a post's images   | `npm run media:add -- --post <slug> --file <paths...>`       |
 | Prepare one post         | `npm run post:ready -- --slug <slug>`                        |
 | Preview translation work | `npm run translate -- --locale <locale> --dry-run`           |
 | Validate Astro/content   | `npm run check`                                              |
