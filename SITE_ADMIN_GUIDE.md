@@ -24,7 +24,7 @@ locale: 'es'
 date: '2026-10-26'
 ```
 
-Los campos opcionales son `updated`, `excerpt`, `author`, `categories`, `tags`, `image`, `imageAlt`, `videoUrl`, `legacyPath`, `seo` y `noAutoTranslate`. Usa slugs de categoría y etiqueta que ya existan en los directorios de taxonomía en español. El prompt de redacción lista los valores permitidos actuales.
+Los campos opcionales son `updated`, `excerpt`, `author`, `categories`, `tags`, `image`, `imageAlt`, `videoUrl`, `legacyPath`, `seo` y `noAutoTranslate`. El `excerpt` funciona como entrada de la página y como resumen en las tarjetas del listado: el presupuesto para el texto en español es de 200 caracteres y hay un test que lo exige (`tests/content.test.ts`), porque un resumen largo estira la tarjeta y deja la fila despareja. Usa slugs de categoría y etiqueta que ya existan en los directorios de taxonomía en español. El prompt de redacción lista los valores permitidos actuales.
 
 `PostView.astro` renderiza el título, la fecha, el extracto opcional y la imagen destacada. El cuerpo es Markdown normal, así que títulos, párrafos, listas, enlaces e imágenes en línea pueden aparecer en cualquier orden editorial.
 
@@ -44,14 +44,14 @@ Los posts no usan el sistema de bloques tipados de las páginas. Para un video, 
 
 `post:ready` valida la fuente con Astro antes de traducir y, después de traducir, ejecuta typecheck, lint, tests y un build de producción:
 
-| Comando                                | Para qué sirve                                              |
-| -------------------------------------- | ----------------------------------------------------------- |
-| `npm run check`                        | Validación de Astro y content collections antes de traducir |
-| `npm run typecheck`                    | Validación de TypeScript                                    |
-| `npm run lint`                         | Comprobaciones de ESLint                                    |
-| `npm run test -- --test-timeout=30000` | Suite de Vitest con el timeout que admite el repositorio     |
-| `npm run build`                        | Genera y valida el sitio estático                           |
-| `npm run preview`                      | Sirve el build local para revisión visual                   |
+| Comando             | Para qué sirve                                              |
+| ------------------- | ----------------------------------------------------------- |
+| `npm run check`     | Validación de Astro y content collections antes de traducir |
+| `npm run typecheck` | Validación de TypeScript                                    |
+| `npm run lint`      | Comprobaciones de ESLint                                    |
+| `npm run test`      | Suite de Vitest                                             |
+| `npm run build`     | Genera y valida el sitio estático                           |
+| `npm run preview`   | Sirve el build local para revisión visual                   |
 
 Si un comando falla después de que se escribieron las traducciones, esos archivos generados quedan en el árbol de trabajo. Corrige el problema informado y vuelve a ejecutar el comando de preparación; no uses `--force` para recuperarte.
 
@@ -100,16 +100,16 @@ Las keys son inmutables en la caché, así que el comando se niega a sobrescribi
 
 ## Referencia de comandos
 
-| Tarea                        | Comando                                                      |
-| ---------------------------- | ------------------------------------------------------------ |
-| Iniciar desarrollo local     | `npm run dev`                                                |
-| Subir las imágenes de un post | `npm run media:add -- --post <slug> --file <rutas...>`       |
-| Preparar un post             | `npm run post:ready -- --slug <slug>`                        |
-| Ver el trabajo de traducción | `npm run translate -- --locale <locale> --dry-run`           |
-| Validar Astro y contenido    | `npm run check`                                              |
-| Ejecutar los tests           | `npm run test -- --test-timeout=30000`                       |
-| Generar el sitio estático    | `npm run build`                                              |
-| Ver el build estático        | `npm run preview`                                            |
-| Publicar                     | Commit y push a `main` (Cloudflare despliega automáticamente) |
+| Tarea                         | Comando                                                       |
+| ----------------------------- | ------------------------------------------------------------- |
+| Iniciar desarrollo local      | `npm run dev`                                                 |
+| Subir las imágenes de un post | `npm run media:add -- --post <slug> --file <rutas...>`        |
+| Preparar un post              | `npm run post:ready -- --slug <slug>`                         |
+| Ver el trabajo de traducción  | `npm run translate -- --locale <locale> --dry-run`            |
+| Validar Astro y contenido     | `npm run check`                                               |
+| Ejecutar los tests            | `npm run test`                                                |
+| Generar el sitio estático     | `npm run build`                                               |
+| Ver el build estático         | `npm run preview`                                             |
+| Publicar                      | Commit y push a `main` (Cloudflare despliega automáticamente) |
 
 `npm run deploy` es un comando aparte de despliegue directo con Wrangler y no forma parte del camino normal de publicación por push a `main`.

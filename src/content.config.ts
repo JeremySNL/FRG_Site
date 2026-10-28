@@ -146,13 +146,10 @@ const blockSchema = z.discriminatedUnion('type', [
       aspect: z.enum(['landscape', 'vertical']).optional(),
       surface: z.boolean().optional(),
     })
-    .refine(
-      (data) => Boolean(data.youtubeId?.trim()) || Boolean(data.url?.trim()),
-      {
-        message: 'A video block needs either youtubeId or url.',
-        path: ['youtubeId'],
-      },
-    ),
+    .refine((data) => Boolean(data.youtubeId?.trim()) || Boolean(data.url?.trim()), {
+      message: 'A video block needs either youtubeId or url.',
+      path: ['youtubeId'],
+    }),
   z.object({
     type: z.literal('gallery'),
     title: z.string().optional(),
@@ -317,7 +314,16 @@ const posts = defineCollection({
     locale: localeSchema,
     date: z.coerce.date(),
     updated: z.coerce.date().optional(),
-    excerpt: z.string().optional(),
+    /**
+     * Lead paragraph on the post page and the card summary in listings.
+     *
+     * The Spanish source is budgeted at 200 characters (enforced in
+     * `tests/content.test.ts` so the cards stay even). The schema cap is looser
+     * because translations run longer: French already reaches 236 on existing
+     * posts, and a tight cap here would fail the build on generated content
+     * instead of on the text a human wrote.
+     */
+    excerpt: z.string().max(280).optional(),
     author: z.string().optional(),
     /** Category slugs (from the `categories` collection). */
     categories: z.array(z.string()).default([]),

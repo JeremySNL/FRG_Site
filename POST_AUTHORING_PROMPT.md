@@ -37,7 +37,7 @@ Incluye estos campos:
 Incluye campos opcionales solo cuando el valor venga entregado o pueda escribirse con seguridad a partir de los hechos del artículo:
 
 - `updated`: fecha de actualización entregada, con el mismo formato que `date`.
-- `excerpt`: resumen breve en español basado únicamente en el artículo. Recomendado: una o dos frases.
+- `excerpt`: resumen en español basado únicamente en el artículo. Se muestra como entrada de la página y como resumen en las tarjetas del listado, así que **no debe pasar de 200 caracteres**: apunta a 160–200 (una o dos frases).
 - `author`: se guarda como metadato, pero la página no lo muestra. No lo agregues si no te lo entrego.
 - `categories`: arreglo con slugs exactos de categorías existentes, de la lista de abajo.
 - `tags`: arreglo con slugs exactos de etiquetas existentes, de la lista de abajo.

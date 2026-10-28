@@ -144,4 +144,25 @@ describe('the content', () => {
       expect(fm['noAutoTranslate'], `${file} must not be translated`).toBe('true');
     }
   });
+
+  /**
+   * The listing cards render the excerpt above a fixed call to action, so a
+   * long excerpt stretches the card and leaves the row ragged. Spanish is the
+   * only text a human writes; translations inherit the budget proportionally
+   * (French is wordier and reaches 236 characters today), which is why the
+   * schema cap is looser than this rule.
+   */
+  it('keeps Spanish post excerpts within the card budget', async () => {
+    const budget = 200;
+    const files = await collectFiles(join(root, 'src', 'content', 'es', 'posts'));
+
+    for (const file of files) {
+      const excerpt = frontmatter(await readFile(file, 'utf8'))['excerpt'] ?? '';
+
+      expect(
+        excerpt.length,
+        `${file} sets a ${excerpt.length}-character excerpt (max ${budget})`,
+      ).toBeLessThanOrEqual(budget);
+    }
+  });
 });
