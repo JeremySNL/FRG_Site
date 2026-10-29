@@ -15,6 +15,7 @@ import { sectionClass } from '~/lib/blocks.ts';
 import { ambassadorOption, donationOptions, volunteerOptions } from '~/lib/forms.ts';
 import { getUi } from '~/lib/ui.ts';
 import type { Locale } from '~/lib/locales.ts';
+import { turnstileSiteKey } from '~/lib/turnstile-config.ts';
 
 interface Props {
   block: FormBlock;
@@ -74,7 +75,7 @@ const config = {
   },
 }[block.form];
 
-const siteKey = import.meta.env.TURNSTILE_SITE_KEY ?? '';
+const siteKey = turnstileSiteKey;
 const hasOptions = config.options.length > 0;
 
 /** The name of the multi-select field, so the endpoint knows what it holds. */
@@ -219,10 +220,6 @@ const optionField =
     </div>
   </div>
 </section>
-
-{siteKey && (
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />
-)}
 
 <script>
   interface FormCopy {

@@ -7,6 +7,7 @@
  */
 import { getUi } from '~/lib/ui.ts';
 import type { Locale } from '~/lib/locales.ts';
+import { turnstileSiteKey } from '~/lib/turnstile-config.ts';
 
 interface Props {
   locale: Locale;
@@ -14,6 +15,7 @@ interface Props {
 
 const { locale } = Astro.props;
 const ui = getUi(locale);
+const siteKey = turnstileSiteKey;
 ---
 
 <form
@@ -23,6 +25,7 @@ const ui = getUi(locale);
   action="/api/newsletter/"
   data-success={ui.newsletterSuccess}
   data-error={ui.newsletterError}
+  data-invalid-token={ui.form.invalidToken}
 >
   <h2 class="font-display text-lg font-semibold">{ui.newsletterTitle}</h2>
   <p class="text-sm text-white/70">{ui.newsletterText}</p>
@@ -45,6 +48,10 @@ const ui = getUi(locale);
     </button>
   </div>
 
+  {siteKey && (
+    <div class="cf-turnstile" data-sitekey={siteKey} data-theme="light"></div>
+  )}
+
   <!-- Honeypot: real users never fill this in. -->
   <div class="hidden" aria-hidden="true">
     <label for="newsletter-website">Website</label>
@@ -65,6 +72,10 @@ const ui = getUi(locale);
   ></p>
 </form>
 
+{siteKey && (
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />
+)}
+
 <script>
   const form = document.querySelector<HTMLFormElement>('#newsletter-form');
   const status = document.querySelector<HTMLElement>('#newsletter-status');
@@ -75,12 +86,15 @@ const ui = getUi(locale);
     // without a dict in the client bundle.
     const okMessage = form.dataset.success ?? '';
     const errorMessage = form.dataset.error ?? '';
+    const invalidTokenMessage = form.dataset.invalidToken ?? errorMessage;
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
 
       const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
       const data = new FormData(form);
+      const token = data.get('cf-turnstile-response');
+      if (typeof token === 'string' && token) data.set('turnstileToken', token);
 
       if (button) button.disabled = true;
       status.textContent = '';
@@ -92,8 +106,12 @@ const ui = getUi(locale);
           headers: { accept: 'application/json' },
         });
 
-        const result = (await response.json()) as { ok?: boolean };
-        status.textContent = result.ok ? okMessage : errorMessage;
+        const result = (await response.json()) as { ok?: boolean; error?: string };
+        status.textContent = result.ok
+          ? okMessage
+          : result.error === 'invalid-token'
+            ? invalidTokenMessage
+            : errorMessage;
         status.classList.toggle('text-white', result.ok === true);
         status.classList.toggle('text-accent-hover', result.ok !== true);
 
