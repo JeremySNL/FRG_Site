@@ -36,6 +36,14 @@ export const donationOptions = [
   'Otro (consultar con la Fundación)',
 ] as const;
 
+/**
+ * The option a vacancy chip preselects.
+ *
+ * Exported so `Form.astro` can mark that checkbox and prefill the message
+ * without repeating the literal, which is also what the endpoint receives.
+ */
+export const ambassadorOption = 'Ser embajador o promotor de la fundación' as const;
+
 /** Options of the "¿En qué desea participar o colaborar?" select (form 768). */
 export const volunteerOptions = [
   'Colaborar como aliado institucional o empresa solidaria',
@@ -43,7 +51,7 @@ export const volunteerOptions = [
   'Servicios profesionales (médicos, legales, educativos, técnicos, etc.)',
   'Facilitar talleres o capacitaciones comunitarias',
   'Brindar apoyo administrativo o logístico',
-  'Ser embajador o promotor de la fundación',
+  ambassadorOption,
   'Participar en campañas de recaudación',
   'Acompañar procesos de formación o mentoría a emprendedores',
   'Otro (consultar con la Fundación)',

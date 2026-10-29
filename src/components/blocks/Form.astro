@@ -12,7 +12,7 @@
  */
 import type { FormBlock } from '~/lib/blocks.ts';
 import { sectionClass } from '~/lib/blocks.ts';
-import { donationOptions, volunteerOptions } from '~/lib/forms.ts';
+import { ambassadorOption, donationOptions, volunteerOptions } from '~/lib/forms.ts';
 import { getUi } from '~/lib/ui.ts';
 import type { Locale } from '~/lib/locales.ts';
 
@@ -35,6 +35,8 @@ const formCopy = {
   sending: ui.form.sending,
   required: ui.form.fieldRequired,
   email: ui.form.invalidEmail,
+  // Not a status: the message a vacancy chip preloads into the textarea.
+  vacancy: ui.form.vacancyPrefill,
 };
 
 const config = {
@@ -157,7 +159,7 @@ const optionField =
             <legend class="font-display text-sm font-medium">
               {config.optionLabel}
             </legend>
-            <p class="mt-1 text-xs text-secondary">Puedes elegir más de una opción.</p>
+            <p class="mt-1 text-xs text-secondary">{ui.form.multipleHint}</p>
             <div class="mt-4 grid gap-2 sm:grid-cols-2">
               {config.options.map((option) => (
                 <label class="flex cursor-pointer items-start gap-3 rounded-xl border border-muted px-4 py-3 text-sm transition-colors hover:border-accent has-checked:border-accent has-checked:bg-surface">
@@ -165,6 +167,7 @@ const optionField =
                     type="checkbox"
                     name={optionField}
                     value={option}
+                    data-vacancy={option === ambassadorOption ? '' : undefined}
                     class="mt-0.5 size-4 shrink-0 accent-[var(--color-accent)]"
                   />
                   <span>{option}</span>
@@ -230,9 +233,12 @@ const optionField =
     sending: string;
     required: string;
     email: string;
+    /** Template of the message a vacancy chip preloads. */
+    vacancy: string;
   }
 
-  type Status = keyof FormCopy;
+  /** Everything in `FormCopy` except the prefill template, which is not a status. */
+  type Status = Exclude<keyof FormCopy, 'vacancy'>;
 
   for (const form of document.querySelectorAll<HTMLFormElement>('form[data-form]')) {
     const copy: FormCopy = (() => {
@@ -247,11 +253,40 @@ const optionField =
           sending: '',
           required: '',
           email: '',
+          vacancy: '',
         };
       }
     })();
     const status = form.querySelector<HTMLElement>('[data-status]');
     const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+
+    /**
+     * The vacancy chips of the ambassadors block link here as
+     * `?pais=España&continente=Europa#formulario`. Preselect the ambassador
+     * option and write the country into the message, so the reader does not
+     * have to find that checkbox among nine. Both fields stay editable.
+     */
+    const vacancyInput = form.querySelector<HTMLInputElement>('input[data-vacancy]');
+
+    if (vacancyInput) {
+      const params = new URLSearchParams(window.location.search);
+      const country = params.get('pais')?.trim();
+      const continent = params.get('continente')?.trim();
+
+      if (country) {
+        vacancyInput.checked = true;
+
+        const message = form.querySelector<HTMLTextAreaElement>(
+          'textarea[name="message"]',
+        );
+
+        if (message && continent && !message.value.trim()) {
+          message.value = copy.vacancy
+            .replace('{country}', country)
+            .replace('{continent}', continent);
+        }
+      }
+    }
 
     const setStatus = (kind: Status): void => {
       if (!status) return;

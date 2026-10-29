@@ -13,6 +13,10 @@
   "ambassadorGeneralRole": "Continental General Ambassador",
   "ambassadorAreaHeading": "Ambassadors by Country / Area",
   "ambassadorGeneralIntro": "Principal representative and spokesperson of Fundación Rosario Gatón in {continent}, promoting international cooperation, solidarity, and sustainable development.",
+  "ambassadorGeneralOpen": "General Ambassador to be assigned",
+  "ambassadorVacancies": "Vacant positions",
+  "ambassadorVacancyCta": "Do you represent {country}? Write to us",
+  "ambassadorVacancyCtaGeneric": "Do you represent your country?",
   "contactInfoTitle": "Contact Information",
   "contactEmailLabel": "Email",
   "contactPhoneLabel": "Phone",
@@ -47,6 +51,7 @@
     "message": "Message",
     "optional": "optional",
     "required": "required",
+    "multipleHint": "You can choose more than one option.",
     "submit": "Submit",
     "sending": "Sending…",
     "success": "Thank you! We have received your message and will reply to you soon.",
@@ -64,6 +69,7 @@
     "volunteerTitle": "Join as a volunteer",
     "volunteerText": "Tell us how you would like to collaborate. Our team will get in touch with you.",
     "volunteerType": "Area of collaboration",
-    "volunteerTypePlaceholder": "Select an option"
+    "volunteerTypePlaceholder": "Select an option",
+    "vacancyPrefill": "I am interested in representing {country} ({continent})."
   }
 }

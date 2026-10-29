@@ -36,6 +36,14 @@ export interface UiStrings {
   ambassadorAreaHeading: string;
   /** Introduction of the featured general ambassador; `{continent}` becomes the continent name. */
   ambassadorGeneralIntro: string;
+  /** Shown in place of the continental card while that seat has no ambassador. */
+  ambassadorGeneralOpen: string;
+  /** Label of the row that lists the countries with no ambassador yet. */
+  ambassadorVacancies: string;
+  /** Accessible name of a vacancy chip; `{country}` becomes the country name. */
+  ambassadorVacancyCta: string;
+  /** Closing call to action of the vacancy row. */
+  ambassadorVacancyCtaGeneric: string;
   /** Contact page: contact details card. */
   contactInfoTitle: string;
   contactEmailLabel: string;
@@ -73,6 +81,8 @@ export interface UiStrings {
     message: string;
     optional: string;
     required: string;
+    /** Note above the multi-select checkboxes. */
+    multipleHint: string;
     submit: string;
     sending: string;
     success: string;
@@ -93,6 +103,8 @@ export interface UiStrings {
     volunteerText: string;
     volunteerType: string;
     volunteerTypePlaceholder: string;
+    /** Message prefilled when the reader arrives from a vacancy chip; `{country}` and `{continent}` are substituted. */
+    vacancyPrefill: string;
   };
 }
 

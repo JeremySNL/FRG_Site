@@ -57,78 +57,49 @@ blocks:
   - type: "ambassadors"
     title: "親善大使"
     surface: false
-    intro: "我們的親善大使在五大洲代表 Fundación Rosario Gatón 的價值觀，推動團結、國際合作與永續發展。"
+    intro: "我們在五大洲代表 Fundación Rosario Gatón 的價值觀。非洲已由大陸總大使就任，其餘職位歡迎願意從自己國家推動團結與國際合作的人士加入。"
     continents:
-      - name: "美洲"
-        generalAmbassador:
-          name: "待指派"
-          country: "待指派"
-          role: "大洲總大使"
-        ambassadors:
-          - name: "待指派"
-            country: "República Dominicana"
-          - name: "待指派"
-            country: "México"
-          - name: "待指派"
-            country: "Colombia"
-          - name: "待指派"
-            country: "Argentina"
-      - name: "歐洲"
-        generalAmbassador:
-          name: "待指派"
-          country: "待指派"
-          role: "大洲總大使"
-        ambassadors:
-          - name: "待指派"
-            country: "España"
-          - name: "待指派"
-            country: "Italia"
-          - name: "待指派"
-            country: "Francia"
-          - name: "待指派"
-            country: "Portugal"
       - name: "非洲"
         generalAmbassador:
-          name: "待指派"
-          country: "待指派"
-          role: "大洲總大使"
-        ambassadors:
-          - name: "待指派"
-            country: "Marruecos"
-          - name: "待指派"
-            country: "Senegal"
-          - name: "待指派"
-            country: "Sierra Leona"
-          - name: "待指派"
-            country: "Kenia"
+          name: "Mr. Jabir Sulaiman Sa'ad"
+          country: "奈及利亞"
+          role: "大陸總大使"
+          image: "team/javir-sulaiman.webp"
+          imageAlt: "Mr. Jabir Sulaiman Sa'ad"
+        ambassadors: []
+        openCountries:
+          - "摩洛哥"
+          - "塞內加爾"
+          - "獅子山"
+          - "肯亞"
+      - name: "美洲"
+        ambassadors: []
+        openCountries:
+          - "多明尼加共和國"
+          - "墨西哥"
+          - "哥倫比亞"
+          - "阿根廷"
+      - name: "歐洲"
+        ambassadors: []
+        openCountries:
+          - "西班牙"
+          - "義大利"
+          - "法國"
+          - "葡萄牙"
       - name: "亞洲"
-        generalAmbassador:
-          name: "待指派"
-          country: "待指派"
-          role: "大洲總大使"
-        ambassadors:
-          - name: "待指派"
-            country: "China"
-          - name: "待指派"
-            country: "Japón"
-          - name: "待指派"
-            country: "India"
-          - name: "待指派"
-            country: "Filipinas"
+        ambassadors: []
+        openCountries:
+          - "中國"
+          - "日本"
+          - "印度"
+          - "菲律賓"
       - name: "大洋洲"
-        generalAmbassador:
-          name: "待指派"
-          country: "待指派"
-          role: "大洲總大使"
-        ambassadors:
-          - name: "待指派"
-            country: "Australia"
-          - name: "待指派"
-            country: "Nueva Zelanda"
-          - name: "待指派"
-            country: "Fiji"
-          - name: "待指派"
-            country: "Papúa Nueva Guinea"
+        ambassadors: []
+        openCountries:
+          - "澳洲"
+          - "紐西蘭"
+          - "斐濟"
+          - "巴布亞紐幾內亞"
   - type: "splitCta"
     title: "志工與捐款"
     volunteer:

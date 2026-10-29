@@ -20,9 +20,13 @@ const hardcodedSpanish = [
   'Embajador General Continental',
   'Embajadores por País / Área',
   'Representante principal y portavoz',
+  'Embajador general por asignar',
+  'Puestos vacantes',
+  '¿Representas tu país?',
   // Form + newsletter client-side fallbacks
   '¡Gracias! Te has suscrito',
   '¡Gracias! Hemos recibido',
+  'Puedes elegir más de una opción.',
   // Contact page: contact details card
   'Información de Contacto',
   'Correo Electrónico',

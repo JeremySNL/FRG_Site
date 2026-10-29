@@ -206,23 +206,31 @@ const blockSchema = z.discriminatedUnion('type', [
       z.object({
         name: z.string(),
         code: z.string().optional(),
-        generalAmbassador: z.object({
-          name: z.string(),
-          country: z.string().optional(),
-          role: z.string().optional(),
-          image: z.string().optional(),
-          imageAlt: z.string().optional(),
-        }),
-        ambassadors: z.array(
-          z.object({
+        // Omitted while the continental seat is still open.
+        generalAmbassador: z
+          .object({
             name: z.string(),
             country: z.string().optional(),
             area: z.string().optional(),
             role: z.string().optional(),
             image: z.string().optional(),
             imageAlt: z.string().optional(),
-          }),
-        ),
+          })
+          .optional(),
+        ambassadors: z
+          .array(
+            z.object({
+              name: z.string(),
+              country: z.string().optional(),
+              area: z.string().optional(),
+              role: z.string().optional(),
+              image: z.string().optional(),
+              imageAlt: z.string().optional(),
+            }),
+          )
+          .default([]),
+        // A vacancy is a country, never a person named "to be assigned".
+        openCountries: z.array(z.string()).default([]),
       }),
     ),
   }),

@@ -57,78 +57,49 @@ blocks:
   - type: "ambassadors"
     title: "親善大使"
     surface: false
-    intro: "私たちの親善大使は、5大陸における Fundación Rosario Gatón の価値観を代表し、連帯、国際協力、持続可能な開発を推進しています。"
+    intro: "私たちは五大陸で Fundación Rosario Gatón の価値観を体現しています。アフリカにはすでに大陸総大使が就任しており、その他のポストは、自国から連帯と国際協力を広めたい方に開かれています。"
     continents:
-      - name: "アメリカ"
-        generalAmbassador:
-          name: "未割当"
-          country: "未割当"
-          role: "大陸総大使"
-        ambassadors:
-          - name: "未割当"
-            country: "República Dominicana"
-          - name: "未割当"
-            country: "México"
-          - name: "未割当"
-            country: "Colombia"
-          - name: "未割当"
-            country: "Argentina"
-      - name: "ヨーロッパ"
-        generalAmbassador:
-          name: "未割当"
-          country: "未割当"
-          role: "大陸総大使"
-        ambassadors:
-          - name: "未割当"
-            country: "España"
-          - name: "未割当"
-            country: "Italia"
-          - name: "未割当"
-            country: "Francia"
-          - name: "未割当"
-            country: "Portugal"
       - name: "アフリカ"
         generalAmbassador:
-          name: "未割当"
-          country: "未割当"
+          name: "Mr. Jabir Sulaiman Sa'ad"
+          country: "ナイジェリア"
           role: "大陸総大使"
-        ambassadors:
-          - name: "未割当"
-            country: "Marruecos"
-          - name: "未割当"
-            country: "Senegal"
-          - name: "未割当"
-            country: "Sierra Leona"
-          - name: "未割当"
-            country: "Kenia"
+          image: "team/javir-sulaiman.webp"
+          imageAlt: "Mr. Jabir Sulaiman Sa'ad"
+        ambassadors: []
+        openCountries:
+          - "モロッコ"
+          - "セネガル"
+          - "シエラレオネ"
+          - "ケニア"
+      - name: "アメリカ"
+        ambassadors: []
+        openCountries:
+          - "ドミニカ共和国"
+          - "メキシコ"
+          - "コロンビア"
+          - "アルゼンチン"
+      - name: "ヨーロッパ"
+        ambassadors: []
+        openCountries:
+          - "スペイン"
+          - "イタリア"
+          - "フランス"
+          - "ポルトガル"
       - name: "アジア"
-        generalAmbassador:
-          name: "未割当"
-          country: "未割当"
-          role: "大陸総大使"
-        ambassadors:
-          - name: "未割当"
-            country: "China"
-          - name: "未割当"
-            country: "Japón"
-          - name: "未割当"
-            country: "India"
-          - name: "未割当"
-            country: "Filipinas"
+        ambassadors: []
+        openCountries:
+          - "中国"
+          - "日本"
+          - "インド"
+          - "フィリピン"
       - name: "オセアニア"
-        generalAmbassador:
-          name: "未割当"
-          country: "未割当"
-          role: "大陸総大使"
-        ambassadors:
-          - name: "未割当"
-            country: "Australia"
-          - name: "未割当"
-            country: "Nueva Zelanda"
-          - name: "未割当"
-            country: "Fiji"
-          - name: "未割当"
-            country: "Papúa Nueva Guinea"
+        ambassadors: []
+        openCountries:
+          - "オーストラリア"
+          - "ニュージーランド"
+          - "フィジー"
+          - "パプアニューギニア"
   - type: "splitCta"
     title: "ボランティア・寄付"
     volunteer:

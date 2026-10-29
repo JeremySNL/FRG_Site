@@ -13,6 +13,10 @@
   "ambassadorGeneralRole": "大陸総大使",
   "ambassadorAreaHeading": "国・地域別アンバサダー",
   "ambassadorGeneralIntro": "{continent}におけるFundación Rosario Gatónの主席代表兼公式スポークスパーソンとして、国際協力、連帯、持続可能な発展を推進します。",
+  "ambassadorGeneralOpen": "大使（兼任）未定",
+  "ambassadorVacancies": "募集中",
+  "ambassadorVacancyCta": "{country}を代表していらっしゃいますか？お気軽にご連絡ください",
+  "ambassadorVacancyCtaGeneric": "ご自身の国を代表していらっしゃいますか？",
   "contactInfoTitle": "連絡先情報",
   "contactEmailLabel": "メールアドレス",
   "contactPhoneLabel": "電話番号",
@@ -47,6 +51,7 @@
     "message": "メッセージ",
     "optional": "任意",
     "required": "必須",
+    "multipleHint": "複数の選択肢をお選びいただけます。",
     "submit": "送信",
     "sending": "送信中…",
     "success": "ありがとうございます！メッセージを受信いたしました。まもなくお返事いたします。",
@@ -64,6 +69,7 @@
     "volunteerTitle": "ボランティアとして参加する",
     "volunteerText": "どのような活動にご協力いただけるかお知らせください。スタッフよりご連絡いたします。",
     "volunteerType": "協力分野",
-    "volunteerTypePlaceholder": "オプションを選択してください"
+    "volunteerTypePlaceholder": "オプションを選択してください",
+    "vacancyPrefill": "{country}（{continent}）の代表を務めることに興味があります。"
   }
 }

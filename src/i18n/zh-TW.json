@@ -13,6 +13,10 @@
   "ambassadorGeneralRole": "大洲總大使",
   "ambassadorAreaHeading": "各國／地區大使",
   "ambassadorGeneralIntro": "Fundación Rosario Gatón 在 {continent} 的主要代表與發言人，推動國際合作、團結與永續發展。",
+  "ambassadorGeneralOpen": "待指派無任所大使",
+  "ambassadorVacancies": "職缺",
+  "ambassadorVacancyCta": "您代表 {country} 嗎？請寫信聯絡我們",
+  "ambassadorVacancyCtaGeneric": "您代表您的國家嗎？",
   "contactInfoTitle": "聯絡資訊",
   "contactEmailLabel": "電子郵件",
   "contactPhoneLabel": "電話",
@@ -47,6 +51,7 @@
     "message": "訊息",
     "optional": "選填",
     "required": "必填",
+    "multipleHint": "您可以選擇一個以上的選項。",
     "submit": "送出",
     "sending": "傳送中…",
     "success": "謝謝！我們已收到您的訊息，將盡快回覆您。",
@@ -64,6 +69,7 @@
     "volunteerTitle": "加入志工",
     "volunteerText": "請告訴我們您想協助的領域。我們的團隊將與您聯繫。",
     "volunteerType": "協作領域",
-    "volunteerTypePlaceholder": "請選擇一個選項"
+    "volunteerTypePlaceholder": "請選擇一個選項",
+    "vacancyPrefill": "我有興趣代表 {country} ({continent})。"
   }
 }

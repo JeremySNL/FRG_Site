@@ -57,78 +57,49 @@ blocks:
   - type: "ambassadors"
     title: "Goodwill Ambassadors"
     surface: false
-    intro: "Our Goodwill Ambassadors represent the values of Fundación Rosario Gatón on all five continents, promoting solidarity, international cooperation, and sustainable development."
+    intro: "We represent the values of Fundación Rosario Gatón on all five continents. Africa already has its Continental General Ambassador, and the remaining seats are open to anyone who wants to promote solidarity and international cooperation from their own country."
     continents:
-      - name: "America"
-        generalAmbassador:
-          name: "To be assigned"
-          country: "To be assigned"
-          role: "Continental General Ambassador"
-        ambassadors:
-          - name: "To be assigned"
-            country: "Dominican Republic"
-          - name: "To be assigned"
-            country: "Mexico"
-          - name: "To be assigned"
-            country: "Colombia"
-          - name: "To be assigned"
-            country: "Argentina"
-      - name: "Europe"
-        generalAmbassador:
-          name: "To be assigned"
-          country: "To be assigned"
-          role: "Continental General Ambassador"
-        ambassadors:
-          - name: "To be assigned"
-            country: "Spain"
-          - name: "To be assigned"
-            country: "Italy"
-          - name: "To be assigned"
-            country: "France"
-          - name: "To be assigned"
-            country: "Portugal"
       - name: "Africa"
         generalAmbassador:
-          name: "To be assigned"
-          country: "To be assigned"
+          name: "Mr. Jabir Sulaiman Sa'ad"
+          country: "Nigeria"
           role: "Continental General Ambassador"
-        ambassadors:
-          - name: "To be assigned"
-            country: "Morocco"
-          - name: "To be assigned"
-            country: "Senegal"
-          - name: "To be assigned"
-            country: "Sierra Leone"
-          - name: "To be assigned"
-            country: "Kenya"
+          image: "team/javir-sulaiman.webp"
+          imageAlt: "Mr. Jabir Sulaiman Sa'ad"
+        ambassadors: []
+        openCountries:
+          - "Morocco"
+          - "Senegal"
+          - "Sierra Leone"
+          - "Kenya"
+      - name: "America"
+        ambassadors: []
+        openCountries:
+          - "Dominican Republic"
+          - "Mexico"
+          - "Colombia"
+          - "Argentina"
+      - name: "Europe"
+        ambassadors: []
+        openCountries:
+          - "Spain"
+          - "Italy"
+          - "France"
+          - "Portugal"
       - name: "Asia"
-        generalAmbassador:
-          name: "To be assigned"
-          country: "To be assigned"
-          role: "Continental General Ambassador"
-        ambassadors:
-          - name: "To be assigned"
-            country: "China"
-          - name: "To be assigned"
-            country: "Japan"
-          - name: "To be assigned"
-            country: "India"
-          - name: "To be assigned"
-            country: "Philippines"
+        ambassadors: []
+        openCountries:
+          - "China"
+          - "Japan"
+          - "India"
+          - "Philippines"
       - name: "Oceania"
-        generalAmbassador:
-          name: "To be assigned"
-          country: "To be assigned"
-          role: "Continental General Ambassador"
-        ambassadors:
-          - name: "To be assigned"
-            country: "Australia"
-          - name: "To be assigned"
-            country: "New Zealand"
-          - name: "To be assigned"
-            country: "Fiji"
-          - name: "To be assigned"
-            country: "Papua New Guinea"
+        ambassadors: []
+        openCountries:
+          - "Australia"
+          - "New Zealand"
+          - "Fiji"
+          - "Papua New Guinea"
   - type: "splitCta"
     title: "Volunteering and Donations"
     volunteer:

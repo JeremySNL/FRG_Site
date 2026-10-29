@@ -57,78 +57,49 @@ blocks:
   - type: "ambassadors"
     title: "Ambassadeurs de Bonne Volonté"
     surface: false
-    intro: "Nos Ambassadeurs de Bonne Volonté incarnent les valeurs de la Fundación Rosario Gatón sur les cinq continents, en promouvant la solidarité, la coopération internationale et le développement durable."
+    intro: "Nous représentons les valeurs de la Fundación Rosario Gatón sur les cinq continents. L'Afrique dispose déjà de son Ambassadeur Général Continental et les autres postes sont ouverts à celles et ceux qui souhaitent promouvoir la solidarité et la coopération internationale depuis leur pays."
     continents:
-      - name: "Amérique"
-        generalAmbassador:
-          name: "À pourvoir"
-          country: "À définir"
-          role: "Ambassadeur Général Continental"
-        ambassadors:
-          - name: "À pourvoir"
-            country: "República Dominicana"
-          - name: "À pourvoir"
-            country: "México"
-          - name: "À pourvoir"
-            country: "Colombia"
-          - name: "À pourvoir"
-            country: "Argentina"
-      - name: "Europe"
-        generalAmbassador:
-          name: "À pourvoir"
-          country: "À définir"
-          role: "Ambassadeur Général Continental"
-        ambassadors:
-          - name: "À pourvoir"
-            country: "España"
-          - name: "À pourvoir"
-            country: "Italia"
-          - name: "À pourvoir"
-            country: "Francia"
-          - name: "À pourvoir"
-            country: "Portugal"
       - name: "Afrique"
         generalAmbassador:
-          name: "À pourvoir"
-          country: "À définir"
+          name: "Mr. Jabir Sulaiman Sa'ad"
+          country: "Nigeria"
           role: "Ambassadeur Général Continental"
-        ambassadors:
-          - name: "À pourvoir"
-            country: "Marruecos"
-          - name: "À pourvoir"
-            country: "Senegal"
-          - name: "À pourvoir"
-            country: "Sierra Leona"
-          - name: "À pourvoir"
-            country: "Kenia"
+          image: "team/javir-sulaiman.webp"
+          imageAlt: "Mr. Jabir Sulaiman Sa'ad"
+        ambassadors: []
+        openCountries:
+          - "Maroc"
+          - "Sénégal"
+          - "Sierra Leone"
+          - "Kenya"
+      - name: "Amérique"
+        ambassadors: []
+        openCountries:
+          - "République dominicaine"
+          - "Mexique"
+          - "Colombie"
+          - "Argentine"
+      - name: "Europe"
+        ambassadors: []
+        openCountries:
+          - "Espagne"
+          - "Italie"
+          - "France"
+          - "Portugal"
       - name: "Asie"
-        generalAmbassador:
-          name: "À pourvoir"
-          country: "À définir"
-          role: "Ambassadeur Général Continental"
-        ambassadors:
-          - name: "À pourvoir"
-            country: "China"
-          - name: "À pourvoir"
-            country: "Japón"
-          - name: "À pourvoir"
-            country: "India"
-          - name: "À pourvoir"
-            country: "Filipinas"
+        ambassadors: []
+        openCountries:
+          - "Chine"
+          - "Japon"
+          - "Inde"
+          - "Philippines"
       - name: "Océanie"
-        generalAmbassador:
-          name: "À pourvoir"
-          country: "À définir"
-          role: "Ambassadeur Général Continental"
-        ambassadors:
-          - name: "À pourvoir"
-            country: "Australia"
-          - name: "À pourvoir"
-            country: "Nueva Zelanda"
-          - name: "À pourvoir"
-            country: "Fiji"
-          - name: "À pourvoir"
-            country: "Papúa Nueva Guinea"
+        ambassadors: []
+        openCountries:
+          - "Australie"
+          - "Nouvelle-Zélande"
+          - "Fidji"
+          - "Papouasie-Nouvelle-Guinée"
   - type: "splitCta"
     title: "Bénévolat et Dons"
     volunteer:

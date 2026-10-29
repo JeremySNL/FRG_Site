@@ -233,6 +233,16 @@ export interface RichTextBlock {
   surface?: boolean;
 }
 
+/** One ambassador: the continental figure or a country/area one. */
+export interface AmbassadorPerson {
+  name: string;
+  country?: string;
+  area?: string;
+  role?: string;
+  image?: string;
+  imageAlt?: string;
+}
+
 export interface AmbassadorsBlock {
   type: 'ambassadors';
   title?: string;
@@ -242,21 +252,18 @@ export interface AmbassadorsBlock {
   continents: Array<{
     name: string;
     code?: string;
-    generalAmbassador: {
-      name: string;
-      country?: string;
-      role?: string;
-      image?: string;
-      imageAlt?: string;
-    };
-    ambassadors: Array<{
-      name: string;
-      country?: string;
-      area?: string;
-      role?: string;
-      image?: string;
-      imageAlt?: string;
-    }>;
+    /** The continental ambassador. Omitted while the seat is still open. */
+    generalAmbassador?: AmbassadorPerson;
+    /** Country/area ambassadors. Empty until the first one is appointed. */
+    ambassadors: AmbassadorPerson[];
+    /**
+     * Countries with no ambassador yet.
+     *
+     * A vacancy is a country, not a person named "to be assigned": keeping it
+     * as data lets the block count the open seats and link each one to the
+     * volunteering form without inventing fake people in the content.
+     */
+    openCountries: string[];
   }>;
 }
 

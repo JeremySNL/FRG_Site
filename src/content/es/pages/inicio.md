@@ -58,78 +58,52 @@ blocks:
   - type: "ambassadors"
     title: "Embajadores de Buena Voluntad"
     surface: false
-    intro: "Nuestros Embajadores de Buena Voluntad representan los valores de la Fundación Rosario Gatón en los cinco continentes, promoviendo la solidaridad, la cooperación internacional y el desarrollo sostenible."
+    intro: "Representamos los valores de la Fundación Rosario Gatón en los cinco continentes. África ya cuenta con su Embajador General Continental y el resto de los puestos están abiertos a quienes quieran promover la solidaridad y la cooperación internacional desde su país."
+    # Cada continente admite tres cosas: generalAmbassador (opcional),
+    # ambassadors (embajadores de país, hoy ninguno) y openCountries (puestos
+    # vacantes). Un país vacante es un país, no una persona llamada "Por asignar".
     continents:
-      - name: "América"
-        generalAmbassador:
-          name: "Por asignar"
-          country: "Por asignar"
-          role: "Embajador General Continental"
-        ambassadors:
-          - name: "Por asignar"
-            country: "República Dominicana"
-          - name: "Por asignar"
-            country: "México"
-          - name: "Por asignar"
-            country: "Colombia"
-          - name: "Por asignar"
-            country: "Argentina"
-      - name: "Europa"
-        generalAmbassador:
-          name: "Por asignar"
-          country: "Por asignar"
-          role: "Embajador General Continental"
-        ambassadors:
-          - name: "Por asignar"
-            country: "España"
-          - name: "Por asignar"
-            country: "Italia"
-          - name: "Por asignar"
-            country: "Francia"
-          - name: "Por asignar"
-            country: "Portugal"
       - name: "África"
         generalAmbassador:
-          name: "Por asignar"
-          country: "Por asignar"
+          name: "Mr. Jabir Sulaiman Sa'ad"
+          country: "Nigeria"
           role: "Embajador General Continental"
-        ambassadors:
-          - name: "Por asignar"
-            country: "Marruecos"
-          - name: "Por asignar"
-            country: "Senegal"
-          - name: "Por asignar"
-            country: "Sierra Leona"
-          - name: "Por asignar"
-            country: "Kenia"
+          image: "team/javir-sulaiman.webp"
+          imageAlt: "Mr. Jabir Sulaiman Sa'ad"
+        ambassadors: []
+        openCountries:
+          - "Marruecos"
+          - "Senegal"
+          - "Sierra Leona"
+          - "Kenia"
+      - name: "América"
+        ambassadors: []
+        openCountries:
+          - "República Dominicana"
+          - "México"
+          - "Colombia"
+          - "Argentina"
+      - name: "Europa"
+        ambassadors: []
+        openCountries:
+          - "España"
+          - "Italia"
+          - "Francia"
+          - "Portugal"
       - name: "Asia"
-        generalAmbassador:
-          name: "Por asignar"
-          country: "Por asignar"
-          role: "Embajador General Continental"
-        ambassadors:
-          - name: "Por asignar"
-            country: "China"
-          - name: "Por asignar"
-            country: "Japón"
-          - name: "Por asignar"
-            country: "India"
-          - name: "Por asignar"
-            country: "Filipinas"
+        ambassadors: []
+        openCountries:
+          - "China"
+          - "Japón"
+          - "India"
+          - "Filipinas"
       - name: "Oceanía"
-        generalAmbassador:
-          name: "Por asignar"
-          country: "Por asignar"
-          role: "Embajador General Continental"
-        ambassadors:
-          - name: "Por asignar"
-            country: "Australia"
-          - name: "Por asignar"
-            country: "Nueva Zelanda"
-          - name: "Por asignar"
-            country: "Fiji"
-          - name: "Por asignar"
-            country: "Papúa Nueva Guinea"
+        ambassadors: []
+        openCountries:
+          - "Australia"
+          - "Nueva Zelanda"
+          - "Fiji"
+          - "Papúa Nueva Guinea"
   - type: "splitCta"
     title: "Voluntariado y Donaciones"
     volunteer:
