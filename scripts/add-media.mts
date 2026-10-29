@@ -1,23 +1,26 @@
 /**
- * Upload the photos of one post (or one event) to the media bucket.
+ * Upload images to the media bucket.
  *
- * This is the missing step of the publishing flow: `npm run post:ready` handles
- * translation and quality checks, but it deliberately never touches R2. This
- * command does exactly that one job, and prints the two references the post
- * needs.
+ * This is the publishing step the content pipeline does not cover:
+ * `npm run post:ready` handles translation and quality checks, but it never
+ * touches R2. This command owns that one job and prints the references the
+ * content needs.
  *
  *   npm run media:add -- --post mi-post --file ./fotos/01.jpg ./fotos/02.jpg
- *   npm run media:add -- --event 2026-11-05-jornada-medica --file ./foto.jpg
+ *   npm run media:add -- --page contacto --file ./foto.jpg
+ *   npm run media:add -- --program vivienda-digna --file ./portada.jpg
+ *   npm run media:add -- --team rosario-gaton --file ./retrato.jpg
+ *   npm run media:add -- --dir brand --file ./logo.png
  *
- * It encodes every file to WebP at the delivery width, refuses to overwrite an
- * existing key with different bytes (keys are cached as immutable), uploads,
- * verifies the public URL, and prints:
+ * Numbered targets (post, event, page, dir) append to the folder, so a second
+ * run never overwrites the first. Single-asset targets (program cover, team
+ * portrait) keep one fixed key: replacing it writes the next version
+ * (`cover.webp` -> `cover-2.webp`) because the objects are cached as immutable
+ * for a year, and prints the frontmatter line to update.
  *
- *   - the relative key for `image:` in the frontmatter
- *   - the absolute URL for image tags in the Markdown body
- *
- * It never edits content, commits, or deploys. The migration manifest is not
- * touched either: it records the WordPress import, not later uploads.
+ * Every file is encoded to WebP at the delivery width, uploaded, and verified
+ * through the public URL. The command never edits content, commits, deploys, or
+ * touches the migration manifest.
  *
  * Environment:
  *
@@ -44,11 +47,17 @@ import {
   isoDateOf,
   mediaFolderFor,
   nextOrdinal,
+  normalizeDir,
+  pageFolder,
   parseMediaAddArgs,
+  programKey,
+  teamKey,
+  versionedKey,
+  type MediaAddOptions,
 } from './lib/media-add.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const sourcePostsDir = join(root, 'src', 'content', 'es', 'posts');
+const contentDir = join(root, 'src', 'content', 'es');
 
 if (existsSync(join(root, '.env'))) process.loadEnvFile(join(root, '.env'));
 
@@ -61,15 +70,21 @@ const PUBLIC_URL = (
 ).replace(/\/+$/, '');
 
 const USAGE = [
-  'Usage: npm run media:add -- (--post <slug> | --event <YYYY-MM-DD-slug>) --file <path...> [--alt "text"] [--dry-run]',
+  'Usage: npm run media:add -- <target> --file <path...> [--alt "texto"] [--dry-run]',
   '',
-  '  --post   Spanish post slug; its date and name define the folder.',
-  '  --event  Explicit event folder for media that has no post.',
-  '  --file   One or more local images (repeat the flag or list them after it).',
-  '  --alt    Alt text reused in the printed snippets.',
-  '  --dry-run  Encode and report, upload nothing.',
+  'Targets (exactly one):',
+  '  --post <slug>           photos/<fecha>-<evento>/        numerado, fecha leída del post',
+  '  --event <fecha-evento>  photos/<fecha>-<evento>/        numerado',
+  '  --page <slug>           pages/<slug>/                   numerado',
+  '  --program <slug>        programs/<slug>/cover.webp      clave fija, versionada al reemplazar',
+  '  --team <slug>           team/<slug>.webp                clave fija, versionada al reemplazar',
+  '  --dir <carpeta>         cualquier carpeta, ej. brand/   numerado',
   '',
-  'Never edits content, commits, or deploys.',
+  '  --file      Uno o más archivos locales (repetí la bandera o listalos después).',
+  '  --alt       Texto alternativo para los fragmentos que imprime.',
+  '  --dry-run   Codifica e informa, sin subir nada.',
+  '',
+  'Nunca edita contenido, commitea ni despliega.',
 ].join('\n');
 
 /** Whether the R2 credentials needed to list and upload are present. */
@@ -175,32 +190,101 @@ async function encodeFile(file: string): Promise<Encoded> {
   };
 }
 
-/** Read the date and title a post contributes to the folder and the snippets. */
-async function readPost(slug: string): Promise<{ date: string; title: string }> {
-  const path = join(sourcePostsDir, `${slug}.md`);
+/** Read and parse the Spanish document that owns a target. */
+async function readDocument(
+  collection: 'posts' | 'pages' | 'programs' | 'team',
+  slug: string,
+): Promise<Record<string, unknown>> {
+  const path = join(contentDir, collection, `${slug}.md`);
 
   if (!existsSync(path)) {
-    throw new Error(`No Spanish source post at src/content/es/posts/${slug}.md.`);
+    throw new Error(`No Spanish source at src/content/es/${collection}/${slug}.md.`);
   }
 
   const source = await readFile(path, 'utf8');
   const frontmatter = /^---\r?\n([\s\S]*?)\r?\n---/.exec(source)?.[1];
-  if (!frontmatter) throw new Error(`The post ${slug} has no YAML frontmatter.`);
+  if (!frontmatter) throw new Error(`${collection}/${slug} has no YAML frontmatter.`);
 
-  const data = (parseYaml(frontmatter) ?? {}) as Record<string, unknown>;
+  return (parseYaml(frontmatter) ?? {}) as Record<string, unknown>;
+}
 
-  if (data['slug'] !== slug) {
-    throw new Error(`Frontmatter slug must match the filename slug "${slug}".`);
+interface Plan {
+  /** Folder that receives the uploads (numbered targets) or holds the key. */
+  folder: string;
+  /** Fixed key for single-asset targets. */
+  fixedKey?: string;
+  alt: string;
+  /** Where the reference lives, for the closing instructions. */
+  hint?: string;
+}
+
+/** Decide where the files of this run go. */
+async function resolvePlan(options: MediaAddOptions): Promise<Plan> {
+  if (options.post) {
+    const data = await readDocument('posts', options.post);
+    if (data['slug'] !== options.post) {
+      throw new Error(
+        `Frontmatter slug must match the filename slug "${options.post}".`,
+      );
+    }
+    if (data['locale'] !== 'es')
+      throw new Error('The source post must set locale: "es".');
+
+    const date = isoDateOf(data['date']);
+    if (!date) {
+      throw new Error(
+        `The post ${options.post} needs a valid \`date\` in its frontmatter.`,
+      );
+    }
+
+    return {
+      folder: mediaFolderFor(date, options.post),
+      alt: String(data['title'] ?? options.post),
+      hint: `npm run post:ready -- --slug ${options.post}`,
+    };
   }
-  if (data['locale'] !== 'es') {
-    throw new Error('The source post must set locale: "es".');
+
+  if (options.event) {
+    return { folder: `photos/${options.event}`, alt: options.event };
   }
 
-  const date = isoDateOf(data['date']);
-  if (!date)
-    throw new Error(`The post ${slug} needs a valid \`date\` in its frontmatter.`);
+  if (options.page) {
+    const data = await readDocument('pages', options.page);
+    return {
+      folder: pageFolder(options.page),
+      alt: String(data['title'] ?? options.page),
+      hint: `src/content/es/pages/${options.page}.md`,
+    };
+  }
 
-  return { date, title: String(data['title'] ?? slug) };
+  if (options.program) {
+    const data = await readDocument('programs', options.program);
+    const key = programKey(options.program);
+    return {
+      folder: key.slice(0, key.lastIndexOf('/')),
+      fixedKey: key,
+      alt: String(data['title'] ?? options.program),
+      hint: `src/content/es/programs/${options.program}.md`,
+    };
+  }
+
+  if (options.team) {
+    const data = await readDocument('team', options.team);
+    const key = teamKey(options.team);
+    return {
+      folder: key.slice(0, key.lastIndexOf('/')),
+      fixedKey: key,
+      alt: String(data['name'] ?? options.team),
+      hint: `src/content/es/team/${options.team}.md`,
+    };
+  }
+
+  const dir = options.dir ? normalizeDir(options.dir) : '';
+  if (!dir || !isSafeFolder(dir, 1)) {
+    throw new Error('Pass one of --post, --event, --page, --program, --team or --dir.');
+  }
+
+  return { folder: dir, alt: dir.split('/').pop() ?? dir };
 }
 
 async function main(): Promise<void> {
@@ -216,57 +300,79 @@ async function main(): Promise<void> {
     if (!existsSync(file)) throw new Error(`File not found: ${file}`);
   }
 
-  let folder: string;
-  let defaultAlt: string;
+  const plan = await resolvePlan(options);
 
-  if (options.post) {
-    const post = await readPost(options.post);
-    folder = mediaFolderFor(post.date, options.post);
-    defaultAlt = post.title;
-  } else {
-    folder = `photos/${options.event ?? ''}`;
-    defaultAlt = options.event ?? '';
-  }
-
-  if (!isSafeFolder(folder)) {
-    throw new Error(`Unsafe media folder: ${folder}`);
-  }
-
-  console.log(`Folder: ${folder}`);
+  console.log(`Folder: ${plan.folder}`);
+  if (plan.fixedKey) console.log(`Key:    ${plan.fixedKey} (clave fija)`);
   console.log(`Files:  ${options.files.length}`);
 
-  // A dry run still lists the folder, so the printed ordinal matches reality.
+  // A dry run still lists the folder, so the printed key matches reality.
   if (!options.dryRun) assertConfiguration();
   const client = isConfigured() ? createClient() : undefined;
-  const existing = client ? await listKeys(client, `${folder}/`) : [];
+  const existing = client ? await listKeys(client, `${plan.folder}/`) : [];
   const startOrdinal = nextOrdinal(existing);
 
   if (!client) console.log('R2 is not configured: assuming the folder is empty.');
-  if (startOrdinal > 1) {
+  if (!plan.fixedKey && startOrdinal > 1) {
     console.log(`Existing keys: ${existing.length} (next: ${startOrdinal})`);
   }
 
-  const targets = buildMediaTargets(folder, options.files, startOrdinal);
+  const numbered = plan.fixedKey
+    ? []
+    : buildMediaTargets(plan.folder, options.files, startOrdinal);
+
   const uploaded: Array<{ key: string; width: number; height: number; bytes: number }> =
     [];
+  let reusedKey: string | undefined;
+  let previousKey: string | undefined;
 
-  for (const target of targets) {
-    if (!isMediaPath(target.key)) {
-      throw new Error(`Unsafe target key: ${target.key}`);
-    }
-
-    const encoded = await encodeFile(target.file);
+  for (const [index, file] of options.files.entries()) {
+    const encoded = await encodeFile(file);
     const kib = Math.round(encoded.body.byteLength / 1024);
     const dimensions = `${encoded.width}x${encoded.height}`;
     const source =
       encoded.sourceWidth === encoded.width && encoded.sourceHeight === encoded.height
         ? ''
-        : ` (from ${encoded.sourceWidth}x${encoded.sourceHeight})`;
+        : ` (desde ${encoded.sourceWidth}x${encoded.sourceHeight})`;
+
+    let key: string;
+
+    if (plan.fixedKey) {
+      // Reuse the exact object when the bytes match; otherwise version it, so
+      // nobody with the old image cached keeps seeing it.
+      let sameBytes = false;
+      if (client && existing.includes(plan.fixedKey)) {
+        const head = await client.fetch(objectUrl(plan.fixedKey), { method: 'HEAD' });
+        const length = Number(head.headers.get('content-length') ?? '0');
+        sameBytes = head.status === 200 && length === encoded.body.byteLength;
+      }
+
+      if (sameBytes) {
+        console.log(`  skip ${plan.fixedKey}  ya es idéntica`);
+        reusedKey = plan.fixedKey;
+        uploaded.push({
+          key: plan.fixedKey,
+          width: encoded.width,
+          height: encoded.height,
+          bytes: encoded.body.byteLength,
+        });
+        continue;
+      }
+
+      key = versionedKey(plan.fixedKey, existing);
+      if (key !== plan.fixedKey) previousKey = plan.fixedKey;
+    } else {
+      const target = numbered[index];
+      if (!target) throw new Error('Internal error: missing numbered target.');
+      key = target.key;
+    }
+
+    if (!isMediaPath(key)) throw new Error(`Unsafe target key: ${key}`);
 
     if (options.dryRun || !client) {
-      console.log(`  plan ${target.key}  ${dimensions}${source}  ${kib} KiB`);
+      console.log(`  plan ${key}  ${dimensions}${source}  ${kib} KiB`);
       uploaded.push({
-        key: target.key,
+        key,
         width: encoded.width,
         height: encoded.height,
         bytes: encoded.body.byteLength,
@@ -274,13 +380,13 @@ async function main(): Promise<void> {
       continue;
     }
 
-    const head = await client.fetch(objectUrl(target.key), { method: 'HEAD' });
+    const head = await client.fetch(objectUrl(key), { method: 'HEAD' });
     if (head.status === 200) {
       const length = Number(head.headers.get('content-length') ?? '0');
       if (length === encoded.body.byteLength) {
-        console.log(`  skip ${target.key}  already identical`);
+        console.log(`  skip ${key}  ya es idéntica`);
         uploaded.push({
-          key: target.key,
+          key,
           width: encoded.width,
           height: encoded.height,
           bytes: encoded.body.byteLength,
@@ -288,14 +394,14 @@ async function main(): Promise<void> {
         continue;
       }
       throw new Error(
-        `${target.key} already exists with different content (${length} vs ${encoded.body.byteLength} bytes). Keys are immutable: pick a new file name or remove the object first.`,
+        `${key} already exists with different content (${length} vs ${encoded.body.byteLength} bytes). Pick another file name or bump the version.`,
       );
     }
     if (head.status !== 404) {
-      throw new Error(`${target.key}: preflight failed (${head.status}).`);
+      throw new Error(`${key}: preflight failed (${head.status}).`);
     }
 
-    const response = await client.fetch(objectUrl(target.key), {
+    const response = await client.fetch(objectUrl(key), {
       method: 'PUT',
       body: new Uint8Array(encoded.body),
       headers: {
@@ -306,17 +412,15 @@ async function main(): Promise<void> {
     });
 
     if (!response.ok) {
-      throw new Error(`${target.key}: upload failed (${response.status}).`);
+      throw new Error(`${key}: upload failed (${response.status}).`);
     }
 
-    const check = await fetch(`${PUBLIC_URL}/${target.key}`, { method: 'HEAD' });
-    if (!check.ok) {
-      throw new Error(`${target.key}: public check failed (${check.status}).`);
-    }
+    const check = await fetch(`${PUBLIC_URL}/${key}`, { method: 'HEAD' });
+    if (!check.ok) throw new Error(`${key}: public check failed (${check.status}).`);
 
-    console.log(`  ok   ${target.key}  ${dimensions}${source}  ${kib} KiB`);
+    console.log(`  ok   ${key}  ${dimensions}${source}  ${kib} KiB`);
     uploaded.push({
-      key: target.key,
+      key,
       width: encoded.width,
       height: encoded.height,
       bytes: encoded.body.byteLength,
@@ -326,28 +430,33 @@ async function main(): Promise<void> {
   const hero = uploaded[0];
   if (!hero) return;
 
-  const alt = options.alt ?? defaultAlt;
+  const alt = options.alt ?? plan.alt;
   const totalKib = Math.round(
     uploaded.reduce((sum, item) => sum + item.bytes, 0) / 1024,
   );
 
   console.log(`\n${uploaded.length} object(s), ${totalKib} KiB.`);
-  if (options.dryRun) {
-    console.log('Dry run: nothing was uploaded.');
-  }
+  if (options.dryRun) console.log('Dry run: nothing was uploaded.');
 
-  console.log('\nFrontmatter (relative key, resolved through mediaUrl()):');
+  console.log('\nFrontmatter (clave relativa, se resuelve con mediaUrl()):');
   console.log(`  image: "${hero.key}"`);
   console.log(`  imageAlt: "${alt}"`);
 
-  console.log('\nMarkdown body (absolute URL, required by the content pipeline):');
+  if (reusedKey) {
+    console.log('\nLa imagen ya era idéntica: la referencia no cambia.');
+  }
+  if (previousKey) {
+    console.log(
+      `\nImportante: ${previousKey} sigue en el bucket (es inmutable). La referencia nueva es la de arriba.`,
+    );
+  }
+
+  console.log('\nMarkdown body (URL absoluta, obligatoria en el cuerpo):');
   for (const item of uploaded) {
     console.log(`  ![${alt}](${PUBLIC_URL}/${item.key})`);
   }
 
-  if (options.post) {
-    console.log(`\nNext: npm run post:ready -- --slug ${options.post}`);
-  }
+  if (plan.hint) console.log(`\nActualiza \`image\` en: ${plan.hint}`);
 }
 
 main().catch((error: unknown) => {

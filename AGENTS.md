@@ -10,7 +10,7 @@
 - Lint/format: `npm run lint`, `npm run lint:fix`, `npm run format`, `npm run format:check`.
 - Tests: `npm run test` (vitest run, `tests/**/*.test.ts`, node env). Single test: `npx vitest run tests/tokens.test.ts` or `npx vitest run -t "..."`. Watch: `npm run test:watch`. E2E: `npm run test:e2e` (Playwright, `playwright.config.ts`, specs in `tests/e2e/`; the config boots `npm run dev` on port 4321 — set `PLAYWRIGHT_EXECUTABLE_PATH` to reuse an installed browser).
 - Content/translations/migrations: `npm run translate` (needs `OPENAI_API_KEY`; see `scripts/translate.mts` for flags/env), `npm run migrate:extract`, `npm run migrate:media`, `npm run migrate:redirects`.
-- Publishing one post: `npm run media:add -- --post <slug> --file <path...>` encodes and uploads the photos, then prints the frontmatter key and the body URLs; `npm run post:ready -- --slug <slug>` translates that post only and runs `check`/`typecheck`/`lint`/`test`/`build`. Neither command commits or deploys.
+- Publishing one post: `npm run media:add -- --post <slug> --file <path...>` encodes and uploads the photos, then prints the frontmatter key and the body URLs; `npm run post:ready -- --slug <slug>` translates that post only and runs `check`/`typecheck`/`lint`/`test`/`build`. Other targets: `--page`, `--program`, `--team`, `--event`, `--dir`. Neither command commits or deploys.
 
 ## Architecture (high-signal)
 - **Routing**: custom i18n via single dispatcher `src/pages/[...path].astro` (see `src/lib/locales.ts`). Spanish (`es`) is default at root; others prefixed `/en/`, `/fr/`, `/ja/`, `/zh-TW/`. Do **not** assume Astro built-in i18n layout.

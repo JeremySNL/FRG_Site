@@ -73,15 +73,22 @@ Las cadenas compartidas de la interfaz viven en `src/i18n/<locale>.json`. La tra
 
 ## Imágenes y otros medios
 
-Los medios del sitio se sirven desde la base pública de R2 (`https://media.fundacionrosariogaton.org`). Para una imagen nueva de un artículo:
+Los medios del sitio se sirven desde la base pública de R2 (`https://media.fundacionrosariogaton.org`). `npm run media:add` elige el destino según la bandera:
 
-1. Ejecuta `npm run media:add -- --post <slug> --file <rutas...>` (o `--event <AAAA-MM-DD-slug>` para medios que no pertenecen a un post). Agrega `--dry-run` para ver qué haría sin subir nada.
-2. El comando codifica cada archivo a un único WebP, lo numera dentro de la carpeta del evento del post, lo sube, verifica la URL pública e imprime dos bloques:
-   - la key relativa para el campo `image` del frontmatter,
-   - las URL absolutas para las imágenes en línea del Markdown.
-3. Revisa el texto alternativo y el build local antes de hacer push.
+| Bandera                  | Destino                      | Nombres                              |
+| ------------------------ | ---------------------------- | ------------------------------------ |
+| `--post <slug>`          | `photos/<fecha>-<evento>/`   | numerados (fecha leída del post)     |
+| `--event <fecha-evento>` | `photos/<fecha>-<evento>/`   | numerados                            |
+| `--page <slug>`          | `pages/<slug>/`              | numerados                            |
+| `--program <slug>`       | `programs/<slug>/cover.webp` | clave fija, versionada al reemplazar |
+| `--team <slug>`          | `team/<slug>.webp`           | clave fija, versionada al reemplazar |
+| `--dir <carpeta>`        | la carpeta indicada          | numerados                            |
 
-Las keys son inmutables en la caché, así que el comando se niega a sobrescribir una key existente con otros bytes. Para reemplazar una foto, súbela con una key nueva y actualiza la referencia. Las utilidades antiguas de migración desde WordPress (`npm run migrate:media`) son para trabajo de migración, no para el flujo de subida de cada artículo. No pongas credenciales ni URL privadas dentro del Markdown.
+1. Elegí el destino y ejecutá, por ejemplo, `npm run media:add -- --page nosotros --file ./foto.jpg`. Agrega `--dry-run` para ver qué haría sin subir nada.
+2. El comando codifica cada archivo a un único WebP, lo sube, verifica la URL pública e imprime dos bloques: la key relativa para el campo `image` del frontmatter y las URL absolutas para las imágenes en línea del Markdown.
+3. Revisá el texto alternativo y el build local antes de hacer push.
+
+Los destinos numerados nunca pisan: continúan la numeración de la carpeta. Los destinos de clave fija tampoco: si el objeto ya existe, suben la versión siguiente (`cover.webp` → `cover-2.webp`) y te indican qué archivo `.md` actualizar, porque los objetos se cachean como inmutables durante un año. Las utilidades antiguas de migración desde WordPress (`npm run migrate:media`) son para trabajo de migración, no para el flujo de cada artículo. No pongas credenciales ni URL privadas dentro del Markdown.
 
 ## Código del sitio y formularios
 
