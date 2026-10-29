@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import type { CollectionEntry } from 'astro:content';
 
@@ -12,8 +12,15 @@ import type { CollectionEntry } from 'astro:content';
 
 const collections = new Map<string, unknown[]>();
 
+beforeEach(() => {
+  collections.clear();
+});
+
 vi.mock('astro:content', () => ({
-  getCollection: (name: string, filter?: (entry: unknown) => boolean): Promise<unknown[]> => {
+  getCollection: (
+    name: string,
+    filter?: (entry: unknown) => boolean,
+  ): Promise<unknown[]> => {
     const entries = collections.get(name) ?? [];
     return Promise.resolve(filter ? entries.filter(filter) : entries);
   },
@@ -31,10 +38,7 @@ describe('enumerateStaticPaths', () => {
   it('enumerates from the default locale even when it is not first', async () => {
     // `en` is inserted first to simulate the non-deterministic collection
     // order that materializing translations can produce.
-    collections.set('pages', [
-      page('en', 'about-us', 1),
-      page('es', 'nosotros', 1),
-    ]);
+    collections.set('pages', [page('en', 'about-us', 1), page('es', 'nosotros', 1)]);
 
     const { enumerateStaticPaths } = await import('../src/lib/routing.ts');
     const { defaultLocale } = await import('../src/lib/locales.ts');
@@ -62,5 +66,31 @@ describe('availableLocales', () => {
 
     expect(locales).toContain('en');
     expect(locales).toContain('es');
+  });
+});
+
+describe('document locale fallback', () => {
+  it('uses the Spanish page when a translation is missing', async () => {
+    collections.set('pages', [page('es', 'politica', 1)]);
+
+    const { getPageWithFallback } = await import('../src/lib/content.ts');
+    const result = await getPageWithFallback('en', 'politica');
+
+    expect(result.entry?.data.slug).toBe('politica');
+    expect(result.contentLocale).toBe('es');
+  });
+
+  it('indexes only locales that contain each document', async () => {
+    collections.set('pages', [
+      page('es', 'politica', 1),
+      page('es', 'nosotros', 2),
+      page('en', 'nosotros', 2),
+    ]);
+
+    const { getDocumentLocaleIndex } = await import('../src/lib/content.ts');
+    const index = await getDocumentLocaleIndex();
+
+    expect(index.pages.get('politica')).toEqual(['es']);
+    expect(index.pages.get('nosotros')).toEqual(['es', 'en']);
   });
 });

@@ -16,6 +16,29 @@ export type TeamEntry = CollectionEntry<'team'>;
 export type CategoryEntry = CollectionEntry<'categories'>;
 export type TagEntry = CollectionEntry<'tags'>;
 
+export type RoutableContentKind = 'pages' | 'posts' | 'categories' | 'tags';
+export type DocumentLocaleIndex = Record<RoutableContentKind, Map<string, Locale[]>>;
+
+export interface LocalizedEntry<T> {
+  entry: T | undefined;
+  /** Locale the entry actually comes from. */
+  contentLocale: Locale;
+}
+
+async function withDefaultLocaleFallback<T>(
+  locale: Locale,
+  lookup: (locale: Locale) => Promise<T | undefined>,
+): Promise<LocalizedEntry<T>> {
+  const entry = await lookup(locale);
+  if (entry || locale === defaultLocale) return { entry, contentLocale: locale };
+
+  const fallback = await lookup(defaultLocale);
+  return {
+    entry: fallback,
+    contentLocale: fallback ? defaultLocale : locale,
+  };
+}
+
 /** Every locale that actually has content on disk. */
 export async function availableLocales(): Promise<Locale[]> {
   const locales = new Set<Locale>();
@@ -83,6 +106,14 @@ export async function getPage(
   return pages.find((page) => page.data.slug === slug);
 }
 
+/** Get a page in the requested locale, falling back to Spanish per document. */
+export function getPageWithFallback(
+  locale: Locale,
+  slug: string,
+): Promise<LocalizedEntry<PageEntry>> {
+  return withDefaultLocaleFallback(locale, (candidate) => getPage(candidate, slug));
+}
+
 /** All posts of a locale, newest first. */
 export async function getPosts(locale: Locale): Promise<PostEntry[]> {
   const posts = await getCollection('posts', (entry) => entry.data.locale === locale);
@@ -97,6 +128,14 @@ export async function getPost(
 ): Promise<PostEntry | undefined> {
   const posts = await getPosts(locale);
   return posts.find((post) => post.data.slug === slug);
+}
+
+/** Get a post in the requested locale, falling back to Spanish per document. */
+export function getPostWithFallback(
+  locale: Locale,
+  slug: string,
+): Promise<LocalizedEntry<PostEntry>> {
+  return withDefaultLocaleFallback(locale, (candidate) => getPost(candidate, slug));
 }
 
 /** All programs of a locale, ordered by their `order` field. */
@@ -169,6 +208,14 @@ export async function getCategory(
   return entry ?? undefined;
 }
 
+/** Get a category in the requested locale, falling back to Spanish per document. */
+export function getCategoryWithFallback(
+  locale: Locale,
+  slug: string,
+): Promise<LocalizedEntry<CategoryEntry>> {
+  return withDefaultLocaleFallback(locale, (candidate) => getCategory(candidate, slug));
+}
+
 /** A tag by its slug. */
 export async function getTag(
   locale: Locale,
@@ -176,4 +223,50 @@ export async function getTag(
 ): Promise<TagEntry | undefined> {
   const entry = await getEntry('tags', `${locale}/tags/${slug}`);
   return entry ?? undefined;
+}
+
+/** Get a tag in the requested locale, falling back to Spanish per document. */
+export function getTagWithFallback(
+  locale: Locale,
+  slug: string,
+): Promise<LocalizedEntry<TagEntry>> {
+  return withDefaultLocaleFallback(locale, (candidate) => getTag(candidate, slug));
+}
+
+let documentLocaleIndexPromise: Promise<DocumentLocaleIndex> | undefined;
+
+/** Get per-document locale availability for routing, SEO, and sitemap output. */
+export function getDocumentLocaleIndex(): Promise<DocumentLocaleIndex> {
+  documentLocaleIndexPromise ??= buildDocumentLocaleIndex();
+  return documentLocaleIndexPromise;
+}
+
+async function buildDocumentLocaleIndex(): Promise<DocumentLocaleIndex> {
+  const index: DocumentLocaleIndex = {
+    pages: new Map(),
+    posts: new Map(),
+    categories: new Map(),
+    tags: new Map(),
+  };
+
+  const add = (kind: RoutableContentKind, slug: string, locale: Locale): void => {
+    const locales = index[kind].get(slug) ?? [];
+    if (!locales.includes(locale)) locales.push(locale);
+    index[kind].set(slug, locales);
+  };
+
+  for (const entry of await getCollection('pages')) {
+    add('pages', entry.data.slug, entry.data.locale);
+  }
+  for (const entry of await getCollection('posts')) {
+    add('posts', entry.data.slug, entry.data.locale);
+  }
+  for (const entry of await getCollection('categories')) {
+    add('categories', entry.data.slug, entry.data.locale);
+  }
+  for (const entry of await getCollection('tags')) {
+    add('tags', entry.data.slug, entry.data.locale);
+  }
+
+  return index;
 }

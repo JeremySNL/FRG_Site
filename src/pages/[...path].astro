@@ -22,14 +22,16 @@ import ArchiveView from '~/components/views/ArchiveView.astro';
 import PageView from '~/components/views/PageView.astro';
 import PostView from '~/components/views/PostView.astro';
 
-import { locales, localePath, parseRoute } from '~/lib/locales.ts';
+import { localePath, parseRoute } from '~/lib/locales.ts';
 import {
-  getCategory,
-  getPage,
+  getCategoryWithFallback,
+  getDocumentLocaleIndex,
+  getPageWithFallback,
+  getPostWithFallback,
   getPosts,
   getPostsByCategory,
   getPostsByTag,
-  getTag,
+  getTagWithFallback,
   resolveLocale,
 } from '~/lib/content.ts';
 import { enumerateStaticPaths } from '~/lib/routing.ts';
@@ -71,14 +73,27 @@ if (segments.length === 0) {
   slug = segments.join('/');
 }
 
-const homePage = await getPage(contentLocale, '');
-const page = kind === 'page' ? await getPage(contentLocale, slug) : undefined;
-const blogPage =
-  kind === 'blogIndex' ? await getPage(contentLocale, 'actualidades') : undefined;
+const homeResult =
+  kind === 'home' ? await getPageWithFallback(contentLocale, '') : undefined;
+const pageResult =
+  kind === 'page' ? await getPageWithFallback(contentLocale, slug) : undefined;
+const blogPageResult =
+  kind === 'blogIndex'
+    ? await getPageWithFallback(contentLocale, 'actualidades')
+    : undefined;
+const postResult =
+  kind === 'post' ? await getPostWithFallback(contentLocale, slug) : undefined;
+const categoryResult =
+  kind === 'category' ? await getCategoryWithFallback(contentLocale, slug) : undefined;
+const tagResult =
+  kind === 'tag' ? await getTagWithFallback(contentLocale, slug) : undefined;
+
+const homePage = homeResult?.entry;
+const page = pageResult?.entry;
+const blogPage = blogPageResult?.entry;
+const post = postResult?.entry;
 
 const allPosts = await getPosts(contentLocale);
-const post =
-  kind === 'post' ? allPosts.find((entry) => entry.data.slug === slug) : undefined;
 
 const archivePosts =
   kind === 'blogIndex'
@@ -91,12 +106,40 @@ const archivePosts =
 
 const term =
   kind === 'category'
-    ? await getCategory(contentLocale, slug)
+    ? categoryResult?.entry
     : kind === 'tag'
-      ? await getTag(contentLocale, slug)
+      ? tagResult?.entry
       : undefined;
 const termDescription =
   term && 'description' in term.data ? term.data.description : undefined;
+
+const documentLocale =
+  kind === 'home'
+    ? homeResult?.contentLocale
+    : kind === 'page'
+      ? pageResult?.contentLocale
+      : kind === 'blogIndex'
+        ? blogPageResult?.contentLocale
+        : kind === 'post'
+          ? postResult?.contentLocale
+          : kind === 'category'
+            ? categoryResult?.contentLocale
+            : tagResult?.contentLocale;
+const effectiveContentLocale = documentLocale ?? contentLocale;
+const documentLocaleIndex = await getDocumentLocaleIndex();
+const documentKind =
+  kind === 'post'
+    ? 'posts'
+    : kind === 'category'
+      ? 'categories'
+      : kind === 'tag'
+        ? 'tags'
+        : 'pages';
+const documentSlug =
+  kind === 'home' ? '' : kind === 'blogIndex' ? 'actualidades' : slug;
+const documentLocales = documentLocaleIndex[documentKind].get(documentSlug) ?? [];
+const hasDocumentFallback = effectiveContentLocale !== locale;
+const isDocumentFallback = isFallback || hasDocumentFallback;
 
 /* --- metadata --------------------------------------------------------------- */
 
@@ -139,14 +182,14 @@ const seoDescription =
 const seo = buildSeo(
   {
     locale,
-    contentLocale,
+    contentLocale: effectiveContentLocale,
     slug: seoSlug,
     title: seoTitle,
     description: seoDescription,
     image: kind === 'post' && post ? post.data.image : undefined,
     type: kind === 'post' ? 'article' : 'website',
   },
-  locales,
+  documentLocales,
 );
 
 const schemas: Array<Record<string, unknown>> = [];
@@ -159,7 +202,7 @@ if (kind === 'post' && post) {
       url: seo.canonical,
       image: post.data.image,
       publishedTime: post.data.date.toISOString(),
-      locale,
+      locale: effectiveContentLocale,
     }),
   );
 }
@@ -181,19 +224,29 @@ if (kind === 'blogIndex' && archivePosts.length > 0) {
 ---
 
 <BaseLayout locale={locale} nav={nav} seo={seo} currentSlug={seoSlug} schemas={schemas}>
-  {(kind === 'home' || kind === 'page') && (page ?? homePage) && (
-    <PageView page={(page ?? homePage)!} locale={locale} isFallback={isFallback} />
+  {kind === 'home' && homePage && (
+    <PageView page={homePage} locale={locale} isFallback={isDocumentFallback} />
+  )}
+
+  {kind === 'page' && page && (
+    <PageView page={page} locale={locale} isFallback={isDocumentFallback} />
   )}
 
   {kind === 'blogIndex' && (
     <>
-      {blogPage && <PageView page={blogPage} locale={locale} isFallback={isFallback} />}
-      <ArchiveView posts={archivePosts} locale={locale} isFallback={isFallback} />
+      {blogPage && (
+        <PageView page={blogPage} locale={locale} isFallback={isDocumentFallback} />
+      )}
+      <ArchiveView
+        posts={archivePosts}
+        locale={locale}
+        isFallback={isDocumentFallback}
+      />
     </>
   )}
 
   {kind === 'post' && post && (
-    <PostView post={post} locale={locale} isFallback={isFallback} />
+    <PostView post={post} locale={locale} isFallback={isDocumentFallback} />
   )}
 
   {(kind === 'category' || kind === 'tag') && (
@@ -202,7 +255,7 @@ if (kind === 'blogIndex' && archivePosts.length > 0) {
       description={termDescription}
       posts={archivePosts}
       locale={locale}
-      isFallback={isFallback}
+      isFallback={isDocumentFallback}
     />
   )}
 </BaseLayout>
