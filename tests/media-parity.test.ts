@@ -129,8 +129,7 @@ describe('media parity between the Spanish source and every translation', () => 
         );
 
         for (const locale of LOCALES) {
-          // A document that was never translated on purpose (pre-cutoff posts)
-          // has no counterpart and cannot disagree.
+          // Explicitly untranslated documents may have no locale counterpart.
           if (!(await documentsOf(locale, collection)).includes(file)) continue;
 
           const translated = mediaReferences(

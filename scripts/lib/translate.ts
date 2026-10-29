@@ -8,33 +8,18 @@
  * words change.
  */
 
+import { randomUUID } from 'node:crypto';
+
 /* --- source guards ------------------------------------------------------ */
 
 /**
- * Posts published before this date are not translated.
- *
- * The archive of the foundation goes back to 2019 and is of little value in
- * four more languages; translating it would cost a lot and slow the launch
- * down. The evergreen pages are always translated.
- */
-export const POSTS_SINCE = '2025-01-01';
-
-/**
- * Whether the pipeline skips a Spanish source document by rule: an explicit
- * `noAutoTranslate` flag, or a post older than the translation cutoff.
+ * Whether the pipeline skips a Spanish source document by explicit request.
  */
 export function isSkippedSource(
   data: Record<string, unknown>,
-  collection: string | null,
+  _collection: string | null,
 ): boolean {
-  if (data['noAutoTranslate'] === true) return true;
-
-  if (collection === 'posts') {
-    const date = data['date'];
-    if (typeof date === 'string' && date.slice(0, 10) < POSTS_SINCE) return true;
-  }
-
-  return false;
+  return data['noAutoTranslate'] === true;
 }
 
 /**
@@ -368,6 +353,7 @@ export interface TranslatorOptions {
  */
 export class Translator {
   readonly #options: TranslatorOptions;
+  readonly #sessionId = randomUUID();
 
   /** Timestamp of the last request, used to respect the per-minute quota. */
   #lastRequestAt = 0;
@@ -464,6 +450,12 @@ export class Translator {
           headers: {
             'content-type': 'application/json',
             authorization: `Bearer ${this.#options.apiKey}`,
+            ...(new URL(this.#options.baseUrl).hostname === 'opencode.ai'
+              ? {
+                  'user-agent': 'frg-site-translator/1.0',
+                  'x-opencode-session': this.#sessionId,
+                }
+              : {}),
           },
           body: JSON.stringify(body),
           // Never hang forever on a stalled connection.

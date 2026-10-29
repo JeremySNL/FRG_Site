@@ -15,11 +15,9 @@ describe('isSkippedSource', () => {
     expect(isSkippedSource({ noAutoTranslate: true }, 'posts')).toBe(true);
   });
 
-  it('skips posts published before the translation cutoff', () => {
-    expect(isSkippedSource({ date: '2024-12-31' }, 'posts')).toBe(true);
-  });
-
-  it('translates posts from the cutoff onward', () => {
+  it('translates posts regardless of publication date', () => {
+    expect(isSkippedSource({ date: '2019-02-03' }, 'posts')).toBe(false);
+    expect(isSkippedSource({ date: '2024-12-31' }, 'posts')).toBe(false);
     expect(isSkippedSource({ date: '2025-01-01' }, 'posts')).toBe(false);
     expect(isSkippedSource({ date: '2026-03-15' }, 'posts')).toBe(false);
   });

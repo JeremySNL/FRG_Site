@@ -21,9 +21,8 @@
  * A plain re-run keeps every existing locale file and merges missing keys
  * into the interface tables; copies whose prose still equals the Spanish
  * source are treated as crashed-batch leftovers and regenerated. `--force`
- * rebuilds a locale from scratch but never deletes the locale copies of
- * documents the pipeline skips by rule (`noAutoTranslate`, pre-cutoff
- * posts), which are usually hand-written.
+ * rebuilds a locale from scratch but preserves copies of documents explicitly
+ * marked `noAutoTranslate`, which are usually hand-written.
  *
  * Environment:
  *
@@ -265,10 +264,9 @@ export async function main(args: string[] = process.argv.slice(2)): Promise<void
   }
 
   /**
-   * Snapshot the locale copies whose Spanish source is skipped by rule —
-   * hand-written `noAutoTranslate` documents and the pre-cutoff posts. They
-   * have no regeneration path, so a forced wipe of the target locale must
-   * not lose them: they are put back after the rebuild.
+   * Snapshot locale copies whose Spanish source is explicitly marked
+   * `noAutoTranslate`. They have no regeneration path, so a forced wipe of the
+   * target locale must not lose them: they are put back after the rebuild.
    */
   async function collectKeptCopies(targetDir: string): Promise<Map<string, string>> {
     const kept = new Map<string, string>();
@@ -302,8 +300,8 @@ export async function main(args: string[] = process.argv.slice(2)): Promise<void
   /**
    * Whether an existing locale copy is an untranslated fingerprint of a
    * crashed batch: its prose is still the Spanish source and the source
-   * itself is not skipped by rule (an untranslated copy of a skipped
-   * document is correct, not broken).
+   * itself is not explicitly skipped by rule (an untranslated copy of an
+   * intentionally untranslated document is correct, not broken).
    */
   async function isIdentityCopy(
     targetFile: string,
@@ -353,10 +351,8 @@ export async function main(args: string[] = process.argv.slice(2)): Promise<void
 
     if (!dryRun && force && !postSlug) {
       // A forced run rebuilds the target locale from scratch, but the copies
-      // of documents the pipeline skips by source rule have no regeneration
-      // path: they are either hand-written (`noAutoTranslate`) or the
-      // deliberate pre-cutoff archive, so they are stashed around the wipe
-      // and put back after it.
+      // of documents explicitly marked `noAutoTranslate` have no regeneration
+      // path, so they are stashed around the wipe and put back after it.
       const keptCopies = await collectKeptCopies(targetDir);
 
       await rm(targetDir, { recursive: true, force: true });

@@ -139,7 +139,7 @@ export async function main(args: string[] = process.argv.slice(2)): Promise<void
 
   if (skippedBySourceRule) {
     console.log(
-      '\nAutomatic translation is disabled for this post by its source metadata/date.',
+      '\nAutomatic translation is disabled for this post by its source metadata.',
     );
   } else {
     console.log(`\n→ ${options.dryRun ? 'Previewing' : 'Translating'} this post only`);

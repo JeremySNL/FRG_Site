@@ -6,9 +6,8 @@
  * serve: same collection shape, identity fields untouched, and no string
  * silently left untranslated where a translation is expected.
  *
- * Intentionally NOT here: the post bodies of posts older than POSTS_SINCE
- * (the translator skips them by design) and documents flagged
- * `noAutoTranslate` in the Spanish source.
+ * Intentionally NOT here: documents explicitly flagged `noAutoTranslate` in
+ * the Spanish source.
  */
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
@@ -22,9 +21,6 @@ const i18nDir = join(root, 'src', 'i18n');
 
 const LOCALES = ['en', 'fr', 'ja', 'zh-TW'];
 const COLLECTIONS = ['pages', 'posts', 'categories', 'tags', 'programs', 'team'];
-
-/** Posts published before this year are not translated (translator rule). */
-const POSTS_SINCE = '2025-01-01';
 
 /**
  * Documents whose translated title may equal the Spanish source, keyed as
@@ -87,9 +83,6 @@ it('generated locales mirror the Spanish content with their identity fields inta
         );
 
         if (source.data['noAutoTranslate'] === true) continue;
-        if (collection === 'posts' && String(source.data['date'] ?? '') < POSTS_SINCE) {
-          continue;
-        }
 
         const target = join(contentDir, locale, collection, name);
 
