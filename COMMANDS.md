@@ -281,3 +281,50 @@ Las herramientas de media modernas (`plan-media-keys`, `apply-media-keys`) tampo
 | Un post nuevo no aparece traducido          | Revisa que `date` no sea anterior a 2025-01-01, o si tiene `noAutoTranslate: true`.                                    |
 | Una imagen da 404                           | La key del contenido no coincide con el objeto del bucket. Confirma con `media:add --dry-run` o mira el campo `image`. |
 | El deploy no arranca                        | El push tiene que ir a `main`. Revisa el estado en el panel de Cloudflare.                                             |
+
+---
+
+## Tabla completa de comandos
+
+Todos los comandos del proyecto en un solo lugar, con las mismas marcas de riesgo del inicio: 🟢 seguro, 🟡 escribe o llama una API, 🔴 borra o reescribe contenido.
+
+| Comando                                                  | Qué hace                                                            | Riesgo |
+| -------------------------------------------------------- | ------------------------------------------------------------------- | ------ |
+| `npm run dev`                                            | Servidor local con recarga en `http://localhost:4321`.              | 🟢     |
+| `npm run build`                                          | Genera el sitio estático completo en `dist/`.                       | 🟢     |
+| `npm run preview`                                        | Sirve el último build para revisarlo en local.                      | 🟢     |
+| `npm run check`                                          | Valida `.astro`, frontmatter y content collections.                 | 🟢     |
+| `npm run typecheck`                                      | Valida solo TypeScript (`tsc --noEmit`).                            | 🟢     |
+| `npm run astro -- <comando>`                             | CLI de Astro sin pasar por los atajos (ej. `astro info`).           | 🟢     |
+| `npm run lint`                                           | ESLint sobre todo el repo.                                          | 🟢     |
+| `npm run lint:fix`                                       | ESLint corrigiendo lo que puede.                                    | 🟡     |
+| `npm run format`                                         | Prettier sobre TODO el repo. Ensucia cualquier commit.              | 🟡     |
+| `npm run format:check`                                   | Verifica formato. Hoy falla por estado de base.                     | 🟢     |
+| `npm run test`                                           | Suite de Vitest (30 s de timeout por test).                         | 🟢     |
+| `npm run test:watch`                                     | Vitest en modo escucha, al guardar un archivo.                      | 🟢     |
+| `npm run test:e2e`                                       | Playwright; levanta su propio dev server en el puerto 4321.         | 🟢     |
+| `npm run post:ready -- --slug <slug>`                    | Traduce ese post y corre check, typecheck, lint, tests y build.     | 🟡     |
+| `npm run translate`                                      | Traduce lo que falte en todos los idiomas destino.                  | 🟡     |
+| `npm run translate -- --locale <loc>`                    | Traduce un solo idioma.                                             | 🟡     |
+| `npm run translate -- --post <slug>`                     | Traduce un solo post.                                               | 🟡     |
+| `npm run translate -- --dry-run`                         | Muestra el plan sin llamar a la API ni escribir.                    | 🟢     |
+| `npm run translate -- --force`                           | Rehace un idioma completo; puede reemplazar traducciones revisadas. | 🔴     |
+| `npm run media:add -- --post <slug> --file <…>`          | Fotos de un post en `photos/<fecha>-<evento>/`, numeradas.          | 🟡     |
+| `npm run media:add -- --event <fecha-evento> --file <…>` | Lo mismo, con la carpeta de evento que elijas.                      | 🟡     |
+| `npm run media:add -- --page <slug> --file <…>`          | Imagen de una página en `pages/<slug>/`, numerada.                  | 🟡     |
+| `npm run media:add -- --program <slug> --file <img>`     | Portada del programa; si ya existe, sube la versión siguiente.      | 🟡     |
+| `npm run media:add -- --team <slug> --file <img>`        | Retrato del equipo; si ya existe, sube la versión siguiente.        | 🟡     |
+| `npm run media:add -- --dir <carpeta> --file <…>`        | Cualquier otra carpeta del bucket, numerada.                        | 🟡     |
+| `npm run media:add -- … --dry-run`                       | Codifica y muestra la key final sin subir nada.                     | 🟢     |
+| `npm run deploy:preview`                                 | Build más Wrangler en seco, sin publicar.                           | 🟢     |
+| `npm run deploy`                                         | Deploy manual directo con Wrangler (el normal es push a `main`).    | 🟡     |
+| `npm run migrate:redirects`                              | Regenera `public/_redirects` desde el frontmatter.                  | 🟢     |
+| `npm run migrate:extract`                                | Importa el dump de WordPress y borra `src/content/es/` antes.       | 🔴     |
+| `npm run migrate:media`                                  | Recrea las keys legacy `YYYY/MM` en el bucket.                      | 🔴     |
+| `node scripts/plan-media-keys.mts`                       | Regenera el manifiesto de migración.                                | 🟡     |
+| `node scripts/apply-media-keys.mts --upload`             | Sube las keys del manifiesto.                                       | 🟡     |
+| `node scripts/apply-media-keys.mts --rewrite`            | Reescribe las referencias del contenido al esquema nuevo.           | 🔴     |
+| `node scripts/apply-media-keys.mts --verify`             | HEAD de cada key nueva contra el bucket.                            | 🟢     |
+| `node scripts/apply-media-keys.mts --prune`              | Borra las keys legacy del bucket.                                   | 🔴     |
+
+Los comandos que no están en esta tabla no existen. Si dudas, `npm run` sin argumentos lista los scripts disponibles.
