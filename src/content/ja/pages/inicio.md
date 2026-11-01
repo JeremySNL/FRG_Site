@@ -87,11 +87,16 @@ blocks:
           - "フランス"
           - "ポルトガル"
       - name: "アジア"
+        generalAmbassador:
+          name: "Dr. Mohan Vamadevan"
+          country: "インド"
+          role: "大陸総大使"
+          image: "team/mohan-vamadevan.webp"
+          imageAlt: "Dr. Mohan Vamadevan"
         ambassadors: []
         openCountries:
           - "中国"
           - "日本"
-          - "インド"
           - "フィリピン"
       - name: "オセアニア"
         ambassadors: []

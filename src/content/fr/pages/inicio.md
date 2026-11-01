@@ -87,11 +87,16 @@ blocks:
           - "France"
           - "Portugal"
       - name: "Asie"
+        generalAmbassador:
+          name: "Dr. Mohan Vamadevan"
+          country: "Inde"
+          role: "Ambassadeur Général Continental"
+          image: "team/mohan-vamadevan.webp"
+          imageAlt: "Dr. Mohan Vamadevan"
         ambassadors: []
         openCountries:
           - "Chine"
           - "Japon"
-          - "Inde"
           - "Philippines"
       - name: "Océanie"
         ambassadors: []
