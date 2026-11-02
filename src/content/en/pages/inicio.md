@@ -59,6 +59,19 @@ blocks:
     surface: false
     intro: "We represent the values of Fundación Rosario Gatón on all five continents. Africa already has its Continental General Ambassador, and the remaining seats are open to anyone who wants to promote solidarity and international cooperation from their own country."
     continents:
+      - name: "America"
+        generalAmbassador:
+          name: "Dr. h. c. Alejandra Fuentes"
+          country: "United States"
+          role: "Continental General Ambassador"
+          image: "team/alejandra-fuentes.webp"
+          imageAlt: "Dr. h. c. Alejandra Fuentes"
+        ambassadors: []
+        openCountries:
+          - "Dominican Republic"
+          - "Mexico"
+          - "Colombia"
+          - "Argentina"
       - name: "Africa"
         generalAmbassador:
           name: "Mr. Jabir Sulaiman Sa'ad"
@@ -72,20 +85,6 @@ blocks:
           - "Senegal"
           - "Sierra Leone"
           - "Kenya"
-      - name: "America"
-        ambassadors: []
-        openCountries:
-          - "Dominican Republic"
-          - "Mexico"
-          - "Colombia"
-          - "Argentina"
-      - name: "Europe"
-        ambassadors: []
-        openCountries:
-          - "Spain"
-          - "Italy"
-          - "France"
-          - "Portugal"
       - name: "Asia"
         generalAmbassador:
           name: "Dr. Mohan Vamadevan"
@@ -98,6 +97,13 @@ blocks:
           - "China"
           - "Japan"
           - "Philippines"
+      - name: "Europe"
+        ambassadors: []
+        openCountries:
+          - "Spain"
+          - "Italy"
+          - "France"
+          - "Portugal"
       - name: "Oceania"
         ambassadors: []
         openCountries:

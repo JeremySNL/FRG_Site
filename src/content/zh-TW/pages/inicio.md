@@ -59,6 +59,19 @@ blocks:
     surface: false
     intro: "我們在五大洲代表 Fundación Rosario Gatón 的價值觀。非洲已由大陸總大使就任，其餘職位歡迎願意從自己國家推動團結與國際合作的人士加入。"
     continents:
+      - name: "美洲"
+        generalAmbassador:
+          name: "Dr. h. c. Alejandra Fuentes"
+          country: "美國"
+          role: "大陸總大使"
+          image: "team/alejandra-fuentes.webp"
+          imageAlt: "Dr. h. c. Alejandra Fuentes"
+        ambassadors: []
+        openCountries:
+          - "多明尼加共和國"
+          - "墨西哥"
+          - "哥倫比亞"
+          - "阿根廷"
       - name: "非洲"
         generalAmbassador:
           name: "Mr. Jabir Sulaiman Sa'ad"
@@ -72,20 +85,6 @@ blocks:
           - "塞內加爾"
           - "獅子山"
           - "肯亞"
-      - name: "美洲"
-        ambassadors: []
-        openCountries:
-          - "多明尼加共和國"
-          - "墨西哥"
-          - "哥倫比亞"
-          - "阿根廷"
-      - name: "歐洲"
-        ambassadors: []
-        openCountries:
-          - "西班牙"
-          - "義大利"
-          - "法國"
-          - "葡萄牙"
       - name: "亞洲"
         generalAmbassador:
           name: "Dr. Mohan Vamadevan"
@@ -98,6 +97,13 @@ blocks:
           - "中國"
           - "日本"
           - "菲律賓"
+      - name: "歐洲"
+        ambassadors: []
+        openCountries:
+          - "西班牙"
+          - "義大利"
+          - "法國"
+          - "葡萄牙"
       - name: "大洋洲"
         ambassadors: []
         openCountries:

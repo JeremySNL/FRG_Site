@@ -63,6 +63,19 @@ blocks:
     # ambassadors (embajadores de país, hoy ninguno) y openCountries (puestos
     # vacantes). Un país vacante es un país, no una persona llamada "Por asignar".
     continents:
+      - name: "América"
+        generalAmbassador:
+          name: "Dr. h. c. Alejandra Fuentes"
+          country: "Estados Unidos"
+          role: "Embajador General Continental"
+          image: "team/alejandra-fuentes.webp"
+          imageAlt: "Dr. h. c. Alejandra Fuentes"
+        ambassadors: []
+        openCountries:
+          - "República Dominicana"
+          - "México"
+          - "Colombia"
+          - "Argentina"
       - name: "África"
         generalAmbassador:
           name: "Mr. Jabir Sulaiman Sa'ad"
@@ -76,20 +89,6 @@ blocks:
           - "Senegal"
           - "Sierra Leona"
           - "Kenia"
-      - name: "América"
-        ambassadors: []
-        openCountries:
-          - "República Dominicana"
-          - "México"
-          - "Colombia"
-          - "Argentina"
-      - name: "Europa"
-        ambassadors: []
-        openCountries:
-          - "España"
-          - "Italia"
-          - "Francia"
-          - "Portugal"
       - name: "Asia"
         generalAmbassador:
           name: "Dr. Mohan Vamadevan"
@@ -102,6 +101,13 @@ blocks:
           - "China"
           - "Japón"
           - "Filipinas"
+      - name: "Europa"
+        ambassadors: []
+        openCountries:
+          - "España"
+          - "Italia"
+          - "Francia"
+          - "Portugal"
       - name: "Oceanía"
         ambassadors: []
         openCountries:

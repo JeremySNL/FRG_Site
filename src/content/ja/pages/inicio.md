@@ -59,6 +59,19 @@ blocks:
     surface: false
     intro: "私たちは五大陸で Fundación Rosario Gatón の価値観を体現しています。アフリカにはすでに大陸総大使が就任しており、その他のポストは、自国から連帯と国際協力を広めたい方に開かれています。"
     continents:
+      - name: "アメリカ"
+        generalAmbassador:
+          name: "Dr. h. c. Alejandra Fuentes"
+          country: "アメリカ合衆国"
+          role: "大陸総大使"
+          image: "team/alejandra-fuentes.webp"
+          imageAlt: "Dr. h. c. Alejandra Fuentes"
+        ambassadors: []
+        openCountries:
+          - "ドミニカ共和国"
+          - "メキシコ"
+          - "コロンビア"
+          - "アルゼンチン"
       - name: "アフリカ"
         generalAmbassador:
           name: "Mr. Jabir Sulaiman Sa'ad"
@@ -72,20 +85,6 @@ blocks:
           - "セネガル"
           - "シエラレオネ"
           - "ケニア"
-      - name: "アメリカ"
-        ambassadors: []
-        openCountries:
-          - "ドミニカ共和国"
-          - "メキシコ"
-          - "コロンビア"
-          - "アルゼンチン"
-      - name: "ヨーロッパ"
-        ambassadors: []
-        openCountries:
-          - "スペイン"
-          - "イタリア"
-          - "フランス"
-          - "ポルトガル"
       - name: "アジア"
         generalAmbassador:
           name: "Dr. Mohan Vamadevan"
@@ -98,6 +97,13 @@ blocks:
           - "中国"
           - "日本"
           - "フィリピン"
+      - name: "ヨーロッパ"
+        ambassadors: []
+        openCountries:
+          - "スペイン"
+          - "イタリア"
+          - "フランス"
+          - "ポルトガル"
       - name: "オセアニア"
         ambassadors: []
         openCountries:
