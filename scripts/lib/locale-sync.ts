@@ -262,8 +262,14 @@ export function planLocaleSync(input: {
   baseline: MarkdownDocument | undefined;
   copy: MarkdownDocument;
   locale: TranslationLocale;
+  /**
+   * Spanish texts, by path, whose translation was already found identical to
+   * the copy (see {@link unchangedTranslations}). Git cannot record them,
+   * since the file did not change, so they would be flagged forever.
+   */
+  acknowledged?: ReadonlyMap<string, string>;
 }): SyncPlan {
-  const { current, baseline, copy, locale } = input;
+  const { current, baseline, copy, locale, acknowledged } = input;
 
   const translatable = new Set(
     collectTranslatableStrings(current.data).map((ref) => pathKey(ref.path)),
@@ -287,7 +293,17 @@ export function planLocaleSync(input: {
         setLeaf(data, path, kept);
         reusedValues += 1;
       } else {
-        pending.push({ path, value: value as string });
+        const own = getAtPath(copy.data, path);
+        if (
+          acknowledged?.get(key) === value &&
+          typeof own === 'string' &&
+          own.trim() !== ''
+        ) {
+          setLeaf(data, path, own);
+          reusedValues += 1;
+        } else {
+          pending.push({ path, value: value as string });
+        }
       }
     } else if (kept !== undefined && isLeaf(kept)) {
       // Unchanged in Spanish: keep what the copy holds (a localized link…).
@@ -340,6 +356,24 @@ export function planLocaleSync(input: {
 }
 
 /** The Spanish strings a plan sends to the translator, in the order expected back. */
+/**
+ * The frontmatter strings whose new translation is exactly what the copy
+ * already holds (a gender-neutral title, a proper noun). Writing them changes
+ * nothing in the file, so the caller records them as acknowledged.
+ */
+export function unchangedTranslations(
+  plan: SyncPlan,
+  copy: MarkdownDocument,
+  translations: readonly string[],
+): Array<{ path: string; source: string }> {
+  return plan.pending.flatMap((ref, index) =>
+    translations[index] !== undefined &&
+    translations[index] === getAtPath(copy.data, ref.path)
+      ? [{ path: pathKey(ref.path), source: ref.value }]
+      : [],
+  );
+}
+
 export function stringsToTranslate(plan: SyncPlan): string[] {
   return [
     ...plan.pending.map((ref) => ref.value),

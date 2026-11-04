@@ -50,6 +50,7 @@ import {
   parseSyncArgs,
   planLocaleSync,
   stringsToTranslate,
+  unchangedTranslations,
   type MarkdownDocument,
   type SyncPlan,
 } from './lib/locale-sync.ts';
@@ -58,6 +59,22 @@ import { markdownDocument } from './lib/yaml.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const CONTENT = 'src/content';
+
+/**
+ * Spanish texts whose translation came back identical to what a copy already
+ * held (a gender-neutral title, a proper noun). The file did not change, so
+ * git cannot tell they were handled; without this record they would be
+ * flagged, and translated again, on every run.
+ *
+ * Shape: `{ "<locale>/<collection>/<file>": { "<path>": "<Spanish text>" } }`.
+ */
+const ACKS_FILE = join(root, 'scripts', 'locale-sync-acks.json');
+const acks: Record<string, Record<string, string>> = existsSync(ACKS_FILE)
+  ? (JSON.parse(await readFile(ACKS_FILE, 'utf8')) as Record<
+      string,
+      Record<string, string>
+    >)
+  : {};
 
 /** The collections `npm run translate` translates. */
 const COLLECTIONS = [
@@ -272,6 +289,7 @@ for (const locale of targets) {
       ),
       copy,
       locale,
+      acknowledged: new Map(Object.entries(acks[`${locale}/${file}`] ?? {})),
     });
 
     const untouched =
@@ -343,10 +361,14 @@ let written = 0;
 for (const [locale, { updates }] of plans) {
   const language = translationLanguageNames[locale as TranslationLocale];
 
-  for (const { file, plan } of updates) {
+  for (const { file, copy, plan } of updates) {
     const strings = stringsToTranslate(plan);
     const translations = await translator.translate(language, strings);
     const result = completeLocaleSync(plan, translations);
+
+    for (const { path, source } of unchangedTranslations(plan, copy, translations)) {
+      (acks[`${locale}/${file}`] ??= {})[path] = source;
+    }
 
     await writeFile(
       join(root, CONTENT, locale, file),
@@ -356,6 +378,18 @@ for (const [locale, { updates }] of plans) {
     written += 1;
     console.log(`  wrote ${locale}/${file}`);
   }
+}
+
+if (Object.keys(acks).length > 0) {
+  const sorted = Object.fromEntries(
+    Object.entries(acks)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([document, paths]) => [
+        document,
+        Object.fromEntries(Object.entries(paths).sort()),
+      ]),
+  );
+  await writeFile(ACKS_FILE, `${JSON.stringify(sorted, null, 2)}\n`, 'utf8');
 }
 
 console.log(`\nDone: ${written} copies updated, ${pendingStrings} strings translated.`);

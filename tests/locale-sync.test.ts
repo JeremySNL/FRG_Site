@@ -8,6 +8,7 @@ import {
   parseSyncArgs,
   planLocaleSync,
   stringsToTranslate,
+  unchangedTranslations,
   type MarkdownDocument,
 } from '../scripts/lib/locale-sync.ts';
 
@@ -475,5 +476,44 @@ describe('internal links of a copy', () => {
       type: 'cta',
       buttons: [{ label: 'Bénévolat', href: '/fr/voluntariado/' }],
     });
+  });
+});
+
+describe('acknowledged translations', () => {
+  const retitled = withData({ ...baseline.data, title: 'Portada' });
+  const sameTitle = { ...copy, data: { ...copy.data, title: 'Couverture' } };
+
+  it('keeps a value whose translation was confirmed identical to the copy', () => {
+    const plan = planLocaleSync({
+      current: retitled,
+      baseline,
+      copy: sameTitle,
+      locale: 'fr',
+      acknowledged: new Map([['["title"]', 'Portada']]),
+    });
+
+    expect(stringsToTranslate(plan)).toEqual([]);
+    expect(completeLocaleSync(plan, []).data['title']).toBe('Couverture');
+  });
+
+  it('asks again once the Spanish text changes after the acknowledgement', () => {
+    const plan = planLocaleSync({
+      current: withData({ ...baseline.data, title: 'Portada nueva' }),
+      baseline,
+      copy: sameTitle,
+      locale: 'fr',
+      acknowledged: new Map([['["title"]', 'Portada']]),
+    });
+
+    expect(stringsToTranslate(plan)).toEqual(['Portada nueva']);
+  });
+
+  it('lists the translations that left the copy unchanged', () => {
+    const plan = sync(retitled);
+
+    expect(unchangedTranslations(plan, sameTitle, ['Couverture'])).toEqual([
+      { path: '["title"]', source: 'Portada' },
+    ]);
+    expect(unchangedTranslations(plan, sameTitle, ['Autre titre'])).toEqual([]);
   });
 });

@@ -117,7 +117,7 @@ npm run sync:locales -- --write  # traduce solo lo nuevo y actualiza las copias
 
 Conserva todo lo que ya estaba traducido, incluidas tus correcciones a mano y los enlaces adaptados a cada idioma; copia las imágenes nuevas tal cual y solo manda a la API los textos nuevos o modificados. Necesita `OPENAI_API_KEY` en `.env` cuando hay algo que traducir. Para un solo idioma: `-- --locale fr` (o `-- --locales en,fr`).
 
-Usa el historial de git para saber qué versión del español refleja cada copia, así que da igual si commiteas el cambio en español junto con alguna corrección a mano de una copia: lo que la copia no actualizó sigue apareciendo como pendiente. Una copia con cambios sin commitear se salta: haz commit primero. Si el cuerpo de una copia ya no tiene la misma cantidad de párrafos que su original, ese cuerpo se traduce entero de nuevo.
+Usa el historial de git para saber qué versión del español refleja cada copia, así que da igual si commiteas el cambio en español junto con alguna corrección a mano de una copia: lo que la copia no actualizó sigue apareciendo como pendiente. Una copia con cambios sin commitear se salta: haz commit primero. Si el cuerpo de una copia ya no tiene la misma cantidad de párrafos que su original, ese cuerpo se traduce entero de nuevo. Cuando una traducción nueva resulta idéntica a lo que la copia ya decía, `--write` lo anota en `scripts/locale-sync-acks.json` para no volver a marcarla: commitea ese archivo junto con las copias.
 
 ## T6. Traducir contenido 🟡
 
