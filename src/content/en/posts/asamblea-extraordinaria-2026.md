@@ -3,6 +3,7 @@ title: "2026 Extraordinary Assembly: Alliance for Health and Community Well-bein
 slug: "asamblea-extraordinaria-2026"
 locale: "en"
 date: "2026-10-23"
+excerpt: "In the Extraordinary Assembly 2026, the Fundación Rosario Gatón (FRG), together with the renowned Dr. Cruz Jiminián, the Fundación de Pesca y Buen Andar, as well as entities..."
 categories:
   - "alianzas-institucionales"
   - "alimentacion-y-salud"
@@ -26,4 +27,3 @@ The president of Fundación Rosario Gatón, **Dr. Julio César Rosario Gatón**;
 ## An alliance for health and community well-being
 
 The joint participation of foundations, organizations, and business leaders represents an opportunity to highlight the importance of joining forces in favor of people with disabilities, paying attention to their health needs, medical follow-up, and supplies.
-

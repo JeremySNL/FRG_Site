@@ -1,10 +1,10 @@
 ---
-name: "Rosario Gaton"
+name: "Dr. Julio Rosario Gatón"
 slug: "rosario-gaton"
 locale: "en"
 role: "President"
 bio: ""
 image: "team/rosario-gaton.webp"
-imageAlt: "Rosario Gaton"
+imageAlt: "Dr. Julio Rosario Gaton"
 order: 1
 ---

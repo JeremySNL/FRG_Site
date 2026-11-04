@@ -3,6 +3,7 @@ title: "2026年特別大會：San Francisco de Macorís健康與社區福祉聯�
 slug: "asamblea-extraordinaria-2026"
 locale: "zh-TW"
 date: "2026-10-23"
+excerpt: "在2026年特別大會上，Fundación Rosario Gatón（FRG）與知名Dr. Cruz Jiminián、Fundación de Pesca y Buen Andar，以及各實體..."
 categories:
   - "alianzas-institucionales"
   - "alimentacion-y-salud"
@@ -26,4 +27,3 @@ Fundación Rosario Gatón 會長 **Dr. Julio César Rosario Gatón**、**Dr. Cru
 ## 促進健康與社區福祉的聯盟
 
 基金會、機構與企業界的共同參與，彰顯了凝聚力量以造福身心障礙者的重要性，並關注他們在健康、醫療追蹤及物資方面的需求。
-

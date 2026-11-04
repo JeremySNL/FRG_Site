@@ -3,7 +3,7 @@ title: "Rencontre avec l'Ambassadeur du Commerce Chinois."
 slug: "encuentro-con-embajador-de-comercio-de-china"
 locale: "fr"
 date: "2025-12-31T12:22:48"
-excerpt: "Le vendredi 18 novembre, le Dr Julio César Rosario Gatón, président fondateur, Ramón Emilio Soriano, secrétaire général, et l'Ambassadeur Agustín Padilla Padilla. Lors d'une réunion avec le..."
+excerpt: "Le mardi 18 novembre, le Dr Julio César Rosario Gatón, président fondateur, Ramón Emilio Soriano, secrétaire général, et l'Ambassadeur et l'Ambassadeur Agustín Padilla Padilla. En réunion avec le…"
 categories:
   - "uncategorized"
 tags: []
