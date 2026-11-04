@@ -32,9 +32,9 @@
     "deploy:preview": "astro build && wrangler deploy --config dist/server/wrangler.json --dry-run"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "14.4.2",
-    "@astrojs/markdown-satteri": "0.4.5",
+    "@astrojs/cloudflare": "14.4.4",
     "@astrojs/markdown-remark": "^7.3.0",
+    "@astrojs/markdown-satteri": "0.4.5",
     "@astrojs/rss": "4.0.19",
     "@astrojs/sitemap": "3.7.4",
     "@fontsource-variable/outfit": "5.3.0",
@@ -43,8 +43,8 @@
     "@tailwindcss/typography": "0.5.20",
     "@tailwindcss/vite": "4.3.3",
     "astro": "7.4.2",
-    "sharp": "0.35.5",
     "satteri": "0.10.5",
+    "sharp": "0.35.5",
     "tailwindcss": "4.3.3",
     "zod": "4.6.7"
   },
@@ -64,7 +64,7 @@
     "typescript-eslint": "8.72.0",
     "vitest": "5.0.5",
     "wrangler": "4.151.3",
-    "yaml": "2.8.1"
+    "yaml": "2.9.1"
   },
   "allowScripts": {
     "workerd@1.20261012.1": true,
