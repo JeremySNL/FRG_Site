@@ -63,7 +63,7 @@ blocks:
         generalAmbassador:
           name: "Dr. h. c. Alejandra Fuentes"
           country: "États-Unis"
-          role: "Ambassadeur Général Continental"
+          role: "Ambassadrice Générale Continentale"
           image: "team/alejandra-fuentes.webp"
           imageAlt: "Dr. h. c. Alejandra Fuentes"
         ambassadors:
