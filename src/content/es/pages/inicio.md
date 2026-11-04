@@ -76,6 +76,11 @@ blocks:
             role: "Embajador Mexicano de Buena Voluntad"
             image: "team/rodolfo-sebastian.webp"
             imageAlt: "Rodolfo Sebastián Guzmán Munguía"
+          - name: "Rubén Dario Jiménez"
+            country: "Canadá"
+            role: "Embajador Canadiense de Buena Voluntad"
+            image: "team/ruben-dario-jimenez.webp"
+            imageAlt: "Rubén Dario Jiménez"
         openCountries:
           - "República Dominicana"
           - "Colombia"

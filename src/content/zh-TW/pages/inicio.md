@@ -72,6 +72,11 @@ blocks:
             role: "墨西哥親善大使"
             image: "team/rodolfo-sebastian.webp"
             imageAlt: "Rodolfo Sebastián Guzmán Munguía"
+          - name: "Rubén Dario Jiménez"
+            country: "加拿大"
+            role: "加拿大親善大使"
+            image: "team/ruben-dario-jimenez.webp"
+            imageAlt: "Rubén Dario Jiménez"
         openCountries:
           - "多明尼加共和國"
           - "哥倫比亞"
