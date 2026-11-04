@@ -153,8 +153,10 @@ export async function main(args: string[] = process.argv.slice(2)): Promise<void
     return;
   }
 
+  // `astro check` above already reports TypeScript errors in the `.ts` files,
+  // and translating a post changes content only, so a separate `tsc` pass would
+  // repeat that work.
   const qualityChecks: Array<{ label: string; args: string[] }> = [
-    { label: 'TypeScript typecheck', args: ['run', 'typecheck'] },
     { label: 'Lint', args: ['run', 'lint'] },
     {
       label: 'Test suite',

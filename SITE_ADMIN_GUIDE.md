@@ -42,16 +42,15 @@ Los posts no usan el sistema de bloques tipados de las páginas. Para un video, 
 
 ## Validación y vista previa local
 
-`post:ready` valida la fuente con Astro antes de traducir y, después de traducir, ejecuta typecheck, lint, tests y un build de producción:
+`post:ready` valida la fuente con Astro antes de traducir y, después de traducir, ejecuta lint, tests y un build de producción:
 
-| Comando             | Para qué sirve                                              |
-| ------------------- | ----------------------------------------------------------- |
-| `npm run check`     | Validación de Astro y content collections antes de traducir |
-| `npm run typecheck` | Validación de TypeScript                                    |
-| `npm run lint`      | Comprobaciones de ESLint                                    |
-| `npm run test`      | Suite de Vitest                                             |
-| `npm run build`     | Genera y valida el sitio estático                           |
-| `npm run preview`   | Sirve el build local para revisión visual                   |
+| Comando           | Para qué sirve                                                          |
+| ----------------- | ----------------------------------------------------------------------- |
+| `npm run check`   | Validación de Astro, TypeScript y content collections antes de traducir |
+| `npm run lint`    | Comprobaciones de ESLint                                                |
+| `npm run test`    | Suite de Vitest                                                         |
+| `npm run build`   | Genera y valida el sitio estático                                       |
+| `npm run preview` | Sirve el build local para revisión visual                               |
 
 Si un comando falla después de que se escribieron las traducciones, esos archivos generados quedan en el árbol de trabajo. Corrige el problema informado y vuelve a ejecutar el comando de preparación; no uses `--force` para recuperarte.
 

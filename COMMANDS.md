@@ -88,7 +88,7 @@ Esto no es opcional: Astro resuelve una ruta relativa del cuerpo como archivo lo
 npm run post:ready -- --slug jornada-medica-santo-domingo-este
 ```
 
-Traduce ese post a `en`, `fr`, `ja` y `zh-TW`, y después ejecuta `check`, `typecheck`, `lint`, los tests y el build. Si algo falla, te dice qué.
+Traduce ese post a `en`, `fr`, `ja` y `zh-TW`, y después ejecuta `check` (que ya incluye TypeScript), `lint`, los tests y el build. Si algo falla, te dice qué.
 
 Opcional: `--locales en,fr` para traducir solo algunos idiomas. `--dry-run` para ver el alcance sin llamar a la API ni escribir.
 
@@ -303,7 +303,7 @@ Todos los comandos del proyecto en un solo lugar, con las mismas marcas de riesg
 | `npm run test`                                           | Suite de Vitest (30 s de timeout por test).                         | 🟢     |
 | `npm run test:watch`                                     | Vitest en modo escucha, al guardar un archivo.                      | 🟢     |
 | `npm run test:e2e`                                       | Playwright; levanta su propio dev server en el puerto 4321.         | 🟢     |
-| `npm run post:ready -- --slug <slug>`                    | Traduce ese post y corre check, typecheck, lint, tests y build.     | 🟡     |
+| `npm run post:ready -- --slug <slug>`                    | Traduce ese post y corre check, lint, tests y build.                | 🟡     |
 | `npm run translate`                                      | Traduce lo que falte en todos los idiomas destino.                  | 🟡     |
 | `npm run translate -- --locale <loc>`                    | Traduce un solo idioma.                                             | 🟡     |
 | `npm run translate -- --post <slug>`                     | Traduce un solo post.                                               | 🟡     |
