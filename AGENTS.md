@@ -10,6 +10,7 @@
 
 - Dev/build/check: `npm run dev`, `npm run build`, `npm run preview`, `npm run check` (Astro), `npm run typecheck` (`tsc --noEmit`).
 - Lint/format: `npm run lint`, `npm run lint:fix`, `npm run format`, `npm run format:check`.
+- Gate: `npm run verify` runs `check`/`lint`/`test`/`build`. It is the Cloudflare build command (a failure stops the deploy on push to `main`) and `.github/workflows/ci.yml` runs it on every push and pull request.
 - Tests: `npm run test` (vitest run, `tests/**/*.test.ts`, node env). Single test: `npx vitest run tests/tokens.test.ts` or `npx vitest run -t "..."`. Watch: `npm run test:watch`. E2E: `npm run test:e2e` (Playwright, `playwright.config.ts`, specs in `tests/e2e/`; the config boots `npm run dev` on port 4321 — set `PLAYWRIGHT_EXECUTABLE_PATH` to reuse an installed browser).
 - Content/translations/migrations: `npm run translate` (needs `OPENAI_API_KEY`; see `scripts/translate.mts` for flags/env), `npm run migrate:extract`, `npm run migrate:media`, `npm run migrate:redirects`.
 - Publishing one post: `npm run media:add -- --post <slug> --file <path...>` encodes and uploads the photos, then prints the frontmatter key and the body URLs; `npm run post:ready -- --slug <slug>` translates that post only and runs `check`/`lint`/`test`/`build` (`astro check` already reports TypeScript errors, so `typecheck` is not repeated). Other targets: `--page`, `--program`, `--team`, `--event`, `--dir`. Neither command commits or deploys.

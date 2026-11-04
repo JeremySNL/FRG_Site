@@ -94,7 +94,7 @@ Opcional: `--locales en,fr` para traducir solo algunos idiomas. `--dry-run` para
 
 **5. Commit y push**
 
-El push a `main` dispara el deploy en Cloudflare solo. No hay que hacer nada más.
+El push a `main` dispara el deploy en Cloudflare solo. Antes de publicar, Cloudflare corre `npm run verify`: si algo falla, no se publica y el sitio sigue con la versión anterior.
 
 ## T4. Agregar fotos a un post que ya existe 🟡
 
@@ -183,6 +183,12 @@ npm run check
 ```bash
 npm run check      # Astro + content collections
 npm run typecheck  # solo TypeScript
+```bash
+npm run verify     # todo junto: check, lint, tests y build (lo mismo que corre Cloudflare)
+```
+
+O cada paso por separado:
+
 npm run lint       # ESLint
 npm run test       # suite de Vitest
 npm run build      # build de producción completo
@@ -207,13 +213,11 @@ npm run test:watch   # tests en modo escucha, al guardar un archivo
 npm run lint:fix     # ESLint corrige lo que puede
 ```
 
-Formato: **no uses `npm run format`**. Ese comando reescribe el formato de **todo el repo** (más de 1200 archivos hoy están fuera de estilo), y termina mezclado en tu commit. Para un archivo puntual:
+Formato: el repo está al día con Prettier, así que `npm run format` solo toca lo que cambiaste y `npm run format:check` debe pasar. Para un archivo puntual:
 
 ```bash
 npx prettier --write src/components/blocks/MiBloque.astro
 ```
-
-`npm run format:check` existe, pero falla por ese mismo estado de base. No es tu cambio.
 
 ## T11. Ver el sitio construido y desplegar 🟢
 
@@ -227,6 +231,8 @@ El deploy real es **automático**: push a `main` y Cloudflare construye y public
 ```bash
 npm run deploy           # deploy manual directo con Wrangler
 ```
+Cloudflare publica solo si pasan las validaciones, porque su comando de build es `npm run verify` en lugar de `npm run build`. Se configura una vez en el panel de Cloudflare: **Workers & Pages → el proyecto → Settings → Build → Build command**. Además, GitHub corre lo mismo en cada push (pestaña **Actions**), así que una rama rota se ve en rojo antes de llegar a `main`.
+
 
 Ese último existe, pero el camino normal es el push. Ojo: **no** agregues `main` ni `assets` a `wrangler.jsonc`; el build los genera.
 
@@ -260,7 +266,7 @@ Las herramientas de media modernas (`plan-media-keys`, `apply-media-keys`) tampo
 | Ver qué haría una subida          | `npm run media:add -- ... --dry-run`                            |
 | Traducir un idioma                | `npm run translate -- --locale <locale>`                        |
 | Ver el plan de traducción         | `npm run translate -- --dry-run`                                |
-| Validar todo                      | `check` → `typecheck` → `lint` → `test` → `build`               |
+| Validar todo                      | `npm run verify` (`check` → `lint` → `test` → `build`)          |
 | Test suelto                       | `npx vitest run tests/<archivo>.test.ts`                        |
 | Tests en escucha                  | `npm run test:watch`                                            |
 | Corregir lint                     | `npm run lint:fix`                                              |
@@ -298,12 +304,13 @@ Todos los comandos del proyecto en un solo lugar, con las mismas marcas de riesg
 | `npm run astro -- <comando>`                             | CLI de Astro sin pasar por los atajos (ej. `astro info`).           | 🟢     |
 | `npm run lint`                                           | ESLint sobre todo el repo.                                          | 🟢     |
 | `npm run lint:fix`                                       | ESLint corrigiendo lo que puede.                                    | 🟡     |
-| `npm run format`                                         | Prettier sobre TODO el repo. Ensucia cualquier commit.              | 🟡     |
-| `npm run format:check`                                   | Verifica formato. Hoy falla por estado de base.                     | 🟢     |
+| `npm run format`                                         | Prettier sobre el repo; solo cambia lo que está fuera de estilo.    | 🟡     |
+| `npm run format:check`                                   | Verifica formato sin tocar archivos.                                | 🟢     |
 | `npm run test`                                           | Suite de Vitest (30 s de timeout por test).                         | 🟢     |
 | `npm run test:watch`                                     | Vitest en modo escucha, al guardar un archivo.                      | 🟢     |
 | `npm run test:e2e`                                       | Playwright; levanta su propio dev server en el puerto 4321.         | 🟢     |
 | `npm run post:ready -- --slug <slug>`                    | Traduce ese post y corre check, lint, tests y build.                | 🟡     |
+| `npm run verify`                                         | check, lint, tests y build juntos; es el build de Cloudflare.       | 🟢     |
 | `npm run translate`                                      | Traduce lo que falte en todos los idiomas destino.                  | 🟡     |
 | `npm run translate -- --locale <loc>`                    | Traduce un solo idioma.                                             | 🟡     |
 | `npm run translate -- --post <slug>`                     | Traduce un solo post.                                               | 🟡     |
