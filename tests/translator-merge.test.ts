@@ -20,7 +20,9 @@ describe('mergeBaseWins', () => {
     const regenerated = { form: { submit: '送出' } };
     const base = { form: { submit: '送出您的訊息' } };
 
-    expect(mergeBaseWins(regenerated, base)).toEqual({ form: { submit: '送出您的訊息' } });
+    expect(mergeBaseWins(regenerated, base)).toEqual({
+      form: { submit: '送出您的訊息' },
+    });
   });
 
   it('drops base-only keys that no longer exist in the Spanish table', () => {
@@ -32,7 +34,7 @@ describe('mergeBaseWins', () => {
 
   it('recurses into nested objects without resurrecting dead keys', () => {
     const regenerated = { a: { deep: 'x' } };
-    const base = { a: { deep: 'X', gone: '' } , b: 'dropped' };
+    const base = { a: { deep: 'X', gone: '' }, b: 'dropped' };
 
     expect(mergeBaseWins(regenerated, base)).toEqual({ a: { deep: 'X' } });
   });

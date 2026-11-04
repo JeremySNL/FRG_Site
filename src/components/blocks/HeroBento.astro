@@ -36,9 +36,7 @@ const { block } = Astro.props;
         {block.title}
       </h1>
       {block.text && (
-        <p class="mt-6 text-lg leading-relaxed text-white/90">
-          {block.text}
-        </p>
+        <p class="mt-6 text-lg leading-relaxed text-white/90">{block.text}</p>
       )}
       {block.buttons.length > 0 && (
         <div class="mt-10 flex flex-wrap gap-4">
@@ -48,7 +46,11 @@ const { block } = Astro.props;
               <a
                 href={button.href}
                 class:list={[
-                  isDonation ? 'btn-donate' : index === 0 ? 'btn-white' : 'btn-outline border-white text-white hover:bg-white hover:text-brand-navy',
+                  isDonation
+                    ? 'btn-donate'
+                    : index === 0
+                      ? 'btn-white'
+                      : 'btn-outline border-white text-white hover:bg-white hover:text-brand-navy',
                 ]}
               >
                 {button.label}

@@ -18,9 +18,7 @@
       "target": "pages/donar/01.webp",
       "source": "2025/07/118761928_3023846601047827_437596050276805905_n.jpg",
       "sourceKind": "remote",
-      "owners": [
-        "page:donar"
-      ],
+      "owners": ["page:donar"],
       "nameKind": "ordinal",
       "remoteUrl": "https://pub-5cbacf607eb04817843a662da004678f.r2.dev/2025/07/118761928_3023846601047827_437596050276805905_n.jpg"
     },
@@ -172,10 +170,7 @@
       "target": "pages/site/01.webp",
       "source": "2025/07/1416b2d2-c186-4c81-9cd1-351d8146f2aa.jpg",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "page:galeria-de-imagenes",
-        "page:inicio"
-      ],
+      "owners": ["page:galeria-de-imagenes", "page:inicio"],
       "nameKind": "ordinal"
     },
     {
@@ -294,9 +289,7 @@
       "target": "pages/politica-de-etica-y-seguridad/01.webp",
       "source": "2025/07/167409147763c89bd5165dc_1674091477_3x2_md.jpg",
       "sourceKind": "remote",
-      "owners": [
-        "page:politica-de-etica-y-seguridad"
-      ],
+      "owners": ["page:politica-de-etica-y-seguridad"],
       "nameKind": "ordinal",
       "remoteUrl": "https://pub-5cbacf607eb04817843a662da004678f.r2.dev/2025/07/167409147763c89bd5165dc_1674091477_3x2_md.jpg"
     },
@@ -416,9 +409,7 @@
       "target": "pages/galeria-de-imagenes/01.webp",
       "source": "2025/07/1a7e2f32-a5c5-4081-ae77-ce12bf2ea987.jpg",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "page:galeria-de-imagenes"
-      ],
+      "owners": ["page:galeria-de-imagenes"],
       "nameKind": "ordinal"
     },
     {
@@ -426,9 +417,7 @@
       "target": "programs/reduccion-de-la-pobreza-y-desigualdad-social/cover.webp",
       "source": "2025/07/20_econo_13_3p01.webp",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "program:reduccion-de-la-pobreza-y-desigualdad-social"
-      ],
+      "owners": ["program:reduccion-de-la-pobreza-y-desigualdad-social"],
       "nameKind": "slug"
     },
     {
@@ -436,9 +425,7 @@
       "target": "pages/actualidades/01.webp",
       "source": "2025/07/308990619_177982108128034_4272015722118422953_n.png",
       "sourceKind": "remote",
-      "owners": [
-        "page:actualidades"
-      ],
+      "owners": ["page:actualidades"],
       "nameKind": "ordinal",
       "remoteUrl": "https://pub-5cbacf607eb04817843a662da004678f.r2.dev/2025/07/308990619_177982108128034_4272015722118422953_n.png"
     },
@@ -447,9 +434,7 @@
       "target": "brand/logo.webp",
       "source": "2025/07/309789749_177982111461367_3349876411011993474_n-Photoroom.png",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "site:logo"
-      ],
+      "owners": ["site:logo"],
       "nameKind": "slug"
     },
     {
@@ -457,9 +442,7 @@
       "target": "pages/galeria-de-imagenes/02.webp",
       "source": "2025/07/38681233-6504-4457-ba35-df8773dd27de.jpg",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "page:galeria-de-imagenes"
-      ],
+      "owners": ["page:galeria-de-imagenes"],
       "nameKind": "ordinal"
     },
     {
@@ -603,9 +586,7 @@
       "target": "pages/galeria-de-imagenes/03.webp",
       "source": "2025/07/80237adb-59f2-416a-a9e9-ed7dba14d8d9.jpg",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "page:galeria-de-imagenes"
-      ],
+      "owners": ["page:galeria-de-imagenes"],
       "nameKind": "ordinal"
     },
     {
@@ -613,9 +594,7 @@
       "target": "pages/galeria-de-imagenes/04.webp",
       "source": "2025/07/ab62be8d-2301-4226-baaa-5c89699bb5eb.jpg",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "page:galeria-de-imagenes"
-      ],
+      "owners": ["page:galeria-de-imagenes"],
       "nameKind": "ordinal"
     },
     {
@@ -623,9 +602,7 @@
       "target": "pages/galeria-de-imagenes/05.webp",
       "source": "2025/07/as.jpg",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "page:galeria-de-imagenes"
-      ],
+      "owners": ["page:galeria-de-imagenes"],
       "nameKind": "ordinal"
     },
     {
@@ -633,9 +610,7 @@
       "target": "pages/galeria-de-imagenes/06.webp",
       "source": "2025/07/c074a16f-294b-465b-8207-b104e4eaa91f.jpg",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "page:galeria-de-imagenes"
-      ],
+      "owners": ["page:galeria-de-imagenes"],
       "nameKind": "ordinal"
     },
     {
@@ -643,9 +618,7 @@
       "target": "pages/galeria-de-imagenes/07.webp",
       "source": "2025/07/c5527033-54cb-416d-b078-4564ced555cf.jpg",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "page:galeria-de-imagenes"
-      ],
+      "owners": ["page:galeria-de-imagenes"],
       "nameKind": "ordinal"
     },
     {
@@ -653,9 +626,7 @@
       "target": "programs/vivienda-digna-e-infraestructura-basica/cover.webp",
       "source": "2025/07/cd44ce519e37e68e392d0a66435c619e.jpg",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "program:vivienda-digna-e-infraestructura-basica"
-      ],
+      "owners": ["program:vivienda-digna-e-infraestructura-basica"],
       "nameKind": "slug"
     },
     {
@@ -663,9 +634,7 @@
       "target": "programs/arte-cultura-deporte-y-turismo-sostenible/cover.webp",
       "source": "2025/07/descarga-1.jpg",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "program:arte-cultura-deporte-y-turismo-sostenible"
-      ],
+      "owners": ["program:arte-cultura-deporte-y-turismo-sostenible"],
       "nameKind": "slug"
     },
     {
@@ -673,9 +642,7 @@
       "target": "programs/apoyo-a-emprendimientos-y-microeconomia/cover.webp",
       "source": "2025/07/ee6e2f00e71311ea83a0567103a612d1.jpg",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "program:apoyo-a-emprendimientos-y-microeconomia"
-      ],
+      "owners": ["program:apoyo-a-emprendimientos-y-microeconomia"],
       "nameKind": "slug"
     },
     {
@@ -683,9 +650,7 @@
       "target": "programs/salud-y-seguridad-alimentaria/cover.webp",
       "source": "2025/07/encuesta-nutricion-nvo-leon.jpg",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "program:salud-y-seguridad-alimentaria"
-      ],
+      "owners": ["program:salud-y-seguridad-alimentaria"],
       "nameKind": "slug"
     },
     {
@@ -693,9 +658,7 @@
       "target": "programs/prevencion-de-violencia-genero-terrorismo-trata-de-personas/cover.webp",
       "source": "2025/07/images-1.jpg",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "program:prevencion-de-violencia-genero-terrorismo-trata-de-personas"
-      ],
+      "owners": ["program:prevencion-de-violencia-genero-terrorismo-trata-de-personas"],
       "nameKind": "slug"
     },
     {
@@ -703,9 +666,7 @@
       "target": "programs/fortalecimiento-institucional-y-valores-democraticos/cover.webp",
       "source": "2025/07/jovenes-colombia-1-2100x1402-1.jpg",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "program:fortalecimiento-institucional-y-valores-democraticos"
-      ],
+      "owners": ["program:fortalecimiento-institucional-y-valores-democraticos"],
       "nameKind": "slug"
     },
     {
@@ -713,9 +674,7 @@
       "target": "programs/preservacion-ecologica-y-medioambiente/cover.webp",
       "source": "2025/07/MicrosoftTeams-image-scaled.jpg",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "program:preservacion-ecologica-y-medioambiente"
-      ],
+      "owners": ["program:preservacion-ecologica-y-medioambiente"],
       "nameKind": "slug"
     },
     {
@@ -723,9 +682,7 @@
       "target": "pages/galeria-de-imagenes/08.webp",
       "source": "2025/07/nnn.jpg",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "page:galeria-de-imagenes"
-      ],
+      "owners": ["page:galeria-de-imagenes"],
       "nameKind": "ordinal"
     },
     {
@@ -733,11 +690,7 @@
       "target": "team/rosario-gaton.webp",
       "source": "2025/07/rosario-gaton.jpg",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "page:inicio",
-        "page:nosotros",
-        "team:rosario-gaton"
-      ],
+      "owners": ["page:inicio", "page:nosotros", "team:rosario-gaton"],
       "nameKind": "slug"
     },
     {
@@ -745,9 +698,7 @@
       "target": "programs/transporte-y-ordenamiento-del-transito-escolar/cover.webp",
       "source": "2025/07/seguridad-vial-rd-e9229e09-focus-0-0-375-240-1.jpg",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "program:transporte-y-ordenamiento-del-transito-escolar"
-      ],
+      "owners": ["program:transporte-y-ordenamiento-del-transito-escolar"],
       "nameKind": "slug"
     },
     {
@@ -755,9 +706,7 @@
       "target": "programs/gestion-de-residuos-solidos-agua-potable-y-saneamiento/cover.webp",
       "source": "2025/07/Separacion-de-desechos-en-Guatemala-02-1140x815-1.webp",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "program:gestion-de-residuos-solidos-agua-potable-y-saneamiento"
-      ],
+      "owners": ["program:gestion-de-residuos-solidos-agua-potable-y-saneamiento"],
       "nameKind": "slug"
     },
     {
@@ -765,9 +714,7 @@
       "target": "programs/inclusion-de-personas-con-discapacidad/cover.webp",
       "source": "2025/07/Sin-titulo-1.jpg",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "program:inclusion-de-personas-con-discapacidad"
-      ],
+      "owners": ["program:inclusion-de-personas-con-discapacidad"],
       "nameKind": "slug"
     },
     {
@@ -786,9 +733,7 @@
       "target": "pages/galeria-de-imagenes/09.webp",
       "source": "2025/07/ss.jpg",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "page:galeria-de-imagenes"
-      ],
+      "owners": ["page:galeria-de-imagenes"],
       "nameKind": "ordinal"
     },
     {
@@ -796,9 +741,7 @@
       "target": "pages/galeria-de-imagenes/10.webp",
       "source": "2025/07/sss.jpg",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "page:galeria-de-imagenes"
-      ],
+      "owners": ["page:galeria-de-imagenes"],
       "nameKind": "ordinal"
     },
     {
@@ -806,9 +749,7 @@
       "target": "pages/galeria-de-imagenes/11.webp",
       "source": "2025/07/sssss.jpg",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "page:galeria-de-imagenes"
-      ],
+      "owners": ["page:galeria-de-imagenes"],
       "nameKind": "ordinal"
     },
     {
@@ -827,9 +768,7 @@
       "target": "photos/2025-08-07-reunion-con-el-dr-cruz-jiminian-proyectos-2025/01.webp",
       "source": "2025/08/IMG-20250806-WA0187.jpg",
       "sourceKind": "full-size",
-      "owners": [
-        "post:reunion-con-el-dr-cruz-jiminian-proyectos-2025"
-      ],
+      "owners": ["post:reunion-con-el-dr-cruz-jiminian-proyectos-2025"],
       "nameKind": "ordinal"
     },
     {
@@ -847,9 +786,7 @@
       "target": "pages/interlatitudes-medicos/01-afiche.webp",
       "source": "2025/09/Afiche-JPEG.jpg",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "page:interlatitudes-medicos"
-      ],
+      "owners": ["page:interlatitudes-medicos"],
       "nameKind": "slug"
     },
     {
@@ -1298,9 +1235,7 @@
       "target": "photos/2025-12-31-encuentro-con-embajador-de-comercio-de-china/01.webp",
       "source": "2025/12/IMG-20251230-WA0020-1.jpg",
       "sourceKind": "full-size",
-      "owners": [
-        "post:encuentro-con-embajador-de-comercio-de-china"
-      ],
+      "owners": ["post:encuentro-con-embajador-de-comercio-de-china"],
       "nameKind": "ordinal"
     },
     {
@@ -1308,9 +1243,7 @@
       "target": "photos/2025-12-31-encuentro-con-embajador-de-comercio-de-china/02.webp",
       "source": "2025/12/IMG-20251230-WA0021-1.jpg",
       "sourceKind": "full-size",
-      "owners": [
-        "post:encuentro-con-embajador-de-comercio-de-china"
-      ],
+      "owners": ["post:encuentro-con-embajador-de-comercio-de-china"],
       "nameKind": "ordinal"
     },
     {
@@ -1318,9 +1251,7 @@
       "target": "photos/2025-12-31-encuentro-con-el-dr-cruz-jiminian/01.webp",
       "source": "2025/12/WhatsApp-Image-2025-12-31-at-9.41.31-AM.jpeg",
       "sourceKind": "full-size",
-      "owners": [
-        "post:encuentro-con-el-dr-cruz-jiminian"
-      ],
+      "owners": ["post:encuentro-con-el-dr-cruz-jiminian"],
       "nameKind": "ordinal"
     },
     {
@@ -1328,9 +1259,7 @@
       "target": "photos/2026-01-13-loida-eunice-cuello-colon-operacion-de-mioma/01.webp",
       "source": "2026/01/WhatsApp-Image-2026-01-12-at-9.23.57-PM.jpeg",
       "sourceKind": "full-size",
-      "owners": [
-        "post:loida-eunice-cuello-colon-operacion-de-mioma"
-      ],
+      "owners": ["post:loida-eunice-cuello-colon-operacion-de-mioma"],
       "nameKind": "ordinal"
     },
     {
@@ -1338,9 +1267,7 @@
       "target": "photos/2026-01-14-aplicacion-de-tornillos-en-el-pie/01.webp",
       "source": "2026/01/WhatsApp-Image-2026-01-13-at-10.29.15-PM-1.jpeg",
       "sourceKind": "full-size",
-      "owners": [
-        "post:aplicacion-de-tornillos-en-el-pie"
-      ],
+      "owners": ["post:aplicacion-de-tornillos-en-el-pie"],
       "nameKind": "ordinal"
     },
     {
@@ -1348,9 +1275,7 @@
       "target": "photos/2026-01-14-aplicacion-de-tornillos-en-el-pie/02.webp",
       "source": "2026/01/WhatsApp-Image-2026-01-13-at-10.29.15-PM.jpeg",
       "sourceKind": "full-size",
-      "owners": [
-        "post:aplicacion-de-tornillos-en-el-pie"
-      ],
+      "owners": ["post:aplicacion-de-tornillos-en-el-pie"],
       "nameKind": "ordinal"
     },
     {
@@ -1358,9 +1283,7 @@
       "target": "photos/2026-01-16-pablo-de-la-cruz-hernia-testicular/01.webp",
       "source": "2026/01/WhatsApp-Image-2026-01-15-at-7.14.40-PM.jpeg",
       "sourceKind": "full-size",
-      "owners": [
-        "post:pablo-de-la-cruz-hernia-testicular"
-      ],
+      "owners": ["post:pablo-de-la-cruz-hernia-testicular"],
       "nameKind": "ordinal"
     },
     {
@@ -1368,9 +1291,7 @@
       "target": "photos/2026-01-23-carmen-gloria-severino-operacion-de-tumor/01.webp",
       "source": "2026/01/WhatsApp-Image-2026-01-22-at-9.06.12-PM.jpeg",
       "sourceKind": "full-size",
-      "owners": [
-        "post:carmen-gloria-severino-operacion-de-tumor"
-      ],
+      "owners": ["post:carmen-gloria-severino-operacion-de-tumor"],
       "nameKind": "ordinal"
     },
     {
@@ -1378,9 +1299,7 @@
       "target": "photos/2026-01-30-kamila-remires-espinosa-extirpacion-de-mioma/01.webp",
       "source": "2026/01/WhatsApp-Image-2026-01-30-at-10.01.47-AM.jpeg",
       "sourceKind": "full-size",
-      "owners": [
-        "post:kamila-remires-espinosa-extirpacion-de-mioma"
-      ],
+      "owners": ["post:kamila-remires-espinosa-extirpacion-de-mioma"],
       "nameKind": "ordinal"
     },
     {
@@ -1388,9 +1307,7 @@
       "target": "photos/2026-01-30-marielly-capellan-reconstruccion-vaginal/01.webp",
       "source": "2026/01/WhatsApp-Image-2026-01-30-at-9.39.02-AM.jpeg",
       "sourceKind": "full-size",
-      "owners": [
-        "post:marielly-capellan-reconstruccion-vaginal"
-      ],
+      "owners": ["post:marielly-capellan-reconstruccion-vaginal"],
       "nameKind": "ordinal"
     },
     {
@@ -1398,9 +1315,7 @@
       "target": "photos/2026-01-30-marielly-capellan-reconstruccion-vaginal/02.webp",
       "source": "2026/01/WhatsApp-Image-2026-01-30-at-9.39.06-AM.jpeg",
       "sourceKind": "full-size",
-      "owners": [
-        "post:marielly-capellan-reconstruccion-vaginal"
-      ],
+      "owners": ["post:marielly-capellan-reconstruccion-vaginal"],
       "nameKind": "ordinal"
     },
     {
@@ -1408,9 +1323,7 @@
       "target": "photos/2026-02-02-invitacion-de-la-camara-de-comercio-de-ee-uu/01.webp",
       "source": "2026/02/WhatsApp-Image-2026-02-01-at-8.28.18-PM.jpeg",
       "sourceKind": "full-size",
-      "owners": [
-        "post:invitacion-de-la-camara-de-comercio-de-ee-uu"
-      ],
+      "owners": ["post:invitacion-de-la-camara-de-comercio-de-ee-uu"],
       "nameKind": "ordinal"
     },
     {
@@ -1418,9 +1331,7 @@
       "target": "photos/2026-02-02-invitacion-de-la-camara-de-comercio-de-ee-uu/02.webp",
       "source": "2026/02/WhatsApp-Image-2026-02-01-at-8.29.48-PM.jpeg",
       "sourceKind": "full-size",
-      "owners": [
-        "post:invitacion-de-la-camara-de-comercio-de-ee-uu"
-      ],
+      "owners": ["post:invitacion-de-la-camara-de-comercio-de-ee-uu"],
       "nameKind": "ordinal"
     },
     {
@@ -1428,9 +1339,7 @@
       "target": "photos/2026-02-02-invitacion-de-la-camara-de-comercio-de-ee-uu/03.webp",
       "source": "2026/02/WhatsApp-Image-2026-02-01-at-8.35.49-PM.jpeg",
       "sourceKind": "full-size",
-      "owners": [
-        "post:invitacion-de-la-camara-de-comercio-de-ee-uu"
-      ],
+      "owners": ["post:invitacion-de-la-camara-de-comercio-de-ee-uu"],
       "nameKind": "ordinal"
     },
     {
@@ -1438,9 +1347,7 @@
       "target": "photos/2026-02-11-comunicado-oficial-nota-de-prensa/01.webp",
       "source": "2026/02/WhatsApp-Image-2026-02-10-at-11.54.44-AM.jpeg",
       "sourceKind": "full-size",
-      "owners": [
-        "post:comunicado-oficial-nota-de-prensa"
-      ],
+      "owners": ["post:comunicado-oficial-nota-de-prensa"],
       "nameKind": "ordinal"
     },
     {
@@ -1458,9 +1365,7 @@
       "target": "photos/2026-02-23-encuentro-amistoso-con-el-ex-ministro-de-agricultura/01.webp",
       "source": "2026/02/WhatsApp-Image-2026-02-17-at-9.31.48-AM.jpeg",
       "sourceKind": "full-size",
-      "owners": [
-        "post:encuentro-amistoso-con-el-ex-ministro-de-agricultura"
-      ],
+      "owners": ["post:encuentro-amistoso-con-el-ex-ministro-de-agricultura"],
       "nameKind": "ordinal"
     },
     {
@@ -1568,9 +1473,7 @@
       "target": "photos/2026-10-23-asamblea-extraordinaria-2026/01-asambleextraordinaria2026-post-1.webp",
       "source": "2026/10/AsambleExtraordinaria2026_post_1.webp",
       "sourceKind": "as-uploaded",
-      "owners": [
-        "post:asamblea-extraordinaria-2026"
-      ],
+      "owners": ["post:asamblea-extraordinaria-2026"],
       "nameKind": "slug"
     },
     {

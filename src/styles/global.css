@@ -171,19 +171,19 @@
 
   /* Strong brand blocks */
   .section-brand-navy {
-    @apply bg-linear-to-br from-brand-navy to-brand-navy-strong text-white py-16 md:py-24;
+    @apply from-brand-navy to-brand-navy-strong bg-linear-to-br py-16 text-white md:py-24;
   }
 
   .section-brand-navy-tight {
-    @apply bg-linear-to-br from-brand-navy to-brand-navy-strong text-white py-12 md:py-16;
+    @apply from-brand-navy to-brand-navy-strong bg-linear-to-br py-12 text-white md:py-16;
   }
 
   .section-brand-red {
-    @apply bg-linear-to-br from-brand-red to-brand-red-strong text-white py-16 md:py-24;
+    @apply from-brand-red to-brand-red-strong bg-linear-to-br py-16 text-white md:py-24;
   }
 
   .section-brand-red-tight {
-    @apply bg-linear-to-br from-brand-red to-brand-red-strong text-white py-12 md:py-16;
+    @apply from-brand-red to-brand-red-strong bg-linear-to-br py-12 text-white md:py-16;
   }
 
   .section-dark-overlay {
@@ -192,7 +192,7 @@
 
   .section-dark-overlay::before {
     content: '';
-    @apply absolute inset-0 bg-gradient-to-br from-brand-navy/90 via-brand-navy/80 to-black/80;
+    @apply from-brand-navy/90 via-brand-navy/80 absolute inset-0 bg-gradient-to-br to-black/80;
   }
 
   .section-dark-overlay > * {

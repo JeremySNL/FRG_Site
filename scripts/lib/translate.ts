@@ -59,7 +59,6 @@ export function isIdentityProse(sourceBody: string, copyBody: string): boolean {
 export interface StringRef {
   path: (string | number)[];
   value: string;
-
 }
 
 /**

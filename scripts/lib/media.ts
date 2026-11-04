@@ -18,7 +18,10 @@ export {
 const FRONTMATTER_MEDIA_KEYS = new Set(['image', 'backgroundImage', 'src']);
 
 /** Public media hosts whose path is already the object key. */
-const MEDIA_HOSTS = [/^pub-[a-z0-9]+\.r2\.dev$/i, /^media\.fundacionrosariogaton\.org$/i];
+const MEDIA_HOSTS = [
+  /^pub-[a-z0-9]+\.r2\.dev$/i,
+  /^media\.fundacionrosariogaton\.org$/i,
+];
 
 /**
  * Turn a WordPress media URL into the path used by the new media host.

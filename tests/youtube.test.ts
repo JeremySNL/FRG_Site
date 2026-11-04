@@ -31,12 +31,12 @@ describe('parseYouTubeUrl', () => {
   });
 
   it('marks shorts as vertical', () => {
-    expect(
-      parseYouTubeUrl('https://youtube.com/shorts/ds5RyTGLvtQ?si=abc123'),
-    ).toEqual({
-      id: 'ds5RyTGLvtQ',
-      aspect: 'vertical',
-    });
+    expect(parseYouTubeUrl('https://youtube.com/shorts/ds5RyTGLvtQ?si=abc123')).toEqual(
+      {
+        id: 'ds5RyTGLvtQ',
+        aspect: 'vertical',
+      },
+    );
   });
 
   it('accepts a raw id as landscape', () => {
@@ -63,7 +63,9 @@ describe('normalizeYouTubeVideo', () => {
   });
 
   it('derives vertical aspect from a shorts URL', () => {
-    expect(normalizeYouTubeVideo({ url: 'https://youtube.com/shorts/xyzABC98765' })).toEqual({
+    expect(
+      normalizeYouTubeVideo({ url: 'https://youtube.com/shorts/xyzABC98765' }),
+    ).toEqual({
       id: 'xyzABC98765',
       aspect: 'vertical',
     });

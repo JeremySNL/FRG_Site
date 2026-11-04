@@ -16,8 +16,8 @@
   "routes": [
     {
       "pattern": "fundacionrosariogaton.org",
-      "custom_domain": true
-    }
+      "custom_domain": true,
+    },
   ],
 
   "observability": {
@@ -25,6 +25,6 @@
   },
   "vars": {
     "MEDIA_BASE_URL": "https://media.fundacionrosariogaton.org",
-    "R2_PUBLIC_URL": "https://media.fundacionrosariogaton.org"
+    "R2_PUBLIC_URL": "https://media.fundacionrosariogaton.org",
   },
 }

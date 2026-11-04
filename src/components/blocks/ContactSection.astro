@@ -23,24 +23,30 @@ const ui = getUi(locale);
         <h2 class="text-display-md md:text-display-lg text-white">{block.title}</h2>
       )}
       {block.intro && (
-        <p class="mt-4 text-lg leading-relaxed text-white/90">
-          {block.intro}
-        </p>
+        <p class="mt-4 text-lg leading-relaxed text-white/90">{block.intro}</p>
       )}
     </div>
 
     <div class="grid gap-8 lg:grid-cols-[1.2fr,1fr] lg:items-start">
       <div class="rounded-2xl border-2 border-white bg-white p-6 shadow-xl md:p-8">
         {block.form ? (
-          <Form block={{ type: 'form', form: block.form, surface: false }} locale={locale} />
+          <Form
+            block={{ type: 'form', form: block.form, surface: false }}
+            locale={locale}
+          />
         ) : (
-          <Form block={{ type: 'form', form: 'contact', surface: false }} locale={locale} />
+          <Form
+            block={{ type: 'form', form: 'contact', surface: false }}
+            locale={locale}
+          />
         )}
       </div>
 
       <div class="space-y-6">
         <article class="rounded-2xl border-2 border-white bg-white p-6 shadow-xl md:p-8">
-          <h3 class="text-display-xs md:text-display-sm text-brand-navy">{ui.contactInfoTitle}</h3>
+          <h3 class="text-display-xs md:text-display-sm text-brand-navy">
+            {ui.contactInfoTitle}
+          </h3>
           <div class="mt-6 space-y-4">
             {block.email && (
               <div class="flex items-start gap-4">
@@ -51,7 +57,10 @@ const ui = getUi(locale);
                 </span>
                 <div>
                   <p class="font-semibold text-brand-navy">{ui.contactEmailLabel}</p>
-                  <a href={`mailto:${block.email}`} class="text-brand-red hover:underline">
+                  <a
+                    href={`mailto:${block.email}`}
+                    class="text-brand-red hover:underline"
+                  >
                     {block.email}
                   </a>
                 </div>

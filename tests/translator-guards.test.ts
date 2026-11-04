@@ -3,10 +3,7 @@
  * documents the pipeline skips by rule, and what makes an existing locale
  * copy an untranslated fingerprint of a crashed batch.
  */
-import {
-  isIdentityProse,
-  isSkippedSource,
-} from '../scripts/lib/translate.ts';
+import { isIdentityProse, isSkippedSource } from '../scripts/lib/translate.ts';
 import { describe, expect, it } from 'vitest';
 
 describe('isSkippedSource', () => {
@@ -27,9 +24,9 @@ describe('isSkippedSource', () => {
   });
 
   it('does not skip a translated post with an unrelated noAutoTranslate value', () => {
-    expect(isSkippedSource({ noAutoTranslate: false, date: '2026-01-02' }, 'posts')).toBe(
-      false,
-    );
+    expect(
+      isSkippedSource({ noAutoTranslate: false, date: '2026-01-02' }, 'posts'),
+    ).toBe(false);
   });
 });
 
@@ -53,9 +50,9 @@ describe('isIdentityProse', () => {
   });
 
   it('never flags URL-only bodies, which are untranslatable by design', () => {
-    expect(isIdentityProse('https://www.facebook.com/share/p/abc', 'https://x.com/1')).toBe(
-      false,
-    );
+    expect(
+      isIdentityProse('https://www.facebook.com/share/p/abc', 'https://x.com/1'),
+    ).toBe(false);
   });
 
   it('never flags empty bodies', () => {

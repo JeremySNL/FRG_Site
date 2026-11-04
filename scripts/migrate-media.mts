@@ -72,8 +72,7 @@ const ACCOUNT_ID = process.env.R2_ACCOUNT_ID ?? '';
 const PUBLIC_URL = process.env.R2_PUBLIC_URL ?? '';
 
 const upload = process.argv.includes('--upload');
-const withWebp =
-  process.argv.includes('--webp') || process.argv.includes('--variants');
+const withWebp = process.argv.includes('--webp') || process.argv.includes('--variants');
 
 const MIME_TYPES: Record<string, string> = {
   '.avif': 'image/avif',
@@ -232,9 +231,7 @@ if (uploadManifest.collisions.length > 0) {
 }
 
 if (!upload) {
-  console.log(
-    `\nDry run. ${uploadManifest.keys.length} object keys would be written.`,
-  );
+  console.log(`\nDry run. ${uploadManifest.keys.length} object keys would be written.`);
   if (withWebp) console.log('WebP delivery conversion enabled.');
   console.log('\nFirst files:');
   for (const file of files.slice(0, 10)) {
