@@ -11,8 +11,6 @@
  */
 import { z } from 'astro/zod';
 
-export type FormKind = 'contact' | 'donar' | 'voluntariado' | 'newsletter';
-
 /** Options of the "¿Qué desea donar?" select (WPForms form 742). */
 export const donationOptions = [
   'Alimentos no perecederos',
@@ -104,29 +102,3 @@ export const newsletterSchema = z.object({
   turnstileToken: z.string().optional(),
   website: z.string().max(0).optional(),
 });
-
-export type ContactPayload = z.infer<typeof contactSchema>;
-export type DonationPayload = z.infer<typeof donationSchema>;
-export type VolunteerPayload = z.infer<typeof volunteerSchema>;
-export type NewsletterPayload = z.infer<typeof newsletterSchema>;
-
-/** The validation schema of a form kind. */
-export function schemaFor(kind: FormKind) {
-  switch (kind) {
-    case 'contact':
-      return contactSchema;
-    case 'donar':
-      return donationSchema;
-    case 'voluntariado':
-      return volunteerSchema;
-    case 'newsletter':
-      return newsletterSchema;
-  }
-}
-
-/** Human readable labels of the errors produced by the schemas above. */
-export const errorMessages: Record<string, string> = {
-  'too-short': 'Este campo es obligatorio.',
-  'too-long': 'Este campo es demasiado largo.',
-  'invalid-email': 'Introduce un correo electrónico válido.',
-};

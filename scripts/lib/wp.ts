@@ -183,20 +183,6 @@ export function getMeta(db: WpDatabase, postId: number, key: string): string {
   return db.meta.get(postId)?.get(key) ?? '';
 }
 
-/** Every published post of a given type, newest first. */
-export function publishedPosts(db: WpDatabase, type: string): WpPost[] {
-  return [...db.posts.values()]
-    .filter((post) => post.type === type && post.status === 'publish')
-    .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
-}
-
-/** The published page with a given slug. */
-export function pageBySlug(db: WpDatabase, slug: string): WpPost | undefined {
-  return [...db.posts.values()].find(
-    (post) => post.type === 'page' && post.status === 'publish' && post.name === slug,
-  );
-}
-
 /* -------------------------------------------------------------------------- */
 /* Elementor                                                                  */
 /* -------------------------------------------------------------------------- */
@@ -287,41 +273,6 @@ export function settingArray(
 ): unknown[] {
   const value = decodeSetting(settings[key]);
   return Array.isArray(value) ? value : [];
-}
-
-/** Read a setting as a plain object (JSON-decoded when needed). */
-export function settingObject(
-  settings: Record<string, unknown>,
-  key: string,
-): Record<string, unknown> {
-  const value = decodeSetting(settings[key]);
-  return value && typeof value === 'object' && !Array.isArray(value)
-    ? (value as Record<string, unknown>)
-    : {};
-}
-
-/** The URL of an Elementor image setting. */
-export function settingImage(settings: Record<string, unknown>, key = 'image'): string {
-  const raw = decodeSetting(settings[key]);
-  if (typeof raw === 'string') return raw;
-  if (raw && typeof raw === 'object') {
-    const url = (raw as { url?: unknown }).url;
-    if (typeof url === 'string') return url;
-  }
-  return '';
-}
-
-/** The alt text of an Elementor image setting. */
-export function settingImageAlt(
-  settings: Record<string, unknown>,
-  key = 'image',
-): string {
-  const raw = decodeSetting(settings[key]);
-  if (raw && typeof raw === 'object') {
-    const alt = (raw as { alt?: unknown }).alt;
-    if (typeof alt === 'string') return alt;
-  }
-  return '';
 }
 
 /** The target URL of an Elementor link setting. */

@@ -365,12 +365,3 @@ export const blockTypes = [
   'splitCta',
   'contactSection',
 ] as const satisfies readonly Block['type'][];
-
-export type BlockType = (typeof blockTypes)[number];
-
-/** Narrow an unknown value to a `Block`. */
-export function isBlock(value: unknown): value is Block {
-  if (typeof value !== 'object' || value === null) return false;
-  const type = (value as { type?: unknown }).type;
-  return typeof type === 'string' && (blockTypes as readonly string[]).includes(type);
-}

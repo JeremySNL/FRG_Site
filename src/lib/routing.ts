@@ -16,7 +16,7 @@ import {
   getPosts,
   getTags,
 } from './content.ts';
-import { defaultLocale, locales, type Locale } from './locales.ts';
+import { defaultLocale, locales } from './locales.ts';
 
 /** Join path segments, skipping the empty ones. */
 export function joinPath(...parts: string[]): string {
@@ -79,20 +79,4 @@ export async function enumerateStaticPaths(): Promise<StaticPath[]> {
   }
 
   return paths;
-}
-
-/** The locale a path belongs to, and the segments that follow it. */
-export function describePath(path: string | undefined): {
-  locale: Locale;
-  segments: string[];
-} {
-  const clean = (path ?? '').replace(/^\/+/, '').replace(/\/+$/, '');
-  const parts = clean === '' ? [] : clean.split('/');
-
-  const first = parts[0];
-  if (first !== undefined && (locales as readonly string[]).includes(first)) {
-    return { locale: first as Locale, segments: parts.slice(1) };
-  }
-
-  return { locale: defaultLocale, segments: parts };
 }

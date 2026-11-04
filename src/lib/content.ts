@@ -148,15 +148,6 @@ export async function getPrograms(locale: Locale): Promise<ProgramEntry[]> {
   return programs.sort((a, b) => a.data.order - b.data.order);
 }
 
-/** A program by its slug. */
-export async function getProgram(
-  locale: Locale,
-  slug: string,
-): Promise<ProgramEntry | undefined> {
-  const programs = await getPrograms(locale);
-  return programs.find((program) => program.data.slug === slug);
-}
-
 /** The team members of a locale. */
 export async function getTeam(locale: Locale): Promise<TeamEntry[]> {
   const team = await getCollection('team', (entry) => entry.data.locale === locale);

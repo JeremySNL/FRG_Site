@@ -321,22 +321,6 @@ export function systemPrompt(language: string): string {
   ].join('\n');
 }
 
-/** The prompt that asks for the interface strings of the site chrome. */
-export function uiPrompt(language: string): string {
-  return [
-    'You are the professional translator of a non-profit foundation from the',
-    'Dominican Republic. You translate the interface strings of its website',
-    'from Spanish into',
-    `${language}.`,
-    '',
-    'Rules:',
-    '- Answer with a JSON object: {"translations": {"key": "…"}}.',
-    '- Use exactly the same keys as the input, with the same nesting.',
-    '- Keep the strings short: they are button labels and form labels.',
-    '- Never translate proper nouns: "Fundación Rosario Gatón", "FRG".',
-  ].join('\n');
-}
-
 export interface TranslatorOptions {
   apiKey: string;
   baseUrl: string;
@@ -512,28 +496,6 @@ export function extractArray(answer: string): string[] {
 
   throw new Error(
     `The API answer is not a list of translations: ${answer.slice(0, 200)}`,
-  );
-}
-
-/** Extract the object of translations out of an answer of the API. */
-export function extractTable(answer: string): Record<string, unknown> {
-  const parsed = parseJson(answer);
-
-  if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
-    const translations = (parsed as Record<string, unknown>)['translations'];
-    if (
-      translations &&
-      typeof translations === 'object' &&
-      !Array.isArray(translations)
-    ) {
-      return translations as Record<string, unknown>;
-    }
-
-    return parsed as Record<string, unknown>;
-  }
-
-  throw new Error(
-    `The API answer is not a table of translations: ${answer.slice(0, 200)}`,
   );
 }
 

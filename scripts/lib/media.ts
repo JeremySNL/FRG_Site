@@ -35,22 +35,6 @@ export function toMediaPath(url: string): string {
   return url.slice(index + WORDPRESS_UPLOADS_MARKER.length).replace(/^\/+/, '');
 }
 
-/** The file name of a media path, without the extension. */
-export function mediaBaseName(path: string): string {
-  const file = path.split('/').pop() ?? path;
-  return file.replace(/\.[a-z0-9]+$/i, '');
-}
-
-/**
- * Turn a WordPress media URL into a site-relative URL that the new site can
- * resolve through `mediaUrl()`.
- */
-export function toMediaReference(url: string): string {
-  const path = toMediaPath(url);
-  if (!path) return '';
-  return path;
-}
-
 /** Collect relative paths from media-bearing Markdown frontmatter properties. */
 export function collectRelativeMediaPaths(value: unknown): string[] {
   const found = new Set<string>();
@@ -191,17 +175,6 @@ export function extractSiteLogoPath(source: string): string | undefined {
   const value = match?.[2]?.trim();
   return value ? mediaKeyFromReference(value) : undefined;
 }
-
-/** Slugs that are known to be junk in the original blog. */
-export const JUNK_SLUGS = new Set([
-  'galeria',
-  '1267-2',
-  '1047-2',
-  'ayudas-medicas',
-  'ayudas-medicas-2',
-  'ayudas-medicas-3',
-  'ayudas-medicas-4',
-]);
 
 /**
  * Clean a WordPress slug.

@@ -13,3 +13,8 @@ src/content/
 # The generated files.
 package-lock.json
 public/_redirects
+
+# Agent tooling and its working notes, not part of the site.
+.claude/
+.agents/
+odd/

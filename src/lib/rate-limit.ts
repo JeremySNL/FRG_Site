@@ -44,8 +44,3 @@ export function checkRateLimit(key: string, limit = 5, windowMs = 60_000): boole
   bucket.count += 1;
   return true;
 }
-
-/** Forget every bucket — used by the tests. */
-export function resetRateLimit(): void {
-  buckets.clear();
-}

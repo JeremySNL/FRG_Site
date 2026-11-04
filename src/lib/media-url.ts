@@ -3,10 +3,6 @@ import { mediaKeyFromReference } from './media-keys.ts';
 /** R2 custom domain intended for production. Set via `MEDIA_BASE_URL`. */
 export const R2_MEDIA_BASE_URL = 'https://media.fundacionrosariogaton.org';
 
-/** The WordPress uploads host the media was migrated from. Kept for reference. */
-export const WORDPRESS_MEDIA_BASE_URL =
-  'https://fundacionrosariogaton.org/wp-content/uploads';
-
 export interface MediaUrlOptions {
   baseUrl: string;
 }
