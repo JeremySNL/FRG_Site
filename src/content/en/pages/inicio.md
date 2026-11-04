@@ -70,7 +70,7 @@ blocks:
           - name: "Rodolfo Sebastián Guzmán Munguía"
             country: "Mexico"
             role: "Mexican Ambassador of Goodwill"
-            image: "team/rodolfo-sebastian.webp"
+            image: "team/rodolfo-sebastian-v2.webp"
             imageAlt: "Rodolfo Sebastián Guzmán Munguía"
           - name: "Rubén Dario Jiménez"
             country: "Canada"
@@ -99,7 +99,7 @@ blocks:
           name: "Dr. Mohan Vamadevan"
           country: "India"
           role: "Continental General Ambassador"
-          image: "team/mohan-vamadevan.webp"
+          image: "team/mohan-vamadevan-v2.webp"
           imageAlt: "Dr. Mohan Vamadevan"
         ambassadors: []
         openCountries:

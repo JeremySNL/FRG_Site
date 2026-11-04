@@ -70,7 +70,7 @@ blocks:
           - name: "Rodolfo Sebastián Guzmán Munguía"
             country: "メキシコ"
             role: "メキシコ親善大使"
-            image: "team/rodolfo-sebastian.webp"
+            image: "team/rodolfo-sebastian-v2.webp"
             imageAlt: "Rodolfo Sebastián Guzmán Munguía"
           - name: "Rubén Dario Jiménez"
             country: "カナダ"
@@ -99,7 +99,7 @@ blocks:
           name: "Dr. Mohan Vamadevan"
           country: "インド"
           role: "大陸総大使"
-          image: "team/mohan-vamadevan.webp"
+          image: "team/mohan-vamadevan-v2.webp"
           imageAlt: "Dr. Mohan Vamadevan"
         ambassadors: []
         openCountries:

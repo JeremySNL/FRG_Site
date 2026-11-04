@@ -4,7 +4,7 @@ slug: "mohan-vamadevan"
 locale: "ja"
 role: "アジア大陸親善大使"
 bio: ""
-image: "team/mohan-vamadevan.webp"
+image: "team/mohan-vamadevan-v2.webp"
 imageAlt: "Dr. Mohan Vamadevan"
 order: 2
 ---

@@ -4,7 +4,7 @@ slug: "mohan-vamadevan"
 locale: "en"
 role: "Asian Continental Goodwill Ambassador"
 bio: ""
-image: "team/mohan-vamadevan.webp"
+image: "team/mohan-vamadevan-v2.webp"
 imageAlt: "Dr. Mohan Vamadevan"
 order: 2
 ---
