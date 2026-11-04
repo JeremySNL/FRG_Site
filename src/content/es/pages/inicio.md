@@ -60,7 +60,7 @@ blocks:
     surface: false
     intro: "Representamos los valores de la Fundación Rosario Gatón en los cinco continentes. África ya cuenta con su Embajador General Continental y el resto de los puestos están abiertos a quienes quieran promover la solidaridad y la cooperación internacional desde su país."
     # Cada continente admite tres cosas: generalAmbassador (opcional),
-    # ambassadors (embajadores de país, hoy ninguno) y openCountries (puestos
+    # ambassadors (embajadores de país) y openCountries (puestos
     # vacantes). Un país vacante es un país, no una persona llamada "Por asignar".
     continents:
       - name: "América"
@@ -70,10 +70,14 @@ blocks:
           role: "Embajador General Continental"
           image: "team/alejandra-fuentes.webp"
           imageAlt: "Dr. h. c. Alejandra Fuentes"
-        ambassadors: []
+        ambassadors:
+          - name: "Rodolfo Sebastián Guzmán Munguía"
+            country: "México"
+            role: "Embajador Mexicano de Buena Voluntad"
+            image: "team/rodolfo-sebastian.webp"
+            imageAlt: "Rodolfo Sebastián Guzmán Munguía"
         openCountries:
           - "República Dominicana"
-          - "México"
           - "Colombia"
           - "Argentina"
       - name: "África"

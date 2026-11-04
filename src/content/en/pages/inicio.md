@@ -66,10 +66,14 @@ blocks:
           role: "Continental General Ambassador"
           image: "team/alejandra-fuentes.webp"
           imageAlt: "Dr. h. c. Alejandra Fuentes"
-        ambassadors: []
+        ambassadors:
+          - name: "Rodolfo Sebastián Guzmán Munguía"
+            country: "Mexico"
+            role: "Mexican Ambassador of Goodwill"
+            image: "team/rodolfo-sebastian.webp"
+            imageAlt: "Rodolfo Sebastián Guzmán Munguía"
         openCountries:
           - "Dominican Republic"
-          - "Mexico"
           - "Colombia"
           - "Argentina"
       - name: "Africa"

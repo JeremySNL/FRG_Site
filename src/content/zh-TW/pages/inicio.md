@@ -66,10 +66,14 @@ blocks:
           role: "大陸總大使"
           image: "team/alejandra-fuentes.webp"
           imageAlt: "Dr. h. c. Alejandra Fuentes"
-        ambassadors: []
+        ambassadors:
+          - name: "Rodolfo Sebastián Guzmán Munguía"
+            country: "墨西哥"
+            role: "墨西哥親善大使"
+            image: "team/rodolfo-sebastian.webp"
+            imageAlt: "Rodolfo Sebastián Guzmán Munguía"
         openCountries:
           - "多明尼加共和國"
-          - "墨西哥"
           - "哥倫比亞"
           - "阿根廷"
       - name: "非洲"
