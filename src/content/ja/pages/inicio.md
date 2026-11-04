@@ -16,9 +16,9 @@ blocks:
     backgroundImageAlt: "Fundación Rosario Gatón"
     buttons:
       - label: "参加する"
-        href: "/voluntariado/"
+        href: "/ja/voluntariado/"
       - label: "今すぐ寄付する"
-        href: "/donar/"
+        href: "/ja/donar/"
     cards:
       - type: "solidBlue"
         title: "活動分野"
@@ -40,7 +40,7 @@ blocks:
     imageAlt: "Fundación Rosario Gatónと、República Dominicanaに駐在するグアテマラ大使との会議。"
     buttons:
       - label: "詳しく見る"
-        href: "/nosotros/"
+        href: "/ja/nosotros/"
   - type: "video"
     title: "Fundación Rosario Gatónについて知る"
     url: "https://www.youtube.com/watch?v=xFp8-2GVoH8"
@@ -127,7 +127,7 @@ blocks:
       text: "私たちの協力者ネットワークの一員となり、私たちと共に人々の人生を変えましょう。"
       button:
         label: "今すぐ参加！"
-        href: "/voluntariado/"
+        href: "/ja/voluntariado/"
       image: "photos/2025-07-22-entrega-alimentos-a-familias-vulnerables-como-parte-de-su/06.webp"
       imageAlt: "ボランティア"
     donate:
@@ -135,7 +135,7 @@ blocks:
       text: "あなたのサポートは、脆弱なコミュニティの教育、育成、エンパワーメントを継続するために不可欠です。"
       button:
         label: "今すぐ寄付する"
-        href: "/donar/"
+        href: "/ja/donar/"
       image: "photos/2019-01-23-se-reune-con-el-embajador-de-guatemala-para-fortalecer/01.webp"
       imageAlt: "寄付"
   - type: "cards"

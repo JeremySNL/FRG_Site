@@ -459,3 +459,21 @@ describe('baselineFromHistory', () => {
     expect(baselineFromHistory([{ source: undefined, copy }])).toBeUndefined();
   });
 });
+
+describe('internal links of a copy', () => {
+  it('localizes a link that is new in Spanish', () => {
+    const current = structuredClone(baseline);
+    (current.data['blocks'] as Array<Record<string, unknown>>).push({
+      type: 'cta',
+      buttons: [{ label: 'Voluntariado', href: '/voluntariado/' }],
+    });
+
+    const result = completeLocaleSync(sync(current), ['Bénévolat']);
+    const blocks = result.data['blocks'] as Array<Record<string, unknown>>;
+
+    expect(blocks[2]).toEqual({
+      type: 'cta',
+      buttons: [{ label: 'Bénévolat', href: '/fr/voluntariado/' }],
+    });
+  });
+});

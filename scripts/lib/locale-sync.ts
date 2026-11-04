@@ -24,6 +24,7 @@ import {
 import {
   applyTranslations,
   collectTranslatableStrings,
+  localizeLinks,
   type StringRef,
 } from './translate.ts';
 
@@ -260,7 +261,7 @@ export function planLocaleSync(input: {
   current: MarkdownDocument;
   baseline: MarkdownDocument | undefined;
   copy: MarkdownDocument;
-  locale: string;
+  locale: TranslationLocale;
 }): SyncPlan {
   const { current, baseline, copy, locale } = input;
 
@@ -329,7 +330,8 @@ export function planLocaleSync(input: {
   }
 
   return {
-    data,
+    // Unchanged links keep the copy's value; new ones get the locale prefix.
+    data: localizeLinks(data, locale),
     pending,
     paragraphs,
     keptBody,

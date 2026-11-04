@@ -16,9 +16,9 @@ blocks:
     backgroundImageAlt: "Fundación Rosario Gatón"
     buttons:
       - label: "加入我們"
-        href: "/voluntariado/"
+        href: "/zh-TW/voluntariado/"
       - label: "立即捐款"
-        href: "/donar/"
+        href: "/zh-TW/donar/"
     cards:
       - type: "solidBlue"
         title: "行動領域"
@@ -40,7 +40,7 @@ blocks:
     imageAlt: "Fundación Rosario Gatón 與瓜地馬拉駐多明尼加共和國大使舉行工作會議。"
     buttons:
       - label: "了解更多"
-        href: "/nosotros/"
+        href: "/zh-TW/nosotros/"
   - type: "video"
     title: "認識 Fundación Rosario Gatón"
     url: "https://www.youtube.com/watch?v=xFp8-2GVoH8"
@@ -127,7 +127,7 @@ blocks:
       text: "成為我們的合作夥伴網路，與我們一同改變生命。"
       button:
         label: "立即加入！"
-        href: "/voluntariado/"
+        href: "/zh-TW/voluntariado/"
       image: "photos/2025-07-22-entrega-alimentos-a-familias-vulnerables-como-parte-de-su/06.webp"
       imageAlt: "志工"
     donate:
@@ -135,7 +135,7 @@ blocks:
       text: "您的支持對於持續教育、培訓和賦權弱勢社群至關重要。"
       button:
         label: "立即捐款"
-        href: "/donar/"
+        href: "/zh-TW/donar/"
       image: "photos/2019-01-23-se-reune-con-el-embajador-de-guatemala-para-fortalecer/01.webp"
       imageAlt: "捐款"
   - type: "cards"

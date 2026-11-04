@@ -50,6 +50,7 @@ import {
   collectTranslatableStrings,
   isIdentityProse,
   isSkippedSource,
+  localizeLinks,
   mergeBaseWins,
   Translator,
 } from './lib/translate.ts';
@@ -420,10 +421,14 @@ export async function main(args: string[] = process.argv.slice(2)): Promise<void
 
         const translations = await translator.translate(language, strings);
 
-        const translatedData = applyTranslations(
-          { ...document.data, locale: target },
-          refs,
-          translations.slice(0, refs.length),
+        // The links of the copy point at the pages of its own locale.
+        const translatedData = localizeLinks(
+          applyTranslations(
+            { ...document.data, locale: target },
+            refs,
+            translations.slice(0, refs.length),
+          ),
+          target,
         );
 
         const translatedBody =

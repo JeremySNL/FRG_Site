@@ -114,6 +114,27 @@ export function localePath(locale: Locale, slug = ''): string {
   return `${prefix}/${clean}/`;
 }
 
+/**
+ * Point a link written for the Spanish site at the same page in `locale`.
+ *
+ * `localizeHref('/donar/', 'fr')`            → `/fr/donar/`
+ * `localizeHref('/donar/#formulario', 'en')` → `/en/donar/#formulario`
+ *
+ * Only internal page links change: external URLs, anchors, files with an
+ * extension and links that already carry a locale are returned as they are.
+ */
+export function localizeHref(href: string, locale: Locale): string {
+  if (!href.startsWith('/') || href.startsWith('//')) return href;
+
+  const [, path = '', suffix = ''] = /^([^?#]*)(.*)$/.exec(href) ?? [];
+  const route = parseRoute(path);
+
+  if (route.locale !== defaultLocale) return href;
+  if (route.segments.at(-1)?.includes('.')) return href;
+
+  return `${localePath(locale, route.segments.join('/'))}${suffix}`;
+}
+
 /** Same as {@link localePath} but absolute, using the configured site origin. */
 export function absoluteLocalePath(origin: string, locale: Locale, slug = ''): string {
   return new URL(localePath(locale, slug), origin).toString();

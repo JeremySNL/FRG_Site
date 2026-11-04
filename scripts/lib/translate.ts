@@ -10,6 +10,8 @@
 
 import { randomUUID } from 'node:crypto';
 
+import { localizeHref, type Locale } from '../../src/lib/locales.ts';
+
 /* --- source guards ------------------------------------------------------ */
 
 /**
@@ -269,6 +271,31 @@ function setAtPath(document: unknown, path: (string | number)[], value: string):
   } else if (isPlainObject(node)) {
     node[String(last)] = value;
   }
+}
+
+/**
+ * Point every `href` of a translated document at the pages of its locale.
+ *
+ * The translator copies the values it does not translate, links included, so
+ * a button written as `/donar/` in Spanish would send a French reader to the
+ * Spanish page. Links that are already localized stay as they are.
+ */
+export function localizeLinks<T>(document: T, locale: Locale): T {
+  const visit = (node: unknown): unknown => {
+    if (Array.isArray(node)) return node.map(visit);
+    if (!isPlainObject(node)) return node;
+
+    return Object.fromEntries(
+      Object.entries(node).map(([key, value]) => [
+        key,
+        key === 'href' && typeof value === 'string'
+          ? localizeHref(value, locale)
+          : visit(value),
+      ]),
+    );
+  };
+
+  return visit(document) as T;
 }
 
 /**
