@@ -79,7 +79,7 @@ blocks:
           - name: "Rubén Dario Jiménez"
             country: "Canadá"
             role: "Embajador Canadiense de Buena Voluntad"
-            image: "team/ruben-dario-jimenez.webp"
+            image: "team/ruben-dario-jimenez-v2.webp"
             imageAlt: "Rubén Dario Jiménez"
         openCountries:
           - "República Dominicana"

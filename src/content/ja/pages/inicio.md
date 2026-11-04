@@ -75,7 +75,7 @@ blocks:
           - name: "Rubén Dario Jiménez"
             country: "カナダ"
             role: "カナダ親善大使"
-            image: "team/ruben-dario-jimenez.webp"
+            image: "team/ruben-dario-jimenez-v2.webp"
             imageAlt: "Rubén Dario Jiménez"
         openCountries:
           - "ドミニカ共和国"

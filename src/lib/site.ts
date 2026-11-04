@@ -50,7 +50,7 @@ export const site = {
   mediaBaseUrl: mediaUrlOptions.baseUrl,
 
   /** Attachment id 201 in WordPress — the FRG logo used in header and footer. */
-  logo: 'brand/logo.webp',
+  logo: 'brand/logo-v2.webp',
 } as const;
 
 /** Build an absolute media URL from a path stored in content frontmatter. */
