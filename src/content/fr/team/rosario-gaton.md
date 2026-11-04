@@ -2,7 +2,7 @@
 name: "Rosario Gaton"
 slug: "rosario-gaton"
 locale: "fr"
-role: "Présidente"
+role: "Président"
 bio: ""
 image: "team/rosario-gaton.webp"
 imageAlt: "Rosario Gaton"
