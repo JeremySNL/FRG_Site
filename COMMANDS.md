@@ -108,13 +108,16 @@ Las páginas viven en `src/content/es/pages/<slug>.md` y se arman con **bloques*
 npm run check      # después de editar
 ```
 
-Ojo: los otros idiomas ya están generados. Si cambias el texto en español, la versión traducida **no se actualiza sola**. Para regenerarla:
+Ojo: los otros idiomas ya están generados. Si cambias la página en español, la versión traducida **no se actualiza sola** (y `npm run translate` tampoco la toca, porque solo crea lo que falta). Para llevar el cambio a los demás idiomas:
 
 ```bash
-npm run translate -- --locale en
+npm run sync:locales             # vista previa: qué cambiaría, sin API ni escrituras
+npm run sync:locales -- --write  # traduce solo lo nuevo y actualiza las copias
 ```
 
-Y si quieres ver qué haría antes: `npm run translate -- --locale en --dry-run`.
+Conserva todo lo que ya estaba traducido, incluidas tus correcciones a mano y los enlaces adaptados a cada idioma; copia las imágenes nuevas tal cual y solo manda a la API los textos nuevos o modificados. Necesita `OPENAI_API_KEY` en `.env` cuando hay algo que traducir. Para un solo idioma: `-- --locale fr` (o `-- --locales en,fr`).
+
+Usa el historial de git para saber qué versión del español refleja cada copia, así que da igual si commiteas el cambio en español junto con alguna corrección a mano de una copia: lo que la copia no actualizó sigue apareciendo como pendiente. Una copia con cambios sin commitear se salta: haz commit primero. Si el cuerpo de una copia ya no tiene la misma cantidad de párrafos que su original, ese cuerpo se traduce entero de nuevo.
 
 ## T6. Traducir contenido 🟡
 
@@ -125,7 +128,7 @@ npm run translate -- --post mi-post             # un post
 npm run translate                               # todo lo que falte
 ```
 
-Lo que ya existe **no se sobrescribe** en una corrida normal.
+Lo que ya existe **no se sobrescribe** en una corrida normal. Para actualizar páginas que ya estaban traducidas, usa `npm run sync:locales` (ver T5).
 
 Los posts con fecha anterior a `2025-01-01` **no se traducen a propósito** (quedan solo en español). Es una regla del proyecto, no un error.
 
@@ -181,14 +184,14 @@ npm run check
 ## T10. Probar antes de hacer push 🟢
 
 ```bash
-npm run check      # Astro + content collections
-npm run typecheck  # solo TypeScript
-```bash
 npm run verify     # todo junto: check, lint, tests y build (lo mismo que corre Cloudflare)
 ```
 
 O cada paso por separado:
 
+```bash
+npm run check      # Astro + content collections
+npm run typecheck  # solo TypeScript
 npm run lint       # ESLint
 npm run test       # suite de Vitest
 npm run build      # build de producción completo
@@ -228,11 +231,11 @@ npm run deploy:preview   # build + wrangler en seco, sin publicar
 
 El deploy real es **automático**: push a `main` y Cloudflare construye y publica.
 
+Cloudflare publica solo si pasan las validaciones, porque su comando de build es `npm run verify` en lugar de `npm run build`. Se configura una vez en el panel de Cloudflare: **Workers & Pages → el proyecto → Settings → Build → Build command**. Además, GitHub corre lo mismo en cada push (pestaña **Actions**), así que una rama rota se ve en rojo antes de llegar a `main`.
+
 ```bash
 npm run deploy           # deploy manual directo con Wrangler
 ```
-Cloudflare publica solo si pasan las validaciones, porque su comando de build es `npm run verify` en lugar de `npm run build`. Se configura una vez en el panel de Cloudflare: **Workers & Pages → el proyecto → Settings → Build → Build command**. Además, GitHub corre lo mismo en cada push (pestaña **Actions**), así que una rama rota se ve en rojo antes de llegar a `main`.
-
 
 Ese último existe, pero el camino normal es el push. Ojo: **no** agregues `main` ni `assets` a `wrangler.jsonc`; el build los genera.
 
@@ -307,14 +310,16 @@ Todos los comandos del proyecto en un solo lugar, con las mismas marcas de riesg
 | `npm run format`                                         | Prettier sobre el repo; solo cambia lo que está fuera de estilo.    | 🟡     |
 | `npm run format:check`                                   | Verifica formato sin tocar archivos.                                | 🟢     |
 | `npm run test`                                           | Suite de Vitest (30 s de timeout por test).                         | 🟢     |
+| `npm run verify`                                         | check, lint, tests y build juntos; es el build de Cloudflare.       | 🟢     |
 | `npm run test:watch`                                     | Vitest en modo escucha, al guardar un archivo.                      | 🟢     |
 | `npm run test:e2e`                                       | Playwright; levanta su propio dev server en el puerto 4321.         | 🟢     |
 | `npm run post:ready -- --slug <slug>`                    | Traduce ese post y corre check, lint, tests y build.                | 🟡     |
-| `npm run verify`                                         | check, lint, tests y build juntos; es el build de Cloudflare.       | 🟢     |
 | `npm run translate`                                      | Traduce lo que falte en todos los idiomas destino.                  | 🟡     |
 | `npm run translate -- --locale <loc>`                    | Traduce un solo idioma.                                             | 🟡     |
 | `npm run translate -- --post <slug>`                     | Traduce un solo post.                                               | 🟡     |
 | `npm run translate -- --dry-run`                         | Muestra el plan sin llamar a la API ni escribir.                    | 🟢     |
+| `npm run sync:locales`                                   | Muestra qué páginas traducidas quedaron atrás del español.          | 🟢     |
+| `npm run sync:locales -- --write`                        | Traduce solo lo nuevo y actualiza esas páginas.                     | 🟡     |
 | `npm run translate -- --force`                           | Rehace un idioma completo; puede reemplazar traducciones revisadas. | 🔴     |
 | `npm run media:add -- --post <slug> --file <…>`          | Fotos de un post en `photos/<fecha>-<evento>/`, numeradas.          | 🟡     |
 | `npm run media:add -- --event <fecha-evento> --file <…>` | Lo mismo, con la carpeta de evento que elijas.                      | 🟡     |
