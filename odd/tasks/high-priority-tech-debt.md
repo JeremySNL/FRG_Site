@@ -84,3 +84,17 @@ locale sync, lighter team photos from `media:add`, and form endpoint tests.
   OK. Remaining advisories: whole-body retranslation when a copy's paragraph
   count differs from its source (e.g. the CSR-awards post); keys present only
   in a copy are dropped.
+- L9 (2026-11-04, user): "Si, realiza los commits como veas conveniente y
+  arregla todos esos errores pendientes que mencionaste".
+- L10: Commits on `feat/high-priority-tech-debt`: f65eb71 (T1), a9fd52a (T2),
+  2732e2e (T3), 4df77ab (T4); then 4b08f7a localized links (fr/ja/zh-TW home
+  buttons pointed at Spanish pages; `localizeHref` + `localizeLinks` in
+  translate and sync, 15 links fixed, `tests/locale-links.test.ts`),
+  3bccf67 "Président", d7db55a `sync:locales --write` (20 strings, real
+  API), 86a6c6b acknowledgements for translations identical to the copy
+  (otherwise flagged forever). Closure: `npm run verify` 26 files / 201
+  tests + build; `sync:locales` preview reports 0 pending strings.
+- L11: Left for the user: the Spanish excerpt of
+  `encuentro-con-embajador-de-comercio-de-china` reads "el Embajador y el
+  Embajador Agustín Padilla Padilla" (from the WordPress import; the copies
+  now mirror it); the Cloudflare build command change; push and merge.
