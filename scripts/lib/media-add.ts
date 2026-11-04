@@ -8,7 +8,16 @@
  *
  * The I/O (encode, upload, verify) lives in the script itself.
  */
+import { WEBP_DELIVERY_WIDTH } from '../../src/lib/media-keys.ts';
 import { baseNameOf, cleanEventSlug, descriptiveName } from './media-naming.ts';
+
+/**
+ * The width of a team portrait.
+ *
+ * Portraits are drawn at most at 208px (the general ambassador card), so 480px
+ * stays sharp on 2x screens without shipping a 1600px photo to every visitor.
+ */
+export const TEAM_PHOTO_WIDTH = 480;
 
 export interface MediaAddOptions {
   /** Spanish post slug whose date and name define the folder. */
@@ -205,6 +214,11 @@ export function programKey(slug: string): string {
 /** The single portrait of a team member. */
 export function teamKey(slug: string): string {
   return `team/${slug}.webp`;
+}
+
+/** The maximum width a run encodes to: narrower for portraits, 1600px otherwise. */
+export function deliveryWidthFor(options: MediaAddOptions): number {
+  return options.team ? TEAM_PHOTO_WIDTH : WEBP_DELIVERY_WIDTH;
 }
 
 /**

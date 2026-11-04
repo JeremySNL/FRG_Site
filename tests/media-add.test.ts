@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
+import { WEBP_DELIVERY_WIDTH } from '../src/lib/media-keys.ts';
 import {
   buildMediaTargets,
+  deliveryWidthFor,
   isSafeFolder,
   isoDateOf,
   mediaFolderFor,
@@ -268,5 +270,27 @@ describe('buildMediaTargets', () => {
     expect(buildMediaTargets('photos/2026-11-05-x', ['a.jpg'], 1)[0]?.key).toBe(
       'photos/2026-11-05-x/01.webp',
     );
+  });
+});
+
+describe('deliveryWidthFor', () => {
+  it('encodes team portraits at 480px, enough for the 208px card on 2x screens', () => {
+    expect(deliveryWidthFor({ team: 'rosario-gaton', files: [], dryRun: false })).toBe(
+      480,
+    );
+  });
+
+  it('keeps the 1600px delivery width for every other target', () => {
+    for (const target of [
+      { post: 'jornada' },
+      { event: '2026-01-01-jornada' },
+      { page: 'inicio' },
+      { program: 'salud' },
+      { dir: 'brand' },
+    ]) {
+      expect(deliveryWidthFor({ ...target, files: [], dryRun: false })).toBe(
+        WEBP_DELIVERY_WIDTH,
+      );
+    }
   });
 });

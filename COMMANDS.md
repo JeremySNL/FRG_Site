@@ -133,7 +133,7 @@ Los posts con fecha anterior a `2025-01-01` **no se traducen a propósito** (que
 
 ## T7. Programas y equipo 🟡
 
-Cada programa tiene su portada en `programs/<slug>/cover.webp` y su texto en `src/content/es/programs/<slug>.md`. Cada persona del equipo tiene su retrato en `team/<persona>.webp`.
+Cada programa tiene su portada en `programs/<slug>/cover.webp` y su texto en `src/content/es/programs/<slug>.md`. Cada persona del equipo tiene su retrato en `team/<persona>.webp`, codificado a 480 px de ancho (en la web se ve a 208 px como máximo, así que no hace falta más).
 
 ```bash
 npm run media:add -- --program vivienda-digna-e-infraestructura-basica --file ./nueva-portada.jpg

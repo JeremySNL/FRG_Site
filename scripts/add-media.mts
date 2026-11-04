@@ -39,10 +39,11 @@ import { AwsClient } from 'aws4fetch';
 import sharp from 'sharp';
 import { parse as parseYaml } from 'yaml';
 
-import { isMediaPath, WEBP_DELIVERY_WIDTH } from '../src/lib/media-keys.ts';
+import { isMediaPath } from '../src/lib/media-keys.ts';
 import { R2_MEDIA_BASE_URL } from '../src/lib/media-url.ts';
 import {
   buildMediaTargets,
+  deliveryWidthFor,
   isSafeFolder,
   isoDateOf,
   mediaFolderFor,
@@ -77,7 +78,7 @@ const USAGE = [
   '  --event <fecha-evento>  photos/<fecha>-<evento>/        numerado',
   '  --page <slug>           pages/<slug>/                   numerado',
   '  --program <slug>        programs/<slug>/cover.webp      clave fija, versionada al reemplazar',
-  '  --team <slug>           team/<slug>.webp                clave fija, versionada al reemplazar',
+  '  --team <slug>           team/<slug>.webp                clave fija, versionada al reemplazar, 480 px',
   '  --dir <carpeta>         cualquier carpeta, ej. brand/   numerado',
   '',
   '  --file      Uno o más archivos locales (repetí la bandera o listalos después).',
@@ -169,13 +170,13 @@ interface Encoded {
 }
 
 /** Encode one file for delivery, honouring the EXIF orientation of phone photos. */
-async function encodeFile(file: string): Promise<Encoded> {
+async function encodeFile(file: string, width: number): Promise<Encoded> {
   const source = await readFile(file);
   const original = await sharp(source).metadata();
 
   const body = await sharp(source)
     .rotate()
-    .resize({ width: WEBP_DELIVERY_WIDTH, withoutEnlargement: true })
+    .resize({ width, withoutEnlargement: true })
     .webp({ quality: 82, effort: 5 })
     .toBuffer();
 
@@ -327,7 +328,7 @@ async function main(): Promise<void> {
   let previousKey: string | undefined;
 
   for (const [index, file] of options.files.entries()) {
-    const encoded = await encodeFile(file);
+    const encoded = await encodeFile(file, deliveryWidthFor(options));
     const kib = Math.round(encoded.body.byteLength / 1024);
     const dimensions = `${encoded.width}x${encoded.height}`;
     const source =
