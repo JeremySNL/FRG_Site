@@ -88,7 +88,12 @@ blocks:
           role: "大陸総大使"
           image: "team/javir-sulaiman.webp"
           imageAlt: "Mr. Jabir Sulaiman Sa'ad"
-        ambassadors: []
+        ambassadors:
+          - name: "Elhoussein Zeine"
+            country: "モーリタニア"
+            role: "モーリタニア親善大使"
+            image: "team/elhoussein-zeine.webp"
+            imageAlt: "Elhoussein Zeine"
         openCountries:
           - "モロッコ"
           - "セネガル"

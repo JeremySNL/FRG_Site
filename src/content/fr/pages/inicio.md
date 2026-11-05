@@ -88,7 +88,12 @@ blocks:
           role: "Ambassadeur Général Continental"
           image: "team/javir-sulaiman.webp"
           imageAlt: "Mr. Jabir Sulaiman Sa'ad"
-        ambassadors: []
+        ambassadors:
+          - name: "Elhoussein Zeine"
+            country: "Mauritanie"
+            role: "Ambassadeur de bonne volonté en Mauritanie"
+            image: "team/elhoussein-zeine.webp"
+            imageAlt: "Elhoussein Zeine"
         openCountries:
           - "Maroc"
           - "Sénégal"
