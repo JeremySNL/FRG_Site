@@ -69,12 +69,12 @@ blocks:
         ambassadors:
           - name: "Rodolfo Sebastián Guzmán Munguía"
             country: "Mexico"
-            role: "Mexican Ambassador of Goodwill"
+            role: "Goodwill Ambassador in Mexico"
             image: "team/rodolfo-sebastian-v2.webp"
             imageAlt: "Rodolfo Sebastián Guzmán Munguía"
           - name: "Rubén Dario Jiménez"
             country: "Canada"
-            role: "Canadian Ambassador of Goodwill"
+            role: "Goodwill Ambassador in Canada"
             image: "team/ruben-dario-jimenez-v2.webp"
             imageAlt: "Rubén Dario Jiménez"
         openCountries:

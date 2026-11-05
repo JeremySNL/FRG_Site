@@ -69,12 +69,12 @@ blocks:
         ambassadors:
           - name: "Rodolfo Sebastián Guzmán Munguía"
             country: "Mexique"
-            role: "Ambassadeur mexicain de bonne volonté"
+            role: "Ambassadeur de bonne volonté au Mexique"
             image: "team/rodolfo-sebastian-v2.webp"
             imageAlt: "Rodolfo Sebastián Guzmán Munguía"
           - name: "Rubén Dario Jiménez"
             country: "Canada"
-            role: "Ambassadeur canadien de bonne volonté"
+            role: "Ambassadeur de bonne volonté au Canada"
             image: "team/ruben-dario-jimenez-v2.webp"
             imageAlt: "Rubén Dario Jiménez"
         openCountries:

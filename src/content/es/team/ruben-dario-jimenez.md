@@ -2,7 +2,7 @@
 name: "Rubén Dario Jiménez"
 slug: "ruben-dario-jimenez"
 locale: "es"
-role: "Embajador Canadiense de Buena Voluntad"
+role: "Embajador de Buena Voluntad en Canadá"
 bio: ""
 image: "team/ruben-dario-jimenez-v2.webp"
 imageAlt: "Rubén Dario Jiménez"

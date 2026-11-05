@@ -73,12 +73,12 @@ blocks:
         ambassadors:
           - name: "Rodolfo Sebastián Guzmán Munguía"
             country: "México"
-            role: "Embajador Mexicano de Buena Voluntad"
+            role: "Embajador de Buena Voluntad en México"
             image: "team/rodolfo-sebastian-v2.webp"
             imageAlt: "Rodolfo Sebastián Guzmán Munguía"
           - name: "Rubén Dario Jiménez"
             country: "Canadá"
-            role: "Embajador Canadiense de Buena Voluntad"
+            role: "Embajador de Buena Voluntad en Canadá"
             image: "team/ruben-dario-jimenez-v2.webp"
             imageAlt: "Rubén Dario Jiménez"
         openCountries:
