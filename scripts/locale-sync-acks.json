@@ -2,10 +2,22 @@
   "en/pages/inicio.md": {
     "[\"blocks\",4,\"continents\",0,\"generalAmbassador\",\"role\"]": "Embajadora General Continental"
   },
+  "en/team/mohan-vamadevan.md": {
+    "[\"role\"]": "Embajador Continental Asiático de Buena Voluntad"
+  },
+  "fr/team/mohan-vamadevan.md": {
+    "[\"role\"]": "Embajador Continental Asiático de Buena Voluntad"
+  },
   "ja/pages/inicio.md": {
     "[\"blocks\",4,\"continents\",0,\"generalAmbassador\",\"role\"]": "Embajadora General Continental"
   },
+  "ja/team/mohan-vamadevan.md": {
+    "[\"role\"]": "Embajador Continental Asiático de Buena Voluntad"
+  },
   "zh-TW/pages/inicio.md": {
     "[\"blocks\",4,\"continents\",0,\"generalAmbassador\",\"role\"]": "Embajadora General Continental"
+  },
+  "zh-TW/team/mohan-vamadevan.md": {
+    "[\"role\"]": "Embajador Continental Asiático de Buena Voluntad"
   }
 }
