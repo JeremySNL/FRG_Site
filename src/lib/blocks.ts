@@ -220,12 +220,6 @@ export interface TeamBlock {
   surface?: boolean;
 }
 
-export interface ProgressBlock {
-  type: 'progress';
-  label?: string;
-  percentage: number;
-}
-
 export interface RichTextBlock {
   type: 'richText';
   html: string;
@@ -333,7 +327,6 @@ export type Block =
   | CtaBlock
   | MapBlock
   | TeamBlock
-  | ProgressBlock
   | RichTextBlock
   | AmbassadorsBlock
   | SplitCtaBlock
@@ -359,7 +352,6 @@ export const blockTypes = [
   'cta',
   'map',
   'team',
-  'progress',
   'richText',
   'ambassadors',
   'splitCta',

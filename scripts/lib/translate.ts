@@ -111,7 +111,6 @@ const SKIP_KEYS = new Set([
   'navParent',
   'noAutoTranslate',
   'order',
-  'percentage',
   'program',
   'programs',
   'query',

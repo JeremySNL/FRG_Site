@@ -188,11 +188,6 @@ const blockSchema = z.discriminatedUnion('type', [
     surface: z.boolean().optional(),
   }),
   z.object({
-    type: z.literal('progress'),
-    label: z.string().optional(),
-    percentage: z.number(),
-  }),
-  z.object({
     type: z.literal('richText'),
     html: z.string(),
     surface: z.boolean().optional(),

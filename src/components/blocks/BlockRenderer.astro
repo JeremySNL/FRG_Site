@@ -20,7 +20,6 @@ import LatestPosts from './LatestPosts.astro';
 import List from './List.astro';
 import Map from './Map.astro';
 import Programs from './Programs.astro';
-import Progress from './Progress.astro';
 import RichText from './RichText.astro';
 import Social from './Social.astro';
 import Stats from './Stats.astro';
@@ -79,8 +78,6 @@ const { blocks, locale } = Astro.props;
       return <Map block={block} />;
     case 'team':
       return <Team block={block} locale={locale} />;
-    case 'progress':
-      return <Progress block={block} />;
     case 'richText':
       return <RichText block={block} />;
     case 'ambassadors':
