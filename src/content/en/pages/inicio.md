@@ -154,6 +154,11 @@ blocks:
             role: "Goodwill Ambassador in Ethiopia"
             image: "team/assemaw-guta.webp"
             imageAlt: "Assemaw Guta"
+          - name: "Nouhou Hamidou Bagouma"
+            country: "Niger"
+            role: "Goodwill Ambassador in Niger"
+            image: "team/nouhou-hamidou-bagouma.webp"
+            imageAlt: "Nouhou Hamidou Bagouma"
         openCountries:
           - "Morocco"
           - "Sierra Leone"

@@ -154,6 +154,11 @@ blocks:
             role: "衣索比亞親善大使"
             image: "team/assemaw-guta.webp"
             imageAlt: "Assemaw Guta"
+          - name: "Nouhou Hamidou Bagouma"
+            country: "尼日"
+            role: "尼日親善大使"
+            image: "team/nouhou-hamidou-bagouma.webp"
+            imageAlt: "Nouhou Hamidou Bagouma"
         openCountries:
           - "摩洛哥"
           - "獅子山"

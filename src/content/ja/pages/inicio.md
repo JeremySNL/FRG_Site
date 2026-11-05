@@ -154,6 +154,11 @@ blocks:
             role: "エチオピア親善大使"
             image: "team/assemaw-guta.webp"
             imageAlt: "Assemaw Guta"
+          - name: "Nouhou Hamidou Bagouma"
+            country: "ニジェール"
+            role: "ニジェール親善大使"
+            image: "team/nouhou-hamidou-bagouma.webp"
+            imageAlt: "Nouhou Hamidou Bagouma"
         openCountries:
           - "モロッコ"
           - "シエラレオネ"

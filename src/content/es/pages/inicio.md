@@ -158,6 +158,11 @@ blocks:
             role: "Embajadora de Buena Voluntad en Etiopía"
             image: "team/assemaw-guta.webp"
             imageAlt: "Assemaw Guta"
+          - name: "Nouhou Hamidou Bagouma"
+            country: "Níger"
+            role: "Embajador de Buena Voluntad en Níger"
+            image: "team/nouhou-hamidou-bagouma.webp"
+            imageAlt: "Nouhou Hamidou Bagouma"
         openCountries:
           - "Marruecos"
           - "Sierra Leona"
