@@ -9,15 +9,31 @@
     "[\"role\"]": "Embajador Continental Asiático de Buena Voluntad"
   },
   "ja/pages/inicio.md": {
-    "[\"blocks\",4,\"continents\",0,\"generalAmbassador\",\"role\"]": "Embajadora General Continental"
+    "[\"blocks\",4,\"continents\",0,\"generalAmbassador\",\"role\"]": "Embajadora General Continental",
+    "[\"blocks\",4,\"continents\",0,\"ambassadors\",0,\"role\"]": "Embajador de Buena Voluntad en México",
+    "[\"blocks\",4,\"continents\",0,\"ambassadors\",1,\"role\"]": "Embajador de Buena Voluntad en Canadá"
   },
   "ja/team/mohan-vamadevan.md": {
     "[\"role\"]": "Embajador Continental Asiático de Buena Voluntad"
   },
+  "ja/team/rodolfo-sebastian.md": {
+    "[\"role\"]": "Embajador de Buena Voluntad en México"
+  },
+  "ja/team/ruben-dario-jimenez.md": {
+    "[\"role\"]": "Embajador de Buena Voluntad en Canadá"
+  },
   "zh-TW/pages/inicio.md": {
-    "[\"blocks\",4,\"continents\",0,\"generalAmbassador\",\"role\"]": "Embajadora General Continental"
+    "[\"blocks\",4,\"continents\",0,\"generalAmbassador\",\"role\"]": "Embajadora General Continental",
+    "[\"blocks\",4,\"continents\",0,\"ambassadors\",0,\"role\"]": "Embajador de Buena Voluntad en México",
+    "[\"blocks\",4,\"continents\",0,\"ambassadors\",1,\"role\"]": "Embajador de Buena Voluntad en Canadá"
   },
   "zh-TW/team/mohan-vamadevan.md": {
     "[\"role\"]": "Embajador Continental Asiático de Buena Voluntad"
+  },
+  "zh-TW/team/rodolfo-sebastian.md": {
+    "[\"role\"]": "Embajador de Buena Voluntad en México"
+  },
+  "zh-TW/team/ruben-dario-jimenez.md": {
+    "[\"role\"]": "Embajador de Buena Voluntad en Canadá"
   }
 }
