@@ -149,6 +149,11 @@ blocks:
             role: "Ambassadeur de bonne volonté au Soudan du Sud"
             image: "team/taidor-deng-chuol.webp"
             imageAlt: "Taidor Deng Chuol"
+          - name: "Assemaw Guta"
+            country: "Éthiopie"
+            role: "Ambassadeur de bonne volonté en Éthiopie"
+            image: "team/assemaw-guta.webp"
+            imageAlt: "Assemaw Guta"
         openCountries:
           - "Maroc"
           - "Sierra Leone"

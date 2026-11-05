@@ -149,6 +149,11 @@ blocks:
             role: "南蘇丹親善大使"
             image: "team/taidor-deng-chuol.webp"
             imageAlt: "Taidor Deng Chuol"
+          - name: "Assemaw Guta"
+            country: "衣索比亞"
+            role: "衣索比亞親善大使"
+            image: "team/assemaw-guta.webp"
+            imageAlt: "Assemaw Guta"
         openCountries:
           - "摩洛哥"
           - "獅子山"

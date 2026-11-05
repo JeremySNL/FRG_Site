@@ -149,6 +149,11 @@ blocks:
             role: "南スーダン親善大使"
             image: "team/taidor-deng-chuol.webp"
             imageAlt: "Taidor Deng Chuol"
+          - name: "Assemaw Guta"
+            country: "エチオピア"
+            role: "エチオピア親善大使"
+            image: "team/assemaw-guta.webp"
+            imageAlt: "Assemaw Guta"
         openCountries:
           - "モロッコ"
           - "シエラレオネ"

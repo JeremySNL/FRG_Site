@@ -149,6 +149,11 @@ blocks:
             role: "Goodwill Ambassador in South Sudan"
             image: "team/taidor-deng-chuol.webp"
             imageAlt: "Taidor Deng Chuol"
+          - name: "Assemaw Guta"
+            country: "Ethiopia"
+            role: "Goodwill Ambassador in Ethiopia"
+            image: "team/assemaw-guta.webp"
+            imageAlt: "Assemaw Guta"
         openCountries:
           - "Morocco"
           - "Sierra Leone"
