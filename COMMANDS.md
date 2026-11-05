@@ -130,7 +130,7 @@ npm run translate                               # todo lo que falte
 
 Lo que ya existe **no se sobrescribe** en una corrida normal. Para actualizar páginas que ya estaban traducidas, usa `npm run sync:locales` (ver T5).
 
-Los posts con fecha anterior a `2025-01-01` **no se traducen a propósito** (quedan solo en español). Es una regla del proyecto, no un error.
+Todos los posts se traducen, sin importar su fecha. Solo se omiten los documentos marcados con `noAutoTranslate: true`.
 
 `--force` rehace un idioma completo. No lo uses para "arreglar" algo: puede reemplazar traducciones ya revisadas.
 
@@ -287,7 +287,7 @@ Las herramientas de media modernas (`plan-media-keys`, `apply-media-keys`) tampo
 | `tests/tokens.test.ts` falla                | Cambiaste un color en un solo archivo. Toca `design/tokens.ts` y `global.css`.                                         |
 | `tests/blocks.test.ts` falla                | El tipo del bloque y el schema Zod no coinciden.                                                                       |
 | `format:check` falla en cientos de archivos | Es el estado actual del repo, no tu cambio. No lo mezcles con otro trabajo.                                            |
-| Un post nuevo no aparece traducido          | Revisa que `date` no sea anterior a 2025-01-01, o si tiene `noAutoTranslate: true`.                                    |
+| Un post nuevo no aparece traducido          | Revisa si tiene `noAutoTranslate: true`, o corre `npm run translate`: solo crea las copias que faltan.                 |
 | Una imagen da 404                           | La key del contenido no coincide con el objeto del bucket. Confirma con `media:add --dry-run` o mira el campo `image`. |
 | El deploy no arranca                        | El push tiene que ir a `main`. Revisa el estado en el panel de Cloudflare.                                             |
 

@@ -36,7 +36,7 @@ Los posts no usan el sistema de bloques tipados de las páginas. Para un video, 
 
 - `npm run post:ready -- --slug <slug> [--locales en,fr]` traduce solo el post seleccionado y no toca los archivos de traducción de páginas, categorías, etiquetas, programas, equipo ni interfaz.
 - Las copias ya traducidas se conservan en el modo normal (sin `--force`). Cuando cambie la fuente en español de una página o post ya traducido, `npm run sync:locales` muestra qué copias quedaron atrás y `npm run sync:locales -- --write` las actualiza traduciendo solo los textos nuevos o modificados, sin perder las correcciones hechas a mano.
-- Los posts marcados con `noAutoTranslate: true` y los anteriores a la fecha de corte del traductor se omiten a propósito.
+- Solo se omiten a propósito los documentos marcados con `noAutoTranslate: true`; los posts se traducen sin importar su fecha.
 - El comando por idioma sigue disponible: `npm run translate -- --locale en --dry-run` muestra el trabajo de un idioma destino. Ejecutar `npm run translate` sin idioma procesa todos los idiomas destino configurados y todas las colecciones admitidas.
 - Evita `--force` para publicar de rutina. Puede reconstruir un idioma destino completo y reemplazar traducciones ya generadas.
 
