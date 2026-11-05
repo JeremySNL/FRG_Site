@@ -149,9 +149,20 @@ const continents = block.continents.filter(
                 </h5>
                 <div class="h-px flex-1 bg-brand-navy/30" aria-hidden="true" />
               </div>
-              <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {/*
+                  One row that scrolls sideways once the cards no longer fit,
+                  so a continent with a dozen country ambassadors does not
+                  stack into several rows. The strip is focusable so keyboard
+                  users can scroll it with the arrow keys.
+                */}
+              <div
+                role="region"
+                aria-label={`${ui.ambassadorAreaHeading} · ${continent.name}`}
+                tabindex="0"
+                class="-mx-4 flex snap-x snap-proximity gap-4 overflow-x-auto px-4 pt-2 pb-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red md:-mx-0 md:px-0"
+              >
                 {continent.ambassadors.map((ambassador) => (
-                  <article class="rounded-2xl border-2 border-brand-navy bg-white p-5 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-brand-red hover:shadow-lg">
+                  <article class="w-56 shrink-0 snap-start rounded-2xl border-2 border-brand-navy bg-white p-5 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-brand-red hover:shadow-lg sm:w-60">
                     <div class="flex flex-col items-center text-center">
                       {ambassador.image ? (
                         <img

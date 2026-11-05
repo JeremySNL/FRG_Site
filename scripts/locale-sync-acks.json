@@ -1,6 +1,14 @@
 {
   "en/pages/inicio.md": {
-    "[\"blocks\",4,\"continents\",0,\"generalAmbassador\",\"role\"]": "Embajadora General Continental"
+    "[\"blocks\",4,\"continents\",0,\"generalAmbassador\",\"role\"]": "Embajadora General Continental",
+    "[\"blocks\",4,\"continents\",1,\"ambassadors\",12,\"role\"]": "Embajadora de Buena Voluntad en Etiopía",
+    "[\"blocks\",4,\"continents\",1,\"ambassadors\",4,\"role\"]": "Embajadora de Buena Voluntad en Sudáfrica"
+  },
+  "en/team/assemaw-guta.md": {
+    "[\"role\"]": "Embajadora de Buena Voluntad en Etiopía"
+  },
+  "en/team/grace-tshiwela-thovhakale.md": {
+    "[\"role\"]": "Embajadora de Buena Voluntad en Sudáfrica"
   },
   "en/team/mohan-vamadevan.md": {
     "[\"role\"]": "Embajador Continental Asiático de Buena Voluntad"
@@ -9,9 +17,17 @@
     "[\"role\"]": "Embajador Continental Asiático de Buena Voluntad"
   },
   "ja/pages/inicio.md": {
-    "[\"blocks\",4,\"continents\",0,\"generalAmbassador\",\"role\"]": "Embajadora General Continental",
     "[\"blocks\",4,\"continents\",0,\"ambassadors\",0,\"role\"]": "Embajador de Buena Voluntad en México",
-    "[\"blocks\",4,\"continents\",0,\"ambassadors\",1,\"role\"]": "Embajador de Buena Voluntad en Canadá"
+    "[\"blocks\",4,\"continents\",0,\"ambassadors\",1,\"role\"]": "Embajador de Buena Voluntad en Canadá",
+    "[\"blocks\",4,\"continents\",0,\"generalAmbassador\",\"role\"]": "Embajadora General Continental",
+    "[\"blocks\",4,\"continents\",1,\"ambassadors\",12,\"role\"]": "Embajadora de Buena Voluntad en Etiopía",
+    "[\"blocks\",4,\"continents\",1,\"ambassadors\",4,\"role\"]": "Embajadora de Buena Voluntad en Sudáfrica"
+  },
+  "ja/team/assemaw-guta.md": {
+    "[\"role\"]": "Embajadora de Buena Voluntad en Etiopía"
+  },
+  "ja/team/grace-tshiwela-thovhakale.md": {
+    "[\"role\"]": "Embajadora de Buena Voluntad en Sudáfrica"
   },
   "ja/team/mohan-vamadevan.md": {
     "[\"role\"]": "Embajador Continental Asiático de Buena Voluntad"
@@ -23,9 +39,17 @@
     "[\"role\"]": "Embajador de Buena Voluntad en Canadá"
   },
   "zh-TW/pages/inicio.md": {
-    "[\"blocks\",4,\"continents\",0,\"generalAmbassador\",\"role\"]": "Embajadora General Continental",
     "[\"blocks\",4,\"continents\",0,\"ambassadors\",0,\"role\"]": "Embajador de Buena Voluntad en México",
-    "[\"blocks\",4,\"continents\",0,\"ambassadors\",1,\"role\"]": "Embajador de Buena Voluntad en Canadá"
+    "[\"blocks\",4,\"continents\",0,\"ambassadors\",1,\"role\"]": "Embajador de Buena Voluntad en Canadá",
+    "[\"blocks\",4,\"continents\",0,\"generalAmbassador\",\"role\"]": "Embajadora General Continental",
+    "[\"blocks\",4,\"continents\",1,\"ambassadors\",12,\"role\"]": "Embajadora de Buena Voluntad en Etiopía",
+    "[\"blocks\",4,\"continents\",1,\"ambassadors\",4,\"role\"]": "Embajadora de Buena Voluntad en Sudáfrica"
+  },
+  "zh-TW/team/assemaw-guta.md": {
+    "[\"role\"]": "Embajadora de Buena Voluntad en Etiopía"
+  },
+  "zh-TW/team/grace-tshiwela-thovhakale.md": {
+    "[\"role\"]": "Embajadora de Buena Voluntad en Sudáfrica"
   },
   "zh-TW/team/mohan-vamadevan.md": {
     "[\"role\"]": "Embajador Continental Asiático de Buena Voluntad"
