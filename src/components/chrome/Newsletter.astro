@@ -72,9 +72,63 @@ const siteKey = turnstileSiteKey;
   ></p>
 </form>
 
-{siteKey && (
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />
-)}
+<script>
+  /*
+   * Turnstile for every protected form of the page: this newsletter, which
+   * is in the footer of every page, and the contact, donation and
+   * volunteering forms. Cloudflare's script is fetched only when a widget
+   * comes close to the screen or one of those forms gets the focus, so most
+   * page views never download it. Each widget is then rendered explicitly
+   * from its own `data-sitekey` and `data-theme`.
+   */
+  interface TurnstileApi {
+    render(
+      container: HTMLElement,
+      options: { sitekey: string; theme?: string },
+    ): string;
+  }
+
+  const widgets = [...document.querySelectorAll<HTMLElement>('.cf-turnstile')];
+
+  if (widgets.length > 0) {
+    const callback = 'onFrgTurnstileLoad';
+    let requested = false;
+
+    const renderWidgets = (): void => {
+      const turnstile = (window as unknown as { turnstile?: TurnstileApi }).turnstile;
+      for (const widget of widgets) {
+        const sitekey = widget.dataset['sitekey'];
+        if (turnstile && sitekey) {
+          turnstile.render(widget, { sitekey, theme: widget.dataset['theme'] });
+        }
+      }
+    };
+
+    const load = (): void => {
+      if (requested) return;
+      requested = true;
+      observer.disconnect();
+
+      (window as unknown as Record<string, unknown>)[callback] = renderWidgets;
+      const script = document.createElement('script');
+      script.src = `https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=${callback}`;
+      script.async = true;
+      document.head.append(script);
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) load();
+      },
+      { rootMargin: '400px 0px' },
+    );
+
+    for (const widget of widgets) {
+      observer.observe(widget);
+      widget.closest('form')?.addEventListener('focusin', load, { once: true });
+    }
+  }
+</script>
 
 <script>
   const form = document.querySelector<HTMLFormElement>('#newsletter-form');
