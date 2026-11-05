@@ -94,6 +94,11 @@ blocks:
             role: "Goodwill Ambassador in Mauritania"
             image: "team/elhoussein-zeine.webp"
             imageAlt: "Elhoussein Zeine"
+          - name: "Adamu Daibu"
+            country: "Cameroon"
+            role: "Goodwill Ambassador in Cameroon"
+            image: "team/adamu-daibu.webp"
+            imageAlt: "Adamu Daibu"
         openCountries:
           - "Morocco"
           - "Senegal"

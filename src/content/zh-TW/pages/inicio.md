@@ -94,6 +94,11 @@ blocks:
             role: "茅利塔尼亞親善大使"
             image: "team/elhoussein-zeine.webp"
             imageAlt: "Elhoussein Zeine"
+          - name: "Adamu Daibu"
+            country: "喀麥隆"
+            role: "喀麥隆親善大使"
+            image: "team/adamu-daibu.webp"
+            imageAlt: "Adamu Daibu"
         openCountries:
           - "摩洛哥"
           - "塞內加爾"

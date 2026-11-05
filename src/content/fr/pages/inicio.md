@@ -94,6 +94,11 @@ blocks:
             role: "Ambassadeur de bonne volonté en Mauritanie"
             image: "team/elhoussein-zeine.webp"
             imageAlt: "Elhoussein Zeine"
+          - name: "Adamu Daibu"
+            country: "Cameroun"
+            role: "Ambassadeur de bonne volonté au Cameroun"
+            image: "team/adamu-daibu.webp"
+            imageAlt: "Adamu Daibu"
         openCountries:
           - "Maroc"
           - "Sénégal"
