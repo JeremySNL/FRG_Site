@@ -164,7 +164,12 @@ blocks:
           role: "大陸総大使"
           image: "team/mohan-vamadevan-v2.webp"
           imageAlt: "Dr. Mohan Vamadevan"
-        ambassadors: []
+        ambassadors:
+          - name: "Praseetha S. Mohan"
+            country: "インド"
+            role: "インド（南部地域）親善大使"
+            image: "team/praseetha-s-mohan.webp"
+            imageAlt: "Praseetha S. Mohan"
         openCountries:
           - "中国"
           - "日本"

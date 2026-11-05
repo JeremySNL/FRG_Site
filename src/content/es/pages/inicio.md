@@ -168,7 +168,12 @@ blocks:
           role: "Embajador General Continental"
           image: "team/mohan-vamadevan-v2.webp"
           imageAlt: "Dr. Mohan Vamadevan"
-        ambassadors: []
+        ambassadors:
+          - name: "Praseetha S. Mohan"
+            country: "India"
+            role: "Embajadora de Buena Voluntad en India (Región Sur)"
+            image: "team/praseetha-s-mohan.webp"
+            imageAlt: "Praseetha S. Mohan"
         openCountries:
           - "China"
           - "Japón"
