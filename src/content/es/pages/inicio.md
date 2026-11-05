@@ -113,6 +113,11 @@ blocks:
             role: "Embajador de Buena Voluntad en Malí"
             image: "team/alphadi-tandina.webp"
             imageAlt: "Alphadi Tandina"
+          - name: "Grace Tshiwela Thovhakale"
+            country: "Sudáfrica"
+            role: "Embajador de Buena Voluntad en Sudáfrica"
+            image: "team/grace-tshiwela-thovhakale.webp"
+            imageAlt: "Grace Tshiwela Thovhakale"
         openCountries:
           - "Marruecos"
           - "Senegal"

@@ -109,6 +109,11 @@ blocks:
             role: "Goodwill Ambassador in Mali"
             image: "team/alphadi-tandina.webp"
             imageAlt: "Alphadi Tandina"
+          - name: "Grace Tshiwela Thovhakale"
+            country: "South Africa"
+            role: "Goodwill Ambassador in South Africa"
+            image: "team/grace-tshiwela-thovhakale.webp"
+            imageAlt: "Grace Tshiwela Thovhakale"
         openCountries:
           - "Morocco"
           - "Senegal"

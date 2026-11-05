@@ -109,6 +109,11 @@ blocks:
             role: "マリ親善大使"
             image: "team/alphadi-tandina.webp"
             imageAlt: "Alphadi Tandina"
+          - name: "Grace Tshiwela Thovhakale"
+            country: "南アフリカ"
+            role: "南アフリカ親善大使"
+            image: "team/grace-tshiwela-thovhakale.webp"
+            imageAlt: "Grace Tshiwela Thovhakale"
         openCountries:
           - "モロッコ"
           - "セネガル"
