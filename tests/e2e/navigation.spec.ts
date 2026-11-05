@@ -4,11 +4,11 @@ test('desktop navigation dropdown stays open while crossing to its submenu', asy
   page,
 }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
+  // Only the site under test is reached; third-party requests are dropped.
+  const siteOrigin = new URL(test.info().project.use.baseURL ?? '').origin;
   await page.route('**/*', (route) => {
     const requestUrl = new URL(route.request().url());
-    return requestUrl.origin === 'http://127.0.0.1:4321'
-      ? route.continue()
-      : route.abort();
+    return requestUrl.origin === siteOrigin ? route.continue() : route.abort();
   });
   await page.goto('/');
 

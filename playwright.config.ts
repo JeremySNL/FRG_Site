@@ -7,12 +7,15 @@ export default defineConfig({
   fullyParallel: true,
   reporter: 'list',
   use: {
-    baseURL: 'http://127.0.0.1:4321',
+    baseURL: 'http://localhost:4321',
     launchOptions: executablePath ? { executablePath } : {},
   },
+  // `localhost`, not 127.0.0.1: `astro dev` may listen on IPv6 only (::1), and a
+  // server the developer already started must be found and reused, not
+  // collided with.
   webServer: {
-    command: 'npm run dev -- --host 127.0.0.1',
-    url: 'http://127.0.0.1:4321',
+    command: 'npm run dev',
+    url: 'http://localhost:4321',
     reuseExistingServer: !process.env['CI'],
     timeout: 120_000,
   },
