@@ -124,10 +124,14 @@ blocks:
             role: "查德親善大使"
             image: "team/hamza-mahamat-hassan.webp"
             imageAlt: "Hamza Mahamat Hassan"
+          - name: "Brian Antony Maroa"
+            country: "肯亞"
+            role: "肯亞親善大使"
+            image: "team/brian-antony-maroa.webp"
+            imageAlt: "Brian Antony Maroa"
         openCountries:
           - "摩洛哥"
           - "獅子山"
-          - "肯亞"
       - name: "亞洲"
         generalAmbassador:
           name: "Dr. Mohan Vamadevan"

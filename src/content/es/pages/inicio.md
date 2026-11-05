@@ -128,10 +128,14 @@ blocks:
             role: "Embajador de Buena Voluntad en Chad"
             image: "team/hamza-mahamat-hassan.webp"
             imageAlt: "Hamza Mahamat Hassan"
+          - name: "Brian Antony Maroa"
+            country: "Kenia"
+            role: "Embajador de Buena Voluntad en Kenia"
+            image: "team/brian-antony-maroa.webp"
+            imageAlt: "Brian Antony Maroa"
         openCountries:
           - "Marruecos"
           - "Sierra Leona"
-          - "Kenia"
       - name: "Asia"
         generalAmbassador:
           name: "Dr. Mohan Vamadevan"

@@ -124,10 +124,14 @@ blocks:
             role: "チャド親善大使"
             image: "team/hamza-mahamat-hassan.webp"
             imageAlt: "Hamza Mahamat Hassan"
+          - name: "Brian Antony Maroa"
+            country: "ケニア"
+            role: "ケニア親善大使"
+            image: "team/brian-antony-maroa.webp"
+            imageAlt: "Brian Antony Maroa"
         openCountries:
           - "モロッコ"
           - "シエラレオネ"
-          - "ケニア"
       - name: "アジア"
         generalAmbassador:
           name: "Dr. Mohan Vamadevan"
