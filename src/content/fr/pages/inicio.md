@@ -144,6 +144,11 @@ blocks:
             role: "Ambassadeur de bonne volonté au Togo"
             image: "team/aziamadi-koffi-frederick.webp"
             imageAlt: "Aziamadi Koffi Frédérick"
+          - name: "Taidor Deng Chuol"
+            country: "Soudan du Sud"
+            role: "Ambassadeur de bonne volonté au Soudan du Sud"
+            image: "team/taidor-deng-chuol.webp"
+            imageAlt: "Taidor Deng Chuol"
         openCountries:
           - "Maroc"
           - "Sierra Leone"

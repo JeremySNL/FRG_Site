@@ -144,6 +144,11 @@ blocks:
             role: "多哥親善大使"
             image: "team/aziamadi-koffi-frederick.webp"
             imageAlt: "Aziamadi Koffi Frédérick"
+          - name: "Taidor Deng Chuol"
+            country: "南蘇丹"
+            role: "南蘇丹親善大使"
+            image: "team/taidor-deng-chuol.webp"
+            imageAlt: "Taidor Deng Chuol"
         openCountries:
           - "摩洛哥"
           - "獅子山"

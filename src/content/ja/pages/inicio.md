@@ -144,6 +144,11 @@ blocks:
             role: "トーゴ親善大使"
             image: "team/aziamadi-koffi-frederick.webp"
             imageAlt: "Aziamadi Koffi Frédérick"
+          - name: "Taidor Deng Chuol"
+            country: "南スーダン"
+            role: "南スーダン親善大使"
+            image: "team/taidor-deng-chuol.webp"
+            imageAlt: "Taidor Deng Chuol"
         openCountries:
           - "モロッコ"
           - "シエラレオネ"
