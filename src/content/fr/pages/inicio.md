@@ -57,7 +57,7 @@ blocks:
   - type: "ambassadors"
     title: "Ambassadeurs de Bonne Volonté"
     surface: false
-    intro: "Nous représentons les valeurs de la Fundación Rosario Gatón sur les cinq continents. L'Afrique dispose déjà de son Ambassadeur Général Continental et les autres postes sont ouverts à celles et ceux qui souhaitent promouvoir la solidarité et la coopération internationale depuis leur pays."
+    intro: "Nous représentons les valeurs de la Fundación Rosario Gatón sur les cinq continents. L'Afrique dispose déjà de son Ambassadeur Général Continental et d'ambassadeurs nationaux, et les autres postes restent ouverts à celles et ceux qui souhaitent promouvoir la solidarité et la coopération internationale depuis leur pays."
     continents:
       - name: "Amérique"
         generalAmbassador:
@@ -111,7 +111,7 @@ blocks:
             imageAlt: "Alphadi Tandina"
           - name: "Grace Tshiwela Thovhakale"
             country: "Afrique du Sud"
-            role: "Ambassadeur de bonne volonté en Afrique du Sud"
+            role: "Ambassadrice de bonne volonté en Afrique du Sud"
             image: "team/grace-tshiwela-thovhakale.webp"
             imageAlt: "Grace Tshiwela Thovhakale"
           - name: "Gana Diène"
@@ -151,7 +151,7 @@ blocks:
             imageAlt: "Taidor Deng Chuol"
           - name: "Assemaw Guta"
             country: "Éthiopie"
-            role: "Ambassadeur de bonne volonté en Éthiopie"
+            role: "Ambassadrice de bonne volonté en Éthiopie"
             image: "team/assemaw-guta.webp"
             imageAlt: "Assemaw Guta"
         openCountries:

@@ -2,7 +2,7 @@
 name: "Grace Tshiwela Thovhakale"
 slug: "grace-tshiwela-thovhakale"
 locale: "fr"
-role: "Ambassadeur de bonne volonté en Afrique du Sud"
+role: "Ambassadrice de bonne volonté en Afrique du Sud"
 bio: ""
 image: "team/grace-tshiwela-thovhakale.webp"
 imageAlt: "Grace Tshiwela Thovhakale"

@@ -57,7 +57,7 @@ blocks:
   - type: "ambassadors"
     title: "Goodwill Ambassadors"
     surface: false
-    intro: "We represent the values of Fundación Rosario Gatón on all five continents. Africa already has its Continental General Ambassador, and the remaining seats are open to anyone who wants to promote solidarity and international cooperation from their own country."
+    intro: "We represent the values of Fundación Rosario Gatón on all five continents. Africa already has its Continental General Ambassador and national ambassadors, and the remaining seats are still open to anyone who wants to promote solidarity and international cooperation from their own country."
     continents:
       - name: "America"
         generalAmbassador:

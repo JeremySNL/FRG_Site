@@ -58,7 +58,7 @@ blocks:
   - type: "ambassadors"
     title: "Embajadores de Buena Voluntad"
     surface: false
-    intro: "Representamos los valores de la Fundación Rosario Gatón en los cinco continentes. África ya cuenta con su Embajador General Continental y el resto de los puestos están abiertos a quienes quieran promover la solidaridad y la cooperación internacional desde su país."
+    intro: "Representamos los valores de la Fundación Rosario Gatón en los cinco continentes. África ya cuenta con su Embajador General Continental y con embajadores nacionales; el resto de los puestos siguen abiertos a quienes quieran promover la solidaridad y la cooperación internacional desde su país."
     # Cada continente admite tres cosas: generalAmbassador (opcional),
     # ambassadors (embajadores de país) y openCountries (puestos
     # vacantes). Un país vacante es un país, no una persona llamada "Por asignar".
@@ -115,7 +115,7 @@ blocks:
             imageAlt: "Alphadi Tandina"
           - name: "Grace Tshiwela Thovhakale"
             country: "Sudáfrica"
-            role: "Embajador de Buena Voluntad en Sudáfrica"
+            role: "Embajadora de Buena Voluntad en Sudáfrica"
             image: "team/grace-tshiwela-thovhakale.webp"
             imageAlt: "Grace Tshiwela Thovhakale"
           - name: "Gana Diène"
@@ -155,7 +155,7 @@ blocks:
             imageAlt: "Taidor Deng Chuol"
           - name: "Assemaw Guta"
             country: "Etiopía"
-            role: "Embajador de Buena Voluntad en Etiopía"
+            role: "Embajadora de Buena Voluntad en Etiopía"
             image: "team/assemaw-guta.webp"
             imageAlt: "Assemaw Guta"
         openCountries:

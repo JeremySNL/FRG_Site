@@ -57,7 +57,7 @@ blocks:
   - type: "ambassadors"
     title: "親善大使"
     surface: false
-    intro: "我們在五大洲代表 Fundación Rosario Gatón 的價值觀。非洲已由大陸總大使就任，其餘職位歡迎願意從自己國家推動團結與國際合作的人士加入。"
+    intro: "我們在五大洲代表 Fundación Rosario Gatón 的價值觀。非洲已有大陸總大使與各國大使就任，其餘職位仍歡迎願意從自己國家推動團結與國際合作的人士加入。"
     continents:
       - name: "美洲"
         generalAmbassador:
