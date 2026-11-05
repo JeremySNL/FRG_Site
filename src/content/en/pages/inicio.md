@@ -139,6 +139,11 @@ blocks:
             role: "Goodwill Ambassador in Ghana"
             image: "team/iddrisu-abdul-latif-muakum.webp"
             imageAlt: "Iddrisu Abdul Latif Muakum"
+          - name: "Aziamadi Koffi Frédérick"
+            country: "Togo"
+            role: "Goodwill Ambassador in Togo"
+            image: "team/aziamadi-koffi-frederick.webp"
+            imageAlt: "Aziamadi Koffi Frédérick"
         openCountries:
           - "Morocco"
           - "Sierra Leone"

@@ -139,6 +139,11 @@ blocks:
             role: "迦納親善大使"
             image: "team/iddrisu-abdul-latif-muakum.webp"
             imageAlt: "Iddrisu Abdul Latif Muakum"
+          - name: "Aziamadi Koffi Frédérick"
+            country: "多哥"
+            role: "多哥親善大使"
+            image: "team/aziamadi-koffi-frederick.webp"
+            imageAlt: "Aziamadi Koffi Frédérick"
         openCountries:
           - "摩洛哥"
           - "獅子山"

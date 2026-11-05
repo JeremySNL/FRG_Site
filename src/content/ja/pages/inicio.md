@@ -139,6 +139,11 @@ blocks:
             role: "ガーナ親善大使"
             image: "team/iddrisu-abdul-latif-muakum.webp"
             imageAlt: "Iddrisu Abdul Latif Muakum"
+          - name: "Aziamadi Koffi Frédérick"
+            country: "トーゴ"
+            role: "トーゴ親善大使"
+            image: "team/aziamadi-koffi-frederick.webp"
+            imageAlt: "Aziamadi Koffi Frédérick"
         openCountries:
           - "モロッコ"
           - "シエラレオネ"
