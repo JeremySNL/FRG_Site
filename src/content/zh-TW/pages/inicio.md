@@ -119,6 +119,11 @@ blocks:
             role: "塞內加爾親善大使"
             image: "team/gana-diene.webp"
             imageAlt: "Gana Diène"
+          - name: "Hamza Mahamat Hassan"
+            country: "查德"
+            role: "查德親善大使"
+            image: "team/hamza-mahamat-hassan.webp"
+            imageAlt: "Hamza Mahamat Hassan"
         openCountries:
           - "摩洛哥"
           - "獅子山"

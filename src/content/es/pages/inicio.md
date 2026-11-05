@@ -123,6 +123,11 @@ blocks:
             role: "Embajador de Buena Voluntad en Senegal"
             image: "team/gana-diene.webp"
             imageAlt: "Gana Diène"
+          - name: "Hamza Mahamat Hassan"
+            country: "Chad"
+            role: "Embajador de Buena Voluntad en Chad"
+            image: "team/hamza-mahamat-hassan.webp"
+            imageAlt: "Hamza Mahamat Hassan"
         openCountries:
           - "Marruecos"
           - "Sierra Leona"

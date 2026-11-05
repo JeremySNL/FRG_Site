@@ -119,6 +119,11 @@ blocks:
             role: "セネガル親善大使"
             image: "team/gana-diene.webp"
             imageAlt: "Gana Diène"
+          - name: "Hamza Mahamat Hassan"
+            country: "チャド"
+            role: "チャド親善大使"
+            image: "team/hamza-mahamat-hassan.webp"
+            imageAlt: "Hamza Mahamat Hassan"
         openCountries:
           - "モロッコ"
           - "シエラレオネ"
