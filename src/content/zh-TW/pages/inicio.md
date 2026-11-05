@@ -99,6 +99,11 @@ blocks:
             role: "喀麥隆親善大使"
             image: "team/adamu-daibu.webp"
             imageAlt: "Adamu Daibu"
+          - name: "Alieu Kebbeh"
+            country: "甘比亞"
+            role: "甘比亞親善大使"
+            image: "team/alieu-kebbeh.webp"
+            imageAlt: "Alieu Kebbeh"
         openCountries:
           - "摩洛哥"
           - "塞內加爾"

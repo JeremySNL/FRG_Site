@@ -99,6 +99,11 @@ blocks:
             role: "カメルーン親善大使"
             image: "team/adamu-daibu.webp"
             imageAlt: "Adamu Daibu"
+          - name: "Alieu Kebbeh"
+            country: "ガンビア"
+            role: "ガンビア親善大使"
+            image: "team/alieu-kebbeh.webp"
+            imageAlt: "Alieu Kebbeh"
         openCountries:
           - "モロッコ"
           - "セネガル"

@@ -99,6 +99,11 @@ blocks:
             role: "Goodwill Ambassador in Cameroon"
             image: "team/adamu-daibu.webp"
             imageAlt: "Adamu Daibu"
+          - name: "Alieu Kebbeh"
+            country: "The Gambia"
+            role: "Goodwill Ambassador in The Gambia"
+            image: "team/alieu-kebbeh.webp"
+            imageAlt: "Alieu Kebbeh"
         openCountries:
           - "Morocco"
           - "Senegal"

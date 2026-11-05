@@ -99,6 +99,11 @@ blocks:
             role: "Ambassadeur de bonne volonté au Cameroun"
             image: "team/adamu-daibu.webp"
             imageAlt: "Adamu Daibu"
+          - name: "Alieu Kebbeh"
+            country: "Gambie"
+            role: "Ambassadeur de bonne volonté en Gambie"
+            image: "team/alieu-kebbeh.webp"
+            imageAlt: "Alieu Kebbeh"
         openCountries:
           - "Maroc"
           - "Sénégal"
