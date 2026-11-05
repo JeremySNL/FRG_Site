@@ -104,6 +104,11 @@ blocks:
             role: "ガンビア親善大使"
             image: "team/alieu-kebbeh.webp"
             imageAlt: "Alieu Kebbeh"
+          - name: "Alphadi Tandina"
+            country: "マリ"
+            role: "マリ親善大使"
+            image: "team/alphadi-tandina.webp"
+            imageAlt: "Alphadi Tandina"
         openCountries:
           - "モロッコ"
           - "セネガル"

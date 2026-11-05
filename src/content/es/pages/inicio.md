@@ -108,6 +108,11 @@ blocks:
             role: "Embajador de Buena Voluntad en Gambia"
             image: "team/alieu-kebbeh.webp"
             imageAlt: "Alieu Kebbeh"
+          - name: "Alphadi Tandina"
+            country: "Malí"
+            role: "Embajador de Buena Voluntad en Malí"
+            image: "team/alphadi-tandina.webp"
+            imageAlt: "Alphadi Tandina"
         openCountries:
           - "Marruecos"
           - "Senegal"

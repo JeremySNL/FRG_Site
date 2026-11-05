@@ -104,6 +104,11 @@ blocks:
             role: "Goodwill Ambassador in The Gambia"
             image: "team/alieu-kebbeh.webp"
             imageAlt: "Alieu Kebbeh"
+          - name: "Alphadi Tandina"
+            country: "Mali"
+            role: "Goodwill Ambassador in Mali"
+            image: "team/alphadi-tandina.webp"
+            imageAlt: "Alphadi Tandina"
         openCountries:
           - "Morocco"
           - "Senegal"
