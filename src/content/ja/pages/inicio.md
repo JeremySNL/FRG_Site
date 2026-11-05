@@ -134,6 +134,11 @@ blocks:
             role: "ブルキナファソ親善大使"
             image: "team/alassane-ouedraogo.webp"
             imageAlt: "Alassane Ouedraogo"
+          - name: "Iddrisu Abdul Latif Muakum"
+            country: "ガーナ"
+            role: "ガーナ親善大使"
+            image: "team/iddrisu-abdul-latif-muakum.webp"
+            imageAlt: "Iddrisu Abdul Latif Muakum"
         openCountries:
           - "モロッコ"
           - "シエラレオネ"

@@ -138,6 +138,11 @@ blocks:
             role: "Embajador de Buena Voluntad en Burkina Faso"
             image: "team/alassane-ouedraogo.webp"
             imageAlt: "Alassane Ouedraogo"
+          - name: "Iddrisu Abdul Latif Muakum"
+            country: "Ghana"
+            role: "Embajador de Buena Voluntad en Ghana"
+            image: "team/iddrisu-abdul-latif-muakum.webp"
+            imageAlt: "Iddrisu Abdul Latif Muakum"
         openCountries:
           - "Marruecos"
           - "Sierra Leona"

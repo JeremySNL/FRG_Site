@@ -134,6 +134,11 @@ blocks:
             role: "布吉納法索親善大使"
             image: "team/alassane-ouedraogo.webp"
             imageAlt: "Alassane Ouedraogo"
+          - name: "Iddrisu Abdul Latif Muakum"
+            country: "迦納"
+            role: "迦納親善大使"
+            image: "team/iddrisu-abdul-latif-muakum.webp"
+            imageAlt: "Iddrisu Abdul Latif Muakum"
         openCountries:
           - "摩洛哥"
           - "獅子山"

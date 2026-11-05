@@ -134,6 +134,11 @@ blocks:
             role: "Goodwill Ambassador in Burkina Faso"
             image: "team/alassane-ouedraogo.webp"
             imageAlt: "Alassane Ouedraogo"
+          - name: "Iddrisu Abdul Latif Muakum"
+            country: "Ghana"
+            role: "Goodwill Ambassador in Ghana"
+            image: "team/iddrisu-abdul-latif-muakum.webp"
+            imageAlt: "Iddrisu Abdul Latif Muakum"
         openCountries:
           - "Morocco"
           - "Sierra Leone"
