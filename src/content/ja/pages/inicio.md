@@ -170,6 +170,11 @@ blocks:
             role: "インド（南部地域）親善大使"
             image: "team/praseetha-s-mohan.webp"
             imageAlt: "Praseetha S. Mohan"
+          - name: "Dasarippally Dinesh Kumar"
+            country: "インド"
+            role: "インド（北部地域）親善大使"
+            image: "team/dasarippally-dinesh-kumar.webp"
+            imageAlt: "Dasarippally Dinesh Kumar"
         openCountries:
           - "中国"
           - "日本"

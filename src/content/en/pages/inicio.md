@@ -170,6 +170,11 @@ blocks:
             role: "Goodwill Ambassador in India (Southern Region)"
             image: "team/praseetha-s-mohan.webp"
             imageAlt: "Praseetha S. Mohan"
+          - name: "Dasarippally Dinesh Kumar"
+            country: "India"
+            role: "Goodwill Ambassador in India (Northern Region)"
+            image: "team/dasarippally-dinesh-kumar.webp"
+            imageAlt: "Dasarippally Dinesh Kumar"
         openCountries:
           - "China"
           - "Japan"

@@ -174,6 +174,11 @@ blocks:
             role: "Embajadora de Buena Voluntad en India (Región Sur)"
             image: "team/praseetha-s-mohan.webp"
             imageAlt: "Praseetha S. Mohan"
+          - name: "Dasarippally Dinesh Kumar"
+            country: "India"
+            role: "Embajador de Buena Voluntad en India (Región Norte)"
+            image: "team/dasarippally-dinesh-kumar.webp"
+            imageAlt: "Dasarippally Dinesh Kumar"
         openCountries:
           - "China"
           - "Japón"
