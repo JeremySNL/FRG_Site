@@ -129,6 +129,11 @@ blocks:
             role: "Ambassadeur de bonne volonté au Kenya"
             image: "team/brian-antony-maroa.webp"
             imageAlt: "Brian Antony Maroa"
+          - name: "Alassane Ouedraogo"
+            country: "Burkina Faso"
+            role: "Ambassadeur de bonne volonté au Burkina Faso"
+            image: "team/alassane-ouedraogo.webp"
+            imageAlt: "Alassane Ouedraogo"
         openCountries:
           - "Maroc"
           - "Sierra Leone"

@@ -129,6 +129,11 @@ blocks:
             role: "肯亞親善大使"
             image: "team/brian-antony-maroa.webp"
             imageAlt: "Brian Antony Maroa"
+          - name: "Alassane Ouedraogo"
+            country: "布吉納法索"
+            role: "布吉納法索親善大使"
+            image: "team/alassane-ouedraogo.webp"
+            imageAlt: "Alassane Ouedraogo"
         openCountries:
           - "摩洛哥"
           - "獅子山"
