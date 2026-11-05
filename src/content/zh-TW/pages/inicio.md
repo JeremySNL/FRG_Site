@@ -175,6 +175,11 @@ blocks:
             role: "印度（北部地區）親善大使"
             image: "team/dasarippally-dinesh-kumar.webp"
             imageAlt: "Dasarippally Dinesh Kumar"
+          - name: "Rana Biswas"
+            country: "孟加拉"
+            role: "孟加拉親善大使"
+            image: "team/rana-biswas.webp"
+            imageAlt: "Rana Biswas"
         openCountries:
           - "中國"
           - "日本"

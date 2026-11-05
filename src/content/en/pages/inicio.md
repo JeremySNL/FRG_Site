@@ -175,6 +175,11 @@ blocks:
             role: "Goodwill Ambassador in India (Northern Region)"
             image: "team/dasarippally-dinesh-kumar.webp"
             imageAlt: "Dasarippally Dinesh Kumar"
+          - name: "Rana Biswas"
+            country: "Bangladesh"
+            role: "Goodwill Ambassador in Bangladesh"
+            image: "team/rana-biswas.webp"
+            imageAlt: "Rana Biswas"
         openCountries:
           - "China"
           - "Japan"

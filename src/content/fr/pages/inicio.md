@@ -175,6 +175,11 @@ blocks:
             role: "Ambassadeur de bonne volonté en Inde (région Nord)"
             image: "team/dasarippally-dinesh-kumar.webp"
             imageAlt: "Dasarippally Dinesh Kumar"
+          - name: "Rana Biswas"
+            country: "Bangladesh"
+            role: "Ambassadeur de bonne volonté au Bangladesh"
+            image: "team/rana-biswas.webp"
+            imageAlt: "Rana Biswas"
         openCountries:
           - "Chine"
           - "Japon"
