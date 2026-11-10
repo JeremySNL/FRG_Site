@@ -287,6 +287,11 @@ blocks:
             role: "シリア親善大使"
             image: "team/ammar-aktam-anjereny.webp"
             imageAlt: "Ammar Aktam Anjereny"
+          - name: "Mr. Asep Saefulloh"
+            country: "インドネシア"
+            role: "インドネシア親善大使"
+            image: "team/asep-saefulloh.webp"
+            imageAlt: "Mr. Asep Saefulloh"
         openCountries:
           - "中国"
           - "フィリピン"

@@ -287,6 +287,11 @@ blocks:
             role: "Goodwill Ambassador in Syria"
             image: "team/ammar-aktam-anjereny.webp"
             imageAlt: "Ammar Aktam Anjereny"
+          - name: "Mr. Asep Saefulloh"
+            country: "Indonesia"
+            role: "Goodwill Ambassador in Indonesia"
+            image: "team/asep-saefulloh.webp"
+            imageAlt: "Mr. Asep Saefulloh"
         openCountries:
           - "China"
           - "Philippines"

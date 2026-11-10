@@ -291,6 +291,11 @@ blocks:
             role: "Embajador de Buena Voluntad en Siria"
             image: "team/ammar-aktam-anjereny.webp"
             imageAlt: "Ammar Aktam Anjereny"
+          - name: "Mr. Asep Saefulloh"
+            country: "Indonesia"
+            role: "Embajador de Buena Voluntad en Indonesia"
+            image: "team/asep-saefulloh.webp"
+            imageAlt: "Mr. Asep Saefulloh"
         openCountries:
           - "China"
           - "Filipinas"

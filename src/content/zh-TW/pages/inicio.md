@@ -287,6 +287,11 @@ blocks:
             role: "敘利亞親善大使"
             image: "team/ammar-aktam-anjereny.webp"
             imageAlt: "Ammar Aktam Anjereny"
+          - name: "Mr. Asep Saefulloh"
+            country: "印尼"
+            role: "印尼親善大使"
+            image: "team/asep-saefulloh.webp"
+            imageAlt: "Mr. Asep Saefulloh"
         openCountries:
           - "中國"
           - "菲律賓"
