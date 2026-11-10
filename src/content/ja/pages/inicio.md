@@ -272,6 +272,11 @@ blocks:
             role: "オマーン親善大使"
             image: "team/abdul-nazar-kalamban-kottarathil.webp"
             imageAlt: "Abdul Nazar Kalamban-Kottarathil"
+          - name: "Mr. Amichai Levi"
+            country: "イスラエル"
+            role: "イスラエル親善大使"
+            image: "team/amichai-levi.webp"
+            imageAlt: "Mr. Amichai Levi"
         openCountries:
           - "中国"
           - "フィリピン"

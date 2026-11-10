@@ -272,6 +272,11 @@ blocks:
             role: "Ambassadeur de bonne volonté à Oman"
             image: "team/abdul-nazar-kalamban-kottarathil.webp"
             imageAlt: "Abdul Nazar Kalamban-Kottarathil"
+          - name: "Mr. Amichai Levi"
+            country: "Israël"
+            role: "Ambassadeur de bonne volonté en Israël"
+            image: "team/amichai-levi.webp"
+            imageAlt: "Mr. Amichai Levi"
         openCountries:
           - "Chine"
           - "Philippines"
