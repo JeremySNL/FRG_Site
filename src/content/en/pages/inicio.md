@@ -262,6 +262,11 @@ blocks:
             role: "Goodwill Ambassador in Lebanon"
             image: "team/sayed-salim-al-sous.webp"
             imageAlt: "Dr. Sayed Salim Al Sous"
+          - name: "Mr. Basheer Ambalayi"
+            country: "Bahrain"
+            role: "Goodwill Ambassador in Bahrain"
+            image: "team/basheer-ambalayi.webp"
+            imageAlt: "Mr. Basheer Ambalayi"
         openCountries:
           - "China"
           - "Philippines"

@@ -262,6 +262,11 @@ blocks:
             role: "Ambassadeur de bonne volonté au Liban"
             image: "team/sayed-salim-al-sous.webp"
             imageAlt: "Dr. Sayed Salim Al Sous"
+          - name: "Mr. Basheer Ambalayi"
+            country: "Bahreïn"
+            role: "Ambassadeur de bonne volonté à Bahreïn"
+            image: "team/basheer-ambalayi.webp"
+            imageAlt: "Mr. Basheer Ambalayi"
         openCountries:
           - "Chine"
           - "Philippines"

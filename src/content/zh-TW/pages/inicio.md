@@ -262,6 +262,11 @@ blocks:
             role: "黎巴嫩親善大使"
             image: "team/sayed-salim-al-sous.webp"
             imageAlt: "Dr. Sayed Salim Al Sous"
+          - name: "Mr. Basheer Ambalayi"
+            country: "巴林"
+            role: "巴林親善大使"
+            image: "team/basheer-ambalayi.webp"
+            imageAlt: "Mr. Basheer Ambalayi"
         openCountries:
           - "中國"
           - "菲律賓"

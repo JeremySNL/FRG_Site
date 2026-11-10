@@ -266,6 +266,11 @@ blocks:
             role: "Embajador de Buena Voluntad en Líbano"
             image: "team/sayed-salim-al-sous.webp"
             imageAlt: "Dr. Sayed Salim Al Sous"
+          - name: "Mr. Basheer Ambalayi"
+            country: "Baréin"
+            role: "Embajador de Buena Voluntad en Baréin"
+            image: "team/basheer-ambalayi.webp"
+            imageAlt: "Mr. Basheer Ambalayi"
         openCountries:
           - "China"
           - "Filipinas"
