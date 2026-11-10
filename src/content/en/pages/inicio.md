@@ -201,6 +201,11 @@ blocks:
             role: "Goodwill Ambassador in Guinea-Conakry"
             image: "team/mohammed-h-sagno.webp"
             imageAlt: "Mohammed H Sagno"
+          - name: "Wilfredo Obama Nzeng Nsa"
+            country: "Equatorial Guinea"
+            role: "Goodwill Ambassador in Equatorial Guinea"
+            image: "team/wilfredo-obama-nzeng-nsa.webp"
+            imageAlt: "Wilfredo Obama Nzeng Nsa"
         openCountries:
           - "Morocco"
           - "Sierra Leone"

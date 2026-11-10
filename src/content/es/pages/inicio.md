@@ -205,6 +205,11 @@ blocks:
             role: "Embajador de Buena Voluntad en Guinea Conakri"
             image: "team/mohammed-h-sagno.webp"
             imageAlt: "Mohammed H Sagno"
+          - name: "Wilfredo Obama Nzeng Nsa"
+            country: "Guinea Ecuatorial"
+            role: "Embajador de Buena Voluntad en Guinea Ecuatorial"
+            image: "team/wilfredo-obama-nzeng-nsa.webp"
+            imageAlt: "Wilfredo Obama Nzeng Nsa"
         openCountries:
           - "Marruecos"
           - "Sierra Leona"

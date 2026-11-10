@@ -201,6 +201,11 @@ blocks:
             role: "ギニア親善大使"
             image: "team/mohammed-h-sagno.webp"
             imageAlt: "Mohammed H Sagno"
+          - name: "Wilfredo Obama Nzeng Nsa"
+            country: "赤道ギニア"
+            role: "赤道ギニア親善大使"
+            image: "team/wilfredo-obama-nzeng-nsa.webp"
+            imageAlt: "Wilfredo Obama Nzeng Nsa"
         openCountries:
           - "モロッコ"
           - "シエラレオネ"
