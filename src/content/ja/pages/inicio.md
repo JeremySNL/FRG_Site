@@ -282,6 +282,11 @@ blocks:
             role: "ネパール親善大使"
             image: "team/rakesh-kumar-varma.webp"
             imageAlt: "Rakesh Kumar Varma"
+          - name: "Ammar Aktam Anjereny"
+            country: "シリア"
+            role: "シリア親善大使"
+            image: "team/ammar-aktam-anjereny.webp"
+            imageAlt: "Ammar Aktam Anjereny"
         openCountries:
           - "中国"
           - "フィリピン"

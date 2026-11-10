@@ -282,6 +282,11 @@ blocks:
             role: "Goodwill Ambassador in Nepal"
             image: "team/rakesh-kumar-varma.webp"
             imageAlt: "Rakesh Kumar Varma"
+          - name: "Ammar Aktam Anjereny"
+            country: "Syria"
+            role: "Goodwill Ambassador in Syria"
+            image: "team/ammar-aktam-anjereny.webp"
+            imageAlt: "Ammar Aktam Anjereny"
         openCountries:
           - "China"
           - "Philippines"

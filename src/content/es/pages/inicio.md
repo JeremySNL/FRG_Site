@@ -286,6 +286,11 @@ blocks:
             role: "Embajador de Buena Voluntad en Nepal"
             image: "team/rakesh-kumar-varma.webp"
             imageAlt: "Rakesh Kumar Varma"
+          - name: "Ammar Aktam Anjereny"
+            country: "Siria"
+            role: "Embajador de Buena Voluntad en Siria"
+            image: "team/ammar-aktam-anjereny.webp"
+            imageAlt: "Ammar Aktam Anjereny"
         openCountries:
           - "China"
           - "Filipinas"
