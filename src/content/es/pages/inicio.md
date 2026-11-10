@@ -251,6 +251,11 @@ blocks:
             role: "Embajador de Buena Voluntad en Malasia"
             image: "team/sujin-jaiguru-maharaj.webp"
             imageAlt: "Dr. Sujin Jaiguru Maharaj"
+          - name: "Prof. Dr. Grandmaster Muhammad Afzal Rafique"
+            country: "Pakistán"
+            role: "Embajador de Buena Voluntad en Pakistán"
+            image: "team/muhammad-afzal-rafique.webp"
+            imageAlt: "Prof. Dr. Grandmaster Muhammad Afzal Rafique"
         openCountries:
           - "China"
           - "Filipinas"

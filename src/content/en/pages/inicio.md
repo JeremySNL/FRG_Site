@@ -247,6 +247,11 @@ blocks:
             role: "Goodwill Ambassador in Malaysia"
             image: "team/sujin-jaiguru-maharaj.webp"
             imageAlt: "Dr. Sujin Jaiguru Maharaj"
+          - name: "Prof. Dr. Grandmaster Muhammad Afzal Rafique"
+            country: "Pakistan"
+            role: "Goodwill Ambassador in Pakistan"
+            image: "team/muhammad-afzal-rafique.webp"
+            imageAlt: "Prof. Dr. Grandmaster Muhammad Afzal Rafique"
         openCountries:
           - "China"
           - "Philippines"

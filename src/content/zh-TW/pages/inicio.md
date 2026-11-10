@@ -247,6 +247,11 @@ blocks:
             role: "馬來西亞親善大使"
             image: "team/sujin-jaiguru-maharaj.webp"
             imageAlt: "Dr. Sujin Jaiguru Maharaj"
+          - name: "Prof. Dr. Grandmaster Muhammad Afzal Rafique"
+            country: "巴基斯坦"
+            role: "巴基斯坦親善大使"
+            image: "team/muhammad-afzal-rafique.webp"
+            imageAlt: "Prof. Dr. Grandmaster Muhammad Afzal Rafique"
         openCountries:
           - "中國"
           - "菲律賓"
