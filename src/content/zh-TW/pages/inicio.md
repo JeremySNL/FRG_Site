@@ -327,6 +327,11 @@ blocks:
             role: "葉門親善大使"
             image: "team/muhammad-shui-tikka-al-masawa.webp"
             imageAlt: "Muhammad Shui Tikka Al-Masawa"
+          - name: "Mrs. Ambily Narayanan"
+            country: "科威特"
+            role: "科威特親善大使"
+            image: "team/ambily-narayanan.webp"
+            imageAlt: "Mrs. Ambily Narayanan"
         openCountries:
           - "中國"
       - name: "歐洲"

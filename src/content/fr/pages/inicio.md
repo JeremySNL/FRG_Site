@@ -327,6 +327,11 @@ blocks:
             role: "Ambassadeur de bonne volonté au Yémen"
             image: "team/muhammad-shui-tikka-al-masawa.webp"
             imageAlt: "Muhammad Shui Tikka Al-Masawa"
+          - name: "Mrs. Ambily Narayanan"
+            country: "Koweït"
+            role: "Ambassadrice de bonne volonté au Koweït"
+            image: "team/ambily-narayanan.webp"
+            imageAlt: "Mrs. Ambily Narayanan"
         openCountries:
           - "Chine"
       - name: "Europe"
