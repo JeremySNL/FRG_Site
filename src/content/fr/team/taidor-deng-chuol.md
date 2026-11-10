@@ -6,5 +6,7 @@ role: "Ambassadeur de bonne volonté au Soudan du Sud"
 bio: ""
 image: "team/taidor-deng-chuol.webp"
 imageAlt: "Taidor Deng Chuol"
+group: "nacional"
+continent: "africa"
 order: 3
 ---

@@ -6,5 +6,7 @@ role: "Goodwill Ambassador in The Gambia"
 bio: ""
 image: "team/alieu-kebbeh.webp"
 imageAlt: "Alieu Kebbeh"
+group: "nacional"
+continent: "africa"
 order: 3
 ---

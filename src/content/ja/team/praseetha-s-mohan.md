@@ -6,5 +6,7 @@ role: "インド（南部地域）親善大使"
 bio: ""
 image: "team/praseetha-s-mohan.webp"
 imageAlt: "Praseetha S. Mohan"
+group: "nacional"
+continent: "asia"
 order: 3
 ---

@@ -470,6 +470,9 @@ function flatten(value: unknown, prefix = ''): Map<string, string> {
   return out;
 }
 
+/** Strings that are legitimately spelled the same in Spanish and in that locale. */
+const I18N_SAME_AS_SPANISH = new Set(['en:teamContinentAsia']);
+
 it('every locale has a complete i18n table with no Spanish leftovers', () => {
   const defects: string[] = [];
   const source = flatten(JSON.parse(readFileSync(join(i18nDir, 'es.json'), 'utf8')));
@@ -494,7 +497,7 @@ it('every locale has a complete i18n table with no Spanish leftovers', () => {
         defects.push(`i18n/${locale}.json: empty value at "${path}"`);
         continue;
       }
-      if (translated === value) {
+      if (translated === value && !I18N_SAME_AS_SPANISH.has(`${locale}:${path}`)) {
         defects.push(`i18n/${locale}.json: string "${path}" equals the Spanish source`);
       }
     }

@@ -6,5 +6,7 @@ role: "アフリカ大陸善意大使"
 bio: ""
 image: "team/javir-sulaiman.webp"
 imageAlt: "Mr. Jabir Sulaiman Sa'ad"
+group: "continental"
+continent: "africa"
 order: 2
 ---

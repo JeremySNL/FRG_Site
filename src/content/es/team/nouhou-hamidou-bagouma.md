@@ -6,5 +6,7 @@ role: "Embajador de Buena Voluntad en Níger"
 bio: ""
 image: "team/nouhou-hamidou-bagouma.webp"
 imageAlt: "Nouhou Hamidou Bagouma"
+group: "nacional"
+continent: "africa"
 order: 3
 ---

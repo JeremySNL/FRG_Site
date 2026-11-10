@@ -6,5 +6,7 @@ role: "Ambassadrice continentale américaine de bonne volonté"
 bio: ""
 image: "team/alejandra-fuentes.webp"
 imageAlt: "Dr. h. c. Alejandra Fuentes"
+group: "continental"
+continent: "america"
 order: 2
 ---

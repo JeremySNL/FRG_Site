@@ -6,5 +6,6 @@ role: "衛生部門總監"
 bio: ""
 image: "team/henry-alberto-rosario-trejo.webp"
 imageAlt: "Dr. Henry Alberto Rosario Trejo"
+group: "direccion"
 order: 3
 ---

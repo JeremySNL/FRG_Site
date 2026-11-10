@@ -6,5 +6,6 @@ role: "Presidente"
 bio: ""
 image: "team/rosario-gaton.webp"
 imageAlt: "Dr. Julio Rosario Gaton"
+group: "presidencia"
 order: 1
 ---

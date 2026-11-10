@@ -6,5 +6,7 @@ role: "Embajador de Buena Voluntad en Canadá"
 bio: ""
 image: "team/ruben-dario-jimenez-v2.webp"
 imageAlt: "Rubén Dario Jiménez"
+group: "nacional"
+continent: "america"
 order: 3
 ---

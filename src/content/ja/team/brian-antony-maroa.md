@@ -6,5 +6,7 @@ role: "ケニア親善大使"
 bio: ""
 image: "team/brian-antony-maroa.webp"
 imageAlt: "Brian Antony Maroa"
+group: "nacional"
+continent: "africa"
 order: 3
 ---

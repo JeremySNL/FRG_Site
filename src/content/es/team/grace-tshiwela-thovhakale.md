@@ -6,5 +6,7 @@ role: "Embajadora de Buena Voluntad en Sudáfrica"
 bio: ""
 image: "team/grace-tshiwela-thovhakale.webp"
 imageAlt: "Grace Tshiwela Thovhakale"
+group: "nacional"
+continent: "africa"
 order: 3
 ---

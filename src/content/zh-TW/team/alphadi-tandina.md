@@ -6,5 +6,7 @@ role: "馬利親善大使"
 bio: ""
 image: "team/alphadi-tandina.webp"
 imageAlt: "Alphadi Tandina"
+group: "nacional"
+continent: "africa"
 order: 3
 ---

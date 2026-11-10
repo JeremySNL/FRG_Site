@@ -6,5 +6,7 @@ role: "Ambassadeur de bonne volonté au Bangladesh"
 bio: ""
 image: "team/rana-biswas.webp"
 imageAlt: "Rana Biswas"
+group: "nacional"
+continent: "asia"
 order: 3
 ---

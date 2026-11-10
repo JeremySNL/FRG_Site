@@ -6,5 +6,6 @@ role: "General Director of the Department of Health"
 bio: ""
 image: "team/henry-alberto-rosario-trejo.webp"
 imageAlt: "Dr. Henry Alberto Rosario Trejo"
+group: "direccion"
 order: 3
 ---

@@ -2,6 +2,7 @@ import { glob } from 'astro/loaders';
 import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { locales } from './lib/locales.ts';
+import { TEAM_CONTINENTS, TEAM_GROUPS } from './lib/team.ts';
 
 /**
  * Content collections.
@@ -403,6 +404,10 @@ const team = defineCollection({
     bio: z.string().optional(),
     image: z.string().optional(),
     imageAlt: z.string().optional(),
+    /** Section of the team page; see `src/lib/team.ts`. */
+    group: z.enum(TEAM_GROUPS),
+    /** Continent of a country ambassador (`group: nacional`). */
+    continent: z.enum(TEAM_CONTINENTS).optional(),
     order: z.number().default(100),
   }),
 });

@@ -6,5 +6,6 @@ role: "Représentant mondial de la jeunesse"
 bio: ""
 image: "team/alexander-de-los-santos.webp"
 imageAlt: "Alexander de los Santos"
+group: "direccion"
 order: 3
 ---

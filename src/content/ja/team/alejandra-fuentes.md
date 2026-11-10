@@ -6,5 +6,7 @@ role: "アメリカ大陸親善大使"
 bio: ""
 image: "team/alejandra-fuentes.webp"
 imageAlt: "名誉博士 Alejandra Fuentes"
+group: "continental"
+continent: "america"
 order: 2
 ---

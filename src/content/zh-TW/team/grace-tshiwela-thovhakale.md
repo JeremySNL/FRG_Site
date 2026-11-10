@@ -6,5 +6,7 @@ role: "南非親善大使"
 bio: ""
 image: "team/grace-tshiwela-thovhakale.webp"
 imageAlt: "Grace Tshiwela Thovhakale"
+group: "nacional"
+continent: "africa"
 order: 3
 ---

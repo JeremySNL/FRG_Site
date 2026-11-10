@@ -6,5 +6,7 @@ role: "迦納親善大使"
 bio: ""
 image: "team/iddrisu-abdul-latif-muakum.webp"
 imageAlt: "Iddrisu Abdul Latif Muakum"
+group: "nacional"
+continent: "africa"
 order: 3
 ---

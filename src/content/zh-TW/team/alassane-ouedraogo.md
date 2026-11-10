@@ -6,5 +6,7 @@ role: "布吉納法索親善大使"
 bio: ""
 image: "team/alassane-ouedraogo.webp"
 imageAlt: "Alassane Ouedraogo"
+group: "nacional"
+continent: "africa"
 order: 3
 ---

@@ -6,5 +6,7 @@ role: "Goodwill Ambassador in Kenya"
 bio: ""
 image: "team/brian-antony-maroa.webp"
 imageAlt: "Brian Antony Maroa"
+group: "nacional"
+continent: "africa"
 order: 3
 ---

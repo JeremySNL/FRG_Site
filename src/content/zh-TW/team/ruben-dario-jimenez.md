@@ -6,5 +6,7 @@ role: "加拿大親善大使"
 bio: ""
 image: "team/ruben-dario-jimenez-v2.webp"
 imageAlt: "Rubén Dario Jiménez"
+group: "nacional"
+continent: "america"
 order: 3
 ---

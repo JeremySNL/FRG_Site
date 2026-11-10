@@ -6,5 +6,7 @@ role: "Embajador de Buena Voluntad en Kenia"
 bio: ""
 image: "team/brian-antony-maroa.webp"
 imageAlt: "Brian Antony Maroa"
+group: "nacional"
+continent: "africa"
 order: 3
 ---

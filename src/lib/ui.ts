@@ -72,6 +72,20 @@ export interface UiStrings {
   noPosts: string;
   /** Shown on the team page while the team members are not published yet. */
   teamEmpty: string;
+  /** Accessible name of the shortcuts to the sections of the team page. */
+  teamSectionsNav: string;
+  teamGroupPresidencia: string;
+  teamGroupDireccion: string;
+  teamGroupDireccionIntro: string;
+  teamGroupContinental: string;
+  teamGroupContinentalIntro: string;
+  teamGroupNacional: string;
+  teamGroupNacionalIntro: string;
+  teamContinentAfrica: string;
+  teamContinentAsia: string;
+  teamContinentAmerica: string;
+  teamContinentEuropa: string;
+  teamContinentOceania: string;
   translationPendingTitle: string;
   translationPendingText: string;
   form: {

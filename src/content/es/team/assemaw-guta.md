@@ -6,5 +6,7 @@ role: "Embajadora de Buena Voluntad en Etiopía"
 bio: ""
 image: "team/assemaw-guta.webp"
 imageAlt: "Assemaw Guta"
+group: "nacional"
+continent: "africa"
 order: 3
 ---
