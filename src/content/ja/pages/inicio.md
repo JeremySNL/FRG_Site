@@ -307,6 +307,11 @@ blocks:
             role: "フィリピン親善大使"
             image: "team/alex-d-dagupan.webp"
             imageAlt: "Dr. Alex D. Dagupan"
+          - name: "Dr. Seyed Mohammad Amin Nourbakhsh"
+            country: "イラン"
+            role: "イラン親善大使"
+            image: "team/seyed-mohammad-amin-nourbakhsh.webp"
+            imageAlt: "Dr. Seyed Mohammad Amin Nourbakhsh"
         openCountries:
           - "中国"
       - name: "ヨーロッパ"

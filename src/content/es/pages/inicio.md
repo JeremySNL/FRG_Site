@@ -311,6 +311,11 @@ blocks:
             role: "Embajador de Buena Voluntad en Filipinas"
             image: "team/alex-d-dagupan.webp"
             imageAlt: "Dr. Alex D. Dagupan"
+          - name: "Dr. Seyed Mohammad Amin Nourbakhsh"
+            country: "Irán"
+            role: "Embajador de Buena Voluntad en Irán"
+            image: "team/seyed-mohammad-amin-nourbakhsh.webp"
+            imageAlt: "Dr. Seyed Mohammad Amin Nourbakhsh"
         openCountries:
           - "China"
       - name: "Europa"
