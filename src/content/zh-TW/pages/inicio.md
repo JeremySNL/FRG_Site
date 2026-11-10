@@ -186,6 +186,11 @@ blocks:
             role: "剛果民主共和國親善大使"
             image: "team/kwenze-mavula-olivier.webp"
             imageAlt: "Kwenze Mavula Olivier"
+          - name: "Shamimah Khondowe"
+            country: "尚比亞"
+            role: "尚比亞親善大使"
+            image: "team/shamimah-khondowe.webp"
+            imageAlt: "Shamimah Khondowe"
         openCountries:
           - "摩洛哥"
           - "獅子山"

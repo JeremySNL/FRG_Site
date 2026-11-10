@@ -186,6 +186,11 @@ blocks:
             role: "コンゴ民主共和国親善大使"
             image: "team/kwenze-mavula-olivier.webp"
             imageAlt: "Kwenze Mavula Olivier"
+          - name: "Shamimah Khondowe"
+            country: "ザンビア"
+            role: "ザンビア親善大使"
+            image: "team/shamimah-khondowe.webp"
+            imageAlt: "Shamimah Khondowe"
         openCountries:
           - "モロッコ"
           - "シエラレオネ"

@@ -186,6 +186,11 @@ blocks:
             role: "Goodwill Ambassador in the Democratic Republic of the Congo"
             image: "team/kwenze-mavula-olivier.webp"
             imageAlt: "Kwenze Mavula Olivier"
+          - name: "Shamimah Khondowe"
+            country: "Zambia"
+            role: "Goodwill Ambassador in Zambia"
+            image: "team/shamimah-khondowe.webp"
+            imageAlt: "Shamimah Khondowe"
         openCountries:
           - "Morocco"
           - "Sierra Leone"
