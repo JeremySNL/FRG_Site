@@ -302,9 +302,13 @@ blocks:
             role: "Ambassadeur de bonne volonté en Palestine"
             image: "team/mohammed-abdul-mutial-mohammed-alarabi.webp"
             imageAlt: "Mohammed Abdul Mutial Mohammed Alarabi"
+          - name: "Dr. Alex D. Dagupan"
+            country: "Philippines"
+            role: "Ambassadeur de bonne volonté aux Philippines"
+            image: "team/alex-d-dagupan.webp"
+            imageAlt: "Dr. Alex D. Dagupan"
         openCountries:
           - "Chine"
-          - "Philippines"
       - name: "Europe"
         ambassadors: []
         openCountries:

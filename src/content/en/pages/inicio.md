@@ -302,9 +302,13 @@ blocks:
             role: "Goodwill Ambassador in Palestine"
             image: "team/mohammed-abdul-mutial-mohammed-alarabi.webp"
             imageAlt: "Mohammed Abdul Mutial Mohammed Alarabi"
+          - name: "Dr. Alex D. Dagupan"
+            country: "Philippines"
+            role: "Goodwill Ambassador in the Philippines"
+            image: "team/alex-d-dagupan.webp"
+            imageAlt: "Dr. Alex D. Dagupan"
         openCountries:
           - "China"
-          - "Philippines"
       - name: "Europe"
         ambassadors: []
         openCountries:

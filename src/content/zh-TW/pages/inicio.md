@@ -302,9 +302,13 @@ blocks:
             role: "巴勒斯坦親善大使"
             image: "team/mohammed-abdul-mutial-mohammed-alarabi.webp"
             imageAlt: "Mohammed Abdul Mutial Mohammed Alarabi"
+          - name: "Dr. Alex D. Dagupan"
+            country: "菲律賓"
+            role: "菲律賓親善大使"
+            image: "team/alex-d-dagupan.webp"
+            imageAlt: "Dr. Alex D. Dagupan"
         openCountries:
           - "中國"
-          - "菲律賓"
       - name: "歐洲"
         ambassadors: []
         openCountries:

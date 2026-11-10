@@ -302,9 +302,13 @@ blocks:
             role: "パレスチナ親善大使"
             image: "team/mohammed-abdul-mutial-mohammed-alarabi.webp"
             imageAlt: "Mohammed Abdul Mutial Mohammed Alarabi"
+          - name: "Dr. Alex D. Dagupan"
+            country: "フィリピン"
+            role: "フィリピン親善大使"
+            image: "team/alex-d-dagupan.webp"
+            imageAlt: "Dr. Alex D. Dagupan"
         openCountries:
           - "中国"
-          - "フィリピン"
       - name: "ヨーロッパ"
         ambassadors: []
         openCountries:
