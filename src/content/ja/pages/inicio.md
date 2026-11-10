@@ -292,6 +292,11 @@ blocks:
             role: "インドネシア親善大使"
             image: "team/asep-saefulloh.webp"
             imageAlt: "Mr. Asep Saefulloh"
+          - name: "Mr. M. V. Musthafa Koyilandy"
+            country: "カタール"
+            role: "カタール親善大使"
+            image: "team/m-v-musthafa-koyilandy.webp"
+            imageAlt: "Mr. M. V. Musthafa Koyilandy"
         openCountries:
           - "中国"
           - "フィリピン"

@@ -292,6 +292,11 @@ blocks:
             role: "印尼親善大使"
             image: "team/asep-saefulloh.webp"
             imageAlt: "Mr. Asep Saefulloh"
+          - name: "Mr. M. V. Musthafa Koyilandy"
+            country: "卡達"
+            role: "卡達親善大使"
+            image: "team/m-v-musthafa-koyilandy.webp"
+            imageAlt: "Mr. M. V. Musthafa Koyilandy"
         openCountries:
           - "中國"
           - "菲律賓"

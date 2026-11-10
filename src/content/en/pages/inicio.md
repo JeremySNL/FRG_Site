@@ -292,6 +292,11 @@ blocks:
             role: "Goodwill Ambassador in Indonesia"
             image: "team/asep-saefulloh.webp"
             imageAlt: "Mr. Asep Saefulloh"
+          - name: "Mr. M. V. Musthafa Koyilandy"
+            country: "Qatar"
+            role: "Goodwill Ambassador in Qatar"
+            image: "team/m-v-musthafa-koyilandy.webp"
+            imageAlt: "Mr. M. V. Musthafa Koyilandy"
         openCountries:
           - "China"
           - "Philippines"
