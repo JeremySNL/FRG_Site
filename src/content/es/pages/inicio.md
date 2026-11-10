@@ -261,6 +261,11 @@ blocks:
             role: "Embajador de Buena Voluntad en Emiratos Árabes Unidos"
             image: "team/jai-krishnan-reghunathan.webp"
             imageAlt: "Mr. Jai Krishnan Reghunathan"
+          - name: "Dr. Sayed Salim Al Sous"
+            country: "Líbano"
+            role: "Embajador de Buena Voluntad en Líbano"
+            image: "team/sayed-salim-al-sous.webp"
+            imageAlt: "Dr. Sayed Salim Al Sous"
         openCountries:
           - "China"
           - "Filipinas"

@@ -257,6 +257,11 @@ blocks:
             role: "アラブ首長国連邦親善大使"
             image: "team/jai-krishnan-reghunathan.webp"
             imageAlt: "Mr. Jai Krishnan Reghunathan"
+          - name: "Dr. Sayed Salim Al Sous"
+            country: "レバノン"
+            role: "レバノン親善大使"
+            image: "team/sayed-salim-al-sous.webp"
+            imageAlt: "Dr. Sayed Salim Al Sous"
         openCountries:
           - "中国"
           - "フィリピン"

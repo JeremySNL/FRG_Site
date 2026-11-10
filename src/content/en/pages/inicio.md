@@ -257,6 +257,11 @@ blocks:
             role: "Goodwill Ambassador in the United Arab Emirates"
             image: "team/jai-krishnan-reghunathan.webp"
             imageAlt: "Mr. Jai Krishnan Reghunathan"
+          - name: "Dr. Sayed Salim Al Sous"
+            country: "Lebanon"
+            role: "Goodwill Ambassador in Lebanon"
+            image: "team/sayed-salim-al-sous.webp"
+            imageAlt: "Dr. Sayed Salim Al Sous"
         openCountries:
           - "China"
           - "Philippines"
