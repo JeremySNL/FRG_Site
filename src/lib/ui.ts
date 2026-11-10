@@ -35,7 +35,7 @@ export interface UiStrings {
   /** Subheading above the country/area ambassador grid. */
   ambassadorAreaHeading: string;
   /** Introduction of the featured general ambassador; `{continent}` becomes the continent name. */
-  ambassadorGeneralIntro: string;
+  ambassadorSeeTeam: string;
   /** Shown in place of the continental card while that seat has no ambassador. */
   ambassadorGeneralOpen: string;
   /** Label of the row that lists the countries with no ambassador yet. */

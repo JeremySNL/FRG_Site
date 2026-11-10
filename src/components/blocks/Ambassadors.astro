@@ -2,16 +2,17 @@
 /**
  * Goodwill ambassadors by continent.
  *
- * The section has to stay short. Today there is one continental ambassador and
- * twenty-four open seats, so drawing a card per seat filled several screens
- * with the words "to be assigned". Vacancies are therefore data
- * (`openCountries`) and render as chips that lead to the volunteering form; a
- * continent with nothing to show is skipped instead of leaving an empty
+ * The section has to stay short, so each continent is one compact row for its
+ * continental ambassador, one scrolling strip for its country ambassadors and
+ * the open seats as chips. The full list lives on the team page, which the
+ * closing link points to. Vacancies are data (`openCountries`) and render as
+ * chips that lead to the volunteering form instead of one card per empty seat;
+ * a continent with nothing to show is skipped instead of leaving an empty
  * heading.
  *
  * A continent can combine the three states at once: a continental ambassador,
  * country ambassadors and open countries. When the first country ambassadors
- * arrive, the grid is already there and only the data changes.
+ * arrive, the strip is already there and only the data changes.
  */
 import type { AmbassadorPerson, AmbassadorsBlock } from '~/lib/blocks.ts';
 import { localePath, parseRoute } from '~/lib/locales.ts';
@@ -86,9 +87,9 @@ const continents = block.continents.filter(
       {continents.map((continent) => (
         <article
           id={`continente-${continent.name.toLowerCase().replace(/\s+/g, '-')}`}
-          class="scroll-mt-28 py-10"
+          class="scroll-mt-28 py-8"
         >
-          <header class="mb-6 flex flex-wrap items-center gap-x-4 gap-y-3">
+          <header class="mb-4 flex flex-wrap items-center gap-x-4 gap-y-3">
             <span class="h-1.5 w-12 shrink-0 bg-brand-red" aria-hidden="true" />
             <h3 class="text-display-sm md:text-display-md">{continent.name}</h3>
             {!continent.generalAmbassador && (
@@ -98,119 +99,97 @@ const continents = block.continents.filter(
             )}
           </header>
 
-          {/* The continental ambassador, the only seat with a face today. */}
+          {/* The continental ambassador: one compact row, no repeated blurb. */}
           {continent.generalAmbassador && (
-            <div class="rounded-2xl border-2 border-brand-navy bg-white p-6 shadow-lg md:p-8">
-              <div class="grid items-center gap-6 md:grid-cols-[auto_1fr] md:gap-10">
-                <div class="mx-auto md:mx-0">
-                  {continent.generalAmbassador.image ? (
+            <div class="flex items-center gap-4 rounded-2xl border-2 border-brand-navy bg-white p-4 shadow-md md:gap-6 md:p-5">
+              {continent.generalAmbassador.image ? (
+                <img
+                  src={mediaUrl(continent.generalAmbassador.image)}
+                  alt={
+                    continent.generalAmbassador.imageAlt ??
+                    continent.generalAmbassador.name
+                  }
+                  loading="lazy"
+                  decoding="async"
+                  class="size-20 shrink-0 rounded-full object-cover shadow-md ring-4 ring-brand-navy md:size-24"
+                />
+              ) : (
+                <div class="flex size-20 shrink-0 items-center justify-center rounded-full bg-brand-navy/10 shadow-md ring-4 ring-brand-navy md:size-24">
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    class="size-10 fill-brand-navy"
+                  >
+                    <path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-3.33 0-10 1.67-10 5v1h20v-1c0-3.33-6.67-5-10-5Z" />
+                  </svg>
+                </div>
+              )}
+              <div class="min-w-0">
+                <div class="mb-2 inline-flex items-center gap-2 bg-brand-red px-3 py-1.5 text-[0.7rem] font-bold tracking-[0.15em] text-white uppercase">
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 20 20"
+                    class="size-3.5 fill-current"
+                  >
+                    <path d="M10 2 12.09 7.26H18l-4.545 3.3L15.545 16 10 12.7 4.455 16l1.09-5.44L1 7.26h5.91L10 2Z" />
+                  </svg>
+                  {generalRole(continent.generalAmbassador)}
+                </div>
+                <h4 class="font-display text-xl font-semibold text-brand-navy md:text-2xl">
+                  {continent.generalAmbassador.name}
+                </h4>
+                {continent.generalAmbassador.country && (
+                  <p class="text-base font-medium text-accent">
+                    {continent.generalAmbassador.country}
+                  </p>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/*
+              Country/area ambassadors: one strip that scrolls sideways once the
+              cards no longer fit. It is focusable so keyboard users can scroll
+              it with the arrow keys.
+            */}
+          {continent.ambassadors.length > 0 && (
+            <div
+              role="region"
+              aria-label={`${ui.ambassadorAreaHeading} · ${continent.name}`}
+              tabindex="0"
+              class="-mx-4 mt-4 flex snap-x snap-proximity gap-3 overflow-x-auto px-4 pt-1 pb-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red md:-mx-0 md:px-0"
+            >
+              {continent.ambassadors.map((ambassador) => (
+                <article class="w-44 shrink-0 snap-start rounded-xl border-2 border-brand-navy bg-white p-3 text-center shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-red hover:shadow-md">
+                  {ambassador.image ? (
                     <img
-                      src={mediaUrl(continent.generalAmbassador.image)}
-                      alt={
-                        continent.generalAmbassador.imageAlt ??
-                        continent.generalAmbassador.name
-                      }
+                      src={mediaUrl(ambassador.image)}
+                      alt={ambassador.imageAlt ?? ambassador.name}
                       loading="lazy"
                       decoding="async"
-                      class="h-40 w-40 rounded-full object-cover shadow-lg ring-4 ring-brand-navy md:h-52 md:w-52"
+                      class="mx-auto mb-2 size-14 rounded-full object-cover ring-2 ring-brand-navy"
                     />
                   ) : (
-                    <div class="flex h-40 w-40 items-center justify-center rounded-full bg-brand-navy/10 shadow-lg ring-4 ring-brand-navy md:h-52 md:w-52">
+                    <div class="mx-auto mb-2 flex size-14 items-center justify-center rounded-full bg-brand-navy/10 ring-2 ring-brand-navy">
                       <svg
                         aria-hidden="true"
                         viewBox="0 0 24 24"
-                        class="h-16 w-16 fill-brand-navy md:h-24 md:w-24"
+                        class="size-7 fill-brand-navy"
                       >
                         <path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-3.33 0-10 1.67-10 5v1h20v-1c0-3.33-6.67-5-10-5Z" />
                       </svg>
                     </div>
                   )}
-                </div>
-                <div class="text-center md:text-left">
-                  <div class="mb-3 inline-flex items-center gap-2 bg-brand-red px-4 py-2 text-xs font-bold tracking-[0.2em] text-white uppercase">
-                    <svg
-                      aria-hidden="true"
-                      viewBox="0 0 20 20"
-                      class="h-4 w-4 fill-current"
-                    >
-                      <path d="M10 2 12.09 7.26H18l-4.545 3.3L15.545 16 10 12.7 4.455 16l1.09-5.44L1 7.26h5.91L10 2Z" />
-                    </svg>
-                    {generalRole(continent.generalAmbassador)}
-                  </div>
-                  <h4 class="text-display-sm md:text-display-md">
-                    {continent.generalAmbassador.name}
-                  </h4>
-                  {continent.generalAmbassador.country && (
-                    <p class="mt-2 text-lg font-medium text-accent">
-                      {continent.generalAmbassador.country}
+                  <h5 class="font-display text-sm leading-snug font-semibold text-brand-navy">
+                    {ambassador.name}
+                  </h5>
+                  {roleLine(ambassador) && (
+                    <p class="mt-1 text-xs leading-snug font-medium text-brand-red">
+                      {roleLine(ambassador)}
                     </p>
                   )}
-                  <p class="mt-3 text-base leading-relaxed text-secondary">
-                    {ui.ambassadorGeneralIntro.replace('{continent}', continent.name)}
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Country/area ambassadors: empty today, ready for the first ones. */}
-          {continent.ambassadors.length > 0 && (
-            <div class="mt-8">
-              <div class="mb-4 flex items-center gap-3">
-                <h5 class="text-display-xs md:text-display-sm">
-                  {ui.ambassadorAreaHeading}
-                </h5>
-                <div class="h-px flex-1 bg-brand-navy/30" aria-hidden="true" />
-              </div>
-              {/*
-                  One row that scrolls sideways once the cards no longer fit,
-                  so a continent with a dozen country ambassadors does not
-                  stack into several rows. The strip is focusable so keyboard
-                  users can scroll it with the arrow keys.
-                */}
-              <div
-                role="region"
-                aria-label={`${ui.ambassadorAreaHeading} · ${continent.name}`}
-                tabindex="0"
-                class="-mx-4 flex snap-x snap-proximity gap-4 overflow-x-auto px-4 pt-2 pb-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red md:-mx-0 md:px-0"
-              >
-                {continent.ambassadors.map((ambassador) => (
-                  <article class="w-56 shrink-0 snap-start rounded-2xl border-2 border-brand-navy bg-white p-5 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-brand-red hover:shadow-lg sm:w-60">
-                    <div class="flex flex-col items-center text-center">
-                      {ambassador.image ? (
-                        <img
-                          src={mediaUrl(ambassador.image)}
-                          alt={ambassador.imageAlt ?? ambassador.name}
-                          loading="lazy"
-                          decoding="async"
-                          class="mb-3 h-20 w-20 rounded-full object-cover shadow-md ring-2 ring-brand-navy"
-                        />
-                      ) : (
-                        <div class="mb-3 flex h-20 w-20 items-center justify-center rounded-full bg-brand-navy/10 shadow-md ring-2 ring-brand-navy">
-                          <svg
-                            aria-hidden="true"
-                            viewBox="0 0 24 24"
-                            class="h-10 w-10 fill-brand-navy"
-                          >
-                            <path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-3.33 0-10 1.67-10 5v1h20v-1c0-3.33-6.67-5-10-5Z" />
-                          </svg>
-                        </div>
-                      )}
-                      <h6 class="font-display text-lg font-semibold text-brand-navy">
-                        {ambassador.name}
-                      </h6>
-                      {roleLine(ambassador) && (
-                        <p class="mt-1 text-sm font-medium text-brand-red">
-                          {roleLine(ambassador)}
-                        </p>
-                      )}
-                      {ambassador.country && ambassador.area && (
-                        <p class="mt-1 text-xs text-secondary">{ambassador.country}</p>
-                      )}
-                    </div>
-                  </article>
-                ))}
-              </div>
+                </article>
+              ))}
             </div>
           )}
 
@@ -245,5 +224,15 @@ const continents = block.continents.filter(
         </article>
       ))}
     </div>
+
+    <p class="mt-8 text-center">
+      <a
+        href={`${localePath(locale, 'nuestro-equipo')}#equipo-nacional`}
+        class="inline-flex items-center gap-2 font-display font-semibold text-brand-red hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red"
+      >
+        {ui.ambassadorSeeTeam}
+        <span aria-hidden="true">→</span>
+      </a>
+    </p>
   </div>
 </section>
