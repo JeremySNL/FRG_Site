@@ -241,6 +241,11 @@ blocks:
             role: "Embajador de Buena Voluntad en Japón"
             image: "team/koichiro-miyamoto.webp"
             imageAlt: "Koichiro Miyamoto"
+          - name: "Dr. Yuseff Ahmed Shuhan"
+            country: "Jordania"
+            role: "Embajador de Buena Voluntad en Jordania"
+            image: "team/yuseff-ahmed-shuhan.webp"
+            imageAlt: "Dr. Yuseff Ahmed Shuhan"
         openCountries:
           - "China"
           - "Filipinas"

@@ -237,6 +237,11 @@ blocks:
             role: "日本親善大使"
             image: "team/koichiro-miyamoto.webp"
             imageAlt: "Koichiro Miyamoto"
+          - name: "Dr. Yuseff Ahmed Shuhan"
+            country: "ヨルダン"
+            role: "ヨルダン親善大使"
+            image: "team/yuseff-ahmed-shuhan.webp"
+            imageAlt: "Dr. Yuseff Ahmed Shuhan"
         openCountries:
           - "中国"
           - "フィリピン"

@@ -237,6 +237,11 @@ blocks:
             role: "Goodwill Ambassador in Japan"
             image: "team/koichiro-miyamoto.webp"
             imageAlt: "Koichiro Miyamoto"
+          - name: "Dr. Yuseff Ahmed Shuhan"
+            country: "Jordan"
+            role: "Goodwill Ambassador in Jordan"
+            image: "team/yuseff-ahmed-shuhan.webp"
+            imageAlt: "Dr. Yuseff Ahmed Shuhan"
         openCountries:
           - "China"
           - "Philippines"
