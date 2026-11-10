@@ -267,6 +267,11 @@ blocks:
             role: "巴林親善大使"
             image: "team/basheer-ambalayi.webp"
             imageAlt: "Mr. Basheer Ambalayi"
+          - name: "Abdul Nazar Kalamban-Kottarathil"
+            country: "阿曼"
+            role: "阿曼親善大使"
+            image: "team/abdul-nazar-kalamban-kottarathil.webp"
+            imageAlt: "Abdul Nazar Kalamban-Kottarathil"
         openCountries:
           - "中國"
           - "菲律賓"

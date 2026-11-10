@@ -267,6 +267,11 @@ blocks:
             role: "Ambassadeur de bonne volonté à Bahreïn"
             image: "team/basheer-ambalayi.webp"
             imageAlt: "Mr. Basheer Ambalayi"
+          - name: "Abdul Nazar Kalamban-Kottarathil"
+            country: "Oman"
+            role: "Ambassadeur de bonne volonté à Oman"
+            image: "team/abdul-nazar-kalamban-kottarathil.webp"
+            imageAlt: "Abdul Nazar Kalamban-Kottarathil"
         openCountries:
           - "Chine"
           - "Philippines"
