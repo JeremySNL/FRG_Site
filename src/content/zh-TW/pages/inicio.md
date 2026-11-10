@@ -191,6 +191,11 @@ blocks:
             role: "尚比亞親善大使"
             image: "team/shamimah-khondowe.webp"
             imageAlt: "Shamimah Khondowe"
+          - name: "Timothy Amadhila"
+            country: "納米比亞"
+            role: "納米比亞親善大使"
+            image: "team/timothy-amadhila.webp"
+            imageAlt: "Timothy Amadhila"
         openCountries:
           - "摩洛哥"
           - "獅子山"

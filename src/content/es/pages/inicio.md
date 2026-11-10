@@ -195,6 +195,11 @@ blocks:
             role: "Embajadora de Buena Voluntad en Zambia"
             image: "team/shamimah-khondowe.webp"
             imageAlt: "Shamimah Khondowe"
+          - name: "Timothy Amadhila"
+            country: "Namibia"
+            role: "Embajador de Buena Voluntad en Namibia"
+            image: "team/timothy-amadhila.webp"
+            imageAlt: "Timothy Amadhila"
         openCountries:
           - "Marruecos"
           - "Sierra Leona"

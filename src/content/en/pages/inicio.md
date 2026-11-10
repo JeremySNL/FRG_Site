@@ -191,6 +191,11 @@ blocks:
             role: "Goodwill Ambassador in Zambia"
             image: "team/shamimah-khondowe.webp"
             imageAlt: "Shamimah Khondowe"
+          - name: "Timothy Amadhila"
+            country: "Namibia"
+            role: "Goodwill Ambassador in Namibia"
+            image: "team/timothy-amadhila.webp"
+            imageAlt: "Timothy Amadhila"
         openCountries:
           - "Morocco"
           - "Sierra Leone"

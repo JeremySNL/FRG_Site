@@ -191,6 +191,11 @@ blocks:
             role: "ザンビア親善大使"
             image: "team/shamimah-khondowe.webp"
             imageAlt: "Shamimah Khondowe"
+          - name: "Timothy Amadhila"
+            country: "ナミビア"
+            role: "ナミビア親善大使"
+            image: "team/timothy-amadhila.webp"
+            imageAlt: "Timothy Amadhila"
         openCountries:
           - "モロッコ"
           - "シエラレオネ"
