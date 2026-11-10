@@ -181,6 +181,11 @@ blocks:
             role: "Ambassadeur de bonne volonté au Nigeria"
             image: "team/izzuddeen-hassan-muhammed.webp"
             imageAlt: "Izzuddeen Hassan Muhammed"
+          - name: "Kwenze Mavula Olivier"
+            country: "République démocratique du Congo"
+            role: "Ambassadeur de bonne volonté en République démocratique du Congo"
+            image: "team/kwenze-mavula-olivier.webp"
+            imageAlt: "Kwenze Mavula Olivier"
         openCountries:
           - "Maroc"
           - "Sierra Leone"

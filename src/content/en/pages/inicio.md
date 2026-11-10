@@ -181,6 +181,11 @@ blocks:
             role: "Goodwill Ambassador in Nigeria"
             image: "team/izzuddeen-hassan-muhammed.webp"
             imageAlt: "Izzuddeen Hassan Muhammed"
+          - name: "Kwenze Mavula Olivier"
+            country: "Democratic Republic of the Congo"
+            role: "Goodwill Ambassador in the Democratic Republic of the Congo"
+            image: "team/kwenze-mavula-olivier.webp"
+            imageAlt: "Kwenze Mavula Olivier"
         openCountries:
           - "Morocco"
           - "Sierra Leone"

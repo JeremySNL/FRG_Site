@@ -181,6 +181,11 @@ blocks:
             role: "ナイジェリア親善大使"
             image: "team/izzuddeen-hassan-muhammed.webp"
             imageAlt: "Izzuddeen Hassan Muhammed"
+          - name: "Kwenze Mavula Olivier"
+            country: "コンゴ民主共和国"
+            role: "コンゴ民主共和国親善大使"
+            image: "team/kwenze-mavula-olivier.webp"
+            imageAlt: "Kwenze Mavula Olivier"
         openCountries:
           - "モロッコ"
           - "シエラレオネ"

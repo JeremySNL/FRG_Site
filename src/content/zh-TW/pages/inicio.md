@@ -181,6 +181,11 @@ blocks:
             role: "奈及利亞親善大使"
             image: "team/izzuddeen-hassan-muhammed.webp"
             imageAlt: "Izzuddeen Hassan Muhammed"
+          - name: "Kwenze Mavula Olivier"
+            country: "剛果民主共和國"
+            role: "剛果民主共和國親善大使"
+            image: "team/kwenze-mavula-olivier.webp"
+            imageAlt: "Kwenze Mavula Olivier"
         openCountries:
           - "摩洛哥"
           - "獅子山"
