@@ -236,9 +236,13 @@ blocks:
             role: "Embajador de Buena Voluntad en Bangladés"
             image: "team/rana-biswas.webp"
             imageAlt: "Rana Biswas"
+          - name: "Koichiro Miyamoto"
+            country: "Japón"
+            role: "Embajador de Buena Voluntad en Japón"
+            image: "team/koichiro-miyamoto.webp"
+            imageAlt: "Koichiro Miyamoto"
         openCountries:
           - "China"
-          - "Japón"
           - "Filipinas"
       - name: "Europa"
         ambassadors: []

@@ -232,9 +232,13 @@ blocks:
             role: "Goodwill Ambassador in Bangladesh"
             image: "team/rana-biswas.webp"
             imageAlt: "Rana Biswas"
+          - name: "Koichiro Miyamoto"
+            country: "Japan"
+            role: "Goodwill Ambassador in Japan"
+            image: "team/koichiro-miyamoto.webp"
+            imageAlt: "Koichiro Miyamoto"
         openCountries:
           - "China"
-          - "Japan"
           - "Philippines"
       - name: "Europe"
         ambassadors: []

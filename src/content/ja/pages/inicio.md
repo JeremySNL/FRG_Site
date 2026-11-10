@@ -232,9 +232,13 @@ blocks:
             role: "バングラデシュ親善大使"
             image: "team/rana-biswas.webp"
             imageAlt: "Rana Biswas"
+          - name: "Koichiro Miyamoto"
+            country: "日本"
+            role: "日本親善大使"
+            image: "team/koichiro-miyamoto.webp"
+            imageAlt: "Koichiro Miyamoto"
         openCountries:
           - "中国"
-          - "日本"
           - "フィリピン"
       - name: "ヨーロッパ"
         ambassadors: []
