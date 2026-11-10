@@ -166,6 +166,11 @@ blocks:
             role: "Ambassadeur de bonne volonté au Niger"
             image: "team/nouhou-hamidou-bagouma.webp"
             imageAlt: "Nouhou Hamidou Bagouma"
+          - name: "Kaweesa Samuel"
+            country: "Ouganda"
+            role: "Ambassadeur de bonne volonté en Ouganda"
+            image: "team/kaweesa-samuel.webp"
+            imageAlt: "Kaweesa Samuel"
         openCountries:
           - "Maroc"
           - "Sierra Leone"

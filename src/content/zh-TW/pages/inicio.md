@@ -166,6 +166,11 @@ blocks:
             role: "尼日親善大使"
             image: "team/nouhou-hamidou-bagouma.webp"
             imageAlt: "Nouhou Hamidou Bagouma"
+          - name: "Kaweesa Samuel"
+            country: "烏干達"
+            role: "烏干達親善大使"
+            image: "team/kaweesa-samuel.webp"
+            imageAlt: "Kaweesa Samuel"
         openCountries:
           - "摩洛哥"
           - "獅子山"
