@@ -196,6 +196,11 @@ blocks:
             role: "ナミビア親善大使"
             image: "team/timothy-amadhila.webp"
             imageAlt: "Timothy Amadhila"
+          - name: "Mohammed H Sagno"
+            country: "ギニア"
+            role: "ギニア親善大使"
+            image: "team/mohammed-h-sagno.webp"
+            imageAlt: "Mohammed H Sagno"
         openCountries:
           - "モロッコ"
           - "シエラレオネ"

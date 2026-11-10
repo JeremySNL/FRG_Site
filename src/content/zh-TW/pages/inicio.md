@@ -196,6 +196,11 @@ blocks:
             role: "納米比亞親善大使"
             image: "team/timothy-amadhila.webp"
             imageAlt: "Timothy Amadhila"
+          - name: "Mohammed H Sagno"
+            country: "幾內亞"
+            role: "幾內亞親善大使"
+            image: "team/mohammed-h-sagno.webp"
+            imageAlt: "Mohammed H Sagno"
         openCountries:
           - "摩洛哥"
           - "獅子山"

@@ -196,6 +196,11 @@ blocks:
             role: "Ambassadeur de bonne volonté en Namibie"
             image: "team/timothy-amadhila.webp"
             imageAlt: "Timothy Amadhila"
+          - name: "Mohammed H Sagno"
+            country: "Guinée-Conakry"
+            role: "Ambassadeur de bonne volonté en Guinée-Conakry"
+            image: "team/mohammed-h-sagno.webp"
+            imageAlt: "Mohammed H Sagno"
         openCountries:
           - "Maroc"
           - "Sierra Leone"
