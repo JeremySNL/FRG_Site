@@ -242,6 +242,11 @@ blocks:
             role: "Goodwill Ambassador in Jordan"
             image: "team/yuseff-ahmed-shuhan.webp"
             imageAlt: "Dr. Yuseff Ahmed Shuhan"
+          - name: "Dr. Sujin Jaiguru Maharaj"
+            country: "Malaysia"
+            role: "Goodwill Ambassador in Malaysia"
+            image: "team/sujin-jaiguru-maharaj.webp"
+            imageAlt: "Dr. Sujin Jaiguru Maharaj"
         openCountries:
           - "China"
           - "Philippines"

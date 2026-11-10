@@ -242,6 +242,11 @@ blocks:
             role: "ヨルダン親善大使"
             image: "team/yuseff-ahmed-shuhan.webp"
             imageAlt: "Dr. Yuseff Ahmed Shuhan"
+          - name: "Dr. Sujin Jaiguru Maharaj"
+            country: "マレーシア"
+            role: "マレーシア親善大使"
+            image: "team/sujin-jaiguru-maharaj.webp"
+            imageAlt: "Dr. Sujin Jaiguru Maharaj"
         openCountries:
           - "中国"
           - "フィリピン"

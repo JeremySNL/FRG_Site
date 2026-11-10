@@ -242,6 +242,11 @@ blocks:
             role: "Ambassadeur de bonne volonté en Jordanie"
             image: "team/yuseff-ahmed-shuhan.webp"
             imageAlt: "Dr. Yuseff Ahmed Shuhan"
+          - name: "Dr. Sujin Jaiguru Maharaj"
+            country: "Malaisie"
+            role: "Ambassadeur de bonne volonté en Malaisie"
+            image: "team/sujin-jaiguru-maharaj.webp"
+            imageAlt: "Dr. Sujin Jaiguru Maharaj"
         openCountries:
           - "Chine"
           - "Philippines"
