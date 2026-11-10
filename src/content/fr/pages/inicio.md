@@ -322,6 +322,11 @@ blocks:
             role: "Ambassadeur de bonne volonté au Cambodge"
             image: "team/sok-somontha.webp"
             imageAlt: "Sok Somontha"
+          - name: "Muhammad Shui Tikka Al-Masawa"
+            country: "Yémen"
+            role: "Ambassadeur de bonne volonté au Yémen"
+            image: "team/muhammad-shui-tikka-al-masawa.webp"
+            imageAlt: "Muhammad Shui Tikka Al-Masawa"
         openCountries:
           - "Chine"
       - name: "Europe"

@@ -322,6 +322,11 @@ blocks:
             role: "カンボジア親善大使"
             image: "team/sok-somontha.webp"
             imageAlt: "Sok Somontha"
+          - name: "Muhammad Shui Tikka Al-Masawa"
+            country: "イエメン"
+            role: "イエメン親善大使"
+            image: "team/muhammad-shui-tikka-al-masawa.webp"
+            imageAlt: "Muhammad Shui Tikka Al-Masawa"
         openCountries:
           - "中国"
       - name: "ヨーロッパ"

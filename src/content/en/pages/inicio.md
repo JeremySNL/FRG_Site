@@ -322,6 +322,11 @@ blocks:
             role: "Goodwill Ambassador in Cambodia"
             image: "team/sok-somontha.webp"
             imageAlt: "Sok Somontha"
+          - name: "Muhammad Shui Tikka Al-Masawa"
+            country: "Yemen"
+            role: "Goodwill Ambassador in Yemen"
+            image: "team/muhammad-shui-tikka-al-masawa.webp"
+            imageAlt: "Muhammad Shui Tikka Al-Masawa"
         openCountries:
           - "China"
       - name: "Europe"

@@ -322,6 +322,11 @@ blocks:
             role: "柬埔寨親善大使"
             image: "team/sok-somontha.webp"
             imageAlt: "Sok Somontha"
+          - name: "Muhammad Shui Tikka Al-Masawa"
+            country: "葉門"
+            role: "葉門親善大使"
+            image: "team/muhammad-shui-tikka-al-masawa.webp"
+            imageAlt: "Muhammad Shui Tikka Al-Masawa"
         openCountries:
           - "中國"
       - name: "歐洲"
