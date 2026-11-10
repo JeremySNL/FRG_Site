@@ -157,7 +157,8 @@ const continents = block.continents.filter(
               role="region"
               aria-label={`${ui.ambassadorAreaHeading} · ${continent.name}`}
               tabindex="0"
-              class="-mx-4 mt-4 flex snap-x snap-proximity gap-3 overflow-x-auto px-4 pt-1 pb-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red md:-mx-0 md:px-0"
+              data-scroll-strip
+              class="scroll-strip -mx-4 mt-4 flex snap-x snap-proximity gap-3 overflow-x-auto px-4 pt-1 pb-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red md:-mx-0 md:px-0"
             >
               {continent.ambassadors.map((ambassador) => (
                 <article class="w-44 shrink-0 snap-start rounded-xl border-2 border-brand-navy bg-white p-3 text-center shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-red hover:shadow-md">
@@ -200,7 +201,7 @@ const continents = block.continents.filter(
             */}
           {continent.openCountries.length > 0 && (
             <div class="mt-6 flex flex-wrap items-center gap-x-3 gap-y-3 rounded-2xl border border-dashed border-brand-navy/30 bg-surface px-4 py-4 md:px-6">
-              <span class="font-display text-xs font-bold tracking-[0.15em] text-brand-navy/60 uppercase">
+              <span class="font-display text-xs font-bold tracking-[0.15em] text-brand-navy/80 uppercase">
                 {ui.ambassadorVacancies}
               </span>
               {continent.openCountries.map((country) => (
@@ -236,3 +237,42 @@ const continents = block.continents.filter(
     </p>
   </div>
 </section>
+
+<style>
+  /* Edges fade only on the side that still has cards to reveal. */
+  .scroll-strip {
+    --fade-left: 0px;
+    --fade-right: 0px;
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 var(--fade-left),
+      #000 calc(100% - var(--fade-right)),
+      transparent
+    );
+  }
+  .scroll-strip[data-more-left] {
+    --fade-left: 2rem;
+  }
+  .scroll-strip[data-more-right] {
+    --fade-right: 2rem;
+  }
+</style>
+
+<script>
+  // Tells each strip which sides still hide cards, so the CSS above can hint
+  // that it scrolls. Without JavaScript the strip simply shows no fade.
+  function track(strip: HTMLElement) {
+    const update = () => {
+      const max = strip.scrollWidth - strip.clientWidth;
+      strip.toggleAttribute('data-more-left', strip.scrollLeft > 2);
+      strip.toggleAttribute('data-more-right', max - strip.scrollLeft > 2);
+    };
+
+    update();
+    strip.addEventListener('scroll', update, { passive: true });
+    new ResizeObserver(update).observe(strip);
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-scroll-strip]').forEach(track);
+</script>
