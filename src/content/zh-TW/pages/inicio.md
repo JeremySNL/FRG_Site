@@ -312,6 +312,11 @@ blocks:
             role: "伊朗親善大使"
             image: "team/seyed-mohammad-amin-nourbakhsh.webp"
             imageAlt: "Dr. Seyed Mohammad Amin Nourbakhsh"
+          - name: "Orooba Hameed"
+            country: "伊拉克"
+            role: "伊拉克親善大使"
+            image: "team/orooba-hameed.webp"
+            imageAlt: "Orooba Hameed"
         openCountries:
           - "中國"
       - name: "歐洲"

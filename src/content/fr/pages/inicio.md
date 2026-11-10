@@ -312,6 +312,11 @@ blocks:
             role: "Ambassadeur de bonne volonté en Iran"
             image: "team/seyed-mohammad-amin-nourbakhsh.webp"
             imageAlt: "Dr. Seyed Mohammad Amin Nourbakhsh"
+          - name: "Orooba Hameed"
+            country: "Irak"
+            role: "Ambassadrice de bonne volonté en Irak"
+            image: "team/orooba-hameed.webp"
+            imageAlt: "Orooba Hameed"
         openCountries:
           - "Chine"
       - name: "Europe"

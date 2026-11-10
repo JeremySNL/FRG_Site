@@ -312,6 +312,11 @@ blocks:
             role: "Goodwill Ambassador in Iran"
             image: "team/seyed-mohammad-amin-nourbakhsh.webp"
             imageAlt: "Dr. Seyed Mohammad Amin Nourbakhsh"
+          - name: "Orooba Hameed"
+            country: "Iraq"
+            role: "Goodwill Ambassador in Iraq"
+            image: "team/orooba-hameed.webp"
+            imageAlt: "Orooba Hameed"
         openCountries:
           - "China"
       - name: "Europe"
