@@ -336,6 +336,11 @@ blocks:
             role: "Embajadora de Buena Voluntad en Kuwait"
             image: "team/ambily-narayanan.webp"
             imageAlt: "Mrs. Ambily Narayanan"
+          - name: "Mr. Abdul Gafoor-Ahamed"
+            country: "Arabia Saudita"
+            role: "Embajador de Buena Voluntad en Arabia Saudita"
+            image: "team/abdul-gafoor-ahamed.webp"
+            imageAlt: "Mr. Abdul Gafoor-Ahamed"
         openCountries:
           - "China"
       - name: "Europa"

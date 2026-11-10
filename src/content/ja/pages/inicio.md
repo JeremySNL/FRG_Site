@@ -332,6 +332,11 @@ blocks:
             role: "クウェート親善大使"
             image: "team/ambily-narayanan.webp"
             imageAlt: "Mrs. Ambily Narayanan"
+          - name: "Mr. Abdul Gafoor-Ahamed"
+            country: "サウジアラビア"
+            role: "サウジアラビア親善大使"
+            image: "team/abdul-gafoor-ahamed.webp"
+            imageAlt: "Mr. Abdul Gafoor-Ahamed"
         openCountries:
           - "中国"
       - name: "ヨーロッパ"

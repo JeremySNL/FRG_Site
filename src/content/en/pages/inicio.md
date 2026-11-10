@@ -332,6 +332,11 @@ blocks:
             role: "Goodwill Ambassador in Kuwait"
             image: "team/ambily-narayanan.webp"
             imageAlt: "Mrs. Ambily Narayanan"
+          - name: "Mr. Abdul Gafoor-Ahamed"
+            country: "Saudi Arabia"
+            role: "Goodwill Ambassador in Saudi Arabia"
+            image: "team/abdul-gafoor-ahamed.webp"
+            imageAlt: "Mr. Abdul Gafoor-Ahamed"
         openCountries:
           - "China"
       - name: "Europe"
