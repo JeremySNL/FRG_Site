@@ -297,6 +297,11 @@ blocks:
             role: "卡達親善大使"
             image: "team/m-v-musthafa-koyilandy.webp"
             imageAlt: "Mr. M. V. Musthafa Koyilandy"
+          - name: "Mohammed Abdul Mutial Mohammed Alarabi"
+            country: "巴勒斯坦"
+            role: "巴勒斯坦親善大使"
+            image: "team/mohammed-abdul-mutial-mohammed-alarabi.webp"
+            imageAlt: "Mohammed Abdul Mutial Mohammed Alarabi"
         openCountries:
           - "中國"
           - "菲律賓"

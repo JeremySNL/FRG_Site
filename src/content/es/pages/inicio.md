@@ -301,6 +301,11 @@ blocks:
             role: "Embajador de Buena Voluntad en Catar"
             image: "team/m-v-musthafa-koyilandy.webp"
             imageAlt: "Mr. M. V. Musthafa Koyilandy"
+          - name: "Mohammed Abdul Mutial Mohammed Alarabi"
+            country: "Palestina"
+            role: "Embajador de Buena Voluntad en Palestina"
+            image: "team/mohammed-abdul-mutial-mohammed-alarabi.webp"
+            imageAlt: "Mohammed Abdul Mutial Mohammed Alarabi"
         openCountries:
           - "China"
           - "Filipinas"
