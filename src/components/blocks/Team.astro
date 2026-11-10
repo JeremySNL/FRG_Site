@@ -156,9 +156,20 @@ const sectionId = (group: TeamGroup) => `equipo-${group}`;
                               <p class="mt-1 text-sm text-accent">{member.data.role}</p>
                             )}
                             {member.data.bio && (
-                              <p class="mt-3 text-sm leading-relaxed text-secondary">
-                                {member.data.bio}
-                              </p>
+                              <details class="group mt-4 text-left">
+                                <summary class="cursor-pointer list-none text-center text-sm font-semibold text-accent hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+                                  {ui.teamReadBio}
+                                  <span
+                                    aria-hidden="true"
+                                    class="ml-1 inline-block transition-transform group-open:rotate-180"
+                                  >
+                                    ▾
+                                  </span>
+                                </summary>
+                                <p class="mt-3 text-sm leading-relaxed text-secondary">
+                                  {member.data.bio}
+                                </p>
+                              </details>
                             )}
                           </article>
                         ))}

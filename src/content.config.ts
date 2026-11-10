@@ -402,7 +402,8 @@ const team = defineCollection({
     slug: z.string(),
     locale: localeSchema,
     role: z.string().optional(),
-    bio: z.string().optional(),
+    /** Short biography. Keep it to a paragraph: the card shows it collapsed. */
+    bio: z.string().max(900).optional(),
     image: z.string().optional(),
     imageAlt: z.string().optional(),
     /** Section of the team page; see `src/lib/team.ts`. */

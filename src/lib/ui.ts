@@ -74,6 +74,8 @@ export interface UiStrings {
   teamEmpty: string;
   /** Accessible name of the shortcuts to the sections of the team page. */
   teamSectionsNav: string;
+  /** Label of the collapsible biography on a team card. */
+  teamReadBio: string;
   teamGroupPresidencia: string;
   teamGroupDireccion: string;
   teamGroupDireccionIntro: string;
