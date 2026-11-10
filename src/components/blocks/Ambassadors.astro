@@ -36,6 +36,19 @@ function generalRole(person: AmbassadorPerson): string {
 }
 
 /**
+ * The line under the name: the role plus where the person serves. A role such
+ * as "Embajador de Buena Voluntad en Camerún" already names the country, so
+ * the place is only appended when the role does not contain it.
+ */
+function roleLine(person: AmbassadorPerson): string {
+  const place = person.area || person.country;
+  const role = person.role;
+  const placeInRole = role && place && role.toLowerCase().includes(place.toLowerCase());
+
+  return [role, placeInRole ? undefined : place].filter(Boolean).join(' · ');
+}
+
+/**
  * Where a vacancy chip sends the reader: the volunteering form, with the
  * country already written into the message.
  */
@@ -186,11 +199,9 @@ const continents = block.continents.filter(
                       <h6 class="font-display text-lg font-semibold text-brand-navy">
                         {ambassador.name}
                       </h6>
-                      {(ambassador.country || ambassador.area || ambassador.role) && (
+                      {roleLine(ambassador) && (
                         <p class="mt-1 text-sm font-medium text-brand-red">
-                          {[ambassador.role, ambassador.area || ambassador.country]
-                            .filter(Boolean)
-                            .join(' · ')}
+                          {roleLine(ambassador)}
                         </p>
                       )}
                       {ambassador.country && ambassador.area && (
