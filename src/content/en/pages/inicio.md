@@ -22,7 +22,7 @@ blocks:
     cards:
       - type: "solidBlue"
         title: "Areas of Action"
-        value: "20+"
+        value: "10+"
         text: "Lines of work to improve the lives of communities."
       - type: "imageRed"
         title: "Join the Change"

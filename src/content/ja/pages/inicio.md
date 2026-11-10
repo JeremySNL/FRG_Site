@@ -22,7 +22,7 @@ blocks:
     cards:
       - type: "solidBlue"
         title: "活動分野"
-        value: "20+"
+        value: "10+"
         text: "コミュニティの生活を向上させるための活動分野。"
       - type: "imageRed"
         title: "変革に参加する"

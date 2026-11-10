@@ -22,7 +22,7 @@ blocks:
     cards:
       - type: "solidBlue"
         title: "Domaines d'action"
-        value: "20+"
+        value: "10+"
         text: "Axes de travail pour améliorer la vie des communautés."
       - type: "imageRed"
         title: "Rejoignez le changement"

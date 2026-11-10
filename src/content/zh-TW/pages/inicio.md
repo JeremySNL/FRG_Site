@@ -22,7 +22,7 @@ blocks:
     cards:
       - type: "solidBlue"
         title: "行動領域"
-        value: "20+"
+        value: "10+"
         text: "工作方向，以改善社區生活。"
       - type: "imageRed"
         title: "加入變革"
