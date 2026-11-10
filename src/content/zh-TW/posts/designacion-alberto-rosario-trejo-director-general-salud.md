@@ -1,17 +1,17 @@
 ---
-title: "任命 Dr. Alberto Rosario Trejo 為衛生部門總監"
+title: "任命 Dr. Henry Alberto Rosario Trejo 為衛生部門總監"
 slug: "designacion-alberto-rosario-trejo-director-general-salud"
 locale: "zh-TW"
 date: "2026-11-03"
 image: "photos/2026-11-03-designacion-alberto-rosario-trejo-director-general-salud/01-departamento-salud-post.webp"
-imageAlt: "任命 Dr. Alberto Rosario Trejo 為衛生部門總監"
-excerpt: "Fundación Rosario Gatón 任命 Dr. Alberto Rosario Trejo 為衛生部門總監，強化其對醫療照護與社區福祉的承諾。"
+imageAlt: "任命 Dr. Henry Alberto Rosario Trejo 為衛生部門總監"
+excerpt: "Fundación Rosario Gatón 任命 Dr. Henry Alberto Rosario Trejo 為衛生部門總監，強化其對醫療照護與社區福祉的承諾。"
 categories:
   - "alimentacion-y-salud"
   - "noticias-institucionales"
 ---
 
-**聖多明哥，R.D.** – Fundación Rosario Gatón 正式宣布任命 Dr. Alberto Rosario Trejo 為機構衛生部門總監。此項任命代表機構所提供醫療服務強化的重要一步。
+**聖多明哥，R.D.** – Fundación Rosario Gatón 正式宣布任命 Dr. Henry Alberto Rosario Trejo 為機構衛生部門總監。此項任命代表機構所提供醫療服務強化的重要一步。
 
 此項任命於 Dr. Ovalle 醫療中心舉行的工作會議中公布，會中討論了與將直接造福民眾及接受醫療協助之社區居民的相關重要倡議。
 
@@ -21,7 +21,7 @@ categories:
 
 亦有以下人士參與：
 
-- **Dr. Alberto Rosario Trejo**，衛生部門新任總監。
+- **Dr. Henry Alberto Rosario Trejo**，衛生部門新任總監。
 - **Don Luilly Paulino Lantigua**，農業部門主任。
 - **Doña Agustina Medina Herrera**，衛生管理與聯絡協調員。
 
