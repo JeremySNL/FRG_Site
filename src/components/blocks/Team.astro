@@ -62,11 +62,14 @@ const sectionId = (group: TeamGroup) => `equipo-${group}`;
     {block.intro && <p class="mt-4 max-w-2xl text-lg text-secondary">{block.intro}</p>}
 
     {groups.length > 1 && (
-      <nav aria-label={ui.teamSectionsNav} class="mt-8 flex flex-wrap gap-2">
+      <nav
+        aria-label={ui.teamSectionsNav}
+        class="-mx-4 mt-8 flex gap-2 overflow-x-auto px-4 pb-2 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0"
+      >
         {groups.map((group) => (
           <a
             href={`#${sectionId(group)}`}
-            class="rounded-full border border-accent/30 bg-white px-4 py-1.5 text-sm font-medium text-accent transition-colors hover:border-accent hover:bg-accent hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            class="shrink-0 rounded-full border border-accent/30 bg-white px-4 py-1.5 text-sm font-medium whitespace-nowrap text-accent transition-colors hover:border-accent hover:bg-accent hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             {headings[group]}
           </a>
