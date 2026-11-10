@@ -317,6 +317,11 @@ blocks:
             role: "伊拉克親善大使"
             image: "team/orooba-hameed.webp"
             imageAlt: "Orooba Hameed"
+          - name: "Sok Somontha"
+            country: "柬埔寨"
+            role: "柬埔寨親善大使"
+            image: "team/sok-somontha.webp"
+            imageAlt: "Sok Somontha"
         openCountries:
           - "中國"
       - name: "歐洲"

@@ -317,6 +317,11 @@ blocks:
             role: "Ambassadrice de bonne volonté en Irak"
             image: "team/orooba-hameed.webp"
             imageAlt: "Orooba Hameed"
+          - name: "Sok Somontha"
+            country: "Cambodge"
+            role: "Ambassadeur de bonne volonté au Cambodge"
+            image: "team/sok-somontha.webp"
+            imageAlt: "Sok Somontha"
         openCountries:
           - "Chine"
       - name: "Europe"

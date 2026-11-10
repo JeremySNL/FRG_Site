@@ -317,6 +317,11 @@ blocks:
             role: "イラク親善大使"
             image: "team/orooba-hameed.webp"
             imageAlt: "Orooba Hameed"
+          - name: "Sok Somontha"
+            country: "カンボジア"
+            role: "カンボジア親善大使"
+            image: "team/sok-somontha.webp"
+            imageAlt: "Sok Somontha"
         openCountries:
           - "中国"
       - name: "ヨーロッパ"

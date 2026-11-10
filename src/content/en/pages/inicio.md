@@ -317,6 +317,11 @@ blocks:
             role: "Goodwill Ambassador in Iraq"
             image: "team/orooba-hameed.webp"
             imageAlt: "Orooba Hameed"
+          - name: "Sok Somontha"
+            country: "Cambodia"
+            role: "Goodwill Ambassador in Cambodia"
+            image: "team/sok-somontha.webp"
+            imageAlt: "Sok Somontha"
         openCountries:
           - "China"
       - name: "Europe"
