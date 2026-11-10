@@ -4,7 +4,7 @@ slug: "contacto"
 locale: "zh-TW"
 order: 70
 nav: true
-description: "請寫信或致電給我們。我們位於 San Fernando de la Maguana, Samaná。"
+description: "請寫信或致電給我們。我們位於 San Francisco de Macorís。"
 legacyPath: "/contacto/"
 noAutoTranslate: false
 blocks:

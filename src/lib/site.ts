@@ -30,8 +30,8 @@ export const site = {
 
   address: {
     street: 'C/ Castillo Esq. 27 de Febrero, Edificio Plaza Park, 2do. Nivel',
-    city: 'San Fernando de la Maguana',
-    region: 'Samaná',
+    city: 'San Francisco de Macorís',
+    region: 'Duarte',
     country: 'República Dominicana',
   },
 

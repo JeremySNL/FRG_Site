@@ -4,7 +4,7 @@ slug: "contacto"
 locale: "fr"
 order: 70
 nav: true
-description: "Écrivez-nous ou appelez-nous. Nous sommes situés à San Fernando de la Maguana, Samaná."
+description: "Écrivez-nous ou appelez-nous. Nous sommes situés à San Francisco de Macorís."
 legacyPath: "/contacto/"
 noAutoTranslate: false
 blocks:

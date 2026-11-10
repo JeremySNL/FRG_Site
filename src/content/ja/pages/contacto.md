@@ -4,7 +4,7 @@ slug: "contacto"
 locale: "ja"
 order: 70
 nav: true
-description: "お気軽にご連絡ください。サマナ州サン・フェルナンド・デ・ラ・マグアナにございます。"
+description: "お気軽にご連絡ください。サン・フランシスコ・デ・マコリスにございます。"
 legacyPath: "/contacto/"
 noAutoTranslate: false
 blocks:

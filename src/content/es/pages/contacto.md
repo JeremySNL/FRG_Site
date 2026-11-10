@@ -4,7 +4,7 @@ slug: "contacto"
 locale: "es"
 order: 70
 nav: true
-description: "Escríbenos o llámanos. Estamos en San Fernando de la Maguana, Samaná."
+description: "Escríbenos o llámanos. Estamos en San Francisco de Macorís."
 legacyPath: "/contacto/"
 noAutoTranslate: false
 blocks:
