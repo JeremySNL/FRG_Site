@@ -171,6 +171,11 @@ blocks:
             role: "烏干達親善大使"
             image: "team/kaweesa-samuel.webp"
             imageAlt: "Kaweesa Samuel"
+          - name: "Hany Qamha"
+            country: "埃及"
+            role: "埃及親善大使"
+            image: "team/hany-qamha.webp"
+            imageAlt: "Hany Qamha"
         openCountries:
           - "摩洛哥"
           - "獅子山"

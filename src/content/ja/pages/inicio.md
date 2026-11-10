@@ -171,6 +171,11 @@ blocks:
             role: "ウガンダ親善大使"
             image: "team/kaweesa-samuel.webp"
             imageAlt: "Kaweesa Samuel"
+          - name: "Hany Qamha"
+            country: "エジプト"
+            role: "エジプト親善大使"
+            image: "team/hany-qamha.webp"
+            imageAlt: "Hany Qamha"
         openCountries:
           - "モロッコ"
           - "シエラレオネ"

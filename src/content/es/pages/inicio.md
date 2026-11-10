@@ -175,6 +175,11 @@ blocks:
             role: "Embajador de Buena Voluntad en Uganda"
             image: "team/kaweesa-samuel.webp"
             imageAlt: "Kaweesa Samuel"
+          - name: "Hany Qamha"
+            country: "Egipto"
+            role: "Embajador de Buena Voluntad en Egipto"
+            image: "team/hany-qamha.webp"
+            imageAlt: "Hany Qamha"
         openCountries:
           - "Marruecos"
           - "Sierra Leona"

@@ -171,6 +171,11 @@ blocks:
             role: "Goodwill Ambassador in Uganda"
             image: "team/kaweesa-samuel.webp"
             imageAlt: "Kaweesa Samuel"
+          - name: "Hany Qamha"
+            country: "Egypt"
+            role: "Goodwill Ambassador in Egypt"
+            image: "team/hany-qamha.webp"
+            imageAlt: "Hany Qamha"
         openCountries:
           - "Morocco"
           - "Sierra Leone"
