@@ -277,6 +277,11 @@ blocks:
             role: "Goodwill Ambassador in Israel"
             image: "team/amichai-levi.webp"
             imageAlt: "Mr. Amichai Levi"
+          - name: "Rakesh Kumar Varma"
+            country: "Nepal"
+            role: "Goodwill Ambassador in Nepal"
+            image: "team/rakesh-kumar-varma.webp"
+            imageAlt: "Rakesh Kumar Varma"
         openCountries:
           - "China"
           - "Philippines"

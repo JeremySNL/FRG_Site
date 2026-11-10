@@ -277,6 +277,11 @@ blocks:
             role: "イスラエル親善大使"
             image: "team/amichai-levi.webp"
             imageAlt: "Mr. Amichai Levi"
+          - name: "Rakesh Kumar Varma"
+            country: "ネパール"
+            role: "ネパール親善大使"
+            image: "team/rakesh-kumar-varma.webp"
+            imageAlt: "Rakesh Kumar Varma"
         openCountries:
           - "中国"
           - "フィリピン"

@@ -277,6 +277,11 @@ blocks:
             role: "Ambassadeur de bonne volonté en Israël"
             image: "team/amichai-levi.webp"
             imageAlt: "Mr. Amichai Levi"
+          - name: "Rakesh Kumar Varma"
+            country: "Népal"
+            role: "Ambassadeur de bonne volonté au Népal"
+            image: "team/rakesh-kumar-varma.webp"
+            imageAlt: "Rakesh Kumar Varma"
         openCountries:
           - "Chine"
           - "Philippines"
