@@ -272,8 +272,11 @@ export interface HeroBentoBlock {
     type: 'solidBlue' | 'imageRed' | 'imageBlue' | 'solidRed';
     title: string;
     value?: string;
+    /** A short line under the title saying what the card is about. */
+    text?: string;
     image?: string;
     imageAlt?: string;
+    /** Makes the whole card a link. */
     href?: string;
   }>;
 }

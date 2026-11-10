@@ -242,6 +242,7 @@ const blockSchema = z.discriminatedUnion('type', [
         type: z.enum(['solidBlue', 'imageRed', 'imageBlue', 'solidRed']),
         title: z.string(),
         value: z.string().optional(),
+        text: z.string().optional(),
         image: z.string().optional(),
         imageAlt: z.string().optional(),
         href: z.string().optional(),

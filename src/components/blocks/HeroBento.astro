@@ -11,6 +11,35 @@ interface Props {
 }
 
 const { block } = Astro.props;
+
+/**
+ * How each card type looks. The solid types are a flat colour; the image types
+ * lay a brand-coloured veil over the photo so the white text stays readable.
+ */
+interface Tone {
+  surface: string;
+  overlay?: string;
+  fallback?: string;
+}
+
+const tones: Record<HeroBentoBlock['cards'][number]['type'], Tone> = {
+  solidBlue: {
+    surface: 'bg-brand-navy shadow-brand-navy/40',
+  },
+  solidRed: {
+    surface: 'bg-brand-red shadow-brand-red/40',
+  },
+  imageRed: {
+    surface: '',
+    overlay: 'from-brand-red/90 to-brand-red-strong/90',
+    fallback: 'from-brand-red to-brand-red-strong',
+  },
+  imageBlue: {
+    surface: '',
+    overlay: 'from-brand-navy/90 to-brand-navy-strong/90',
+    fallback: 'from-brand-navy to-brand-navy-strong',
+  },
+};
 ---
 
 <section class="relative overflow-hidden">
@@ -66,35 +95,15 @@ const { block } = Astro.props;
   <div class="container-site relative -mt-20 pb-16 md:-mt-28 md:pb-24">
     <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {block.cards.map((card) => {
-        if (card.type === 'solidBlue') {
-          return (
-            <article class="group relative overflow-hidden rounded-3xl bg-brand-navy p-6 shadow-xl shadow-brand-navy/40 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl md:p-8">
-              <div class="relative">
-                {card.value && (
-                  <p class="font-display text-display-md md:text-display-lg text-white">
-                    {card.value}
-                  </p>
-                )}
-                <h3 class="mt-2 text-xl font-semibold text-white">{card.title}</h3>
-              </div>
-            </article>
-          );
-        } else if (card.type === 'solidRed') {
-          return (
-            <article class="group relative overflow-hidden rounded-3xl bg-brand-red p-6 shadow-xl shadow-brand-red/40 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl md:p-8">
-              <div class="relative">
-                {card.value && (
-                  <p class="font-display text-display-md md:text-display-lg text-white">
-                    {card.value}
-                  </p>
-                )}
-                <h3 class="mt-2 text-xl font-semibold text-white">{card.title}</h3>
-              </div>
-            </article>
-          );
-        } else if (card.type === 'imageRed') {
-          return (
-            <article class="group relative overflow-hidden rounded-3xl shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        const tone = tones[card.type];
+        return (
+          <article
+            class:list={[
+              'group relative overflow-hidden rounded-3xl shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl',
+              tone.surface,
+            ]}
+          >
+            {tone.overlay && (
               <div class="absolute inset-0">
                 {card.image ? (
                   <img
@@ -105,49 +114,43 @@ const { block } = Astro.props;
                     class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 ) : (
-                  <div class="h-full w-full bg-gradient-to-br from-brand-red to-brand-red-strong"></div>
+                  <div
+                    class={`h-full w-full bg-gradient-to-br ${tone.fallback ?? ''}`}
+                  ></div>
                 )}
-                <div class="absolute inset-0 bg-gradient-to-br from-brand-red/90 to-brand-red-strong/90"></div>
+                <div class={`absolute inset-0 bg-gradient-to-br ${tone.overlay}`}></div>
               </div>
-              <div class="relative p-6 md:p-8">
-                {card.value && (
-                  <p class="font-display text-display-md md:text-display-lg text-white">
-                    {card.value}
-                  </p>
-                )}
-                <h3 class="mt-2 text-xl font-semibold text-white">{card.title}</h3>
-              </div>
-            </article>
-          );
-        } else if (card.type === 'imageBlue') {
-          return (
-            <article class="group relative overflow-hidden rounded-3xl shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-              <div class="absolute inset-0">
-                {card.image ? (
-                  <img
-                    src={mediaUrl(card.image)}
-                    alt={card.imageAlt ?? ''}
-                    loading="lazy"
-                    decoding="async"
-                    class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
+            )}
+            <div class="relative p-6 md:p-8">
+              {card.value && (
+                <p class="font-display text-display-md md:text-display-lg text-white">
+                  {card.value}
+                </p>
+              )}
+              <h3 class="mt-2 text-xl font-semibold text-white">
+                {card.href ? (
+                  <a
+                    href={card.href}
+                    class="after:absolute after:inset-0 after:content-[''] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                  >
+                    {card.title}
+                    <span
+                      aria-hidden="true"
+                      class="ml-1 inline-block transition-transform group-hover:translate-x-1"
+                    >
+                      →
+                    </span>
+                  </a>
                 ) : (
-                  <div class="h-full w-full bg-gradient-to-br from-brand-navy to-brand-navy-strong"></div>
+                  card.title
                 )}
-                <div class="absolute inset-0 bg-gradient-to-br from-brand-navy/90 to-brand-navy-strong/90"></div>
-              </div>
-              <div class="relative p-6 md:p-8">
-                {card.value && (
-                  <p class="font-display text-display-md md:text-display-lg text-white">
-                    {card.value}
-                  </p>
-                )}
-                <h3 class="mt-2 text-xl font-semibold text-white">{card.title}</h3>
-              </div>
-            </article>
-          );
-        }
-        return null;
+              </h3>
+              {card.text && (
+                <p class="mt-2 text-sm leading-relaxed text-white/85">{card.text}</p>
+              )}
+            </div>
+          </article>
+        );
       })}
     </div>
   </div>
