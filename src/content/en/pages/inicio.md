@@ -176,6 +176,11 @@ blocks:
             role: "Goodwill Ambassador in Egypt"
             image: "team/hany-qamha.webp"
             imageAlt: "Hany Qamha"
+          - name: "Izzuddeen Hassan Muhammed"
+            country: "Nigeria"
+            role: "Goodwill Ambassador in Nigeria"
+            image: "team/izzuddeen-hassan-muhammed.webp"
+            imageAlt: "Izzuddeen Hassan Muhammed"
         openCountries:
           - "Morocco"
           - "Sierra Leone"

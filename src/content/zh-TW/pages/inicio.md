@@ -176,6 +176,11 @@ blocks:
             role: "埃及親善大使"
             image: "team/hany-qamha.webp"
             imageAlt: "Hany Qamha"
+          - name: "Izzuddeen Hassan Muhammed"
+            country: "奈及利亞"
+            role: "奈及利亞親善大使"
+            image: "team/izzuddeen-hassan-muhammed.webp"
+            imageAlt: "Izzuddeen Hassan Muhammed"
         openCountries:
           - "摩洛哥"
           - "獅子山"

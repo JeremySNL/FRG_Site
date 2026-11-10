@@ -176,6 +176,11 @@ blocks:
             role: "Ambassadeur de bonne volonté en Égypte"
             image: "team/hany-qamha.webp"
             imageAlt: "Hany Qamha"
+          - name: "Izzuddeen Hassan Muhammed"
+            country: "Nigeria"
+            role: "Ambassadeur de bonne volonté au Nigeria"
+            image: "team/izzuddeen-hassan-muhammed.webp"
+            imageAlt: "Izzuddeen Hassan Muhammed"
         openCountries:
           - "Maroc"
           - "Sierra Leone"

@@ -176,6 +176,11 @@ blocks:
             role: "エジプト親善大使"
             image: "team/hany-qamha.webp"
             imageAlt: "Hany Qamha"
+          - name: "Izzuddeen Hassan Muhammed"
+            country: "ナイジェリア"
+            role: "ナイジェリア親善大使"
+            image: "team/izzuddeen-hassan-muhammed.webp"
+            imageAlt: "Izzuddeen Hassan Muhammed"
         openCountries:
           - "モロッコ"
           - "シエラレオネ"
