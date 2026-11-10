@@ -252,6 +252,11 @@ blocks:
             role: "巴基斯坦親善大使"
             image: "team/muhammad-afzal-rafique.webp"
             imageAlt: "Prof. Dr. Grandmaster Muhammad Afzal Rafique"
+          - name: "Mr. Jai Krishnan Reghunathan"
+            country: "阿拉伯聯合大公國"
+            role: "阿拉伯聯合大公國親善大使"
+            image: "team/jai-krishnan-reghunathan.webp"
+            imageAlt: "Mr. Jai Krishnan Reghunathan"
         openCountries:
           - "中國"
           - "菲律賓"

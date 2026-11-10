@@ -256,6 +256,11 @@ blocks:
             role: "Embajador de Buena Voluntad en Pakistán"
             image: "team/muhammad-afzal-rafique.webp"
             imageAlt: "Prof. Dr. Grandmaster Muhammad Afzal Rafique"
+          - name: "Mr. Jai Krishnan Reghunathan"
+            country: "Emiratos Árabes Unidos"
+            role: "Embajador de Buena Voluntad en Emiratos Árabes Unidos"
+            image: "team/jai-krishnan-reghunathan.webp"
+            imageAlt: "Mr. Jai Krishnan Reghunathan"
         openCountries:
           - "China"
           - "Filipinas"

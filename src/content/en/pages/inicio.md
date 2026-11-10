@@ -252,6 +252,11 @@ blocks:
             role: "Goodwill Ambassador in Pakistan"
             image: "team/muhammad-afzal-rafique.webp"
             imageAlt: "Prof. Dr. Grandmaster Muhammad Afzal Rafique"
+          - name: "Mr. Jai Krishnan Reghunathan"
+            country: "United Arab Emirates"
+            role: "Goodwill Ambassador in the United Arab Emirates"
+            image: "team/jai-krishnan-reghunathan.webp"
+            imageAlt: "Mr. Jai Krishnan Reghunathan"
         openCountries:
           - "China"
           - "Philippines"
