@@ -57,7 +57,7 @@ blocks:
   - type: "ambassadors"
     title: "Ambassadeurs de Bonne Volonté"
     surface: false
-    intro: "Nous représentons les valeurs de la Fundación Rosario Gatón sur les cinq continents. L'Afrique dispose déjà de son Ambassadeur Général Continental et d'ambassadeurs nationaux, et les autres postes restent ouverts à celles et ceux qui souhaitent promouvoir la solidarité et la coopération internationale depuis leur pays."
+    intro: "Nous représentons les valeurs de la Fundación Rosario Gatón sur les cinq continents. Nous disposons déjà d'ambassadeurs généraux continentaux et d'ambassadeurs nationaux ; les autres postes restent ouverts à ceux qui souhaitent promouvoir la solidarité et la coopération internationale depuis leur pays."
     continents:
       - name: "Amérique"
         generalAmbassador:

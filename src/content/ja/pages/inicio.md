@@ -57,7 +57,7 @@ blocks:
   - type: "ambassadors"
     title: "親善大使"
     surface: false
-    intro: "私たちは五大陸で Fundación Rosario Gatón の価値観を体現しています。アフリカにはすでに大陸総大使と各国の大使が就任しており、その他のポストは、自国から連帯と国際協力を広めたい方に引き続き開かれています。"
+    intro: "Fundación Rosario Gatónの価値を五大陸で体現しています。すでに大陸全般の大使および各国の大使を擁しており、その他の役職は、自国から連帯と国際協力を推進したい方々に引き続き開かれています。"
     continents:
       - name: "アメリカ"
         generalAmbassador:

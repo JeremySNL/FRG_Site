@@ -58,7 +58,7 @@ blocks:
   - type: "ambassadors"
     title: "Embajadores de Buena Voluntad"
     surface: false
-    intro: "Representamos los valores de la Fundación Rosario Gatón en los cinco continentes. África ya cuenta con su Embajador General Continental y con embajadores nacionales; el resto de los puestos siguen abiertos a quienes quieran promover la solidaridad y la cooperación internacional desde su país."
+    intro: "Representamos los valores de la Fundación Rosario Gatón en los cinco continentes. Ya contamos con embajadores generales continentales y con embajadores nacionales; los demás puestos siguen abiertos a quienes quieran promover la solidaridad y la cooperación internacional desde su país."
     # Cada continente admite tres cosas: generalAmbassador (opcional),
     # ambassadors (embajadores de país) y openCountries (puestos
     # vacantes). Un país vacante es un país, no una persona llamada "Por asignar".
