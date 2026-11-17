@@ -340,10 +340,15 @@ blocks:
         openCountries:
           - "Chine"
       - name: "Europe"
+        generalAmbassador:
+          name: "Dr. Andrea Tasciotti"
+          country: "Italia"
+          role: "Ambassadeur Général Continental"
+          image: "team/andrea-tasciotti.webp"
+          imageAlt: "Dr. Andrea Tasciotti"
         ambassadors: []
         openCountries:
           - "Espagne"
-          - "Italie"
           - "France"
           - "Portugal"
       - name: "Océanie"

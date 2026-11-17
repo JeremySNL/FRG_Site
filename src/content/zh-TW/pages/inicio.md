@@ -340,10 +340,15 @@ blocks:
         openCountries:
           - "中國"
       - name: "歐洲"
+        generalAmbassador:
+          name: "Dr. Andrea Tasciotti"
+          country: "Italia"
+          role: "大陸總大使"
+          image: "team/andrea-tasciotti.webp"
+          imageAlt: "Dr. Andrea Tasciotti"
         ambassadors: []
         openCountries:
           - "西班牙"
-          - "義大利"
           - "法國"
           - "葡萄牙"
       - name: "大洋洲"
