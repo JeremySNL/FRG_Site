@@ -115,6 +115,10 @@ describe('team documents', () => {
             area,
           );
         }
+        if (group === 'nacional' || group === 'continental') {
+          // The home page block reads the country from here.
+          expect(text, `${locale}/${file} country`).toMatch(/^country:\s*"[^"]+"/m);
+        }
         if (group === 'nacional') {
           expect(
             TEAM_CONTINENTS as readonly string[],

@@ -200,31 +200,10 @@ const blockSchema = z.discriminatedUnion('type', [
     surface: z.boolean().optional(),
     continents: z.array(
       z.object({
+        /** Heading of the continent, in the language of the page. */
         name: z.string(),
-        code: z.string().optional(),
-        // Omitted while the continental seat is still open.
-        generalAmbassador: z
-          .object({
-            name: z.string(),
-            country: z.string().optional(),
-            area: z.string().optional(),
-            role: z.string().optional(),
-            image: z.string().optional(),
-            imageAlt: z.string().optional(),
-          })
-          .optional(),
-        ambassadors: z
-          .array(
-            z.object({
-              name: z.string(),
-              country: z.string().optional(),
-              area: z.string().optional(),
-              role: z.string().optional(),
-              image: z.string().optional(),
-              imageAlt: z.string().optional(),
-            }),
-          )
-          .default([]),
+        /** Which `team` members belong here: their `continent` field. */
+        continent: z.enum(TEAM_CONTINENTS),
         // A vacancy is a country, never a person named "to be assigned".
         openCountries: z.array(z.string()).default([]),
       }),
@@ -387,6 +366,8 @@ const programs = defineCollection({
     icon: z.string().optional(),
     image: z.string().optional(),
     imageAlt: z.string().optional(),
+    /** Slug of the news category whose posts the program page lists as related. */
+    category: z.string().optional(),
     order: z.number().default(100),
   }),
 });
@@ -408,6 +389,8 @@ const team = defineCollection({
     imageAlt: z.string().optional(),
     /** Section of the team page; see `src/lib/team.ts`. */
     group: z.enum(TEAM_GROUPS),
+    /** Country the person represents (ambassadors); shown on the home page block. */
+    country: z.string().optional(),
     /** Continent of a country ambassador (`group: nacional`). */
     continent: z.enum(TEAM_CONTINENTS).optional(),
     /** Area of a director (`group: direccion`); see `src/lib/team.ts`. */

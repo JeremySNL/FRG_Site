@@ -13,6 +13,8 @@
  * block types.
  */
 
+import type { TeamContinent } from './team.ts';
+
 export interface Link {
   label: string;
   href: string;
@@ -227,16 +229,13 @@ export interface RichTextBlock {
   surface?: boolean;
 }
 
-/** One ambassador: the continental figure or a country/area one. */
-export interface AmbassadorPerson {
-  name: string;
-  country?: string;
-  area?: string;
-  role?: string;
-  image?: string;
-  imageAlt?: string;
-}
-
+/**
+ * The goodwill ambassadors of the home page.
+ *
+ * The people are not written here: the block reads them from the `team`
+ * collection (the continental ambassador and the country ambassadors whose
+ * `continent` matches). Only what has no person behind it lives in the block.
+ */
 export interface AmbassadorsBlock {
   type: 'ambassadors';
   title?: string;
@@ -244,12 +243,10 @@ export interface AmbassadorsBlock {
   /** Defaults to `false`. */
   surface?: boolean;
   continents: Array<{
+    /** Heading of the continent, in the language of the page. */
     name: string;
-    code?: string;
-    /** The continental ambassador. Omitted while the seat is still open. */
-    generalAmbassador?: AmbassadorPerson;
-    /** Country/area ambassadors. Empty until the first one is appointed. */
-    ambassadors: AmbassadorPerson[];
+    /** Which `team` members belong here: their `continent` field. */
+    continent: TeamContinent;
     /**
      * Countries with no ambassador yet.
      *
