@@ -33,11 +33,13 @@ const ui = getUi(locale);
           <Form
             block={{ type: 'form', form: block.form, surface: false }}
             locale={locale}
+            embedded
           />
         ) : (
           <Form
             block={{ type: 'form', form: 'contact', surface: false }}
             locale={locale}
+            embedded
           />
         )}
       </div>
@@ -55,11 +57,11 @@ const ui = getUi(locale);
                     <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
                   </svg>
                 </span>
-                <div>
+                <div class="min-w-0">
                   <p class="font-semibold text-brand-navy">{ui.contactEmailLabel}</p>
                   <a
                     href={`mailto:${block.email}`}
-                    class="text-brand-red hover:underline"
+                    class="text-brand-red break-all hover:underline"
                   >
                     {block.email}
                   </a>

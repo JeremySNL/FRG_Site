@@ -20,9 +20,14 @@ import { turnstileSiteKey } from '~/lib/turnstile-config.ts';
 interface Props {
   block: FormBlock;
   locale: Locale;
+  /**
+   * Rendered inside another card (the home contact section): no section
+   * padding, no container and no second card around the fields.
+   */
+  embedded?: boolean;
 }
 
-const { block, locale } = Astro.props;
+const { block, locale, embedded = false } = Astro.props;
 const ui = getUi(locale);
 const privacyHref = localePath(locale, 'politica-de-privacidad');
 const [privacyBefore = '', privacyAfter = ''] = ui.privacyNotice.split('{link}');
@@ -89,14 +94,17 @@ const optionField =
       : 'options';
 ---
 
-<section class={sectionClass(block.surface)} id="formulario">
-  <div class="container-site">
-    <div class="mx-auto max-w-3xl">
+<section class={embedded ? undefined : sectionClass(block.surface)} id="formulario">
+  <div class={embedded ? undefined : 'container-site'}>
+    <div class={embedded ? undefined : 'mx-auto max-w-3xl'}>
       <h2 class="text-display-md">{config.title}</h2>
       <p class="mt-4 text-lg text-secondary">{config.text}</p>
 
       <form
-        class="mt-10 space-y-6 rounded-3xl border border-muted bg-white p-8"
+        class:list={[
+          'space-y-6',
+          embedded ? 'mt-6' : 'mt-10 rounded-3xl border border-muted bg-white p-8',
+        ]}
         method="post"
         action={config.action}
         data-form={block.form}
