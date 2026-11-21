@@ -5,7 +5,7 @@ locale: "en"
 date: "2026-03-07T14:13:32"
 excerpt: "Dr. Julio César Rosario Gatón, president of the Fundación Rosario Gatón, and the Provincial Civil Governor of Duarte in San Francisco de Macorís, Lic. Ana Xiomara Cortés, welcomed this Friday, the 6th..."
 categories:
-  - "uncategorized"
+  - "relaciones-internacionales"
 tags: []
 legacyPath: "/reconocimiento-al-general-de-los-bomberos-de-estados-unidos-juan-gutierrez/"
 noAutoTranslate: false

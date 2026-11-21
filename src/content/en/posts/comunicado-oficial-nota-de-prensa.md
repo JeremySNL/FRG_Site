@@ -5,7 +5,7 @@ locale: "en"
 date: "2026-02-11T00:49:59"
 excerpt: "The U.S. Chamber of Commerce strengthens relations at the highest federal level during Invest in America DC Washington, D.C. — February 8, 2026. As part of the official activities of…"
 categories:
-  - "uncategorized"
+  - "relaciones-internacionales"
 tags: []
 legacyPath: "/comunicado-oficial-nota-de-prensa/"
 noAutoTranslate: false

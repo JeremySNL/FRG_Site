@@ -5,7 +5,7 @@ locale: "es"
 date: "2019-03-20T19:54:47"
 excerpt: "Fundación Rosario Gatón e INFOTEP fortalecen alianza en favor del desarrollo técnico y social La Fundación Rosario Gatón (FRG) y el Instituto Nacional de Formación Técnico Profesional (INFOTEP)…"
 categories:
-  - "alianzas-educativas"
+  - "alianzas-institucionales"
 tags: []
 image: "photos/2019-03-20-infotep-y-fundacion-rosario-gaton-refuerzan-alianza/01.webp"
 legacyPath: "/infotep-y-fundacion-rosario-gaton-refuerzan-alianza-por-el-desarrollo-tecnico-y-sostenible/"

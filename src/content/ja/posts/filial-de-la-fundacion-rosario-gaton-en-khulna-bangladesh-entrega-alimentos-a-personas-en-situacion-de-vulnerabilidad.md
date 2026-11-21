@@ -5,7 +5,7 @@ locale: "ja"
 date: "2025-07-22T12:17:04"
 excerpt: "バングラデシュ、Khulna。Fundación Rosario Gatónは、バングラデシュのKhulnaにある支部を通じて、極めて困難な状況にある人々を対象とした食料配給活動を実施し、人道的支援と最も弱い立場にある人々の福祉に対する世界的コミットメントを改めて表明しました。…"
 categories:
-  - "filiales-internacionales"
+  - "relaciones-internacionales"
 tags: []
 image: "photos/2025-07-22-filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh/02.webp"
 legacyPath: "/filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh-entrega-alimentos-a-personas-en-situacion-de-vulnerabilidad/"

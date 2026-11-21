@@ -5,7 +5,7 @@ locale: "en"
 date: "2026-02-13T23:49:54"
 excerpt: "Washington D.C. —February 9, 2026. In response to the growing need for access to high-quality, low-cost healthcare services for minority communities in the United States, the…"
 categories:
-  - "uncategorized"
+  - "alianzas-institucionales"
 tags: []
 legacyPath: "/la-camara-de-comercio-de-las-minorias-de-los-estados-unidos-lanza-un-innovador-programa-de-turismo-medico-en-honduras/"
 noAutoTranslate: false

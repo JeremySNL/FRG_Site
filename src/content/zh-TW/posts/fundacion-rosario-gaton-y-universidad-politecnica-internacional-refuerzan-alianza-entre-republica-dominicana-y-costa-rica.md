@@ -5,7 +5,7 @@ locale: "zh-TW"
 date: "2019-04-30T19:43:05"
 excerpt: "多重國與哥斯大黎加透過 Fundación Rosario Gatón 與哥斯大黎加國際綜合大學深化國際合作。Fundación Rosario Gatón (FRG) 與..."
 categories:
-  - "cooperacion-internacional"
+  - "alianzas-institucionales"
 tags: []
 image: "photos/2019-04-30-universidad-politecnica-internacional-refuerzan-alianza/01.webp"
 legacyPath: "/fundacion-rosario-gaton-y-universidad-politecnica-internacional-refuerzan-alianza-entre-republica-dominicana-y-costa-rica/"

@@ -5,7 +5,7 @@ locale: "ja"
 date: "2019-04-24T19:45:13"
 excerpt: "Fundación Rosario Gatón事務局長のLuis SuárezがIDBの幹部と会談し、戦略的パートナーシップを強化。Fundación Rosario Gatón（FRG）の事務局長…"
 categories:
-  - "cooperacion-internacional"
+  - "alianzas-institucionales"
 tags: []
 image: "photos/2019-04-24-fortalece-vinculos-con-el-bid-en-apoyo-a-los-ods-y-la-end/01.webp"
 legacyPath: "/fundacion-rosario-gaton-fortalece-vinculos-con-el-bid-en-apoyo-a-los-ods-y-la-end/"

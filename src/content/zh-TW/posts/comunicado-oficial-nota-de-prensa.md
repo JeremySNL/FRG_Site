@@ -5,7 +5,7 @@ locale: "zh-TW"
 date: "2026-02-11T00:49:59"
 excerpt: "美國總商會於 Invest in America DC 期間深化最高聯邦層級關係 Washington, D.C. — 2026年2月8日。作為..."
 categories:
-  - "uncategorized"
+  - "relaciones-internacionales"
 tags: []
 legacyPath: "/comunicado-oficial-nota-de-prensa/"
 noAutoTranslate: false

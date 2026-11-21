@@ -4,7 +4,7 @@ slug: "neurologia-con-los-especialistas-de-venezuela-y-la-fundacion-rosario-gato
 locale: "zh-TW"
 date: "2025-08-07T00:47:51"
 categories:
-  - "cooperacion-internacional"
+  - "alianzas-institucionales"
 tags: []
 image: "photos/2025-08-07-neurologia-con-los-especialistas-de-venezuela/01.webp"
 legacyPath: "/neurologia-con-los-especialistas-de-venezuela-y-la-fundacion-rosario-gaton/"

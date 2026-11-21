@@ -5,7 +5,7 @@ locale: "zh-TW"
 date: "2026-02-02T00:36:52"
 excerpt: "美國華盛頓商會邀請 Fundación Rosario Gatón 出席一場表彰美國國務卿 Marco Rubio 的活動，以表彰其對..."
 categories:
-  - "uncategorized"
+  - "relaciones-internacionales"
 tags: []
 legacyPath: "/invitacion-de-la-camara-de-comercio-de-ee-uu/"
 noAutoTranslate: false

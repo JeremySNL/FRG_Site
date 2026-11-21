@@ -5,7 +5,7 @@ locale: "zh-TW"
 date: "2025-07-22T12:19:59"
 excerpt: "聖多明各，多明尼加共和國。Fundación Rosario Gatón (FRG) 持續加強其機構關係，以尋求國家永續發展的解決方案。在此次..."
 categories:
-  - "cooperacion-internacional"
+  - "alianzas-institucionales"
   - "desarrollo-agropecuario"
 tags: []
 image: "photos/2025-07-22-sostiene-encuentro-con-representante-del-g7-de-argentina/01.webp"

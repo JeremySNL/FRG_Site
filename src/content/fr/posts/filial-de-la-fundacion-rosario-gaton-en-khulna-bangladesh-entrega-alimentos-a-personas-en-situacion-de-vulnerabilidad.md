@@ -5,7 +5,7 @@ locale: "fr"
 date: "2025-07-22T12:17:04"
 excerpt: "Khulna, Bangladesh. La Fundación Rosario Gatón, à travers sa filiale à Khulna, Bangladesh, a mené une action de distribution de denrées alimentaires destinée aux personnes en situation d'extrême…"
 categories:
-  - "filiales-internacionales"
+  - "relaciones-internacionales"
 tags: []
 image: "photos/2025-07-22-filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh/02.webp"
 legacyPath: "/filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh-entrega-alimentos-a-personas-en-situacion-de-vulnerabilidad/"

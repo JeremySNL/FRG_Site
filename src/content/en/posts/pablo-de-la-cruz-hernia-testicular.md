@@ -5,7 +5,7 @@ locale: "en"
 date: "2026-01-16T02:47:40"
 excerpt: "Pablo de la Cruz: Testicular hernia successfully treated"
 categories:
-  - "uncategorized"
+  - "alimentacion-y-salud"
 tags: []
 legacyPath: "/ayudas-medicas/"
 noAutoTranslate: false

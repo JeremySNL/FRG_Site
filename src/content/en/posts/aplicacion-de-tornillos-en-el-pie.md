@@ -5,7 +5,7 @@ locale: "en"
 date: "2026-01-14T04:27:27"
 excerpt: "screws were applied throughout the foot"
 categories:
-  - "uncategorized"
+  - "alimentacion-y-salud"
 tags: []
 legacyPath: "/1267-2/"
 noAutoTranslate: false

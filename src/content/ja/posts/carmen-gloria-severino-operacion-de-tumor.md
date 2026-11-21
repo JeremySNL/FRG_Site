@@ -5,7 +5,7 @@ locale: "ja"
 date: "2026-01-23T01:33:57"
 excerpt: "Carmen Gloria Severinoが腫瘍の手術を受けました。"
 categories:
-  - "uncategorized"
+  - "alimentacion-y-salud"
 tags: []
 legacyPath: "/ayudas-medicas-2/"
 noAutoTranslate: false

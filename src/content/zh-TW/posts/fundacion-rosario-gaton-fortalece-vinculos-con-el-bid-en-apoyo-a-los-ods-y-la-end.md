@@ -5,7 +5,7 @@ locale: "zh-TW"
 date: "2019-04-24T19:45:13"
 excerpt: "Fundación Rosario Gatón 秘書長 Luis Suárez 與 BID 高層主管會面，以加強策略聯盟 Fundación Rosario Gatón（FRG）秘書長，…"
 categories:
-  - "cooperacion-internacional"
+  - "alianzas-institucionales"
 tags: []
 image: "photos/2019-04-24-fortalece-vinculos-con-el-bid-en-apoyo-a-los-ods-y-la-end/01.webp"
 legacyPath: "/fundacion-rosario-gaton-fortalece-vinculos-con-el-bid-en-apoyo-a-los-ods-y-la-end/"

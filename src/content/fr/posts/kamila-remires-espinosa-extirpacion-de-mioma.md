@@ -5,7 +5,7 @@ locale: "fr"
 date: "2026-01-30T14:10:18"
 excerpt: "Kamila Remires Espinosa : Aide apportée pour l'exérèse d'un myome présentant de possibles complications cancéreuses"
 categories:
-  - "uncategorized"
+  - "alimentacion-y-salud"
 tags: []
 legacyPath: "/ayudas-medicas-4/"
 noAutoTranslate: false

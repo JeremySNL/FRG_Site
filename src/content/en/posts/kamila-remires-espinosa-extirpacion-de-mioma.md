@@ -5,7 +5,7 @@ locale: "en"
 date: "2026-01-30T14:10:18"
 excerpt: "Kamila Remires Espinosa: Assisted with the removal of a myoma with potential cancerous complications"
 categories:
-  - "uncategorized"
+  - "alimentacion-y-salud"
 tags: []
 legacyPath: "/ayudas-medicas-4/"
 noAutoTranslate: false

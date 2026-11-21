@@ -5,7 +5,7 @@ locale: "fr"
 date: "2025-12-31T12:22:48"
 excerpt: "Le mardi 18 novembre, le Dr Julio César Rosario Gatón, président fondateur, Ramón Emilio Soriano, secrétaire général, et l'Ambassadeur et l'Ambassadeur Agustín Padilla Padilla. En réunion avec le…"
 categories:
-  - "uncategorized"
+  - "relaciones-internacionales"
 tags: []
 legacyPath: "/encuentro-con-embajador-de-comercio-de-china/"
 noAutoTranslate: false

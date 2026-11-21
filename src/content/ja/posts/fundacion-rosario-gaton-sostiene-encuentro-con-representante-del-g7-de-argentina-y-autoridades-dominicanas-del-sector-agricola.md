@@ -5,7 +5,7 @@ locale: "ja"
 date: "2025-07-22T12:19:59"
 excerpt: "ドミニカ共和国、サントドミンゴ。Fundación Rosario Gatón（FRG）は、国家の持続可能な発展に資する解決策を求めて、組織間の連携強化を今後も続けています。このたび…"
 categories:
-  - "cooperacion-internacional"
+  - "alianzas-institucionales"
   - "desarrollo-agropecuario"
 tags: []
 image: "photos/2025-07-22-sostiene-encuentro-con-representante-del-g7-de-argentina/01.webp"

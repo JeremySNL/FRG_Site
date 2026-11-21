@@ -5,7 +5,7 @@ locale: "ja"
 date: "2019-03-17T19:56:49"
 excerpt: "Fundación Rosario Gatónがサン・フランシスコ・デ・マコリスで2019年定期総会を開催。ドミニカ共和国、サン・フランシスコ・デ・マコリス – 2019年3月17日。Fundación Rosario Gatón（FRG）は..."
 categories:
-  - "gobernanza-y-gestion"
+  - "noticias-institucionales"
 tags: []
 image: "photos/2019-03-17-realiza-asamblea-general-2019-para-fortalecer-su-impacto/01.webp"
 legacyPath: "/fundacion-rosario-gaton-realiza-asamblea-general-2019-para-fortalecer-su-impacto-social/"

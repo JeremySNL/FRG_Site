@@ -7,7 +7,7 @@ excerpt: "Fundación Rosario Gatónは、権威ある国際誌*Acquisition Inter
 categories:
   - "noticias-institucionales"
   - "relaciones-internacionales"
-  - "cooperacion-internacional"
+  - "alianzas-institucionales"
 tags: []
 image: "photos/2026-10-15-fundacion-rosario-gaton-es-galardonada-en-los-csr-awards/01-imagenpostcsrawards.webp"
 legacyPath: "/la-fundacion-rosario-gaton-es-galardonada-en-los-csr-awards-2026-por-acquisition-international/"

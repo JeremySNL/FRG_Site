@@ -5,7 +5,7 @@ locale: "zh-TW"
 date: "2025-08-07T02:40:02"
 excerpt: "本週五（2025年7月4日），我們與尊敬的 Cruz Jiminian 醫師舉行了一場重要會議，就今年的重要專案進行交流。正在努力…"
 categories:
-  - "uncategorized"
+  - "alianzas-institucionales"
 tags: []
 legacyPath: "/1047-2/"
 noAutoTranslate: false

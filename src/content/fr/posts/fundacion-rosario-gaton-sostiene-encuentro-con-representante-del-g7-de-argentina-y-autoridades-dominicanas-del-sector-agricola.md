@@ -5,7 +5,7 @@ locale: "fr"
 date: "2025-07-22T12:19:59"
 excerpt: "Santo Domingo, République dominicaine. La Fundación Rosario Gatón (FRG) continue de renforcer ses relations institutionnelles à la recherche de solutions durables pour le développement national. Dans ce…"
 categories:
-  - "cooperacion-internacional"
+  - "alianzas-institucionales"
   - "desarrollo-agropecuario"
 tags: []
 image: "photos/2025-07-22-sostiene-encuentro-con-representante-del-g7-de-argentina/01.webp"

@@ -48,23 +48,17 @@ Incluye campos opcionales solo cuando el valor venga entregado o pueda escribirs
 - `seo`: objeto opcional con `title` (máximo 120 caracteres), `description` (máximo 320 caracteres), `ogImage` y/o `noindex`, usando solo información entregada.
 - `noAutoTranslate: true`: solo cuando yo diga explícitamente que este artículo no debe traducirse automáticamente. En cualquier otro caso, omítelo.
 
-No agregues campos opcionales vacíos ni inventes valores de taxonomía. Si ninguna categoría existente encaja, pregúntame en lugar de crear una categoría o elegir `uncategorized` automáticamente.
+No agregues campos opcionales vacíos ni inventes valores de taxonomía. Si ninguna categoría existente encaja, pregúntame en lugar de crear una categoría.
 
 ## Categorías existentes
 
 Usa solo estos slugs exactos en el arreglo `categories`:
 
-- `alimentacion-y-salud` — Alimentación y Salud
-- `alianzas-educativas` — Alianzas Educativas
-- `alianzas-institucionales` — Alianzas Institucionales
-- `cooperacion-internacional` — Cooperación Internacional
+- `alianzas-institucionales` — Alianzas y Cooperación (convenios, alianzas educativas e institucionales, cooperación internacional)
+- `alimentacion-y-salud` — Alimentación y Salud (entregas de alimentos, jornadas y ayudas médicas)
 - `desarrollo-agropecuario` — Desarrollo Agropecuario
-- `derechos-humanos` — Derechos Humanos
-- `filiales-internacionales` — Filiales Internacionales
-- `gobernanza-y-gestion` — Gobernanza y Gestión
-- `noticias-institucionales` — Noticias Institucionales
-- `relaciones-internacionales` — Relaciones Internacionales
-- `uncategorized` — Sin categoría (úsala solo si yo lo pido explícitamente)
+- `noticias-institucionales` — Noticias Institucionales (asambleas, designaciones, gobernanza, comunicados de la fundación)
+- `relaciones-internacionales` — Relaciones Internacionales (embajadores, filiales, reuniones y reconocimientos internacionales, derechos humanos)
 
 ## Etiquetas existentes
 

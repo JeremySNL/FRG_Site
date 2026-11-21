@@ -5,7 +5,7 @@ locale: "zh-TW"
 date: "2026-03-07T14:13:32"
 excerpt: "本週五（6日），Fundación Rosario Gatón 主席 Dr. Julio César Rosario Gatón 與 San Francisco de Macorís 的 Duarte 省民政長官 Lic. Ana Xiomara Cortés 接待了..."
 categories:
-  - "uncategorized"
+  - "relaciones-internacionales"
 tags: []
 legacyPath: "/reconocimiento-al-general-de-los-bomberos-de-estados-unidos-juan-gutierrez/"
 noAutoTranslate: false

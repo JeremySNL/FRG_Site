@@ -5,7 +5,7 @@ locale: "ja"
 date: "2019-03-06T19:59:28"
 excerpt: "Fundación Rosario Gatón、Unión EuropeaおよびVicepresidencia de la Repúblicaとともに「Cero Discriminación」に関する講演会に参加 Santo Domingo, República Dominicana – Teatro Nacional.…"
 categories:
-  - "derechos-humanos"
+  - "relaciones-internacionales"
 tags: []
 image: "photos/2019-03-06-se-une-a-la-iniciativa-cero-discriminacion-en-encuentro/01.webp"
 legacyPath: "/fundacion-rosario-gaton-se-une-a-la-iniciativa-cero-discriminacion-en-encuentro-con-la-union-europea/"

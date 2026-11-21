@@ -5,7 +5,7 @@ locale: "ja"
 date: "2026-01-14T04:27:27"
 excerpt: "足全体にスクリューが固定されました"
 categories:
-  - "uncategorized"
+  - "alimentacion-y-salud"
 tags: []
 legacyPath: "/1267-2/"
 noAutoTranslate: false

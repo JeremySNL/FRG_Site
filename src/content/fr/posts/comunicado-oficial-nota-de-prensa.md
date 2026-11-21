@@ -5,7 +5,7 @@ locale: "fr"
 date: "2026-02-11T00:49:59"
 excerpt: "La Chambre de commerce des États-Unis renforce ses relations au plus haut niveau fédéral lors d'Invest in America DC Washington, D.C. — 8 février 2026. Dans le cadre des activités officielles de…"
 categories:
-  - "uncategorized"
+  - "relaciones-internacionales"
 tags: []
 legacyPath: "/comunicado-oficial-nota-de-prensa/"
 noAutoTranslate: false

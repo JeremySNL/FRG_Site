@@ -5,7 +5,7 @@ locale: "ja"
 date: "2019-04-30T19:43:05"
 excerpt: "ドミニカ共和国とコスタリカが Fundación Rosario Gatón と Universidad Politécnica Internacional を通じて国際協力を強化。Fundación Rosario Gatón (FRG) と…"
 categories:
-  - "cooperacion-internacional"
+  - "alianzas-institucionales"
 tags: []
 image: "photos/2019-04-30-universidad-politecnica-internacional-refuerzan-alianza/01.webp"
 legacyPath: "/fundacion-rosario-gaton-y-universidad-politecnica-internacional-refuerzan-alianza-entre-republica-dominicana-y-costa-rica/"

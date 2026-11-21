@@ -5,7 +5,7 @@ locale: "fr"
 date: "2019-03-17T19:56:49"
 excerpt: "Fundación Rosario Gatón célèbre son Assemblée Générale 2019 à San Francisco de Macorís San Francisco de Macorís, República Dominicana – 17 de marzo de 2019. La Fundación Rosario Gatón (FRG) a célébré son…"
 categories:
-  - "gobernanza-y-gestion"
+  - "noticias-institucionales"
 tags: []
 image: "photos/2019-03-17-realiza-asamblea-general-2019-para-fortalecer-su-impacto/01.webp"
 legacyPath: "/fundacion-rosario-gaton-realiza-asamblea-general-2019-para-fortalecer-su-impacto-social/"

@@ -5,7 +5,7 @@ locale: "es"
 date: "2026-06-28T17:07:34"
 excerpt: "https://www.facebook.com/share/p/1HKT9pernK/"
 categories:
-  - "uncategorized"
+  - "relaciones-internacionales"
 tags: []
 legacyPath: "/continuamos-fortaleciendo-las-relaciones-de-la-fundacion/"
 noAutoTranslate: false

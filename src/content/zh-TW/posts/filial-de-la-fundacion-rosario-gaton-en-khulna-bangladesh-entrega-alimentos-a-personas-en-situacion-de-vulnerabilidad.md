@@ -5,7 +5,7 @@ locale: "zh-TW"
 date: "2025-07-22T12:17:04"
 excerpt: "孟加拉國庫爾納。Fundación Rosario Gatón 透過其位於孟加拉國庫爾納的分會，開展了一場旨在協助極度弱勢群體的糧食發放活動……"
 categories:
-  - "filiales-internacionales"
+  - "relaciones-internacionales"
 tags: []
 image: "photos/2025-07-22-filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh/02.webp"
 legacyPath: "/filial-de-la-fundacion-rosario-gaton-en-khulna-bangladesh-entrega-alimentos-a-personas-en-situacion-de-vulnerabilidad/"

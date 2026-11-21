@@ -5,7 +5,7 @@ locale: "fr"
 date: "2026-02-02T00:36:52"
 excerpt: "La Chambre de commerce des États-Unis à Washington invite la Fundación Rosario Gatón à un événement en l'honneur de Marco Rubio, secrétaire d'État des États-Unis, pour sa contribution au..."
 categories:
-  - "uncategorized"
+  - "relaciones-internacionales"
 tags: []
 legacyPath: "/invitacion-de-la-camara-de-comercio-de-ee-uu/"
 noAutoTranslate: false

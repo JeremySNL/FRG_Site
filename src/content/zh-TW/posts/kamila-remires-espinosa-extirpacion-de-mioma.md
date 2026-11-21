@@ -5,7 +5,7 @@ locale: "zh-TW"
 date: "2026-01-30T14:10:18"
 excerpt: "我們協助 Kamila Remires Espinosa 進行了子宮肌瘤切除手術，該肌瘤可能出現與癌症相關的併發症"
 categories:
-  - "uncategorized"
+  - "alimentacion-y-salud"
 tags: []
 legacyPath: "/ayudas-medicas-4/"
 noAutoTranslate: false

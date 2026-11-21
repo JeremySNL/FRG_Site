@@ -5,7 +5,7 @@ locale: "fr"
 date: "2025-08-07T02:40:02"
 excerpt: "Ce vendredi 4 juillet de la présente année 2025, nous avons tenu une importante réunion avec l'honorable Dr Cruz Jiminian, au cours de laquelle nous avons échangé sur d'importants projets pour cette année en cours. Travaillant…"
 categories:
-  - "uncategorized"
+  - "alianzas-institucionales"
 tags: []
 legacyPath: "/1047-2/"
 noAutoTranslate: false

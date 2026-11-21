@@ -5,7 +5,7 @@ locale: "ja"
 date: "2026-02-02T00:36:52"
 excerpt: "ワシントンの米国商工会議所は、米国の二国間関係強化への貢献を称え、米国務長官Marco Rubio氏を表彰するイベントにFundación Rosario Gatónを招待しました。"
 categories:
-  - "uncategorized"
+  - "relaciones-internacionales"
 tags: []
 legacyPath: "/invitacion-de-la-camara-de-comercio-de-ee-uu/"
 noAutoTranslate: false

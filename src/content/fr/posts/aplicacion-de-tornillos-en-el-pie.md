@@ -5,7 +5,7 @@ locale: "fr"
 date: "2026-01-14T04:27:27"
 excerpt: "pose de vis dans tout le pied"
 categories:
-  - "uncategorized"
+  - "alimentacion-y-salud"
 tags: []
 legacyPath: "/1267-2/"
 noAutoTranslate: false

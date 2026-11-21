@@ -5,7 +5,7 @@ locale: "fr"
 date: "2026-02-23T11:58:05"
 excerpt: "Le dimanche 15 février dernier, à Santiago de los caballeros, nous avons eu une rencontre amicale avec l'ancien ministre de l'Agriculture, Limber cruz. La fondation était représentée par le…"
 categories:
-  - "uncategorized"
+  - "desarrollo-agropecuario"
 tags: []
 legacyPath: "/encuentro-amistoso-con-el-ex-ministro-de-agricultura/"
 noAutoTranslate: false

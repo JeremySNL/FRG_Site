@@ -5,7 +5,7 @@ locale: "zh-TW"
 date: "2025-12-31T12:22:48"
 excerpt: "11月18日星期二，創會主席Dr. Julio César Rosario Gatón、秘書長Ramón Emilio Soriano與大使Agustín Padilla Padilla大使。在與..."
 categories:
-  - "uncategorized"
+  - "relaciones-internacionales"
 tags: []
 legacyPath: "/encuentro-con-embajador-de-comercio-de-china/"
 noAutoTranslate: false

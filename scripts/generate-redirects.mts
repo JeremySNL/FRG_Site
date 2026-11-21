@@ -36,7 +36,53 @@ const MANUAL_RULES: Array<{ from: string; to: string; status: number }> = [
   { from: '/escritorio-del-donante/', to: '/donar/', status: 301 },
   // The footer of the old site linked to a blog that never existed.
   { from: '/blog/', to: '/actualidades/', status: 301 },
+  // The two halves of one photo gallery were merged into a single post. The
+  // removed one was published at its legacy path and under /actualidades/ in
+  // every language.
+  {
+    from: '/acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025-2/',
+    to: '/actualidades/acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025/',
+    status: 301,
+  },
+  {
+    from: '/actualidades/acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025-2/',
+    to: '/actualidades/acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025/',
+    status: 301,
+  },
+  ...['en', 'fr', 'ja', 'zh-TW'].map((locale) => ({
+    from: `/${locale}/actualidades/acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025-2/`,
+    to: `/${locale}/actualidades/acuerdo-de-cooperacion-entre-la-fundacion-rosario-gaton-y-el-dr-cruz-jiminian-14-11-2025/`,
+    status: 301,
+  })),
 ];
+
+/**
+ * Categories merged into another one. Their archives were published in every
+ * language, so each gets a redirect per language to the category that now
+ * holds their posts.
+ */
+const MERGED_CATEGORIES: Record<string, string> = {
+  'alianzas-educativas': 'alianzas-institucionales',
+  'cooperacion-internacional': 'alianzas-institucionales',
+  'filiales-internacionales': 'relaciones-internacionales',
+  'derechos-humanos': 'relaciones-internacionales',
+  'gobernanza-y-gestion': 'noticias-institucionales',
+  uncategorized: 'noticias-institucionales',
+};
+
+const CATEGORY_RULES: Array<{ from: string; to: string; status: number }> = [
+  '',
+  '/en',
+  '/fr',
+  '/ja',
+  '/zh-TW',
+].flatMap((prefix) =>
+  Object.entries(MERGED_CATEGORIES).map(([from, to]) => ({
+    from: `${prefix}/category/${from}/`,
+    to: `${prefix}/category/${to}/`,
+    status: 301,
+  })),
+);
 
 /**
  * The media of the old site is served from the media host. Until the R2
@@ -144,7 +190,7 @@ async function collectRules(): Promise<Rule[]> {
     }
   }
 
-  for (const rule of MANUAL_RULES) {
+  for (const rule of [...MANUAL_RULES, ...CATEGORY_RULES]) {
     add(rule.from, rule.to, rule.status);
   }
 

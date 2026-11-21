@@ -5,7 +5,7 @@ locale: "ja"
 date: "2026-02-11T00:49:59"
 excerpt: "全米商工会議所、ワシントンD.C.で開催された「Invest in America DC」において最高レベルの連邦政府関係を強化 Washington, D.C. — 2026年2月8日。の公式活動の一環として…"
 categories:
-  - "uncategorized"
+  - "relaciones-internacionales"
 tags: []
 legacyPath: "/comunicado-oficial-nota-de-prensa/"
 noAutoTranslate: false

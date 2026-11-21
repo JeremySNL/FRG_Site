@@ -5,7 +5,7 @@ locale: "zh-TW"
 date: "2026-02-13T23:49:54"
 excerpt: "華盛頓特區——2026年2月9日。為回應美國少數族裔社群對高品質且低成本醫療服務日增的需求，……"
 categories:
-  - "uncategorized"
+  - "alianzas-institucionales"
 tags: []
 legacyPath: "/la-camara-de-comercio-de-las-minorias-de-los-estados-unidos-lanza-un-innovador-programa-de-turismo-medico-en-honduras/"
 noAutoTranslate: false

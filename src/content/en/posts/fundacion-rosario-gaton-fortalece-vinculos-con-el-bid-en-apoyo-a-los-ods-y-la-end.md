@@ -5,7 +5,7 @@ locale: "en"
 date: "2019-04-24T19:45:13"
 excerpt: "Luis Suárez, Secretary General of the Fundación Rosario Gatón, meets with senior BID executives to strengthen strategic alliances The Secretary General of the Fundación Rosario Gatón (FRG),…"
 categories:
-  - "cooperacion-internacional"
+  - "alianzas-institucionales"
 tags: []
 image: "photos/2019-04-24-fortalece-vinculos-con-el-bid-en-apoyo-a-los-ods-y-la-end/01.webp"
 legacyPath: "/fundacion-rosario-gaton-fortalece-vinculos-con-el-bid-en-apoyo-a-los-ods-y-la-end/"

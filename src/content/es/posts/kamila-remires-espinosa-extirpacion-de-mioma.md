@@ -5,7 +5,7 @@ locale: "es"
 date: "2026-01-30T14:10:18"
 excerpt: "Kamila Remires espinosa Se le ayudo a extirpar un Mioma con posibles complicaciones cancerígenas"
 categories:
-  - "uncategorized"
+  - "alimentacion-y-salud"
 tags: []
 legacyPath: "/ayudas-medicas-4/"
 noAutoTranslate: false

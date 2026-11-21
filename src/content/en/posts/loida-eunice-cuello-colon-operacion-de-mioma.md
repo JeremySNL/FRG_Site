@@ -5,7 +5,7 @@ locale: "en"
 date: "2026-01-13T15:21:37"
 excerpt: "Loida Eunice Cuello Colon underwent myoma surgery"
 categories:
-  - "uncategorized"
+  - "alimentacion-y-salud"
 tags: []
 legacyPath: "/galeria/"
 noAutoTranslate: false

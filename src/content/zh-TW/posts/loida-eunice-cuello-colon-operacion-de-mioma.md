@@ -5,7 +5,7 @@ locale: "zh-TW"
 date: "2026-01-13T15:21:37"
 excerpt: "Loida Eunice Cuello Colon 已接受子宮肌瘤手術"
 categories:
-  - "uncategorized"
+  - "alimentacion-y-salud"
 tags: []
 legacyPath: "/galeria/"
 noAutoTranslate: false

@@ -5,7 +5,7 @@ locale: "ja"
 date: "2026-02-13T23:49:54"
 excerpt: "ワシントンD.C. — 2026年2月9日。米国のマイノリティコミュニティの間で、高品質かつ低価格な医療サービスへのニーズが高まる中、…"
 categories:
-  - "uncategorized"
+  - "alianzas-institucionales"
 tags: []
 legacyPath: "/la-camara-de-comercio-de-las-minorias-de-los-estados-unidos-lanza-un-innovador-programa-de-turismo-medico-en-honduras/"
 noAutoTranslate: false

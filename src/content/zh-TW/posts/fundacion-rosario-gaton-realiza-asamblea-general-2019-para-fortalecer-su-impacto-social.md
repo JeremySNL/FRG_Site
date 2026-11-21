@@ -5,7 +5,7 @@ locale: "zh-TW"
 date: "2019-03-17T19:56:49"
 excerpt: "Fundación Rosario Gatón 在 San Francisco de Macorís 舉辦 2019 年會員大會 San Francisco de Macorís，República Dominicana – 2019 年 3 月 17 日。Fundación Rosario Gatón (FRG) 舉辦了其..."
 categories:
-  - "gobernanza-y-gestion"
+  - "noticias-institucionales"
 tags: []
 image: "photos/2019-03-17-realiza-asamblea-general-2019-para-fortalecer-su-impacto/01.webp"
 legacyPath: "/fundacion-rosario-gaton-realiza-asamblea-general-2019-para-fortalecer-su-impacto-social/"

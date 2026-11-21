@@ -5,7 +5,7 @@ locale: "fr"
 date: "2025-12-31T12:32:04"
 excerpt: "Ce samedi 8 novembre, le Dr Cruz Jiminián a reçu une délégation de la Fundación Rosario Gatón, menée par son président le Dr Julio Cesar Rosario Gatón, le vice-président Pedro de los…"
 categories:
-  - "uncategorized"
+  - "alianzas-institucionales"
 tags: []
 legacyPath: "/encuentro-con-el-dr-cruz-jiminian/"
 noAutoTranslate: false

@@ -5,7 +5,7 @@ locale: "ja"
 date: "2026-01-30T14:10:18"
 excerpt: "Kamila Remires Espinosa：がん化の合併症の恐れがある子宮筋腫の摘出を支援しました。"
 categories:
-  - "uncategorized"
+  - "alimentacion-y-salud"
 tags: []
 legacyPath: "/ayudas-medicas-4/"
 noAutoTranslate: false

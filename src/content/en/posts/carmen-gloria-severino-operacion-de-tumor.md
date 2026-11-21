@@ -5,7 +5,7 @@ locale: "en"
 date: "2026-01-23T01:33:57"
 excerpt: "Carmen Gloria Severino underwent surgery for a tumor."
 categories:
-  - "uncategorized"
+  - "alimentacion-y-salud"
 tags: []
 legacyPath: "/ayudas-medicas-2/"
 noAutoTranslate: false

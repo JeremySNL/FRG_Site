@@ -1,5 +1,5 @@
 ---
-title: "機関パートナーシップ"
+title: "パートナーシップと協力"
 slug: "alianzas-institucionales"
 locale: "ja"
 order: 40

@@ -5,7 +5,7 @@ locale: "ja"
 date: "2025-12-31T12:32:04"
 excerpt: "11月8日（土）、Dr. クルス・ヒミニアンは、Fundación Rosario Gatónの会長であるDr. フリオ・セサル・ロサリオ・ガトン、副会長のペドロ・デ・ロス…"
 categories:
-  - "uncategorized"
+  - "alianzas-institucionales"
 tags: []
 legacyPath: "/encuentro-con-el-dr-cruz-jiminian/"
 noAutoTranslate: false

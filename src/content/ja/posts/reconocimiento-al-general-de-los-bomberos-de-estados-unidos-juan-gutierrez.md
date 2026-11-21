@@ -5,7 +5,7 @@ locale: "ja"
 date: "2026-03-07T14:13:32"
 excerpt: "Fundación Rosario Gatón の会長である Dr. Julio César Rosario Gatón と、サン・フランシスコ・デ・マコリスのドゥアルテ州知事である Lic. Ana Xiomara Cortés は、今週金曜日の6日..."
 categories:
-  - "uncategorized"
+  - "relaciones-internacionales"
 tags: []
 legacyPath: "/reconocimiento-al-general-de-los-bomberos-de-estados-unidos-juan-gutierrez/"
 noAutoTranslate: false

@@ -5,7 +5,7 @@ locale: "ja"
 date: "2026-02-23T11:58:05"
 excerpt: "去る2月15日（日）、サンティアゴ・デ・ロス・カバジェーロスにて、元農業大臣のLimber cruz氏と懇談会を行いました。当財団の代表として参加したのは、…"
 categories:
-  - "uncategorized"
+  - "desarrollo-agropecuario"
 tags: []
 legacyPath: "/encuentro-amistoso-con-el-ex-ministro-de-agricultura/"
 noAutoTranslate: false

@@ -5,7 +5,7 @@ locale: "zh-TW"
 date: "2025-12-31T12:32:04"
 excerpt: "本週六 11 月 8 日，Dr. Cruz Jiminian 接待了來自 Fundación Rosario Gatón 的代表團，由其會長 Dr. Julio Cesar Rosario Gatón、副會長 Pedro de los…"
 categories:
-  - "uncategorized"
+  - "alianzas-institucionales"
 tags: []
 legacyPath: "/encuentro-con-el-dr-cruz-jiminian/"
 noAutoTranslate: false

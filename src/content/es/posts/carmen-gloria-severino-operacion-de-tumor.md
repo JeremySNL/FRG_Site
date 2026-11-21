@@ -5,7 +5,7 @@ locale: "es"
 date: "2026-01-23T01:33:57"
 excerpt: "Carmen Gloria Severino operada de un Tumor."
 categories:
-  - "uncategorized"
+  - "alimentacion-y-salud"
 tags: []
 legacyPath: "/ayudas-medicas-2/"
 noAutoTranslate: false

@@ -5,7 +5,7 @@ locale: "zh-TW"
 date: "2026-01-16T02:47:40"
 excerpt: "Pablo de la Cruz：已解決睪丸疝氣問題"
 categories:
-  - "uncategorized"
+  - "alimentacion-y-salud"
 tags: []
 legacyPath: "/ayudas-medicas/"
 noAutoTranslate: false
