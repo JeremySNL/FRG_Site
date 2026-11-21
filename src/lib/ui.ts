@@ -20,12 +20,21 @@ export interface UiStrings {
   skipToContent: string;
   openMenu: string;
   closeMenu: string;
+  /** Accessible name of the chevron button that opens a submenu. */
+  openSubmenu: string;
   mainMenu: string;
   language: string;
   chooseLanguage: string;
   donate: string;
-  quickLinks: string;
+  /** Footer heading of the group of pages about the foundation. */
+  footerFoundation: string;
+  /** Footer heading of the group of ways to take part (donate, volunteer, contact). */
+  footerGetInvolved: string;
   contact: string;
+  /** Consent line under the forms; `{link}` is replaced by the `privacyLink` anchor. */
+  privacyNotice: string;
+  /** Text of the link to the privacy policy. */
+  privacyLink: string;
   /** Heading of the impact/figures block on the home page. */
   statsTitle: string;
   /** Subtitle of the impact/figures block on the home page. */
@@ -58,10 +67,19 @@ export interface UiStrings {
   copyright: string;
   readMore: string;
   viewProgram: string;
+  /** Program detail page: back link, related news, support block, other programs. */
+  programsBack: string;
+  programRelatedNews: string;
+  programCtaTitle: string;
+  programCtaText: string;
+  programVolunteer: string;
+  programOthers: string;
   latestPosts: string;
   allPosts: string;
   relatedPosts: string;
   categories: string;
+  /** Label of the "no category filter" chip of the news archive. */
+  allCategories: string;
   tags: string;
   share: string;
   publishedOn: string;
@@ -72,6 +90,10 @@ export interface UiStrings {
   noPosts: string;
   /** Shown on the team page while the team members are not published yet. */
   teamEmpty: string;
+  /** Placeholder and accessible name of the team search box. */
+  teamSearchLabel: string;
+  /** Shown when the team search matches nobody. */
+  teamNoResults: string;
   /** Accessible name of the shortcuts to the sections of the team page. */
   teamSectionsNav: string;
   /** Label of the collapsible biography on a team card. */
