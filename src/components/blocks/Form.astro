@@ -14,7 +14,7 @@ import type { FormBlock } from '~/lib/blocks.ts';
 import { sectionClass } from '~/lib/blocks.ts';
 import { ambassadorOption, donationOptions, volunteerOptions } from '~/lib/forms.ts';
 import { getUi } from '~/lib/ui.ts';
-import type { Locale } from '~/lib/locales.ts';
+import { localePath, type Locale } from '~/lib/locales.ts';
 import { turnstileSiteKey } from '~/lib/turnstile-config.ts';
 
 interface Props {
@@ -24,6 +24,8 @@ interface Props {
 
 const { block, locale } = Astro.props;
 const ui = getUi(locale);
+const privacyHref = localePath(locale, 'politica-de-privacidad');
+const [privacyBefore = '', privacyAfter = ''] = ui.privacyNotice.split('{link}');
 
 // Client-side copy travels through a data attribute instead of a per-locale
 // dictionary in the script: every locale gets its own strings from the i18n
@@ -212,6 +214,14 @@ const optionField =
         )}
 
         <p class="min-h-6 text-sm" data-status role="status" aria-live="polite"></p>
+
+        <p class="text-xs leading-relaxed text-secondary">
+          {privacyBefore}
+          <a href={privacyHref} class="underline underline-offset-2 hover:text-accent">
+            {ui.privacyLink}
+          </a>
+          {privacyAfter}
+        </p>
 
         <button type="submit" class="btn-primary w-full sm:w-auto">
           {ui.form.submit}

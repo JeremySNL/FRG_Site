@@ -36,18 +36,21 @@ for (const page of currentPages) {
   titles.set(page.data.slug, page.data.navLabel ?? page.data.title);
 }
 
-const quickLinks = [
-  '',
-  'actualidades',
+const toLinks = (slugs: string[]) =>
+  slugs.map((slug) => ({
+    label: titles.get(slug) ?? slug,
+    href: localePath(locale, slug),
+  }));
+
+const foundationLinks = toLinks([
+  'nosotros',
   'programas-y-proyectos',
-  'galeria-de-imagenes',
   'nuestro-equipo',
-  'politica-de-etica-y-seguridad',
-  'contacto',
-].map((slug) => ({
-  label: titles.get(slug) ?? slug,
-  href: localePath(locale, slug),
-}));
+  'actualidades',
+  'galeria-de-imagenes',
+]);
+const involveLinks = toLinks(['donar', 'voluntariado', 'contacto']);
+const legalLinks = toLinks(['politica-de-etica-y-seguridad', 'politica-de-privacidad']);
 
 const address = `${site.address.street}, ${site.address.city}, ${site.address.region}, ${site.address.country}`;
 const year = new Date().getFullYear();
@@ -55,17 +58,19 @@ const year = new Date().getFullYear();
 
 <footer class="mt-24 bg-linear-to-b from-accent to-[#171f47] text-white">
   <div class="container-site py-16">
-    <div class="grid gap-12 lg:grid-cols-12">
-      <div class="lg:col-span-4">
-        <img
-          src={mediaUrl(site.logo)}
-          alt={site.name}
-          width="48"
-          height="48"
-          class="h-12 w-auto brightness-0 invert"
-          loading="lazy"
-          decoding="async"
-        />
+    <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-12">
+      <div class="sm:col-span-2 lg:col-span-4">
+        <a href={localePath(locale)} class="inline-block" aria-label={site.name}>
+          <img
+            src={mediaUrl(site.logo)}
+            alt=""
+            width="48"
+            height="48"
+            class="h-12 w-auto brightness-0 invert"
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
         <p class="mt-6 max-w-sm text-sm leading-relaxed text-white/70">
           {site.mission}
         </p>
@@ -95,10 +100,12 @@ const year = new Date().getFullYear();
         </div>
       </div>
 
-      <nav class="lg:col-span-3" aria-label={ui.quickLinks}>
-        <h2 class="font-display text-lg font-semibold">{ui.quickLinks}</h2>
+      <nav class="lg:col-span-2" aria-label={ui.footerFoundation}>
+        <h2 class="font-display text-lg font-semibold text-white">
+          {ui.footerFoundation}
+        </h2>
         <ul class="mt-5 space-y-2.5 text-sm text-white/70">
-          {quickLinks.map((link) => (
+          {foundationLinks.map((link) => (
             <li>
               <a href={link.href} class="transition-colors hover:text-white">
                 {link.label}
@@ -108,11 +115,29 @@ const year = new Date().getFullYear();
         </ul>
       </nav>
 
-      <div class="lg:col-span-2">
-        <h2 class="font-display text-lg font-semibold">{ui.contact}</h2>
+      <nav class="lg:col-span-2" aria-label={ui.footerGetInvolved}>
+        <h2 class="font-display text-lg font-semibold text-white">
+          {ui.footerGetInvolved}
+        </h2>
+        <ul class="mt-5 space-y-2.5 text-sm text-white/70">
+          {involveLinks.map((link) => (
+            <li>
+              <a href={link.href} class="transition-colors hover:text-white">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <div class="sm:col-span-2 lg:col-span-4">
+        <h2 class="font-display text-lg font-semibold text-white">{ui.contact}</h2>
         <ul class="mt-5 space-y-3 text-sm text-white/70">
           <li>
-            <a href={`mailto:${site.email}`} class="transition-colors hover:text-white">
+            <a
+              href={`mailto:${site.email}`}
+              class="break-all transition-colors hover:text-white"
+            >
               {site.email}
             </a>
           </li>
@@ -136,21 +161,31 @@ const year = new Date().getFullYear();
           </li>
         </ul>
       </div>
-
-      <div class="lg:col-span-3">
-        <Newsletter locale={locale} />
-      </div>
     </div>
 
-    <div class="mt-12 border-t border-white/10 pt-6">
+    <div class="mt-12 max-w-xl border-t border-white/10 pt-10 lg:max-w-none lg:[&_form]:max-w-xl">
+      <Newsletter locale={locale} />
+    </div>
+
+    <div class="mt-10 border-t border-white/10 pt-6">
       <address class="text-sm not-italic text-white/60">{address}</address>
     </div>
   </div>
 
   <div class="border-t border-white/10">
     <div class="container-site flex flex-col gap-4 py-6 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between">
-      <p>
-        Copyright © {year} {site.name}. {ui.copyright}
+      <p class="flex flex-wrap items-center gap-x-4 gap-y-1">
+        <span>
+          Copyright © {year} {site.name}. {ui.copyright}
+        </span>
+        {legalLinks.map((link) => (
+          <a
+            href={link.href}
+            class="underline underline-offset-4 transition-colors hover:text-white"
+          >
+            {link.label}
+          </a>
+        ))}
       </p>
       <a
         href={donatePath(locale)}
