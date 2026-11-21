@@ -295,11 +295,15 @@ it('corrects audited French translation remnants and agreement', () => {
   expect(awards).toContain(
     'La Fundación Rosario Gatón et le Dr. Cruz Jiminián unissent leurs efforts pour renforcer les actions sociales',
   );
-  expect(about).toContain('text: "Présidente"');
+  // The leadership block of the French "About" page names the president in the
+  // masculine, as the team document of the Dr. Julio César Rosario Gatón does.
+  expect(about).toContain('président de la Fundación Rosario Gatón');
   expect(pressRelease).toContain("haute fonctionnaire d'État");
   expect(pressRelease).not.toContain('rang ministériel');
   expect(donationPage).toContain('À quoi destinons-nous votre don ?');
-  expect(volunteerPage).toContain('À quoi destinons-nous votre don ?');
+  // The donation-destination list lives on the donation page only; it was
+  // removed from the volunteering page, where it did not belong.
+  expect(volunteerPage).not.toContain('À quoi destinons-nous votre don ?');
 });
 
 it('uses consistent and natural Japanese wording for audited content', () => {
@@ -334,7 +338,15 @@ it('uses consistent and natural Japanese wording for audited content', () => {
   expect(home).not.toContain('在 República Dominicana');
   expect(home).not.toContain('調整中');
   expect(home).not.toContain('コンチネンタル・アンバサダー');
-  expect(home).toContain('role: "大陸総大使"');
+  // The continental ambassadors are no longer written in the home page: the
+  // block reads them from the `team` documents, so that is where the wording lives.
+  const jaTeamDir = join(contentDir, 'ja', 'team');
+  for (const file of readdirSync(jaTeamDir)) {
+    expect(
+      readFileSync(join(jaTeamDir, file), 'utf8'),
+      `ja/team/${file}`,
+    ).not.toContain('コンチネンタル・アンバサダー');
+  }
   expect(about).toContain('人間味あふれる');
   expect(about).toContain('五大陸');
   expect(about).not.toContain('人間味的');

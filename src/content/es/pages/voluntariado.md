@@ -2,8 +2,8 @@
 title: "Voluntariado"
 slug: "voluntariado"
 locale: "es"
-order: 61
-nav: false
+order: 50
+nav: true
 description: "Únete como voluntario o aliado de la Fundación Rosario Gatón."
 legacyPath: "/voluntariado/"
 noAutoTranslate: false
@@ -24,14 +24,6 @@ blocks:
       - "Brindar apoyo administrativo o logístico"
       - "Participar en campañas de recaudación"
       - "Acompañar procesos de formación o mentoría a emprendedores"
-  - type: "list"
-    title: "¿A qué destinamos tu donación?"
-    items:
-      - "Alimentación para familias vulnerables"
-      - "Construcción y mejora de viviendas"
-      - "Apoyo a niños, jóvenes y personas con discapacidad"
-      - "Formación de emprendedores comunitarios"
-      - "Programas ecológicos y de prevención de violencia"
   - type: "cta"
     title: "Completa el formulario y únete a nosotros"
     surface: true
@@ -52,8 +44,4 @@ blocks:
       - title: "C/ Castillo Esq. 27 de Febrero, Edificio Plaza Park 2do. Nivel, SFM, República Dominicana"
         icon: "pin"
         text: ""
-  - type: "cta"
-    title: "Más Información"
-    text: "Escríbenos o llámanos para resolver tus dudas."
-    buttons: []
 ---

@@ -2,8 +2,8 @@
 title: "Bénévolat"
 slug: "voluntariado"
 locale: "fr"
-order: 61
-nav: false
+order: 50
+nav: true
 description: "Rejoignez la Fundación Rosario Gatón en tant que bénévole ou partenaire."
 legacyPath: "/voluntariado/"
 noAutoTranslate: false
@@ -24,14 +24,6 @@ blocks:
       - "Apporter un soutien administratif ou logistique"
       - "Participer à des campagnes de collecte de fonds"
       - "Accompagner des processus de formation ou de mentorat auprès d'entrepreneurs"
-  - type: "list"
-    title: "À quoi destinons-nous votre don ?"
-    items:
-      - "Alimentation pour les familles vulnérables"
-      - "Construction et amélioration de logements"
-      - "Soutien aux enfants, aux jeunes et aux personnes en situation de handicap"
-      - "Formation d'entrepreneurs communautaires"
-      - "Programmes écologiques et de prévention de la violence"
   - type: "cta"
     title: "Remplissez le formulaire et rejoignez-nous"
     surface: true
@@ -52,8 +44,4 @@ blocks:
       - title: "C/ Castillo Esq. 27 de Febrero, Edificio Plaza Park 2do. Nivel, SFM, República Dominicana"
         icon: "pin"
         text: ""
-  - type: "cta"
-    title: "Plus d'informations"
-    text: "Écrivez-nous ou appelez-nous pour répondre à vos questions."
-    buttons: []
 ---

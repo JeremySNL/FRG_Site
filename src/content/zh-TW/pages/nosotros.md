@@ -2,7 +2,7 @@
 title: "我們"
 slug: "nosotros"
 locale: "zh-TW"
-order: 40
+order: 20
 nav: true
 description: "認識 Fundación Rosario Gatón：使命、願景、價值觀與團隊。"
 legacyPath: "/nosotros/"
@@ -13,9 +13,6 @@ blocks:
     text: "我們致力於打造一個更公正、更具人情味且永續的世界。"
     image: "photos/2019-01-23-se-reunen-con-autoridades-para-fortalecer-compromisos/01.webp"
     buttons: []
-  - type: "video"
-    title: "Fundación Rosario Gatón 行動中"
-    url: "https://www.youtube.com/watch?v=xFp8-2GVoH8"
   - type: "stats"
     items:
       - label: "成立年數"
@@ -42,18 +39,21 @@ blocks:
         html: "<p>成為一個在我們工作所在的社區和國家中以其影響力聞名的國內與國際組織，以誠信、團結和公平推動收入創造、培訓和公民賦權。</p>"
       - title: "價值觀"
         html: "<ul><li><strong>團結：</strong>致力於最弱勢群體的福祉。</li><li><strong>社會正義：</strong>我們促進公平、包容與人權。</li><li><strong>透明度：</strong>我們以責任感和道德行事。</li><li><strong>承諾：</strong>我們以熱情和毅力為永續發展努力。</li><li><strong>合作：</strong>我們促進機構間的夥伴關係。</li><li><strong>尊重：</strong>我們重視人的尊嚴與環境。</li><li><strong>社會創新：</strong>我們支持能夠改變生命的創造性解決方案。</li></ul><div><hr /></div>"
-  - type: "cards"
+  - type: "imageText"
     title: "領導層"
-    items:
-      - title: "Rosario Gaton"
-        text: "主席"
-        image: "team/rosario-gaton.webp"
-        imageAlt: "Rosario Gaton"
+    text: "Fundación Rosario Gatón 會長 Rosario Gaton。認識讓我們的工作得以實現的人們。"
+    image: "team/rosario-gaton.webp"
+    imageAlt: "Rosario Gaton"
+    buttons:
+      - label: "認識我們的團隊"
+        href: "/zh-TW/nuestro-equipo/"
   - type: "cta"
     title: "加入／志工服務"
     surface: true
     text: "在 Fundación Rosario Gatón，我們深信致力於改變周遭環境的人們所擁有的力量。因此，我們誠摯邀請您加入我們的合作夥伴與志工網絡，共同為更公正、包容和永續的社會而努力。"
-    buttons: []
+    buttons:
+      - label: "我想參與"
+        href: "/zh-TW/voluntariado/"
   - type: "cards"
     title: "合作方式"
     items:

@@ -2,7 +2,7 @@
 title: "Nosotros"
 slug: "nosotros"
 locale: "es"
-order: 40
+order: 20
 nav: true
 description: "Conoce la Fundación Rosario Gatón: misión, visión, valores y equipo."
 legacyPath: "/nosotros/"
@@ -13,9 +13,6 @@ blocks:
     text: "Trabajamos por un mundo más justo, humano y sostenible."
     image: "photos/2019-01-23-se-reunen-con-autoridades-para-fortalecer-compromisos/01.webp"
     buttons: []
-  - type: "video"
-    title: "Fundación Rosario Gatón en acción"
-    url: "https://www.youtube.com/watch?v=xFp8-2GVoH8"
   - type: "stats"
     items:
       - label: "Años de fundación"
@@ -42,18 +39,21 @@ blocks:
         html: "<p>Ser una organización nacional e internacional reconocida por su impacto en las comunidades y países donde trabajamos, promoviendo la generación de ingresos, la formación y el empoderamiento ciudadano con integridad, unidad y equidad.</p>"
       - title: "Valores"
         html: "<ul><li><strong>Solidaridad:</strong> Comprometidos con el bienestar de los más vulnerables.</li><li><strong>Justicia social:</strong> Promovemos la equidad, la inclusión y los derechos humanos.</li><li><strong>Transparencia:</strong> Actuamos con responsabilidad y ética.</li><li><strong>Compromiso:</strong> Trabajamos con pasión y constancia por el desarrollo sostenible.</li><li><strong>Colaboración:</strong> Fomentamos alianzas institucionales.</li><li><strong>Respeto:</strong> Valoramos la dignidad humana y el medioambiente.</li><li><strong>Innovación social:</strong> Apoyamos soluciones creativas que transformen vidas.</li></ul><div><hr /></div>"
-  - type: "cards"
+  - type: "imageText"
     title: "Liderazgo"
-    items:
-      - title: "Rosario Gaton"
-        text: "Presidente"
-        image: "team/rosario-gaton.webp"
-        imageAlt: "Rosario Gaton"
+    text: "Rosario Gaton, Presidente de la Fundación Rosario Gatón. Conoce a las personas que hacen posible nuestro trabajo."
+    image: "team/rosario-gaton.webp"
+    imageAlt: "Rosario Gaton"
+    buttons:
+      - label: "Conoce a nuestro equipo"
+        href: "/nuestro-equipo/"
   - type: "cta"
     title: "Únete / Voluntariado"
     surface: true
     text: "En la Fundación Rosario Gatón creemos en el poder de las personas comprometidas con transformar su entorno. Por eso, te invitamos a unirte a nuestra red de colaboradores y voluntarios que trabajan por una sociedad más justa, inclusiva y sostenible."
-    buttons: []
+    buttons:
+      - label: "Quiero participar"
+        href: "/voluntariado/"
   - type: "cards"
     title: "Formas de colaborar"
     items:

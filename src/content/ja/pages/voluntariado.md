@@ -2,8 +2,8 @@
 title: "ボランティア"
 slug: "voluntariado"
 locale: "ja"
-order: 61
-nav: false
+order: 50
+nav: true
 description: "Fundación Rosario Gatónのボランティアやパートナーとして参加しませんか。"
 legacyPath: "/voluntariado/"
 noAutoTranslate: false
@@ -24,14 +24,6 @@ blocks:
       - "事務または物流のサポート"
       - "募金キャンペーンへの参加"
       - "起業家向けの研修やメンターシップの伴走"
-  - type: "list"
-    title: "ご寄付の使い道"
-    items:
-      - "脆弱な家庭への食料支援"
-      - "住宅の建設と改善"
-      - "子ども、青少年、障がい者への支援"
-      - "地域の起業家育成"
-      - "環境保護および暴力防止プログラム"
   - type: "cta"
     title: "フォームに記入して私たちに参加しましょう"
     surface: true
@@ -52,8 +44,4 @@ blocks:
       - title: "C/ Castillo Esq. 27 de Febrero, Edificio Plaza Park 2do. Nivel, SFM, República Dominicana"
         icon: "pin"
         text: ""
-  - type: "cta"
-    title: "詳細情報"
-    text: "ご不明な点がございましたら、お気軽にお問い合わせください。"
-    buttons: []
 ---

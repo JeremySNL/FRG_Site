@@ -2,8 +2,8 @@
 title: "Volunteering"
 slug: "voluntariado"
 locale: "en"
-order: 61
-nav: false
+order: 50
+nav: true
 description: "Join as a volunteer or ally of the Fundación Rosario Gatón."
 legacyPath: "/voluntariado/"
 noAutoTranslate: false
@@ -24,14 +24,6 @@ blocks:
       - "Providing administrative or logistical support"
       - "Participating in fundraising campaigns"
       - "Accompanying training or mentoring processes for entrepreneurs"
-  - type: "list"
-    title: "Where does your donation go?"
-    items:
-      - "Food for vulnerable families"
-      - "Housing construction and improvement"
-      - "Support for children, youth, and people with disabilities"
-      - "Training of community entrepreneurs"
-      - "Ecological and violence prevention programs"
   - type: "cta"
     title: "Complete the form and join us"
     surface: true
@@ -52,8 +44,4 @@ blocks:
       - title: "C/ Castillo Esq. 27 de Febrero, Edificio Plaza Park 2do. Nivel, SFM, República Dominicana"
         icon: "pin"
         text: ""
-  - type: "cta"
-    title: "More Information"
-    text: "Write or call us to answer your questions."
-    buttons: []
 ---
