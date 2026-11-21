@@ -2,7 +2,7 @@
 name: "Mr. Jabir Sulaiman Sa'ad"
 slug: "javir-sulaiman"
 locale: "ja"
-role: "アフリカ大陸善意大使"
+role: "アフリカ大陸親善大使"
 country: "ナイジェリア"
 bio: ""
 image: "team/javir-sulaiman.webp"
