@@ -1,0 +1,11 @@
+---
+name: "Lic. Tyrone Dotel Caraballo"
+slug: "tyrone-dotel-caraballo"
+locale: "fr"
+role: "Chargé de relations publiques"
+bio: ""
+image: "team/tyrone-dotel-caraballo.webp"
+imageAlt: "Lic. Tyrone Dotel Caraballo"
+group: "direccion"
+order: 3
+---
