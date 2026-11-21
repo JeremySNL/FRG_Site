@@ -2,8 +2,9 @@
 title: "Nuestro Equipo"
 slug: "nuestro-equipo"
 locale: "es"
-order: 41
+order: 21
 nav: true
+navParent: "nosotros"
 description: "El equipo de la Fundación Rosario Gatón."
 legacyPath: "/nuestro-equipo/"
 noAutoTranslate: false

@@ -2,8 +2,9 @@
 title: "倫理與安全政策"
 slug: "politica-de-etica-y-seguridad"
 locale: "zh-TW"
-order: 50
+order: 22
 nav: true
+navParent: "nosotros"
 description: "Fundación Rosario Gatón 的倫理與安全政策。"
 legacyPath: "/politica-de-etica-y-seguridad/"
 noAutoTranslate: true

@@ -2,9 +2,8 @@
 title: "画像ギャラリー"
 slug: "galeria-de-imagenes"
 locale: "ja"
-order: 31
+order: 45
 nav: true
-navParent: "programas-y-proyectos"
 description: "Fundación Rosario Gatónの活動の画像ギャラリーです。"
 legacyPath: "/galeria-de-imagenes/"
 noAutoTranslate: false

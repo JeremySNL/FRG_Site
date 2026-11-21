@@ -2,7 +2,7 @@
 title: "News"
 slug: "actualidades"
 locale: "en"
-order: 20
+order: 40
 nav: true
 description: "News, reports, and activities of the Fundación Rosario Gatón."
 legacyPath: "/actualidades/"

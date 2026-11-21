@@ -2,8 +2,9 @@
 title: "Politique d'éthique et de sécurité"
 slug: "politica-de-etica-y-seguridad"
 locale: "fr"
-order: 50
+order: 22
 nav: true
+navParent: "nosotros"
 description: "Politique d'éthique et de sécurité de la Fundación Rosario Gatón."
 legacyPath: "/politica-de-etica-y-seguridad/"
 noAutoTranslate: true

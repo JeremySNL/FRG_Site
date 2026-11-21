@@ -2,9 +2,8 @@
 title: "相片庫"
 slug: "galeria-de-imagenes"
 locale: "zh-TW"
-order: 31
+order: 45
 nav: true
-navParent: "programas-y-proyectos"
 description: "Fundación Rosario Gatón 工作相片庫。"
 legacyPath: "/galeria-de-imagenes/"
 noAutoTranslate: false

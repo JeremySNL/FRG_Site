@@ -2,9 +2,8 @@
 title: "Galería de Imágenes"
 slug: "galeria-de-imagenes"
 locale: "es"
-order: 31
+order: 45
 nav: true
-navParent: "programas-y-proyectos"
 description: "Galería de imágenes del trabajo de la Fundación Rosario Gatón."
 legacyPath: "/galeria-de-imagenes/"
 noAutoTranslate: false

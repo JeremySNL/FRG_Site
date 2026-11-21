@@ -2,7 +2,7 @@
 title: "お知らせ"
 slug: "actualidades"
 locale: "ja"
-order: 20
+order: 40
 nav: true
 description: "Fundación Rosario Gatónのニュース、レポート、活動情報。"
 legacyPath: "/actualidades/"

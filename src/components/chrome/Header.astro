@@ -25,6 +25,8 @@ const ui = getUi(locale);
 
 const isActive = (href: string): boolean =>
   href === currentPath || (href !== '/' && currentPath.startsWith(href));
+const isItemActive = (item: NavItem): boolean =>
+  isActive(item.href) || item.children.some((child) => isActive(child.href));
 ---
 
 <header class="sticky top-0 z-50">
@@ -54,36 +56,55 @@ const isActive = (href: string): boolean =>
 
       <nav class="hidden lg:block" aria-label={ui.mainMenu}>
         <ul class="flex items-center gap-1">
-          {nav.map((item) => (
-            <li class="relative group">
-              <a
-                href={item.href}
-                aria-current={isActive(item.href) ? 'page' : undefined}
-                class:list={[
-                  'inline-flex items-center gap-1 rounded-pill px-4 py-2 font-display text-sm font-medium text-secondary transition-colors hover:bg-tint hover:text-accent',
-                  isActive(item.href) && 'bg-tint font-semibold text-accent',
-                ]}
-              >
-                {item.label}
+          {nav.map((item, index) => (
+            <li class="relative group" data-nav-item>
+              <div class="inline-flex items-center">
+                <a
+                  href={item.href}
+                  aria-current={isActive(item.href) ? 'page' : undefined}
+                  class:list={[
+                    'inline-flex items-center rounded-pill py-2 font-display text-sm font-medium text-secondary transition-colors hover:bg-tint hover:text-accent',
+                    item.children.length > 0 ? 'pl-4 pr-1' : 'px-4',
+                    isItemActive(item) && 'bg-tint font-semibold text-accent',
+                  ]}
+                >
+                  {item.label}
+                </a>
                 {item.children.length > 0 && (
-                  <svg
-                    aria-hidden="true"
-                    viewBox="0 0 20 20"
-                    class="size-3.5 fill-current opacity-60"
+                  <button
+                    type="button"
+                    data-submenu-toggle
+                    aria-expanded="false"
+                    aria-controls={`submenu-${index}`}
+                    aria-label={`${item.label}: ${ui.openSubmenu}`}
+                    class="inline-flex size-8 items-center justify-center rounded-pill text-secondary transition-colors hover:bg-tint hover:text-accent"
                   >
-                    <path d="M5.5 7.5 10 12l4.5-4.5H5.5Z" />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 20 20"
+                      class="size-3.5 fill-current opacity-60"
+                    >
+                      <path d="M5.5 7.5 10 12l4.5-4.5H5.5Z" />
+                    </svg>
+                  </button>
                 )}
-              </a>
+              </div>
 
               {item.children.length > 0 && (
-                <div class="invisible absolute left-0 top-full z-50 w-64 pt-2 opacity-0 transition-opacity group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                <div
+                  id={`submenu-${index}`}
+                  class="invisible absolute left-0 top-full z-50 w-64 pt-2 opacity-0 transition-opacity group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 group-data-[open]:visible group-data-[open]:opacity-100"
+                >
                   <ul class="rounded-2xl border border-accent/10 bg-white p-2 shadow-lg shadow-accent/10">
                     {item.children.map((child) => (
                       <li>
                         <a
                           href={child.href}
-                          class="block rounded-xl px-4 py-2 text-sm text-secondary transition-colors hover:bg-tint hover:text-accent"
+                          aria-current={isActive(child.href) ? 'page' : undefined}
+                          class:list={[
+                            'block rounded-xl px-4 py-2 text-sm text-secondary transition-colors hover:bg-tint hover:text-accent',
+                            isActive(child.href) && 'bg-tint font-medium text-accent',
+                          ]}
                         >
                           {child.label}
                         </a>
@@ -98,7 +119,7 @@ const isActive = (href: string): boolean =>
       </nav>
 
       <div class="flex items-center gap-3">
-        <details class="group relative hidden sm:block">
+        <details class="group relative">
           <summary
             class="flex cursor-pointer list-none items-center gap-1.5 rounded-pill border border-accent/15 px-3 py-2 text-sm text-secondary transition-colors hover:border-accent hover:text-accent"
             aria-label={ui.chooseLanguage}
@@ -184,19 +205,6 @@ const isActive = (href: string): boolean =>
           <a href={donatePath(locale)} class="btn-donate btn-sm">
             {ui.donate}
           </a>
-          <span class="text-sm text-secondary">{ui.chooseLanguage}:</span>
-          {locales.map((code) => (
-            <a
-              href={localePath(code, currentSlug)}
-              lang={localeInfo[code].htmlLang}
-              class:list={[
-                'text-sm underline underline-offset-4 hover:text-accent',
-                code === locale && 'font-semibold text-accent',
-              ]}
-            >
-              {localeInfo[code].label}
-            </a>
-          ))}
         </div>
       </nav>
     </div>
@@ -219,4 +227,40 @@ const isActive = (href: string): boolean =>
       menu.classList.toggle('hidden', open);
     });
   }
+
+  // Submenus open on hover and keyboard focus (CSS), and also with the chevron
+  // button, so touch screens that are wide enough for the desktop menu can
+  // reach them. Escape or a click elsewhere closes them.
+  const items = Array.from(document.querySelectorAll<HTMLElement>('[data-nav-item]'));
+
+  const closeAll = (except?: HTMLElement) => {
+    for (const item of items) {
+      if (item === except) continue;
+      item.removeAttribute('data-open');
+      item
+        .querySelector('[data-submenu-toggle]')
+        ?.setAttribute('aria-expanded', 'false');
+    }
+  };
+
+  for (const item of items) {
+    const button = item.querySelector<HTMLButtonElement>('[data-submenu-toggle]');
+    button?.addEventListener('click', () => {
+      const open = item.toggleAttribute('data-open');
+      button.setAttribute('aria-expanded', String(open));
+      closeAll(item);
+    });
+  }
+
+  document.addEventListener('click', (event) => {
+    if (
+      !(event.target instanceof Element) ||
+      !event.target.closest('[data-nav-item]')
+    ) {
+      closeAll();
+    }
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeAll();
+  });
 </script>

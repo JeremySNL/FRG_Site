@@ -2,8 +2,9 @@
 title: "チーム紹介"
 slug: "nuestro-equipo"
 locale: "ja"
-order: 41
+order: 21
 nav: true
+navParent: "nosotros"
 description: "Fundación Rosario Gatónのチームをご紹介します。"
 legacyPath: "/nuestro-equipo/"
 noAutoTranslate: false

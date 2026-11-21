@@ -2,8 +2,9 @@
 title: "我們的團隊"
 slug: "nuestro-equipo"
 locale: "zh-TW"
-order: 41
+order: 21
 nav: true
+navParent: "nosotros"
 description: "Fundación Rosario Gatón的團隊。"
 legacyPath: "/nuestro-equipo/"
 noAutoTranslate: false
