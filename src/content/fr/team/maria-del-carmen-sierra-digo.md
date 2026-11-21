@@ -7,5 +7,6 @@ bio: ""
 image: "team/maria-del-carmen-sierra-digo.webp"
 imageAlt: "Avocate María del Carmen Sierra Digo"
 group: "direccion"
+area: "gestion"
 order: 3
 ---

@@ -56,6 +56,10 @@
   "teamContinentAmerica": "Americas",
   "teamContinentEuropa": "Europe",
   "teamContinentOceania": "Oceania",
+  "teamAreaPrensa": "Press and communications",
+  "teamAreaGestion": "Management and administration",
+  "teamAreaSalud": "Health",
+  "teamAreaRepresentaciones": "Representations",
   "translationPendingTitle": "Translation in progress",
   "translationPendingText": "This page is not available in this language yet. Meanwhile, you can read it in Spanish.",
   "form": {

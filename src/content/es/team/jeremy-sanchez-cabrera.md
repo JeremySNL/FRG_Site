@@ -7,5 +7,6 @@ bio: ""
 image: "team/jeremy-sanchez-cabrera.webp"
 imageAlt: "Jeremy Sánchez Cabrera"
 group: "direccion"
+area: "prensa"
 order: 3
 ---

@@ -1,16 +1,22 @@
 import { readdir, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { groupTeam, TEAM_CONTINENTS, TEAM_GROUPS } from '../src/lib/team.ts';
-import type { TeamContinent, TeamGroup } from '../src/lib/team.ts';
+import {
+  groupTeam,
+  TEAM_AREAS,
+  TEAM_CONTINENTS,
+  TEAM_GROUPS,
+} from '../src/lib/team.ts';
+import type { TeamArea, TeamContinent, TeamGroup } from '../src/lib/team.ts';
 
 function member(
   name: string,
   group: TeamGroup,
   order: number,
   continent?: TeamContinent,
+  area?: TeamArea,
 ) {
-  return { data: { name, group, order, continent } };
+  return { data: { name, group, order, continent, area } };
 }
 
 describe('groupTeam', () => {
@@ -59,6 +65,33 @@ describe('groupTeam', () => {
   });
 });
 
+describe('groupTeam by area', () => {
+  it('splits direccion by area in the declared order and keeps directors without one', () => {
+    const sections = groupTeam(
+      [
+        member('Salud', 'direccion', 3, undefined, 'salud'),
+        member('Prensa', 'direccion', 3, undefined, 'prensa'),
+        member('Sin área', 'direccion', 3),
+        member('Otra prensa', 'direccion', 3, undefined, 'prensa'),
+      ],
+      'es',
+    );
+
+    expect(sections.map((s) => [s.group, s.area, s.members.length])).toEqual([
+      ['direccion', 'prensa', 2],
+      ['direccion', 'salud', 1],
+      ['direccion', undefined, 1],
+    ]);
+  });
+
+  it('does not split the other groups by area', () => {
+    const sections = groupTeam([member('Continental', 'continental', 2)], 'es');
+
+    expect(sections).toHaveLength(1);
+    expect(sections[0]?.area).toBeUndefined();
+  });
+});
+
 describe('team documents', () => {
   it('give every member a valid group and every country ambassador a continent', async () => {
     const root = join(import.meta.dirname, '..', 'src', 'content');
@@ -75,6 +108,13 @@ describe('team documents', () => {
         expect(TEAM_GROUPS as readonly string[], `${locale}/${file} group`).toContain(
           group,
         );
+        const area = /^area:\s*"?([\w-]+)"?/m.exec(text)?.[1];
+
+        if (group === 'direccion') {
+          expect(TEAM_AREAS as readonly string[], `${locale}/${file} area`).toContain(
+            area,
+          );
+        }
         if (group === 'nacional') {
           expect(
             TEAM_CONTINENTS as readonly string[],

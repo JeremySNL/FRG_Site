@@ -7,5 +7,6 @@ bio: ""
 image: "team/yacnes-josefina-caba-almonte.webp"
 imageAlt: "Yacnes Josefina Caba Almonte"
 group: "direccion"
+area: "gestion"
 order: 3
 ---

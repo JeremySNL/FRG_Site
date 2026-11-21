@@ -5,7 +5,8 @@
  * left presidency, directors, continental and country ambassadors looking
  * alike (and the country ambassadors in no fixed order). Each team document
  * now says which `group` it belongs to and, for country ambassadors, which
- * `continent` it represents; `order` only sorts people inside a group.
+ * `continent` it represents (directors name an `area` instead); `order`
+ * only sorts people inside a group or area.
  */
 
 /** The sections of the page, in the order they are shown. */
@@ -27,12 +28,20 @@ export const TEAM_CONTINENTS = [
 ] as const;
 export type TeamContinent = (typeof TEAM_CONTINENTS)[number];
 
+/**
+ * Areas the `direccion` group is split into, in the order they are shown.
+ * A director without an area still gets shown, after the areas.
+ */
+export const TEAM_AREAS = ['prensa', 'gestion', 'salud', 'representaciones'] as const;
+export type TeamArea = (typeof TEAM_AREAS)[number];
+
 interface Groupable {
   data: {
     name: string;
     order: number;
     group: TeamGroup;
     continent?: TeamContinent | undefined;
+    area?: TeamArea | undefined;
   };
 }
 
@@ -40,6 +49,8 @@ export interface TeamSection<T> {
   group: TeamGroup;
   /** Only set for the country ambassadors, who are split by continent. */
   continent?: TeamContinent;
+  /** Only set for `direccion`, which is split by area. */
+  area?: TeamArea;
   members: T[];
 }
 
@@ -62,6 +73,18 @@ export function groupTeam<T extends Groupable>(
 
   for (const group of TEAM_GROUPS) {
     const inGroup = sorted.filter((member) => member.data.group === group);
+
+    if (group === 'direccion') {
+      for (const area of TEAM_AREAS) {
+        const inArea = inGroup.filter((member) => member.data.area === area);
+        if (inArea.length > 0) sections.push({ group, area, members: inArea });
+      }
+
+      // Directors that did not say an area still get shown.
+      const loose = inGroup.filter((member) => member.data.area === undefined);
+      if (loose.length > 0) sections.push({ group, members: loose });
+      continue;
+    }
 
     if (group !== 'nacional') {
       if (inGroup.length > 0) sections.push({ group, members: inGroup });

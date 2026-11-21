@@ -88,6 +88,10 @@ export interface UiStrings {
   teamContinentAmerica: string;
   teamContinentEuropa: string;
   teamContinentOceania: string;
+  teamAreaPrensa: string;
+  teamAreaGestion: string;
+  teamAreaSalud: string;
+  teamAreaRepresentaciones: string;
   translationPendingTitle: string;
   translationPendingText: string;
   form: {

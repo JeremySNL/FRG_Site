@@ -54,6 +54,13 @@ const groups = sections.reduce<TeamGroup[]>(
 );
 
 const sectionId = (group: TeamGroup) => `equipo-${group}`;
+
+const areaNames = {
+  prensa: ui.teamAreaPrensa,
+  gestion: ui.teamAreaGestion,
+  salud: ui.teamAreaSalud,
+  representaciones: ui.teamAreaRepresentaciones,
+};
 ---
 
 <section class={sectionClass(block.surface)}>
@@ -99,6 +106,15 @@ const sectionId = (group: TeamGroup) => `equipo-${group}`;
                     {section.continent && (
                       <h4 class="mb-4 font-display text-lg font-semibold text-brand-navy">
                         {continentNames[section.continent]}
+                        <span class="ml-2 text-sm font-normal text-secondary">
+                          ({section.members.length})
+                        </span>
+                      </h4>
+                    )}
+
+                    {section.area && (
+                      <h4 class="mb-4 font-display text-lg font-semibold text-brand-navy">
+                        {areaNames[section.area]}
                         <span class="ml-2 text-sm font-normal text-secondary">
                           ({section.members.length})
                         </span>

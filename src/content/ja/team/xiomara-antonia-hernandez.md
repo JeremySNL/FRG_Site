@@ -7,5 +7,6 @@ bio: ""
 image: "team/xiomara-antonia-hernandez.webp"
 imageAlt: "Xiomara Antonia Hernández"
 group: "direccion"
+area: "gestion"
 order: 3
 ---

@@ -7,5 +7,6 @@ bio: ""
 image: "team/francis-castillo-perez.webp"
 imageAlt: "Francis Castillo Pérez"
 group: "direccion"
+area: "prensa"
 order: 3
 ---

@@ -7,5 +7,6 @@ bio: ""
 image: "team/pedro-antonio-marte-martinez.webp"
 imageAlt: "Lic. Pedro Antonio Marte Martínez"
 group: "direccion"
+area: "prensa"
 order: 3
 ---
