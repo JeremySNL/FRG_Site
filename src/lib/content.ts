@@ -16,7 +16,8 @@ export type TeamEntry = CollectionEntry<'team'>;
 export type CategoryEntry = CollectionEntry<'categories'>;
 export type TagEntry = CollectionEntry<'tags'>;
 
-export type RoutableContentKind = 'pages' | 'posts' | 'categories' | 'tags';
+export type RoutableContentKind =
+  'pages' | 'posts' | 'categories' | 'tags' | 'programs';
 export type DocumentLocaleIndex = Record<RoutableContentKind, Map<string, Locale[]>>;
 
 export interface LocalizedEntry<T> {
@@ -148,6 +149,23 @@ export async function getPrograms(locale: Locale): Promise<ProgramEntry[]> {
   return programs.sort((a, b) => a.data.order - b.data.order);
 }
 
+/** A single program by its slug. */
+export async function getProgram(
+  locale: Locale,
+  slug: string,
+): Promise<ProgramEntry | undefined> {
+  const programs = await getPrograms(locale);
+  return programs.find((program) => program.data.slug === slug);
+}
+
+/** Get a program in the requested locale, falling back to Spanish per document. */
+export function getProgramWithFallback(
+  locale: Locale,
+  slug: string,
+): Promise<LocalizedEntry<ProgramEntry>> {
+  return withDefaultLocaleFallback(locale, (candidate) => getProgram(candidate, slug));
+}
+
 /** The team members of a locale. */
 export async function getTeam(locale: Locale): Promise<TeamEntry[]> {
   const team = await getCollection('team', (entry) => entry.data.locale === locale);
@@ -238,6 +256,7 @@ async function buildDocumentLocaleIndex(): Promise<DocumentLocaleIndex> {
     posts: new Map(),
     categories: new Map(),
     tags: new Map(),
+    programs: new Map(),
   };
 
   const add = (kind: RoutableContentKind, slug: string, locale: Locale): void => {
@@ -257,6 +276,9 @@ async function buildDocumentLocaleIndex(): Promise<DocumentLocaleIndex> {
   }
   for (const entry of await getCollection('tags')) {
     add('tags', entry.data.slug, entry.data.locale);
+  }
+  for (const entry of await getCollection('programs')) {
+    add('programs', entry.data.slug, entry.data.locale);
   }
 
   return index;

@@ -2,9 +2,7 @@
 /**
  * The programs / areas of action grid.
  *
- * Programs have no detail page of their own yet, so each card links to the
- * "Programas y Proyectos" page — except when the grid is rendered on that
- * page, where the link would point to itself.
+ * Every card links to the detail page of its program.
  */
 import type { ProgramsBlock } from '~/lib/blocks.ts';
 import { sectionClass } from '~/lib/blocks.ts';
@@ -20,8 +18,8 @@ interface Props {
 const { block } = Astro.props;
 const { locale } = parseRoute(Astro.url.pathname);
 const ui = getUi(locale);
-const indexHref = localePath(locale, 'programas-y-proyectos');
-const onIndex = Astro.url.pathname === indexHref;
+const programHref = (slug: string): string =>
+  localePath(locale, `programas-y-proyectos/${slug}`);
 
 const allPrograms = await getPrograms(locale);
 const programs = allPrograms.filter((program) =>
@@ -97,34 +95,32 @@ const featured =
                   {program.data.summary}
                 </p>
               )}
-              {!onIndex && (
-                <a
-                  class={
-                    featured
-                      ? 'mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand-red'
-                      : 'link-underline mt-6 inline-flex items-center gap-2 text-sm'
-                  }
-                  href={indexHref}
+              <a
+                class={
+                  featured
+                    ? 'mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand-red'
+                    : 'link-underline mt-6 inline-flex items-center gap-2 text-sm'
+                }
+                href={programHref(program.data.slug)}
+              >
+                {ui.viewProgram}
+                <svg
+                  aria-hidden="true"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  {ui.viewProgram}
-                  <svg
-                    aria-hidden="true"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M6 3L11 8L6 13"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path>
-                  </svg>
-                </a>
-              )}
+                  <path
+                    d="M6 3L11 8L6 13"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+              </a>
             </div>
           </article>
         ))}

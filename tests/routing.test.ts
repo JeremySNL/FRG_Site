@@ -54,6 +54,22 @@ describe('enumerateStaticPaths', () => {
   });
 });
 
+describe('enumerateStaticPaths for programs', () => {
+  it('gives every program a detail page under /programas-y-proyectos/ in every locale', async () => {
+    collections.set('pages', [page('es', 'programas-y-proyectos', 1)]);
+    collections.set('programs', [
+      { data: { locale: 'es', slug: 'educacion', order: 1 } },
+    ]);
+
+    const { enumerateStaticPaths } = await import('../src/lib/routing.ts');
+    const paths = (await enumerateStaticPaths()).map(({ params }) => params.path);
+
+    expect(paths).toContain('programas-y-proyectos/educacion');
+    expect(paths).toContain('en/programas-y-proyectos/educacion');
+    expect(paths).toContain('zh-TW/programas-y-proyectos/educacion');
+  });
+});
+
 describe('availableLocales', () => {
   it('reports a locale that only has posts, not only pages', async () => {
     collections.set('pages', [page('es', 'nosotros', 1)]);

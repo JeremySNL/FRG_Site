@@ -14,6 +14,7 @@ import {
   getCategories,
   getPages,
   getPosts,
+  getPrograms,
   getTags,
 } from './content.ts';
 import { defaultLocale, locales } from './locales.ts';
@@ -49,6 +50,7 @@ export async function enumerateStaticPaths(): Promise<StaticPath[]> {
   const posts = await getPosts(source);
   const categories = await getCategories(source);
   const tags = await getTags(source);
+  const programs = await getPrograms(source);
 
   for (const locale of locales) {
     const prefix = locale === defaultLocale ? '' : locale;
@@ -64,6 +66,12 @@ export async function enumerateStaticPaths(): Promise<StaticPath[]> {
     for (const post of posts) {
       paths.push({
         params: { path: joinPath(prefix, 'actualidades', post.data.slug) },
+      });
+    }
+
+    for (const program of programs) {
+      paths.push({
+        params: { path: joinPath(prefix, 'programas-y-proyectos', program.data.slug) },
       });
     }
 

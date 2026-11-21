@@ -3,7 +3,8 @@
  *
  * It is built by hand instead of with `@astrojs/sitemap` because the site
  * uses a custom locale routing scheme: every entry carries the `hreflang`
- * alternates of all the languages the content exists in.
+ * alternates of all the languages the content exists in. Tag archives are left
+ * out on purpose: they are `noindex` (one or two posts each).
  */
 import type { APIRoute } from 'astro';
 
@@ -13,7 +14,7 @@ import {
   getCategories,
   getPages,
   getPosts,
-  getTags,
+  getPrograms,
 } from '~/lib/content.ts';
 import { defaultLocale, localeInfo, localePath } from '~/lib/locales.ts';
 import { site } from '~/lib/site.ts';
@@ -22,7 +23,7 @@ interface Entry {
   /** The slug inside a locale, e.g. `actualidades/mi-noticia`. */
   slug: string;
   /** Collection and slug used to determine which locale URLs really exist. */
-  kind: 'pages' | 'posts' | 'categories' | 'tags';
+  kind: 'pages' | 'posts' | 'categories' | 'programs';
   documentSlug: string;
   lastmod?: Date;
   changefreq: 'daily' | 'weekly' | 'monthly' | 'yearly';
@@ -56,7 +57,7 @@ export const GET: APIRoute = async () => {
   const pages = await getPages(source);
   const posts = await getPosts(source);
   const categories = await getCategories(source);
-  const tags = await getTags(source);
+  const programs = await getPrograms(source);
   const documentLocaleIndex = await getDocumentLocaleIndex();
 
   const entries: Entry[] = [
@@ -76,6 +77,13 @@ export const GET: APIRoute = async () => {
         changefreq: 'monthly' as const,
         priority: '0.8',
       })),
+    ...programs.map((program) => ({
+      slug: `programas-y-proyectos/${program.data.slug}`,
+      kind: 'programs' as const,
+      documentSlug: program.data.slug,
+      changefreq: 'monthly' as const,
+      priority: '0.7',
+    })),
     ...posts.map((post) => ({
       slug: `actualidades/${post.data.slug}`,
       kind: 'posts' as const,
@@ -90,13 +98,6 @@ export const GET: APIRoute = async () => {
       documentSlug: category.data.slug,
       changefreq: 'weekly' as const,
       priority: '0.4',
-    })),
-    ...tags.map((tag) => ({
-      slug: `tag/${tag.data.slug}`,
-      kind: 'tags' as const,
-      documentSlug: tag.data.slug,
-      changefreq: 'weekly' as const,
-      priority: '0.3',
     })),
   ];
 
