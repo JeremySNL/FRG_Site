@@ -66,6 +66,24 @@ La navegación se controla con el frontmatter de la página: `nav`, `navLabel` y
 
 Los registros de categorías y etiquetas en español viven en `src/content/es/categories/` y `src/content/es/tags/`. Sus traducciones generadas viven en los directorios del idioma correspondiente. Los posts referencian sus slugs, no los nombres visibles.
 
+Hoy hay cinco categorías: `noticias-institucionales`, `relaciones-internacionales`, `alianzas-institucionales` (se muestra como «Alianzas y Cooperación»), `alimentacion-y-salud` y `desarrollo-agropecuario`. Las seis que había antes (`alianzas-educativas`, `cooperacion-internacional`, `filiales-internacionales`, `derechos-humanos`, `gobernanza-y-gestion` y `uncategorized`) se fusionaron en estas, y sus URLs antiguas redirigen a la categoría nueva (reglas en `scripts/generate-redirects.mts`; después de tocarlas ejecuta `npm run migrate:redirects`). Si agregas o quitas una categoría, actualiza también `POST_AUTHORING_PROMPT.md`.
+
+La página `/actualidades/` y los archivos de categoría muestran una fila de filtros con todas las categorías que tienen publicaciones.
+
+Las páginas de etiqueta (`/tag/<slug>/`) existen, pero llevan `noindex` y no están en el sitemap porque cada etiqueta agrupa muy pocas publicaciones. Si una etiqueta llega a tener varias, quita esa excepción en `src/pages/[...path].astro` y `src/pages/sitemap.xml.ts`.
+
+### Programas
+
+Cada archivo de `src/content/<locale>/programs/` tiene su propia página en `/programas-y-proyectos/<slug>/`. El frontmatter define el título, el resumen, la portada y el orden. Todo lo que escribas debajo del frontmatter (Markdown) aparece como el texto de la página del programa; hoy ninguno tiene texto propio, así que la página solo muestra el resumen, la portada y los botones de donar y de voluntariado. Con el campo opcional `category: "<slug-de-categoría>"` la página lista las últimas noticias de esa categoría.
+
+### Equipo y embajadores
+
+La colección `team` es la única fuente de datos de las personas: la página «Nuestro Equipo» y el bloque `ambassadors` de la portada leen de ella. Para agregar un embajador crea un solo archivo en `src/content/es/team/` con `group` (`continental` o `nacional`), `continent` y `country`; el bloque de la portada lo recoge solo. En el bloque `ambassadors` de `inicio.md` solo se editan el título, la introducción y los países vacantes (`openCountries`) de cada continente.
+
+### Política de privacidad
+
+La página `politica-de-privacidad` (en español, sin traducción automática) describe los datos que recogen los formularios y los servicios de terceros del sitio. Es un texto redactado a partir de lo que hace el código; **debe revisarla la fundación o su asesoría legal** antes de darla por definitiva, y hay que actualizarla si cambia algún formulario o servicio.
+
 ### Textos de interfaz
 
 Las cadenas compartidas de la interfaz viven en `src/i18n/<locale>.json`. La traducción de contenido y la de interfaz las maneja `scripts/translate.mts`; el comando de preparación de un post excluye a propósito las cadenas de interfaz.
