@@ -50,7 +50,19 @@ const foundationLinks = toLinks([
   'galeria-de-imagenes',
 ]);
 const involveLinks = toLinks(['donar', 'voluntariado', 'contacto']);
-const legalLinks = toLinks(['politica-de-etica-y-seguridad', 'politica-de-privacidad']);
+// The privacy page only exists in Spanish, so its title would stay in Spanish
+// in every language; the translated link label of the forms is used instead.
+const [ethicsLink, privacyLink] = toLinks([
+  'politica-de-etica-y-seguridad',
+  'politica-de-privacidad',
+]);
+const legalLinks = [
+  ethicsLink,
+  privacyLink && {
+    ...privacyLink,
+    label: ui.privacyLink.charAt(0).toUpperCase() + ui.privacyLink.slice(1),
+  },
+].filter((link) => link !== undefined);
 
 const address = `${site.address.street}, ${site.address.city}, ${site.address.region}, ${site.address.country}`;
 const year = new Date().getFullYear();
