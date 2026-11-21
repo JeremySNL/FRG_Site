@@ -1,0 +1,72 @@
+---
+/**
+ * The mobile menu panel. The button that opens it (`#menu-toggle`) lives in
+ * the header bar; the script below wires the two together.
+ */
+import { getUi } from '~/lib/ui.ts';
+import type { Locale } from '~/lib/locales.ts';
+import { donatePath, type NavItem } from '~/lib/navigation.ts';
+
+interface Props {
+  locale: Locale;
+  nav: NavItem[];
+}
+
+const { locale, nav } = Astro.props;
+const ui = getUi(locale);
+---
+
+<div id="mobile-menu" class="hidden border-t border-accent/10 bg-white lg:hidden">
+  <nav class="container-site py-4" aria-label={ui.mainMenu}>
+    <ul class="flex flex-col gap-1">
+      {nav.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class="block rounded-xl px-4 py-3 font-display font-medium text-secondary transition-colors hover:bg-tint hover:text-accent"
+          >
+            {item.label}
+          </a>
+          {item.children.length > 0 && (
+            <ul class="ml-4 border-l border-accent/15 pl-4">
+              {item.children.map((child) => (
+                <li>
+                  <a
+                    href={child.href}
+                    class="block rounded-xl px-4 py-2 text-sm text-secondary transition-colors hover:bg-tint hover:text-accent"
+                  >
+                    {child.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))}
+    </ul>
+
+    <div class="mt-4 flex flex-wrap items-center gap-3 border-t border-accent/10 pt-4">
+      <a href={donatePath(locale)} class="btn-donate btn-sm">
+        {ui.donate}
+      </a>
+    </div>
+  </nav>
+</div>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('#menu-toggle');
+  const menu = document.querySelector<HTMLElement>('#mobile-menu');
+
+  if (toggle && menu) {
+    const labelOpen =
+      toggle.dataset.openLabel ?? toggle.getAttribute('aria-label') ?? '';
+    const labelClose = toggle.dataset.closeLabel ?? labelOpen;
+
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      toggle.setAttribute('aria-label', open ? labelOpen : labelClose);
+      menu.classList.toggle('hidden', open);
+    });
+  }
+</script>

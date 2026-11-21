@@ -1,0 +1,49 @@
+---
+/**
+ * The language selector of the header: a disclosure with one link per
+ * language, pointing at the same page in that language.
+ */
+import { getUi } from '~/lib/ui.ts';
+import { localeInfo, localePath, locales, type Locale } from '~/lib/locales.ts';
+
+interface Props {
+  locale: Locale;
+  /** The slug of the current page, used to build the language alternates. */
+  currentSlug: string;
+}
+
+const { locale, currentSlug } = Astro.props;
+const ui = getUi(locale);
+---
+
+<details class="group relative">
+  <summary
+    class="flex cursor-pointer list-none items-center gap-1.5 rounded-pill border border-accent/15 px-3 py-2 text-sm text-secondary transition-colors hover:border-accent hover:text-accent"
+    aria-label={ui.chooseLanguage}
+  >
+    <svg aria-hidden="true" viewBox="0 0 24 24" class="size-4 fill-current">
+      <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm7.93 9h-3.02a15.7 15.7 0 0 0-1.2-5.4A8.03 8.03 0 0 1 19.93 11ZM12 4.04c.83 1.2 1.5 3.02 1.7 4.96h-3.4C10.5 7.06 11.17 5.24 12 4.04ZM4.07 13h3.02c.15 1.92.58 3.74 1.2 5.4A8.03 8.03 0 0 1 4.07 13Zm3.02-2H4.07a8.03 8.03 0 0 1 4.22-5.4 15.7 15.7 0 0 0-1.2 5.4Zm4.91 9.36c-.83-1.2-1.5-3.02-1.7-4.96h3.4c-.2 1.94-.87 3.76-1.7 4.96ZM14.26 13H9.74a13.9 13.9 0 0 1 0-2h4.52a13.9 13.9 0 0 1 0 2Zm.25 5.4c.62-1.66 1.05-3.48 1.2-5.4h3.02a8.03 8.03 0 0 1-4.22 5.4ZM16.1 11a15.7 15.7 0 0 0-1.2-5.4 8.03 8.03 0 0 1 4.22 5.4h-3.02Z" />
+    </svg>
+    <span class="font-display font-medium" lang={localeInfo[locale].htmlLang}>
+      {localeInfo[locale].label}
+    </span>
+  </summary>
+  <ul class="absolute right-0 top-full z-50 mt-2 w-48 rounded-2xl border border-accent/10 bg-white p-2 shadow-lg shadow-accent/10">
+    {locales.map((code) => (
+      <li>
+        <a
+          href={localePath(code, currentSlug)}
+          lang={localeInfo[code].htmlLang}
+          hreflang={localeInfo[code].hreflang}
+          aria-current={code === locale ? 'true' : undefined}
+          class:list={[
+            'block rounded-xl px-4 py-2 text-sm text-secondary transition-colors hover:bg-tint hover:text-accent',
+            code === locale && 'bg-tint font-medium text-accent',
+          ]}
+        >
+          {localeInfo[code].label}
+        </a>
+      </li>
+    ))}
+  </ul>
+</details>
