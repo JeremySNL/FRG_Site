@@ -71,6 +71,10 @@ const continentLinks = sections.flatMap((section) =>
     : [],
 );
 
+/** What the search box matches against: name, role and country. */
+const memberText = (member: (typeof team)[number]): string =>
+  [member.data.name, member.data.role, member.data.country].filter(Boolean).join(' ');
+
 const chipClass =
   'shrink-0 rounded-full border border-accent/30 bg-white px-4 py-1.5 text-sm font-medium whitespace-nowrap text-accent transition-colors hover:border-accent hover:bg-accent hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent';
 ---
@@ -79,6 +83,20 @@ const chipClass =
   <div class="container-site">
     {block.title && <h2 class="text-display-md">{block.title}</h2>}
     {block.intro && <p class="mt-4 max-w-2xl text-lg text-secondary">{block.intro}</p>}
+
+    {/* Shown by the script below: without JavaScript there is nothing to filter with. */}
+    <div class="mt-8 max-w-md" data-team-search hidden>
+      <label class="sr-only" for="team-search">
+        {ui.teamSearchLabel}
+      </label>
+      <input
+        id="team-search"
+        type="search"
+        autocomplete="off"
+        placeholder={ui.teamSearchLabel}
+        class="w-full rounded-pill border border-accent/30 bg-white px-5 py-3 text-sm focus:border-accent focus:outline-none"
+      />
+    </div>
 
     {groups.length > 1 && (
       <nav
@@ -114,7 +132,7 @@ const chipClass =
     {sections.length > 0 ? (
       <div class="mt-10 space-y-14">
         {groups.map((group) => (
-          <section id={sectionId(group)} class="scroll-mt-28">
+          <section id={sectionId(group)} class="scroll-mt-28" data-team-group>
             <header class="mb-6">
               <div class="flex items-center gap-4">
                 <span class="h-1.5 w-12 shrink-0 bg-brand-red" aria-hidden="true" />
@@ -136,8 +154,9 @@ const chipClass =
                         open: true,
                         class: 'group scroll-mt-28',
                         'data-team-continent': '',
+                        'data-team-block': '',
                       }
-                    : {};
+                    : { 'data-team-block': '' };
 
                   return (
                     <Wrapper {...wrapperProps}>
@@ -170,7 +189,11 @@ const chipClass =
                       {group === 'presidencia' && (
                         <div class="grid gap-6">
                           {section.members.map((member) => (
-                            <article class="card flex flex-col items-center gap-6 text-center md:flex-row md:text-left">
+                            <article
+                              class="card flex flex-col items-center gap-6 text-center md:flex-row md:text-left"
+                              data-team-member
+                              data-team-text={memberText(member)}
+                            >
                               {member.data.image && (
                                 <img
                                   src={mediaUrl(member.data.image)}
@@ -201,7 +224,11 @@ const chipClass =
                       {(group === 'direccion' || group === 'continental') && (
                         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                           {section.members.map((member) => (
-                            <article class="card text-center">
+                            <article
+                              class="card text-center"
+                              data-team-member
+                              data-team-text={memberText(member)}
+                            >
                               {member.data.image && (
                                 <img
                                   src={mediaUrl(member.data.image)}
@@ -243,7 +270,11 @@ const chipClass =
                       {group === 'nacional' && (
                         <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                           {section.members.map((member) => (
-                            <article class="card p-4 text-center">
+                            <article
+                              class="card p-4 text-center"
+                              data-team-member
+                              data-team-text={memberText(member)}
+                            >
                               {member.data.image && (
                                 <img
                                   src={mediaUrl(member.data.image)}
@@ -277,6 +308,15 @@ const chipClass =
         {ui.teamEmpty}
       </p>
     )}
+
+    <p
+      data-team-no-results
+      hidden
+      role="status"
+      class="mt-10 rounded-2xl border border-dashed border-muted bg-surface p-8 text-sm text-secondary"
+    >
+      {ui.teamNoResults}
+    </p>
   </div>
 </section>
 
@@ -309,6 +349,53 @@ const chipClass =
 
   openFromHash();
   window.addEventListener('hashchange', openFromHash);
+
+  /**
+   * Search box: filters the cards by name, role and country, ignoring case and
+   * accents. Sections left without cards are hidden, and folded continents are
+   * opened while a search is active (and folded again when it is cleared).
+   */
+  const box = document.querySelector<HTMLElement>('[data-team-search]');
+  const input = box?.querySelector<HTMLInputElement>('input');
+  const noResults = document.querySelector<HTMLElement>('[data-team-no-results]');
+  const normalize = (value: string) =>
+    value
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .trim();
+
+  if (box && input) {
+    box.hidden = false;
+    const folded = new Map<HTMLDetailsElement, boolean>();
+    continents.forEach((details) => folded.set(details, details.open));
+
+    input.addEventListener('input', () => {
+      const query = normalize(input.value);
+      let shown = 0;
+
+      document.querySelectorAll<HTMLElement>('[data-team-member]').forEach((card) => {
+        const match =
+          query === '' || normalize(card.dataset.teamText ?? '').includes(query);
+        card.hidden = !match;
+        if (match) shown += 1;
+      });
+
+      document.querySelectorAll<HTMLElement>('[data-team-block]').forEach((block) => {
+        block.hidden =
+          query !== '' && !block.querySelector('[data-team-member]:not([hidden])');
+      });
+      document.querySelectorAll<HTMLElement>('[data-team-group]').forEach((group) => {
+        group.hidden =
+          query !== '' && !group.querySelector('[data-team-member]:not([hidden])');
+      });
+
+      continents.forEach((details) => {
+        details.open = query !== '' ? true : (folded.get(details) ?? true);
+      });
+      if (noResults) noResults.hidden = query === '' || shown > 0;
+    });
+  }
   document.addEventListener('click', (event) => {
     const link = (event.target as Element | null)?.closest(
       'a[data-team-continent-link]',
