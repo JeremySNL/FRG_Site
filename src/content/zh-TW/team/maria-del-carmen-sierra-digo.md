@@ -8,5 +8,5 @@ image: "team/maria-del-carmen-sierra-digo.webp"
 imageAlt: "律師 María del Carmen Sierra Digo"
 group: "direccion"
 area: "gestion"
-order: 3
+order: 2
 ---

@@ -8,5 +8,5 @@ image: "team/arcenio-manuel-nunez-gonzalez.webp"
 imageAlt: "Arcenio Manuel Núñez González"
 group: "direccion"
 area: "gestion"
-order: 3
+order: 1
 ---

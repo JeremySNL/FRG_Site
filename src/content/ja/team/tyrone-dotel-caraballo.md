@@ -8,5 +8,5 @@ image: "team/tyrone-dotel-caraballo.webp"
 imageAlt: "Lic. Tyrone Dotel Caraballo"
 group: "direccion"
 area: "prensa"
-order: 3
+order: 5
 ---

@@ -8,5 +8,5 @@ image: "team/henry-alberto-rosario-trejo.webp"
 imageAlt: "Dr. Henry Alberto Rosario Trejo"
 group: "direccion"
 area: "salud"
-order: 3
+order: 1
 ---

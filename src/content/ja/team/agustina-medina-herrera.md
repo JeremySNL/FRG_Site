@@ -8,5 +8,5 @@ image: "team/agustina-medina-herrera.webp"
 imageAlt: "Agustina Medina Herrera"
 group: "direccion"
 area: "salud"
-order: 3
+order: 2
 ---

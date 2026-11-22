@@ -8,5 +8,5 @@ image: "team/alexander-de-los-santos.webp"
 imageAlt: "Alexander de los Santos"
 group: "direccion"
 area: "representaciones"
-order: 3
+order: 2
 ---

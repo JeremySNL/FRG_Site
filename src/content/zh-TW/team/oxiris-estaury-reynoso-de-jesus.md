@@ -8,5 +8,5 @@ image: "team/oxiris-estaury-reynoso-de-jesus.webp"
 imageAlt: "學士 Oxiris Estaury Reynoso de Jesús"
 group: "direccion"
 area: "prensa"
-order: 3
+order: 1
 ---
