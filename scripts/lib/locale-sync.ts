@@ -24,6 +24,7 @@ import {
 import {
   applyTranslations,
   collectTranslatableStrings,
+  localizeCountries,
   localizeLinks,
   type StringRef,
 } from './translate.ts';
@@ -347,7 +348,7 @@ export function planLocaleSync(input: {
 
   return {
     // Unchanged links keep the copy's value; new ones get the locale prefix.
-    data: localizeLinks(data, locale),
+    data: localizeCountries(localizeLinks(data, locale), locale),
     pending,
     paragraphs,
     keptBody,

@@ -9,6 +9,7 @@
  */
 
 import { randomUUID } from 'node:crypto';
+import { readFileSync } from 'node:fs';
 
 import { localizeHref, type Locale } from '../../src/lib/locales.ts';
 
@@ -298,6 +299,55 @@ export function localizeLinks<T>(document: T, locale: Locale): T {
 }
 
 /**
+ * Country names by Spanish spelling, in every other locale.
+ *
+ * Generated once from the ICU region names, with the spellings the site
+ * already publishes kept where they differ ("The Gambia", "Palestine"…). A
+ * fixed table because the ICU data changes between Node versions.
+ */
+const COUNTRIES = JSON.parse(
+  readFileSync(new URL('./countries.json', import.meta.url), 'utf8'),
+) as Record<string, Partial<Record<Locale, string>>>;
+
+const plain = (text: string): string =>
+  text.normalize('NFD').replace(/[̀-ͯ]/g, '').trim().toLowerCase();
+
+const COUNTRY_INDEX = new Map(
+  Object.entries(COUNTRIES).map(([spanish, names]) => [plain(spanish), names]),
+);
+
+/** The name of a country in a locale, from its Spanish name; `undefined` if unknown. */
+export function countryName(spanish: string, locale: Locale): string | undefined {
+  return COUNTRY_INDEX.get(plain(spanish))?.[locale];
+}
+
+/**
+ * Put the table's name in every `country` of a translated document.
+ *
+ * A lone word such as "Libia" carries no context, so the model sometimes keeps
+ * it in Spanish. The Spanish names are the ones the table knows, so a value
+ * that is not in it (already translated, or a country the table lacks) stays
+ * as it is.
+ */
+export function localizeCountries<T>(document: T, locale: Locale): T {
+  const visit = (node: unknown): unknown => {
+    if (Array.isArray(node)) return node.map(visit);
+    if (!isPlainObject(node)) return node;
+
+    return Object.fromEntries(
+      Object.entries(node).map(([key, value]) => [
+        key,
+        key === 'country' && typeof value === 'string'
+          ? (countryName(value, locale) ?? value)
+          : visit(value),
+      ]),
+    );
+  };
+
+  return visit(document) as T;
+}
+
+/**
  * Write the translations back into a copy of the document.
  *
  * Missing translations leave the original string in place, so a failed batch
@@ -339,6 +389,8 @@ export function systemPrompt(language: string): string {
     '  only translate the human-readable text.',
     '- Never translate proper nouns: "Fundación Rosario Gatón", "FRG",',
     '  "República Dominicana", the names of people, places and organisations.',
+    '- The exception: country and continent names are translated to their',
+    '  standard name in the target language ("Libia" is "Libya" in English).',
     '- Keep the register: formal, institutional and warm.',
     '- Keep the length close to the original. Do not add or drop information.',
     '- A string that is already in the target language is returned unchanged.',

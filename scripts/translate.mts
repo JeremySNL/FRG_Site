@@ -50,6 +50,7 @@ import {
   collectTranslatableStrings,
   isIdentityProse,
   isSkippedSource,
+  localizeCountries,
   localizeLinks,
   mergeBaseWins,
   Translator,
@@ -421,12 +422,16 @@ export async function main(args: string[] = process.argv.slice(2)): Promise<void
 
         const translations = await translator.translate(language, strings);
 
-        // The links of the copy point at the pages of its own locale.
-        const translatedData = localizeLinks(
-          applyTranslations(
-            { ...document.data, locale: target },
-            refs,
-            translations.slice(0, refs.length),
+        // The links of the copy point at the pages of its own locale, and the
+        // country names come from the fixed table, not from the model.
+        const translatedData = localizeCountries(
+          localizeLinks(
+            applyTranslations(
+              { ...document.data, locale: target },
+              refs,
+              translations.slice(0, refs.length),
+            ),
+            target,
           ),
           target,
         );
