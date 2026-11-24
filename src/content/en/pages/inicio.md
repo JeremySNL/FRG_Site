@@ -98,9 +98,6 @@ blocks:
     title: "Goodwill Ambassadors"
     intro: "We represent the values of the Fundación Rosario Gatón on the five continents. We already have continental general ambassadors and national ambassadors; the remaining positions remain open to those who wish to promote solidarity and international cooperation from their country."
     surface: false
-    # The people come from the `team` collection (continental and country
-    # ambassadors, matched by `continent`). Only the vacant countries are kept
-    # here: a vacancy is a country, not a person named "to be assigned".
     continents:
       - name: "America"
         continent: "america"
@@ -128,6 +125,23 @@ blocks:
           - "New Zealand"
           - "Fiji"
           - "Papua New Guinea"
+  - type: "departments"
+    title: "Our Departments"
+    intro: "The areas of the Fundación Rosario Gatón and the people who lead them."
+    surface: true
+    areas:
+      - name: "Press and communications"
+        area: "prensa"
+        description: "It makes the Foundation's work known through journalism, writing, audiovisual production and public relations."
+      - name: "Management and administration"
+        area: "gestion"
+        description: "It handles human resources, protocol, insurance and migration matters that sustain the Foundation's operation."
+      - name: "Health"
+        area: "salud"
+        description: "It promotes healthcare and health safety for the communities accompanied by the Foundation."
+      - name: "Representations"
+        area: "representaciones"
+        description: "It carries the voice of the Foundation and its beneficiaries to youth and regions of the world."
   - type: "accordion"
     title: "Frequently Asked Questions"
     surface: false

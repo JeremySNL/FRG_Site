@@ -98,9 +98,6 @@ blocks:
     title: "親善大使"
     intro: "我們在五大洲代表 Fundación Rosario Gatón 的價值觀。我們已設有各大洲總大使與國家大使；其餘職位仍開放給希望從自己國家推動團結與國際合作的人士。"
     surface: false
-    # The people come from the `team` collection (continental and country
-    # ambassadors, matched by `continent`). Only the vacant countries are kept
-    # here: a vacancy is a country, not a person named "to be assigned".
     continents:
       - name: "美洲"
         continent: "america"
@@ -128,6 +125,23 @@ blocks:
           - "紐西蘭"
           - "斐濟"
           - "巴布亞紐幾內亞"
+  - type: "departments"
+    title: "我們的部門"
+    intro: "Fundación Rosario Gatón 的各領域及其負責人。"
+    surface: true
+    areas:
+      - name: "新聞與傳播"
+        area: "prensa"
+        description: "透過新聞報導、文字撰寫、影音製作與公共關係，讓外界了解基金會的工作。"
+      - name: "管理與行政"
+        area: "gestion"
+        description: "負責人力資源、禮賓、保險與移民事務，支撐基金會的運作。"
+      - name: "衛生"
+        area: "salud"
+        description: "推動基金會所陪伴社區的醫療照護與衛生安全。"
+      - name: "代表與特別代表"
+        area: "representaciones"
+        description: "代表基金會及其受益者向青年與世界各區域發聲。"
   - type: "accordion"
     title: "常見問題"
     surface: false

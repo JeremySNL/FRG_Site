@@ -98,9 +98,6 @@ blocks:
     title: "親善大使"
     intro: "Fundación Rosario Gatónの価値を五大陸で体現しています。すでに大陸全般の大使および各国の大使を擁しており、その他の役職は、自国から連帯と国際協力を推進したい方々に引き続き開かれています。"
     surface: false
-    # The people come from the `team` collection (continental and country
-    # ambassadors, matched by `continent`). Only the vacant countries are kept
-    # here: a vacancy is a country, not a person named "to be assigned".
     continents:
       - name: "アメリカ"
         continent: "america"
@@ -128,6 +125,23 @@ blocks:
           - "ニュージーランド"
           - "フィジー"
           - "パプアニューギニア"
+  - type: "departments"
+    title: "私たちの部門"
+    intro: "Fundación Rosario Gatónの各分野と、それらを率いる人々。"
+    surface: true
+    areas:
+      - name: "広報・コミュニケーション"
+        area: "prensa"
+        description: "ジャーナリズム、執筆、映像制作、広報を通じて、財団の活動を広く知らせる。"
+      - name: "管理・運営"
+        area: "gestion"
+        description: "財団の運営を支える人事、プロトコル、保険、移民関連事務を担う。"
+      - name: "保健"
+        area: "salud"
+        description: "財団が支援するコミュニティの医療ケアと衛生安全を推進する。"
+      - name: "代表・特別代表"
+        area: "representaciones"
+        description: "財団とその受益者の声を、世界の若者や各地域に届ける。"
   - type: "accordion"
     title: "よくある質問"
     surface: false

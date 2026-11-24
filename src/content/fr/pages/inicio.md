@@ -98,9 +98,6 @@ blocks:
     title: "Ambassadeurs de Bonne Volonté"
     intro: "Nous représentons les valeurs de la Fundación Rosario Gatón sur les cinq continents. Nous disposons déjà d'ambassadeurs généraux continentaux et d'ambassadeurs nationaux ; les autres postes restent ouverts à ceux qui souhaitent promouvoir la solidarité et la coopération internationale depuis leur pays."
     surface: false
-    # The people come from the `team` collection (continental and country
-    # ambassadors, matched by `continent`). Only the vacant countries are kept
-    # here: a vacancy is a country, not a person named "to be assigned".
     continents:
       - name: "Amérique"
         continent: "america"
@@ -128,6 +125,23 @@ blocks:
           - "Nouvelle-Zélande"
           - "Fidji"
           - "Papouasie-Nouvelle-Guinée"
+  - type: "departments"
+    title: "Nos départements"
+    intro: "Les domaines de la Fundación Rosario Gatón et les personnes qui les dirigent."
+    surface: true
+    areas:
+      - name: "Presse et communications"
+        area: "prensa"
+        description: "Elle fait connaître le travail de la Fondation par le journalisme, la rédaction, la production audiovisuelle et les relations publiques."
+      - name: "Gestion et administration"
+        area: "gestion"
+        description: "Elle s'occupe des ressources humaines, du protocole, des assurances et des questions migratoires qui soutiennent le fonctionnement de la Fondation."
+      - name: "Santé"
+        area: "salud"
+        description: "Elle promeut les soins et la sécurité sanitaire des communautés accompagnées par la Fondation."
+      - name: "Représentations"
+        area: "representaciones"
+        description: "Elle porte la voix de la Fondation et de ses bénéficiaires auprès de la jeunesse et des régions du monde."
   - type: "accordion"
     title: "Foire aux questions"
     surface: false
