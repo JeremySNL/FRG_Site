@@ -28,6 +28,7 @@ import Team from './Team.astro';
 import Testimonial from './Testimonial.astro';
 import Video from './Video.astro';
 import Ambassadors from './Ambassadors.astro';
+import Departments from './Departments.astro';
 import HeroBento from './HeroBento.astro';
 import SplitCta from './SplitCta.astro';
 import ContactSection from './ContactSection.astro';
@@ -82,6 +83,8 @@ const { blocks, locale } = Astro.props;
       return <RichText block={block} />;
     case 'ambassadors':
       return <Ambassadors block={block} />;
+    case 'departments':
+      return <Departments block={block} />;
     case 'splitCta':
       return <SplitCta block={block} />;
     case 'contactSection':

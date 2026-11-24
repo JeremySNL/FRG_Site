@@ -194,6 +194,21 @@ const blockSchema = z.discriminatedUnion('type', [
     surface: z.boolean().optional(),
   }),
   z.object({
+    type: z.literal('departments'),
+    title: z.string().optional(),
+    intro: z.string().optional(),
+    surface: z.boolean().optional(),
+    areas: z.array(
+      z.object({
+        /** Heading of the department, in the language of the page. */
+        name: z.string(),
+        /** Which `team` members belong here: their `area` field. */
+        area: z.enum(TEAM_AREAS),
+        description: z.string().optional(),
+      }),
+    ),
+  }),
+  z.object({
     type: z.literal('ambassadors'),
     title: z.string().optional(),
     intro: z.string().optional(),

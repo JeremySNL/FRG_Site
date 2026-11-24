@@ -1,0 +1,194 @@
+---
+/**
+ * Departments of the foundation.
+ *
+ * The people come from the `team` collection: the directors (`group:
+ * direccion`) whose `area` matches the one the block names. The block itself
+ * only holds the headings and a short description of each department. The
+ * full list lives on the team page, which the closing link points to.
+ *
+ * Like the ambassadors, each department is one row with a scrolling strip of
+ * compact cards, so the section stays short however many people join. A
+ * department with nobody in it is skipped instead of leaving an empty heading.
+ */
+import type { DepartmentsBlock } from '~/lib/blocks.ts';
+import { sectionClass } from '~/lib/blocks.ts';
+import { getTeam } from '~/lib/content.ts';
+import { localePath, parseRoute } from '~/lib/locales.ts';
+import { groupTeam } from '~/lib/team.ts';
+import { getUi } from '~/lib/ui.ts';
+import { mediaUrl } from '~/lib/site.ts';
+
+interface Props {
+  block: DepartmentsBlock;
+}
+
+const { block } = Astro.props;
+const { locale } = parseRoute(Astro.url.pathname);
+const ui = getUi(locale);
+
+const team = await getTeam(locale);
+const sections = groupTeam(team, locale);
+
+const departments = block.areas
+  .map((department) => ({
+    ...department,
+    members: sections
+      .filter(
+        (section) => section.group === 'direccion' && section.area === department.area,
+      )
+      .flatMap((section) => section.members),
+  }))
+  .filter((department) => department.members.length > 0);
+---
+
+<section id="departamentos" class={sectionClass(block.surface)}>
+  <div class="container-site">
+    {(block.title || block.intro) && (
+      <div class="mb-10 max-w-3xl">
+        {block.title && (
+          <h2 class="text-display-md md:text-display-lg">{block.title}</h2>
+        )}
+        {block.intro && (
+          <p class="mt-4 text-lg leading-relaxed text-secondary">{block.intro}</p>
+        )}
+      </div>
+    )}
+
+    <div class="divide-y divide-brand-navy/15 border-y border-brand-navy/15">
+      {departments.map((department) => (
+        <article
+          id={`departamento-${department.area}`}
+          class="scroll-mt-28 py-8 lg:grid lg:grid-cols-[minmax(0,19rem)_minmax(0,1fr)] lg:gap-x-10"
+        >
+          <header class="mb-4 lg:mb-0">
+            <div class="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4 lg:flex-col lg:items-start lg:gap-3">
+              <span class="h-1.5 w-12 shrink-0 bg-brand-red" aria-hidden="true" />
+              <h3 class="text-display-sm md:text-display-md">{department.name}</h3>
+            </div>
+            {department.description && (
+              <p class="mt-3 max-w-3xl leading-relaxed text-secondary">
+                {department.description}
+              </p>
+            )}
+          </header>
+
+          <div
+            role="region"
+            aria-label={department.name}
+            tabindex="0"
+            data-scroll-strip
+            class="scroll-strip -mx-4 flex snap-x lg:mx-0 lg:grid lg:grid-cols-[repeat(auto-fill,minmax(11rem,1fr))] lg:overflow-visible lg:px-0 lg:pt-0 snap-proximity gap-3 overflow-x-auto px-4 pt-1 pb-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red md:-mx-0 md:px-0"
+          >
+            {department.members.map((member) => (
+              <article class="w-44 shrink-0 snap-start lg:w-auto rounded-xl border-2 border-brand-navy bg-white p-3 text-center shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-red hover:shadow-md">
+                {member.data.image ? (
+                  <img
+                    src={mediaUrl(member.data.image)}
+                    alt={member.data.imageAlt ?? member.data.name}
+                    loading="lazy"
+                    decoding="async"
+                    class="mx-auto mb-2 size-14 rounded-full object-cover ring-2 ring-brand-navy"
+                  />
+                ) : (
+                  <div class="mx-auto mb-2 flex size-14 items-center justify-center rounded-full bg-brand-navy/10 ring-2 ring-brand-navy">
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 24 24"
+                      class="size-7 fill-brand-navy"
+                    >
+                      <path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-3.33 0-10 1.67-10 5v1h20v-1c0-3.33-6.67-5-10-5Z" />
+                    </svg>
+                  </div>
+                )}
+                <h4 class="font-display text-sm leading-snug font-semibold text-brand-navy">
+                  {member.data.name}
+                </h4>
+                {member.data.role && (
+                  <p class="mt-1 text-xs leading-snug font-medium text-brand-red">
+                    {member.data.role}
+                  </p>
+                )}
+              </article>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <p class="mt-8 text-center">
+      <a
+        href={`${localePath(locale, 'nuestro-equipo')}#equipo-direccion`}
+        class="inline-flex items-center gap-2 font-display font-semibold text-brand-red hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red"
+      >
+        {ui.ambassadorSeeTeam}
+        <span aria-hidden="true">→</span>
+      </a>
+    </p>
+  </div>
+</section>
+
+<style>
+  /* Edges fade only on the side that still has cards to reveal. */
+  .scroll-strip {
+    --fade-left: 0px;
+    --fade-right: 0px;
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 var(--fade-left),
+      #000 calc(100% - var(--fade-right)),
+      transparent
+    );
+  }
+  .scroll-strip[data-more-left] {
+    --fade-left: 2rem;
+  }
+  .scroll-strip[data-more-right] {
+    --fade-right: 2rem;
+  }
+  /*
+   * From `lg` the cards are a grid, not a strip. The mask would clip whatever
+   * sticks out of the box, such as the card that lifts on hover.
+   */
+  @media (min-width: 64rem) {
+    .scroll-strip {
+      mask-image: none;
+    }
+  }
+</style>
+
+<script>
+  // Tells each strip which sides still hide cards, so the CSS above can hint
+  // that it scrolls. Without JavaScript the strip simply shows no fade.
+  //
+  // A strip is only a keyboard stop (a focusable region, so the arrow keys
+  // scroll it) while it really overflows. On wide screens the cards are a grid
+  // and there is nothing to scroll, so the stop would do nothing. The markup
+  // keeps the focusable region as the default for when JavaScript is off.
+  function track(strip: HTMLElement) {
+    const label = strip.getAttribute('aria-label') ?? '';
+
+    const update = () => {
+      const max = strip.scrollWidth - strip.clientWidth;
+      strip.toggleAttribute('data-more-left', strip.scrollLeft > 2);
+      strip.toggleAttribute('data-more-right', max - strip.scrollLeft > 2);
+
+      if (max > 1) {
+        strip.setAttribute('tabindex', '0');
+        strip.setAttribute('role', 'region');
+        strip.setAttribute('aria-label', label);
+      } else {
+        strip.removeAttribute('tabindex');
+        strip.removeAttribute('role');
+        strip.removeAttribute('aria-label');
+      }
+    };
+
+    update();
+    strip.addEventListener('scroll', update, { passive: true });
+    new ResizeObserver(update).observe(strip);
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-scroll-strip]').forEach(track);
+</script>

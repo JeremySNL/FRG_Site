@@ -129,6 +129,25 @@ blocks:
           - "Nueva Zelanda"
           - "Fiji"
           - "Papúa Nueva Guinea"
+  - type: "departments"
+    title: "Nuestros Departamentos"
+    intro: "Las áreas de la Fundación Rosario Gatón y las personas que las dirigen."
+    surface: true
+    # The people come from the `team` collection (`group: direccion`, matched by
+    # `area`). Only the heading and the description of each department live here.
+    areas:
+      - name: "Prensa y comunicaciones"
+        area: "prensa"
+        description: "Da a conocer el trabajo de la Fundación a través del periodismo, la redacción, la producción audiovisual y las relaciones públicas."
+      - name: "Gestión y administración"
+        area: "gestion"
+        description: "Se ocupa de los recursos humanos, el protocolo, los seguros y los asuntos migratorios que sostienen el funcionamiento de la Fundación."
+      - name: "Salud"
+        area: "salud"
+        description: "Impulsa la atención y la seguridad sanitaria de las comunidades que acompaña la Fundación."
+      - name: "Representaciones"
+        area: "representaciones"
+        description: "Lleva la voz de la Fundación y de sus beneficiarios ante la juventud y las regiones del mundo."
   - type: "accordion"
     title: "Preguntas Frecuentes"
     surface: false

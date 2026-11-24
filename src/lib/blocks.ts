@@ -13,7 +13,7 @@
  * block types.
  */
 
-import type { TeamContinent } from './team.ts';
+import type { TeamArea, TeamContinent } from './team.ts';
 
 export interface Link {
   label: string;
@@ -258,6 +258,29 @@ export interface AmbassadorsBlock {
   }>;
 }
 
+/**
+ * The departments of the foundation on the home page.
+ *
+ * The people are not written here: the block reads the `team` documents with
+ * `group: direccion` whose `area` matches. Only what has no person behind it
+ * (the heading and a short description of each department) lives in the block.
+ */
+export interface DepartmentsBlock {
+  type: 'departments';
+  title?: string;
+  intro?: string;
+  /** Defaults to `false`. */
+  surface?: boolean;
+  areas: Array<{
+    /** Heading of the department, in the language of the page. */
+    name: string;
+    /** Which `team` members belong here: their `area` field. */
+    area: TeamArea;
+    /** One or two sentences on what the department does. */
+    description?: string;
+  }>;
+}
+
 export interface HeroBentoBlock {
   type: 'heroBento';
   title: string;
@@ -329,6 +352,7 @@ export type Block =
   | TeamBlock
   | RichTextBlock
   | AmbassadorsBlock
+  | DepartmentsBlock
   | SplitCtaBlock
   | ContactSectionBlock;
 
@@ -354,6 +378,7 @@ export const blockTypes = [
   'team',
   'richText',
   'ambassadors',
+  'departments',
   'splitCta',
   'contactSection',
 ] as const satisfies readonly Block['type'][];
