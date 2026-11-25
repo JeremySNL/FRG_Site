@@ -32,7 +32,13 @@ export type TeamContinent = (typeof TEAM_CONTINENTS)[number];
  * Areas the `direccion` group is split into, in the order they are shown.
  * A director without an area still gets shown, after the areas.
  */
-export const TEAM_AREAS = ['prensa', 'gestion', 'salud', 'representaciones'] as const;
+export const TEAM_AREAS = [
+  'prensa',
+  'gestion',
+  'salud',
+  'representaciones',
+  'juventud',
+] as const;
 export type TeamArea = (typeof TEAM_AREAS)[number];
 
 interface Groupable {

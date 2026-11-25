@@ -7,6 +7,6 @@ bio: ""
 image: "team/alexander-de-los-santos.webp"
 imageAlt: "Alexander de los Santos"
 group: "direccion"
-area: "representaciones"
+area: "juventud"
 order: 2
 ---

@@ -141,7 +141,10 @@ blocks:
         description: "推動基金會所陪伴社區的醫療照護與衛生安全。"
       - name: "代表與特別代表"
         area: "representaciones"
-        description: "代表基金會及其受益者向青年與世界各區域發聲。"
+        description: "代表基金會及其受益者向世界各區域發聲。"
+      - name: "青年"
+        area: "juventud"
+        description: "代表基金會的青年於世界各地發聲，並推動他們參與我們的各項行動。"
   - type: "accordion"
     title: "常見問題"
     surface: false

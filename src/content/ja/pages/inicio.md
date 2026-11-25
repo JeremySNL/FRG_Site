@@ -141,7 +141,10 @@ blocks:
         description: "財団が支援するコミュニティの医療ケアと衛生安全を推進する。"
       - name: "代表・特別代表"
         area: "representaciones"
-        description: "財団とその受益者の声を、世界の若者や各地域に届ける。"
+        description: "財団とその受益者の声を、世界各地域に届ける。"
+      - name: "青年"
+        area: "juventud"
+        description: "世界における財団の青年を代表し、私たちの取り組みへの参加を促す。"
   - type: "accordion"
     title: "よくある質問"
     surface: false

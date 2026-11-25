@@ -141,7 +141,10 @@ blocks:
         description: "It promotes healthcare and health safety for the communities accompanied by the Foundation."
       - name: "Representations"
         area: "representaciones"
-        description: "It carries the voice of the Foundation and its beneficiaries to youth and regions of the world."
+        description: "It carries the voice of the Foundation and its beneficiaries to the regions of the world."
+      - name: "Youth"
+        area: "juventud"
+        description: "It represents the Foundation's youth around the world and encourages their participation in our initiatives."
   - type: "accordion"
     title: "Frequently Asked Questions"
     surface: false

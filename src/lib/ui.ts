@@ -114,6 +114,7 @@ export interface UiStrings {
   teamAreaGestion: string;
   teamAreaSalud: string;
   teamAreaRepresentaciones: string;
+  teamAreaJuventud: string;
   translationPendingTitle: string;
   translationPendingText: string;
   form: {

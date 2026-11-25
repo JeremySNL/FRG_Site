@@ -147,7 +147,10 @@ blocks:
         description: "Impulsa la atención y la seguridad sanitaria de las comunidades que acompaña la Fundación."
       - name: "Representaciones"
         area: "representaciones"
-        description: "Lleva la voz de la Fundación y de sus beneficiarios ante la juventud y las regiones del mundo."
+        description: "Lleva la voz de la Fundación y de sus beneficiarios ante las regiones del mundo."
+      - name: "Juventud"
+        area: "juventud"
+        description: "Representa a la juventud de la Fundación en el mundo e impulsa su participación en nuestras iniciativas."
   - type: "accordion"
     title: "Preguntas Frecuentes"
     surface: false

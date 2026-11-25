@@ -7,6 +7,6 @@ bio: ""
 image: "team/ladifa-s-saad.webp"
 imageAlt: "Ladifa S Sa'ad"
 group: "direccion"
-area: "representaciones"
+area: "juventud"
 order: 3
 ---

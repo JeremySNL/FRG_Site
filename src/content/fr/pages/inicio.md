@@ -141,7 +141,10 @@ blocks:
         description: "Elle promeut les soins et la sécurité sanitaire des communautés accompagnées par la Fondation."
       - name: "Représentations"
         area: "representaciones"
-        description: "Elle porte la voix de la Fondation et de ses bénéficiaires auprès de la jeunesse et des régions du monde."
+        description: "Elle porte la voix de la Fondation et de ses bénéficiaires auprès des régions du monde."
+      - name: "Jeunesse"
+        area: "juventud"
+        description: "Elle représente la jeunesse de la Fondation dans le monde et encourage sa participation à nos initiatives."
   - type: "accordion"
     title: "Foire aux questions"
     surface: false
