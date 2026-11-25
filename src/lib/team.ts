@@ -36,8 +36,8 @@ export const TEAM_AREAS = [
   'prensa',
   'gestion',
   'salud',
-  'representaciones',
   'juventud',
+  'representaciones',
 ] as const;
 export type TeamArea = (typeof TEAM_AREAS)[number];
 
