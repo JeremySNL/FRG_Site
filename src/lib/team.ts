@@ -35,6 +35,7 @@ export type TeamContinent = (typeof TEAM_CONTINENTS)[number];
 export const TEAM_AREAS = [
   'prensa',
   'gestion',
+  'juridico',
   'salud',
   'juventud',
   'representaciones',

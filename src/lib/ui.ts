@@ -112,6 +112,7 @@ export interface UiStrings {
   teamContinentOceania: string;
   teamAreaPrensa: string;
   teamAreaGestion: string;
+  teamAreaJuridico: string;
   teamAreaSalud: string;
   teamAreaRepresentaciones: string;
   teamAreaJuventud: string;
